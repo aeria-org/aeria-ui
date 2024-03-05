@@ -35,7 +35,7 @@ jobs:
       - name: Build packages
         run: |
           pnpm --filter='./packages/aeria-icons' build \
-            && pnpm --filter='./packages/aeria-build' build \
+            && pnpm --filter='./packages/aeria-ui-build' build \
             && pnpm --filter='./packages/state-management' build \
             && pnpm --filter='./packages/i18n' build \
             && pnpm --filter='./packages/web' build \

@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
-    "aeria-sdk": "^0.0.0",
+    "aeria-sdk": "*",
     "vite": "^4.4.8"
   }
 }

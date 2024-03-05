@@ -58,6 +58,11 @@ export default defineConfig(async () => {
               'useNavbar',
             ],
           },
+          {
+            'aeria-sdk': [
+              'aeria',
+            ],
+          },
         ],
       }),
       vueComponents({
@@ -83,12 +88,9 @@ export default defineConfig(async () => {
     optimizeDeps: {
       include: [
         'bson',
-        '@aeriajs/types',
-        '@aeriajs/common',
       ],
       exclude: [
         'mongodb',
-        'aeria-sdk',
       ],
     },
     build: {
