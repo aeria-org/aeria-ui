@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-idiomatic-order",
+  "customSyntax": "postcss-less",
+  "rules": {
+    "media-feature-range-notation": "context",
+    "property-no-unknown": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "aeria-icons",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "tsc && node dist/__scripts__/bundleAllIcons.js",
+    "prepublishOnly": "pnpm lint && pnpm build"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./common": "./dist/common.js",
+    "./vite": "./dist/vite.js"
+  },
+  "typesVersions": {
+    "*": {
+      "common": [
+        "dist/common.d.ts"
+      ],
+      "vite": [
+        "dist/vite.d.ts"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@phosphor-icons/core": "*",
+    "@vitejs/plugin-vue": "*",
+    "glob": "*",
+    "vite": "*"
+  }
+}

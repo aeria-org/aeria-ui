@@ -1,0 +1,66 @@
+name: Continuos Integration
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: |
+          pnpm --filter='./packages/aeria-icons' build \
+            && pnpm --filter='./packages/aeria-build' build \
+            && pnpm --filter='./packages/state-management' build \
+            && pnpm --filter='./packages/i18n' build \
+            && pnpm --filter='./packages/web' build \
+            && pnpm --filter='./packages/ui' build \
+            && pnpm --filter='./packages/create-aeria-app' build \
+            && pnpm --filter='./packages/aeria-ui' build
+
+      - name: Build icons site
+        run: |
+          cd packages/aeria-icons/app
+          pnpm build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: packages/aeria-icons/app/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+

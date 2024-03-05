@@ -1,0 +1,46 @@
+.icon {
+  display: flex;
+  align-items: center;
+
+  fill: var(--icon-color, var(--theme-foreground-color));
+  line-height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--reactive {
+    padding: 8px;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:active {
+      opacity: .6;
+    }
+  }
+
+  &--centered {
+    align-items: center;
+    gap: calc(var(--icon-size, 1em)/2);
+  }
+
+  &--standalone {
+    --icon-size: 18px;
+  }
+
+  &__icon {
+    display: grid;
+
+    width: var(--icon-size, 1em);
+    height: var(--icon-size, 1em);
+    place-items: center;
+
+    &--right {
+      order: 1;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.menu {
+  min-width: 90vw;
+  align-self: center;
+  padding: 0;
+  border: 1px solid var(--theme-border-color);
+  border-radius: var(--theme-radius-large);
+  background: var(--theme-background-color-shade-2);
+  color: var(--theme-foreground-color);
+
+  @media screen and (width >= 600px) {
+    min-width: 22rem;
+  }
+
+  &__entry {
+    padding: 1rem;
+    font-size: 11pt;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--theme-border-color);
+    }
+  }
+}

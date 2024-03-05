@@ -1,0 +1,31 @@
+.picture {
+  margin: 0;
+
+  &__image {
+    &--bordered {
+      border: 1px solid var(--theme-border-color);
+    }
+
+    &--expandable {
+      cursor: pointer;
+    }
+  }
+
+  &__background {
+    width: 100%;
+    height: 100%;
+
+    &>* {
+      stroke: var(--theme-border-color);
+    }
+  }
+
+  &__meta {
+    font-size: 11pt;
+  }
+
+  & > figcaption {
+    margin-top: .4rem;
+    color: var(--theme-foreground-color);
+  }
+}

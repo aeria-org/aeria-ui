@@ -1,0 +1,36 @@
+@image-size: 20rem;
+
+.file {
+  display: flex;
+  width: min-content;
+  flex-direction: column;
+  row-gap: .8rem;
+
+  &__image {
+    overflow: hidden;
+    width: @image-size;
+    height: @image-size;
+    border-radius: 5px;
+
+    &--unsent {
+      opacity: .6;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    padding: 1rem;
+    border: var(--theme-frame-border);
+    border-radius: var(--theme-radius-medium);
+    background: var(--theme-background-color-shade-2);
+    color: #000;
+    column-gap: 1rem;
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: .4rem;
+  }
+}

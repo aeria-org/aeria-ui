@@ -1,0 +1,61 @@
+{
+  "name": "@aeria-ui/web",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "pnpm lint && pnpm build",
+    "postinstall": "node dist/__scripts__/postinstall.js || true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./stores": "./dist/stores/index.js",
+    "./types": "./dist/types/index.js",
+    "./vue": {
+      "types": "./vue.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "stores": [
+        "./dist/stores/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@aeriajs/common": "*",
+    "@aeriajs/types": "*",
+    "vue": "^3.4.15",
+    "vue-demi": "^0.13.6",
+    "vue-router": "^4.2.5"
+  },
+  "peerDependencies": {
+    "@aeria-ui/i18n": "^0.0.0",
+    "@aeria-ui/state-management": "^0.0.0",
+    "aeria-sdk": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.6",
+    "aeria-sdk": "^0.0.0",
+    "vite": "^4.4.8"
+  }
+}

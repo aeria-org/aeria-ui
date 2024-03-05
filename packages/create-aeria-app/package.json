@@ -1,0 +1,28 @@
+{
+  "name": "create-aeria-app",
+  "version": "0.0.29",
+  "description": "",
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "tsc && rm -rf templates/*/node_modules",
+    "prepublishOnly": "pnpm lint && pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "create-aeria": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "templates"
+  ],
+  "dependencies": {
+    "semver": "^7.5.4"
+  }
+}

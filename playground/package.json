@@ -1,0 +1,18 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "NODE_PATH=./node_modules npx aeria-ui-build -m serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aeria-ui": "file:../packages/aeria-ui",
+    "aeria-ui-build": "file:../packages/aeria-ui-build"
+  }
+}

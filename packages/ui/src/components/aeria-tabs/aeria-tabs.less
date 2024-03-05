@@ -1,0 +1,34 @@
+.tabs {
+  &__horizontal {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: .2rem;
+
+    &--current {
+      font-weight: 600;
+    }
+
+    &--info {
+      @media screen and (width >= 600px) {
+        margin-right: .6rem;
+        font-size: 12pt;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__context-menu-icon {
+    color: var(--theme-brand-color);
+    font-weight: 600;
+
+    &:first-child {
+      gap: 0;
+    }
+  }
+}

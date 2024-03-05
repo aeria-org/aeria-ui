@@ -1,0 +1,32 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@aeria-ui/i18n": [
+        "../i18n/dist"
+      ],
+      "@aeria-ui/web": [
+        "../web/dist"
+      ],
+      "@aeria-ui/web/*": [
+        "../web/dist/*"
+      ],
+      "@aeria-ui/state-management": [
+        "../state-management/dist"
+      ],
+      "aeria-icons/core": [
+        "../aeria-icons/core/dist"
+      ]
+    }
+  },
+  "types": [
+    "../web/vue.d.ts",
+    "../web/@types/env.d.ts"
+  ],
+  "include": [
+    "@types/*.d.ts",
+    "vue.d.ts",
+    "src"
+  ]
+}

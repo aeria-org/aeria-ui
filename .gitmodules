@@ -1,0 +1,3 @@
+[submodule "packages/create-aeria-app/templates/ts"]
+	path = packages/create-aeria-app/templates/ts
+	url = https://github.com/nextlevelorg/quickstart

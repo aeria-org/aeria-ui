@@ -1,0 +1,21 @@
+@import '../dist/less/theme.less';
+
+.light-theme(@brand-color, @background-color) {
+  .theme-defaults();
+  --theme-brand-color: @brand-color;
+  --theme-brand-color-shade-1: spin(@brand-color, 20%);
+  --theme-brand-color-shade-2: darken(@brand-color, 8%);
+  --theme-brand-color-shade-3: darken(@brand-color, 13%);
+  --theme-brand-color-contrast: contrast(@brand-color);
+  --theme-foreground-color: darken(@background-color, 70%);
+  --theme-background-color: @background-color;
+  --theme-background-color-shade-2: darken(@background-color, 1.5%);
+  --theme-background-color-shade-3: darken(@background-color, 2%);
+  --theme-background-color-shade-4: darken(@background-color, 4%);
+  --theme-background-color-shade-5: darken(@background-color, 6%);
+  --theme-shadow-color: darken(@background-color, 12%);
+  --theme-body-background: @background-color;
+  --theme-border-color: darken(@background-color, 6%);
+  --theme-redish: lighten(red, 15%);
+  --theme-blueish: lighten(blue, 15%);
+}

@@ -1,0 +1,55 @@
+{
+  "name": "aeria-ui-build",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "tsc",
+    "prepublishOnly": "pnpm lint && pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "aeria-ui": "bin/index.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "ejs": "^3.1.9",
+    "js-yaml": "^4.1.0",
+    "less": "^4.2.0",
+    "unplugin-auto-import": "^0.15.3",
+    "unplugin-vue-components": "^0.24.1",
+    "unplugin-vue-router": "^0.5.5",
+    "vite": "^5.0.12",
+    "aeria-icons": "*"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^20.8.6"
+  },
+  "peerDependencies": {
+    "@aeriajs/builtins-icons": "*",
+    "@aeriajs/common": "*",
+    "@aeriajs/types": "*",
+    "bson": "*",
+    "vue": "*"
+  }
+}

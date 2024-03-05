@@ -1,0 +1,42 @@
+@slider-radius: 1rem;
+
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: .6rem;
+}
+
+.switch {
+  display: flex;
+  overflow: hidden;
+  width: 3rem;
+  justify-content: flex-end;
+  padding: 4px;
+  border-radius: 1rem;
+  background: #ddd;
+  transition: background .4s;
+
+  &--active {
+    background: var(--theme-brand-color-shade-3);
+  }
+
+  &--readOnly {
+    opacity: .6;
+  }
+
+  &__slider {
+    width: @slider-radius;
+    height: @slider-radius;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &__dummy {
+    flex: 0;
+    transition: flex .35s;
+
+    &--flex {
+      flex: 1;
+    }
+  }
+}

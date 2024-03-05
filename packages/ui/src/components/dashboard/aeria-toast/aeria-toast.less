@@ -1,0 +1,40 @@
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: .4; }
+}
+
+.toast {
+  z-index: 70;
+  display: flex;
+  width: 90vw;
+  padding: 1rem;
+  border: 1px solid var(--theme-border-color);
+  border-radius: 5px;
+  animation: blink .5s forwards;
+  animation-delay: 2s;
+  animation-play-state: paused;
+  background: var(--theme-background-color);
+  box-shadow: 0 3px 3px var(--theme-shadow-color);
+  color: var(--theme-foreground-color);
+  gap: 1rem;
+  user-select: none;
+
+  @media screen and (width >= 768px) {
+    width: 24rem;
+  }
+
+  &--animate {
+    animation-play-state: running;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+
+  &__time {
+    font-size: 10pt;
+    opacity: .8;
+  }
+}

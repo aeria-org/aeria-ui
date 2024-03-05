@@ -1,0 +1,28 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "esModuleInterop": false,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "types": [
+      "vite/client"
+    ],
+    "paths": {
+      "@aeria-ui/ui": [
+        "../ui/dist"
+      ],
+      "@aeria-ui/web": [
+        "../web/dist"
+      ],
+      "@aeria-ui/i18n": [
+        "../i18n/dist"
+      ],
+      "@aeria-ui/state-management": [
+        "../state-management/dist"
+      ]
+    }
+  }
+}

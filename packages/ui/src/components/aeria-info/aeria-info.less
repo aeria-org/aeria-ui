@@ -1,0 +1,49 @@
+.info {
+  position: relative;
+  display: inline-flex;
+
+  &__content {
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-size: 10pt;
+    white-space: nowrap;
+  }
+
+  &__bubble {
+    position: absolute;
+    z-index: 20;
+    overflow: hidden;
+    border-radius: 0 5rem 5rem 0 !important;
+
+    &--top {
+      top: -80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--topleft {
+      top: -80%;
+      right: 100%;
+    }
+
+    &--left {
+      top: 50%;
+      right: 100%;
+      transform: translateY(-50%);
+    }
+
+    &--bottom {
+      bottom: -80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--right {
+      top: 50%;
+      left: 80%;
+      transform: translateY(-50%);
+    }
+  }
+}

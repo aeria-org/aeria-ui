@@ -1,0 +1,54 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    margin-top: -1rem;
+    column-gap: .6rem;
+  }
+
+  &__fieldset {
+    display: grid;
+    width: 100%;
+    align-items: flex-start;
+    padding: 0;
+    border: none;
+    margin: 0;
+    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__field-label {
+    font-size: 10.2pt;
+    line-height: 1.6rem;
+
+    &--section {
+      font-size: 12pt;
+      font-weight: 500;
+    }
+  }
+
+  &__field-hint {
+    font-size: .9rem;
+  }
+
+  &__field-required-hint::after {
+    margin-left: .35rem;
+    color: #e22;
+    content: '*';
+  }
+
+  &__search-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__validation-error {
+    padding: .4rem 0;
+    color: red;
+    font-size: .9rem;
+  }
+}
+

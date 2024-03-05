@@ -1,0 +1,54 @@
+{
+  "name": "@aeria-ui/ui",
+  "type": "module",
+  "version": "1.0.55",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "lint": "eslint src && pnpm lint-css",
+    "lint:fix": "eslint src --fix && pnpm lint-css:fix",
+    "lint-css": "stylelint '**/*.less'",
+    "lint-css:fix": "stylelint --fix '**/*.less'",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "pnpm lint && pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/ui.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/ui.js",
+    "./themes/*": "./themes/*",
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist",
+    "themes",
+    "vue.d.ts"
+  ],
+  "dependencies": {
+    "maska": "^2.1.10"
+  },
+  "devDependencies": {
+    "@aeriajs/types": "*",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "aeria-ui-build": "^0.0.0",
+    "vite": "^4.4.8",
+    "vite-plugin-dts": "^3.3.0",
+    "vite-plugin-static-copy": "^0.17.0",
+    "vue-tsc": "^1.8.22"
+  },
+  "peerDependencies": {
+    "@aeriajs/common": "*",
+    "@aeria-ui/state-management": "^0.0.0",
+    "@aeria-ui/i18n": "^0.0.0",
+    "@aeria-ui/web": "^0.0.0",
+    "vue-router": "*"
+  }
+}

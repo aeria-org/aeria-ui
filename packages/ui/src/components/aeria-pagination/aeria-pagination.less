@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  box-sizing: content-box;
+  column-gap: 2rem;
+
+  @media screen and (width <= 600px) {
+    display: none;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+  }
+
+  &__page-input {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    :deep([data-component="input"]) {
+      width: 2.8rem;
+    }
+  }
+}

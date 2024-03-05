@@ -1,0 +1,24 @@
+.accordion {
+  overflow: hidden;
+  border: var(--theme-frame-border);
+  border-radius: var(--theme-radius-large);
+  background: var(--theme-background-color-shade-4);
+  color: var(--theme-foreground-color);
+
+  &__slot {
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--theme-border-color);
+    }
+  }
+
+  &__header {
+    padding: 1rem;
+    background: var(--theme-background-color-shade-2);
+  }
+
+  &--padded {
+    .accordion__content {
+      padding: 1rem;
+    }
+  }
+}

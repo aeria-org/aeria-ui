@@ -1,0 +1,6 @@
+node_modules
+__pycache__
+.env
+dist
+lerna-debug.log
+./sonata-api.d.ts

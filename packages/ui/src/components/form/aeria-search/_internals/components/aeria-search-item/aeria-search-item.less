@@ -1,0 +1,27 @@
+.item {
+  display: flex;
+  min-height: 2.8rem;
+  align-items: center;
+  padding: .6rem;
+  color: var(--theme-foreground-color);
+
+  &--selected {
+    background: var(--theme-brand-color-shade-1);
+    color: var(--theme-brand-color-contrast);
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    row-gap: .4rem;
+  }
+
+  &__value {
+    display: flex;
+    font-size: 10pt;
+  }
+
+  &__value:not(:first-child) {
+    font-size: 8pt;
+  }
+}

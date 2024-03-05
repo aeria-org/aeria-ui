@@ -1,0 +1,25 @@
+.profile {
+  &__user-name {
+    font-size: 18pt;
+    font-weight: 600;
+  }
+
+  &__menu {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 10px;
+    margin-top: 2rem;
+    background: var(--theme-background-color-shade-2);
+
+    &>* {
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--theme-border-color);
+      }
+
+      padding: 1.4rem;
+    }
+  }
+}

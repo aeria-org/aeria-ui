@@ -1,0 +1,41 @@
+.crud {
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  &__search {
+    min-width: 90vw;
+    flex: 1;
+    order: 1;
+
+    :deep(.input__container) {
+      height: 100%;
+    }
+
+    @media screen and (width >= 600px) {
+      min-width: auto;
+      order: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: stretch;
+    gap: .5rem;
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__context-badge {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

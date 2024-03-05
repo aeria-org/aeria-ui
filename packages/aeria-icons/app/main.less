@@ -1,0 +1,59 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.topstrip {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 6rem;
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 16px #ddd;
+  padding: 0 2rem;
+  z-index: 90;
+}
+
+.logo {
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+
+.styles,
+.categories {
+  display: flex;
+}
+
+.styles > div,
+.categories > div {
+  border: 1px solid red;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  outline: 1px solid #f2f2f2;
+  padding: 1rem;
+  background: #fff;
+}
+
+.icon-info {
+  text-align: center;
+}
+
+.icon-info > div:nth-child(2) {
+  opacity: .6;
+}

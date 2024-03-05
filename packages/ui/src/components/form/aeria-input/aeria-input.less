@@ -1,0 +1,119 @@
+.focus {
+  .input {
+    &__container {
+      &>.input__input,
+      &>.input__textarea {
+        border-color: var(--theme-brand-color);
+      }
+    }
+
+    &__icon {
+      :deep([data-component="icon"]) {
+        fill: var(--theme-brand-color);
+      }
+    }
+  }
+}
+
+.input, .textarea {
+  &:focus-within {
+    .focus();
+  }
+}
+
+.input {
+  --background-color: var(--input-background-color, var(--theme-background-color-shade-3));
+
+  &__container {
+    position: relative;
+    display: flex;
+
+    &>.input__input,
+    &>.input__textarea {
+      border: 1px solid var(--background-color);
+      background: var(--background-color);
+    }
+
+    &--light {
+      border-bottom: 1px solid #dedede;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    font-family: unset;
+  }
+
+  &__input {
+    width: 100%;
+    height: var(--theme-input-height);
+    border: 1px solid red;
+    outline: none;
+
+    &--normal, &--bold {
+      border-radius: var(--theme-radius-medium);
+      background: var(--background-color);
+      color: var(--theme-foreground-color);
+    }
+
+    &--normal {
+      padding: var(--theme-input-padding);
+      font-size: 11pt;
+    }
+
+    &--bold {
+      height: var(--theme-input-height-large);
+      padding: var(--theme-input-padding-large);
+      font-size: 12.5pt;
+    }
+
+    &--light {
+      padding: .6rem;
+      background: transparent;
+    }
+
+    &--icon {
+      padding-left: 2.6em !important;
+    }
+
+    &--readOnly {
+      background: #eee;
+    }
+  }
+
+  &__textarea {
+    display: block;
+    width: 100%;
+    height: 8em;
+    outline: none;
+  }
+
+  &__icon {
+    position: absolute;
+
+    top: 50%;
+    left: .6em;
+    width: 1.1em;
+    transform: translateY(-50%);
+
+    :deep([data-component="icon"]) {
+      fill: #bbb;
+    }
+
+    &--bold {
+      :deep([data-component="icon"]) {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+  }
+
+  &__clipboard {
+    display: flex;
+    padding: 0 .6em;
+    border: var(--theme-frame-border);
+    border-width: 1px 1px 1px 0;
+    background: var(--background-color);
+    place-items: center;
+  }
+}
