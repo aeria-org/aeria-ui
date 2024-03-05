@@ -100,6 +100,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
       }
     } catch( err: any ) {
       hasError = true
+      console.error(err)
     }
 
     if( hasError ) {

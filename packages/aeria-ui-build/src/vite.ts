@@ -59,9 +59,7 @@ export default defineConfig(async () => {
             ],
           },
           {
-            'aeria-sdk': [
-              'aeria',
-            ],
+            'aeria-sdk': ['aeria'],
           },
         ],
       }),
@@ -86,12 +84,8 @@ export default defineConfig(async () => {
       loadYaml(),
     ],
     optimizeDeps: {
-      include: [
-        'bson',
-      ],
-      exclude: [
-        'mongodb',
-      ],
+      include: ['bson'],
+      exclude: ['mongodb'],
     },
     build: {
       target: 'esnext',
