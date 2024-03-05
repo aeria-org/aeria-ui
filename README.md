@@ -1,8 +1,8 @@
-# Aeria UI ![https://github.com/sonata-api/aeria-ui/actions/workflows/ci.yaml](https://github.com/sonata-api/aeria-ui/actions/workflows/ci.yaml/badge.svg)
+# Aeria UI ![https://github.com/aeria-org/aeria-ui/actions/workflows/ci.yaml](https://github.com/aeria-org/aeria-ui/actions/workflows/ci.yaml/badge.svg)
 
 <img
   align="left"
-  src="/assets/aeria-logo.png"
+  src="/assets/aeria-ui-logo.png"
   alt="Aeria Logo" 
   width="190px"
   height="190px"
@@ -41,6 +41,8 @@ A server-driven UI library for Aeria, made with Vue.
 
 ## Resources
 
-- [Official Documentation](https://aeria.land/aeria/)
-- [Aeria Lang](https://aeria.land/)
+- [Official Documentation](https://aeria.land/aeria-ui/)
+- [Aeria](https://aeria.land/aeria/)
+- [Aeria SDK](https://aeria.land/aeria-sdk/)
+- [Aeria Lang](https://aeria.land/aeria-lang/)
 
