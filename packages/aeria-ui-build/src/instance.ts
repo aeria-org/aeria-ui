@@ -1,3 +1,4 @@
+import path from 'path'
 import { readFile } from 'fs/promises'
 
 export type InstanceConfig = {
@@ -17,7 +18,7 @@ export type InstanceConfig = {
 export const getInstanceConfig = async () => {
   const config = await (async (): Promise<Partial<InstanceConfig>> => {
     try {
-      const content = await readFile('./instance.json')
+      const content = await readFile(path.join('.aeria-ui', 'instance.json'))
       return JSON.parse(content.toString())
     } catch( e ) {
       return {}

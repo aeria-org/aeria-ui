@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.3
+
+### Patch Changes
+
+- Update instance.json path
+
 ## 0.0.2
 
 ### Patch Changes

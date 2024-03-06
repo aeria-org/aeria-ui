@@ -54,9 +54,13 @@ export {}
 
 const install = async () => {
   const base = process.env.INIT_CWD
-  const aeriaDir = path.join(base!, '.aeria-ui')
+  if( !base ) {
+    throw new Error('must run as a script')
+  }
 
-  const { name } = JSON.parse(await fs.promises.readFile(path.join(base!, 'package.json'), {
+  const aeriaDir = path.join(base, '.aeria-ui')
+
+  const { name } = JSON.parse(await fs.promises.readFile(path.join(base, 'package.json'), {
     encoding: 'utf-8',
   }))
 
