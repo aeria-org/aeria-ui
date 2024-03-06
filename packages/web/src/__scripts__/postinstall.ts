@@ -56,19 +56,16 @@ const install = async () => {
   const base = process.env.INIT_CWD
   const aeriaDir = path.join(base!, '.aeria-ui')
 
-  if( !fs.existsSync(aeriaDir) ) {
-    await fs.promises.mkdir(aeriaDir)
+  const { name } = JSON.parse(await fs.promises.readFile(path.join(base!, 'package.json'), {
+    encoding: 'utf-8',
+  }))
+
+  if( name.startsWith('@aeria-ui/') || name === 'aeria-ui-monorepo' ) {
+    return
   }
 
-  try {
-    // prevent the script from installing the dts on @aeria-ui/* packages
-    const { name } = require(path.join(base!, 'package.json'))
-    if( name.startsWith('@aeria-ui/') ) {
-      return
-    }
-
-  } catch( e ) {
-    //
+  if( !fs.existsSync(aeriaDir) ) {
+    await fs.promises.mkdir(aeriaDir)
   }
 
   await fs.promises.writeFile(path.join(aeriaDir, DTS_FILENAME), dts)
