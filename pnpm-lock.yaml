@@ -69,10 +69,10 @@ importers:
         specifier: ^0.0.0
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.4
+        specifier: ^0.0.6
         version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.4
+        specifier: ^0.0.6
         version: link:../web
 
   packages/aeria-ui-build:
@@ -164,7 +164,7 @@ importers:
         specifier: ^0.0.0
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.4
+        specifier: ^0.0.6
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
@@ -183,7 +183,7 @@ importers:
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.2)(vue@3.4.21)
       aeria-ui-build:
-        specifier: ^0.0.2
+        specifier: ^0.0.3
         version: link:../aeria-ui-build
       vite:
         specifier: ^4.4.8
@@ -226,8 +226,8 @@ importers:
         specifier: ^20.8.6
         version: 20.11.24
       aeria-sdk:
-        specifier: ^0.0.17
-        version: 0.0.17(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0)
+        specifier: ~0.0.18
+        version: 0.0.18(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0)
       vite:
         specifier: ^4.4.8
         version: 4.5.2(@types/node@20.11.24)
@@ -1948,8 +1948,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /aeria-sdk@0.0.17(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0):
-    resolution: {integrity: sha512-4w46ErrhInFu4isqvPcf8YAvSdeJCFw5ObZ8E1xit8OzzgOtD9I8vj6sPT+GvDl/uMTLnOB1SyWL7WSkKYv+SQ==}
+  /aeria-sdk@0.0.18(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0):
+    resolution: {integrity: sha512-IhZB5LiRB9SQuLBkgwpA7suSVMg/TwIPH9G+wubw8cw31cvl4zuXVyQ86n1OKjRcVEiIaSboWQYwenPGl7PbyA==}
     hasBin: true
     peerDependencies:
       '@aeriajs/common': ^0.0.1

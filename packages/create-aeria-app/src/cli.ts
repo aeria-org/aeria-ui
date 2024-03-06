@@ -71,7 +71,7 @@ const checkPackageVersion = async () => {
     return error([
       'local and remote versions of this package differ',
       `run 'npm i ${packageName}@latest' to update your installation, then run this command again (add the -g flag to install globally, but then you'll need root privileges)`,
-      'alternativelly, rerun this command with the -f option (npm create aeria-app -f package-name)'
+      'alternativelly, rerun this command with the -f option (npm create aeria-app -f package-name)',
     ])
   }
 
