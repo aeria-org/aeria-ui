@@ -3,7 +3,7 @@ declare module 'aeria-ui' {
   export * from 'aeria-ui/dist'
 
   type SystemStores = typeof import('@aeria-ui/web/stores')
-  type UserStores = typeof import('./src/stores')
+  type UserStores = typeof import('../src/stores')
 
   type Stores = {
     [P in keyof (SystemStores & UserStores)]: ReturnType<(SystemStores & UserStores)[P]>
