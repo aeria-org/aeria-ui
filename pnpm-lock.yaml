@@ -69,10 +69,10 @@ importers:
         specifier: ^0.0.0
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.0
-        version: 0.0.0(@aeria-ui/state-management@packages+state-management)(@aeria-ui/web@packages+web)(@aeriajs/common@0.0.0)(vue-router@4.3.0)
+        specifier: ^0.0.1
+        version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.0
+        specifier: ^0.0.1
         version: link:../web
 
   packages/aeria-ui-build:
@@ -82,7 +82,7 @@ importers:
         version: 0.0.0
       '@aeriajs/common':
         specifier: '*'
-        version: 0.0.0(@aeriajs/types@0.0.0)(bson@6.4.0)
+        version: 0.0.1(@aeriajs/types@0.0.0)(bson@6.4.0)
       '@aeriajs/types':
         specifier: '*'
         version: 0.0.0(@phosphor-icons/core@2.0.8)
@@ -143,7 +143,7 @@ importers:
     dependencies:
       '@aeriajs/common':
         specifier: '*'
-        version: 0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1)
+        version: 0.0.1(@aeriajs/types@0.0.0)(bson@5.5.1)
     devDependencies:
       vue:
         specifier: ^3.3.13
@@ -164,11 +164,11 @@ importers:
         specifier: ^0.0.0
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.0
+        specifier: ^0.0.1
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
-        version: 0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1)
+        version: 0.0.1(@aeriajs/types@0.0.0)(bson@5.5.1)
       maska:
         specifier: ^2.1.10
         version: 2.1.11
@@ -183,7 +183,7 @@ importers:
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.2)(vue@3.4.21)
       aeria-ui-build:
-        specifier: ^0.0.0
+        specifier: ^0.0.2
         version: link:../aeria-ui-build
       vite:
         specifier: ^4.4.8
@@ -208,7 +208,7 @@ importers:
         version: link:../state-management
       '@aeriajs/common':
         specifier: '*'
-        version: 0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1)
+        version: 0.0.1(@aeriajs/types@0.0.0)(bson@5.5.1)
       '@aeriajs/types':
         specifier: '*'
         version: 0.0.0(@phosphor-icons/core@2.0.8)
@@ -227,7 +227,7 @@ importers:
         version: 20.11.24
       aeria-sdk:
         specifier: '*'
-        version: 0.0.16(@aeriajs/common@0.0.0)(@aeriajs/types@0.0.0)
+        version: 0.0.17(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0)
       vite:
         specifier: ^4.4.8
         version: 4.5.2(@types/node@20.11.24)
@@ -239,27 +239,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@aeria-ui/ui@0.0.0(@aeria-ui/state-management@packages+state-management)(@aeria-ui/web@packages+web)(@aeriajs/common@0.0.0)(vue-router@4.3.0):
-    resolution: {integrity: sha512-QIjpP4GHo28u+XHBOhjhphlaXR0vOis8Mcvc4u9Fx5bKv9ndHZjbhdKKoCHgJWNG7aVdLBW0KmeZAR4G4Neb1w==}
-    peerDependencies:
-      '@aeria-ui/state-management': '*'
-      '@aeria-ui/web': ^0.0.0
-      '@aeriajs/common': '*'
-      vue-router: '*'
-    dependencies:
-      '@aeria-ui/state-management': link:packages/state-management
-      '@aeria-ui/web': link:packages/web
-      '@aeriajs/common': 0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1)
-      maska: 2.1.11
-      vue-router: 4.3.0(vue@3.4.21)
-    dev: false
-
   /@aeriajs/builtins-icons@0.0.0:
     resolution: {integrity: sha512-gldi4C7EAzg+pN3dRkMiYQO5gVEeKck3CC/Cud7Ipy4XAFSP0QUpYQHlrZ03BbNVq/7IqdzmUvHvRZdpxv7Ayg==}
     dev: false
 
-  /@aeriajs/common@0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1):
-    resolution: {integrity: sha512-HfS9ZaYPex3BmS5/rPnto5LKlu6HoiY/3hNCW/m82/W+z1tN9ANclayGzGvD8/ROJGvvEYmJdLcGT6hoadk5hQ==}
+  /@aeriajs/common@0.0.1(@aeriajs/types@0.0.0)(bson@5.5.1):
+    resolution: {integrity: sha512-lf29sgOGOVBNR38j3viZ7Iu3ORtARDYbIvkVdI+Ilgtw9NE3zWZJFjwbt+XC4FXrNZch6ctgt7hbtxsOx4cTfA==}
     peerDependencies:
       '@aeriajs/types': ^0.0.0
       bson: ^5.4.0
@@ -267,8 +252,8 @@ packages:
       '@aeriajs/types': 0.0.0(@phosphor-icons/core@2.0.8)
       bson: 5.5.1
 
-  /@aeriajs/common@0.0.0(@aeriajs/types@0.0.0)(bson@6.4.0):
-    resolution: {integrity: sha512-HfS9ZaYPex3BmS5/rPnto5LKlu6HoiY/3hNCW/m82/W+z1tN9ANclayGzGvD8/ROJGvvEYmJdLcGT6hoadk5hQ==}
+  /@aeriajs/common@0.0.1(@aeriajs/types@0.0.0)(bson@6.4.0):
+    resolution: {integrity: sha512-lf29sgOGOVBNR38j3viZ7Iu3ORtARDYbIvkVdI+Ilgtw9NE3zWZJFjwbt+XC4FXrNZch6ctgt7hbtxsOx4cTfA==}
     peerDependencies:
       '@aeriajs/types': ^0.0.0
       bson: ^5.4.0
@@ -1963,14 +1948,14 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /aeria-sdk@0.0.16(@aeriajs/common@0.0.0)(@aeriajs/types@0.0.0):
-    resolution: {integrity: sha512-p3TyeAj/CiYSQg6ma9h2ZD3nlmEYYGXHCMJNKrNMy330WlJvPGaPSs09MmQ931J4bY0OY0XrscN8Pk7yKBwJnA==}
+  /aeria-sdk@0.0.17(@aeriajs/common@0.0.1)(@aeriajs/types@0.0.0):
+    resolution: {integrity: sha512-4w46ErrhInFu4isqvPcf8YAvSdeJCFw5ObZ8E1xit8OzzgOtD9I8vj6sPT+GvDl/uMTLnOB1SyWL7WSkKYv+SQ==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.0
+      '@aeriajs/common': ^0.0.1
       '@aeriajs/types': ^0.0.0
     dependencies:
-      '@aeriajs/common': 0.0.0(@aeriajs/types@0.0.0)(bson@5.5.1)
+      '@aeriajs/common': 0.0.1(@aeriajs/types@0.0.0)(bson@5.5.1)
       '@aeriajs/types': 0.0.0(@phosphor-icons/core@2.0.8)
     dev: true
 
@@ -5215,7 +5200,7 @@ packages:
       pkg-types: 1.0.3
       scule: 1.3.0
       strip-literal: 1.3.0
-      unplugin: 1.8.0
+      unplugin: 1.8.1
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -5248,7 +5233,7 @@ packages:
       magic-string: 0.30.8
       minimatch: 9.0.3
       unimport: 3.7.1
-      unplugin: 1.8.0
+      unplugin: 1.8.1
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -5275,7 +5260,7 @@ packages:
       magic-string: 0.30.8
       minimatch: 7.4.6
       resolve: 1.22.8
-      unplugin: 1.8.0
+      unplugin: 1.8.1
       vue: 3.4.21(typescript@5.3.3)
     transitivePeerDependencies:
       - rollup
@@ -5301,15 +5286,15 @@ packages:
       mlly: 1.6.1
       pathe: 1.1.2
       scule: 1.3.0
-      unplugin: 1.8.0
+      unplugin: 1.8.1
       yaml: 2.4.0
     transitivePeerDependencies:
       - rollup
       - vue
     dev: false
 
-  /unplugin@1.8.0:
-    resolution: {integrity: sha512-yGEQsodWICmgt7asHF7QzqDZYeEP9h14vyd9Lul98UnYf29pLZZLwI09z2QdTjwU/FCkum1SRvsK7cx232X8NA==}
+  /unplugin@1.8.1:
+    resolution: {integrity: sha512-NDAvOEnZmeSRRmjfD0FoLzfve2/9lqceO5bR4J/2V72zphnFdq7UYo3fg6F1y1HfZEaSHa+7bZgbEN+z5x8ZDQ==}
     dependencies:
       acorn: 8.11.3
       chokidar: 3.6.0
