@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
 
 const DTS_FILENAME = 'aeria-ui.d.ts'
@@ -53,11 +53,16 @@ export {}
 //`
 
 const install = async () => {
-  const base = path.join(process.cwd(), '..', '..', '..')
+  const base = process.env.INIT_CWD
+  const aeriaDir = path.join(base!, '.aeria-ui')
+
+  if( !fs.existsSync(aeriaDir) ) {
+    await fs.promises.mkdir(aeriaDir)
+  }
 
   try {
     // prevent the script from installing the dts on @aeria-ui/* packages
-    const { name } = require(path.join(base, 'package.json'))
+    const { name } = require(path.join(base!, 'package.json'))
     if( name.startsWith('@aeria-ui/') ) {
       return
     }
@@ -66,7 +71,8 @@ const install = async () => {
     //
   }
 
-  await writeFile(path.join(base, DTS_FILENAME), dts)
+  await fs.promises.writeFile(path.join(aeriaDir, DTS_FILENAME), dts)
 }
 
 install()
+

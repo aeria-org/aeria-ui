@@ -7,7 +7,7 @@ import { onUnmounted, ref, computed, provide, inject, watch, isRef, type Ref } f
 import { useRouter } from 'vue-router'
 import { deepClone, getReferenceProperty } from '@aeriajs/common'
 import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/web'
-import { useStore, STORE_ID } from '@aeria-ui/state-management'
+import { useStore, getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
 import AeriaPagination from '../aeria-pagination/aeria-pagination.vue'
@@ -79,11 +79,13 @@ watchStore(store, {
   persistInQuery: !props.noQueryPersistence,
 })
 
+const manager = getGlobalStateManager()
+
 const action = props.action
   ? isRef(props.action)
     ? props.action.value
     : props.action
-  : useAction(store, router)
+  : useAction(store, router, manager)
 
 call.value = action[0]
 actionEventBus.value = action[1]

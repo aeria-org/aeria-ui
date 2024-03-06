@@ -1,6 +1,6 @@
 import type { Router } from 'vue-router'
 import type { CollectionAction } from '@aeriajs/types'
-import type { Store } from '@aeria-ui/state-management'
+import type { Store, GlobalStateManager } from '@aeria-ui/state-management'
 import { useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
 import { deepClone } from '@aeriajs/common'
@@ -27,6 +27,7 @@ const getEffect = (store: any, effectName: keyof typeof STORE_EFFECTS) => {
 export const useAction = <Filters extends { _id: string | string[] }>(
   store: Store,
   router: Router,
+  manager: GlobalStateManager,
 ) => {
   const eventBus = reactive<ActionEvent>({
     id: -1,
@@ -112,7 +113,7 @@ export const useAction = <Filters extends { _id: string | string[] }>(
     })()
 
     if( actionProps.ask ) {
-      const metaStore = useStore('meta')
+      const metaStore = useStore('meta', manager)
       return (filters?: Filters) => metaStore.$actions.ask({
         action: storeAction,
         params: prepareFilters(filters),

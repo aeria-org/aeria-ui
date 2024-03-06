@@ -62,6 +62,7 @@ export default defineConfig(async () => {
             'aeria-sdk': ['aeria'],
           },
         ],
+        dts: './.aeria-ui/auto-imports.d.ts',
       }),
       vueComponents({
         dirs: [
@@ -78,6 +79,7 @@ export default defineConfig(async () => {
             }
           },
         ],
+        dts: './.aeria-ui/components.d.ts',
       }),
       vue(),
       transformIndexHtml(instanceConfig),
@@ -99,3 +101,4 @@ export default defineConfig(async () => {
 
   return config
 })
+
