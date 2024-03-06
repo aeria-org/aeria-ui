@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/web",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
-    "aeria-sdk": "*",
+    "aeria-sdk": "^0.0.17",
     "vite": "^4.4.8"
   }
 }
