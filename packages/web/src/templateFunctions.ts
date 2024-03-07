@@ -13,6 +13,11 @@ const hasRoles = (roles: string | string[]) => {
   return arraysIntersects(roles, userStore.currentUser.roles)
 }
 
+/**
+ * Modify postinstall script everytime you change those.
+ * A bit of manual work, but types won't work otherwise.
+ * @link web/src/__scripts__/postinstall.ts
+ */
 export const templateFunctions = {
   formatDateTime,
   getRelativeTimeFromNow,

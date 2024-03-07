@@ -1,5 +1,17 @@
 # @aeria-ui/web
 
+## 0.0.8
+
+### Patch Changes
+
+- Update postinstall script
+
+## 0.0.7
+
+### Patch Changes
+
+- Allow custom vite config
+
 ## 0.0.6
 
 ### Patch Changes

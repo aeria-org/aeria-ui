@@ -1,5 +1,6 @@
 import { defineConfig, type InlineConfig } from 'vite'
 import { fileURLToPath } from 'node:url'
+import { deepMerge } from '@aeriajs/common'
 import vue from '@vitejs/plugin-vue'
 import vueComponents from 'unplugin-vue-components/vite'
 import autoImport from 'unplugin-auto-import/vite'
@@ -11,7 +12,9 @@ import loadYaml from './plugins/load-yaml.js'
 
 export default defineConfig(async () => {
   const instanceConfig = await getInstanceConfig()
-  const config: InlineConfig = {
+  const viteConfig = instanceConfig.vite || {}
+
+  const config = deepMerge(viteConfig, {
     publicDir: 'static',
     resolve: {
       alias: {
@@ -91,13 +94,8 @@ export default defineConfig(async () => {
     },
     build: {
       target: 'esnext',
-      sourcemap: !!instanceConfig.sourcemap,
     },
-  }
-
-  if( instanceConfig.preserveSymlinks ) {
-    config.resolve!.preserveSymlinks = true
-  }
+  } satisfies InlineConfig)
 
   return config
 })

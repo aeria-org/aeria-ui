@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.4
+
+### Patch Changes
+
+- Allow custom vite config
+
 ## 0.0.3
 
 ### Patch Changes

@@ -33,7 +33,11 @@ declare module 'aeria-ui' {
 declare module '@vue/runtime-core' {
   import type { TemplateFunctions } from '@aeria-ui/web'
 
-  interface ComponentCustomProperties extends TemplateFunctions {
+  interface ComponentCustomProperties {
+    formatDateTime: TemplateFunctions['formatDateTime']
+    getRelativeTimeFromNow: TemplateFunctions['getRelativeTimeFromNow']
+    hasRoles: TemplateFunctions['hasRoles']
+    t: TemplateFunctions['t']
     viewTitle: string
     viewIcon: string
     instanceConfig: typeof import('aeria-ui-build').InstanceConfig
@@ -47,6 +51,18 @@ declare module '@vue/runtime-core' {
       : never
     t: typeof import('@aeria-ui/i18n').t
   }
+}
+
+import type { RouteRecordRaw } from 'vue-router'
+import type { Icon } from '@aeriajs/types'
+
+declare global {
+  const definePage: (page: Partial<RouteRecordRaw> & {
+    meta: {
+      title: string
+      icon?: Icon
+    }
+  }) => void
 }
 
 export {}

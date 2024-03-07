@@ -1,5 +1,4 @@
-import path from 'path'
-import { readFile } from 'fs/promises'
+import type { InlineConfig } from 'vite'
 
 export type InstanceConfig = {
   site: {
@@ -11,20 +10,23 @@ export type InstanceConfig = {
     safeList?: string[]
     libraries?: string[]
   }
-  sourcemap?: boolean
-  preserveSymlinks?: boolean
+  vite?: InlineConfig
 }
 
 export const getInstanceConfig = async () => {
   const config = await (async (): Promise<Partial<InstanceConfig>> => {
     try {
-      const content = await readFile(path.join('.aeria-ui', 'instance.json'))
-      return JSON.parse(content.toString())
-    } catch( e ) {
-      return {}
+      const content = await import(process.cwd() + '/.aeria-ui/instance.js')
+      return content.default
+        ? content.default
+        : content
+    } catch( err ) {
+      return {
+        site: {},
+      }
     }
   })()
 
-  config.site ??= {}
   return config
 }
+
