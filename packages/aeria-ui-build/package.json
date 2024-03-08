@@ -1,6 +1,6 @@
 {
   "name": "aeria-ui-build",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "description": "",
   "scripts": {
@@ -36,7 +36,6 @@
     "less": "^4.2.0",
     "unplugin-auto-import": "^0.15.3",
     "unplugin-vue-components": "^0.24.1",
-    "unplugin-vue-router": "^0.5.5",
     "vite": "^5.0.12",
     "aeria-icons": "*"
   },

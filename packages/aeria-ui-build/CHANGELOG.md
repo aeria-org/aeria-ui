@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.5
+
+### Patch Changes
+
+- Drop unused dependencies
+
 ## 0.0.4
 
 ### Patch Changes
