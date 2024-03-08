@@ -1,4 +1,5 @@
 import type { InlineConfig } from 'vite'
+import { dynamicImport } from '@aeriajs/common'
 
 export type InstanceConfig = {
   site: {
@@ -16,7 +17,7 @@ export type InstanceConfig = {
 export const getInstanceConfig = async () => {
   const config = await (async (): Promise<Partial<InstanceConfig>> => {
     try {
-      const content = await import(process.cwd() + '/.aeria-ui/instance.js')
+      const content = await dynamicImport(process.cwd() + '/.aeria-ui/instance.js')
       return content.default
         ? content.default
         : content

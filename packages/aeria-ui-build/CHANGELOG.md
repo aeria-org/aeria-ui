@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.6
+
+### Patch Changes
+
+- Use dynamicImport() to avoid bug in Windows
+
 ## 0.0.5
 
 ### Patch Changes
