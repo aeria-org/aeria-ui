@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.9
+
+### Patch Changes
+
+- Change builtin routes names
+
 ## 0.0.8
 
 ### Patch Changes

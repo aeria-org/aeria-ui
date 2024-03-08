@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 export const userRoutes = (component: Component | (()=> Promise<Component>), children: RouteRecordRaw[] = []): RouteRecordRaw => ({
   path: '/user',
-  name: '/user',
+  name: '/builtin:user',
   component,
   children: children.concat([
     {
@@ -47,7 +47,7 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
 
 export const dashboardRoutes = (component: Component | (()=> Promise<Component>), children: RouteRecordRaw[] = []): RouteRecordRaw => ({
   path: '/dashboard',
-  name: '/dashboard',
+  name: '/builtin:dashboard',
   component,
   redirect: {
     name: '/dashboard/',
@@ -98,3 +98,4 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
     },
   ]),
 })
+
