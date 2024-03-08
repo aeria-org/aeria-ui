@@ -58,7 +58,7 @@ export const vitePlugin = (options: Options = {}): Plugin => {
         await options.preEmit()
       }
 
-      const svg = await packTogether([ ...icons ])
+      const svg = await packTogether(Array.from(icons))
 
       await mkdir(path.join(config.build.outDir, 'assets'), {
         recursive: true,
