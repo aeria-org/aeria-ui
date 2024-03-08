@@ -5,9 +5,13 @@ for ws in $(git diff --name-only --cached | grep -oE 'packages/([^/]+)' | uniq);
   pnpm --filter="./${ws}" lint:fix
 done
 
-if $(git diff --name-only --cached | grep -q '^pnpm-lock.yaml$'); then
+pnpm i
+git add pnpm-lock.yaml
+
+if $(git diff --name-only | grep -q '^pnpm-lock.yaml$'); then
   git add pnpm-lock.yaml
   git commit -m 'chore: update lockfile'
 fi
 
 git rm -f --ignore-unmatch packages/packages
+
