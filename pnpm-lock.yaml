@@ -42,7 +42,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(postcss@8.4.35)(stylelint@16.2.1)
       typescript:
-        specifier: ^5.3.0-beta
+        specifier: ^5.4.2
         version: 5.4.2
 
   packages/aeria-icons:
