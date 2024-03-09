@@ -1,5 +1,21 @@
 # @aeria-ui/web
 
+## 0.0.10
+
+### Patch Changes
+
+- Fix createCollectionStore() returning wrong types
+- Updated dependencies
+  - @aeria-ui/state-management@0.0.2
+
+## 0.0.9
+
+### Patch Changes
+
+- Several minor fixes
+- Updated dependencies
+  - @aeria-ui/state-management@0.0.1
+
 ## 0.0.8
 
 ### Patch Changes

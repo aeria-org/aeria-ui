@@ -5,8 +5,8 @@ import {
   reactive,
   computed,
   type Ref,
-  type ComputedRef,
   type UnwrapRef,
+  type ComputedRef,
   type Plugin,
 
 } from 'vue'
@@ -24,8 +24,10 @@ export type GlobalStateManager = {
   __globalState: GlobalState
 }
 
-export type UnRef<TObj extends Record<string, ComputedRef<any>>> = {
-  [P in keyof TObj]: UnwrapRef<TObj[P]>
+export type UnwrapGetters<TGetters extends Record<string, (()=> any) | ComputedRef<any>>> = {
+  [P in keyof TGetters]: TGetters[P] extends ()=> infer Value
+    ? Value
+    : UnwrapRef<TGetters[P]>
 }
 
 export const GLOBAL_STATE_KEY = Symbol('globalState')
@@ -92,7 +94,7 @@ export const hasStore = (storeId: string, manager?: GlobalStateManager) => {
 export const internalRegisterStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
-  TStoreGetters extends Record<string, ()=> any>,
+  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>>,
   TStoreActions extends Record<string, (...args: any[])=> any>,
 >(
   manager: GlobalStateManager,
@@ -123,7 +125,9 @@ export const internalRegisterStore = <
       store,
       Object.fromEntries(Object.entries(getters).map(([key, getter]) => [
         key,
-        computed(getter),
+        typeof getter === 'function'
+          ? computed(getter)
+          : getter,
       ])),
     )
   }
@@ -165,9 +169,9 @@ export const internalRegisterStore = <
 export const registerStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
-  TStoreGetters extends Record<string, ()=> any>,
+  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>>,
   TStoreActions extends Record<string, (...args: any[])=> any>,
-  Return = TStoreState & TStoreGetters & {
+  Return = TStoreState & UnwrapGetters<TStoreGetters> & {
     $id: TStoreId,
     $actions: TStoreActions
     $functions: Record<string, (...args: any[])=> any>

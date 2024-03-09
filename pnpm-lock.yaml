@@ -66,13 +66,13 @@ importers:
         specifier: ^0.0.0
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.0
+        specifier: ^0.0.2
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.9
+        specifier: ^0.0.11
         version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.8
+        specifier: ^0.0.10
         version: link:../web
 
   packages/aeria-ui-build:
@@ -158,10 +158,10 @@ importers:
         specifier: ^0.0.0
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.0
+        specifier: ^0.0.2
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.8
+        specifier: ^0.0.10
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
@@ -180,7 +180,7 @@ importers:
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.2)(vue@3.4.21)
       aeria-ui-build:
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../aeria-ui-build
       vite:
         specifier: ^4.4.8
@@ -201,7 +201,7 @@ importers:
         specifier: ^0.0.0
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.0
+        specifier: ^0.0.2
         version: link:../state-management
       '@aeriajs/common':
         specifier: '*'
