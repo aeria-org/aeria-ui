@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@8.7.6",
   "scripts": {
-    "postinstall": "husky install; ln -s $(realpath packages) node_modules/@aeria-ui; rm -rf packages/*/node_modules/@aeria-ui"
+    "postinstall": "husky; ln -s $(realpath packages) node_modules/@aeria-ui; rm -rf packages/*/node_modules/@aeria-ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
