@@ -1,5 +1,12 @@
 # @aeria-ui/state-management
 
+## 0.0.4
+
+### Patch Changes
+
+- 6de01c1: fix registerStore() returning wrong types
+- 6de01c1: Fix registerStore() returning wrong types
+
 ## 0.0.3
 
 ### Patch Changes

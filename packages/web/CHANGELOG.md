@@ -1,5 +1,13 @@
 # @aeria-ui/web
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [6de01c1]
+- Updated dependencies [6de01c1]
+  - @aeria-ui/state-management@0.0.4
+
 ## 0.0.11
 
 ### Patch Changes
