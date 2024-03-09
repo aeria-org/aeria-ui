@@ -65,7 +65,7 @@ export const user = registerStore((manager) => {
     setCurrentUser({})
   }
 
-  return createCollectionStore<User>()({
+  return createCollectionStore({
     $id: 'user',
     state,
     getters: (state) => ({

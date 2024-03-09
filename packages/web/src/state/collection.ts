@@ -1,6 +1,6 @@
 import type { Description, Layout, LayoutName } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
-import { useStore, type StoreState, type UnwrapGetters, type GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore, type UnwrapGetters, type GlobalStateManager } from '@aeria-ui/state-management'
 import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { deepDiff } from './deepDiff.js'
@@ -296,11 +296,11 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
   }
 }
 
-export const createCollectionStore = <TItem extends CollectionStoreItem>() => <
-  TStoreId extends string,
-  TStoreState extends StoreState = any,
-  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>> = {},
-  TStoreActions extends Record<string, (...args: any[])=> any>={},
+export const createCollectionStore = <
+  const TStoreId extends keyof Collections,
+  TStoreState,
+  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>> | {},
+  TStoreActions extends Record<string, (...args: any[])=> any> | {},
 >(
   newer: {
     $id: TStoreId
@@ -316,7 +316,7 @@ export const createCollectionStore = <TItem extends CollectionStoreItem>() => <
   },
   manager: GlobalStateManager,
 ) => {
-  const initial = internalCreateCollectionStore<TItem>()
+  const initial = internalCreateCollectionStore<Collections[TStoreId]['item']>()
   const state: any = initial.state
 
   const actions = useStoreActions(state, manager)
@@ -335,11 +335,17 @@ export const createCollectionStore = <TItem extends CollectionStoreItem>() => <
 
   return {
     $id: newer.$id,
-    state: state as TStoreState & typeof initial['state'],
-    getters: newer.getters?.(state, actions as any) as TStoreGetters & ReturnType<typeof initial['getters']>,
-    actions: actions as TStoreActions extends {}
-      ? typeof actions & TStoreActions
-      : never,
+    state: state as typeof initial['state'] & (
+      keyof TStoreState extends never
+        ? {}
+        : TStoreState
+    ),
+    getters: newer.getters?.(state, actions as any) as keyof TStoreGetters extends never
+      ? undefined
+      : TStoreGetters & ReturnType<typeof initial['getters']>,
+    actions: actions as keyof TStoreActions extends never
+      ? typeof actions
+      : typeof actions & TStoreActions
   }
 }
 

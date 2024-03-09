@@ -100,7 +100,7 @@ export const meta = registerStore((manager) => {
             continue
           }
 
-          registerStore(() => createCollectionStore<any>()({
+          registerStore(() => createCollectionStore({
             $id: collectionName,
             state: {
               item,
