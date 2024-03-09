@@ -1,5 +1,13 @@
 # @aeria-ui/web
 
+## 0.0.11
+
+### Patch Changes
+
+- Fix registerStore() and createCollectionStore() returning loose types
+- Updated dependencies
+  - @aeria-ui/state-management@0.0.3
+
 ## 0.0.10
 
 ### Patch Changes

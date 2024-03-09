@@ -345,7 +345,7 @@ export const createCollectionStore = <
       : TStoreGetters & ReturnType<typeof initial['getters']>,
     actions: actions as keyof TStoreActions extends never
       ? typeof actions
-      : typeof actions & TStoreActions
+      : typeof actions & TStoreActions,
   }
 }
 

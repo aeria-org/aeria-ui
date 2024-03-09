@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.3
+
+### Patch Changes
+
+- Fix registerStore() and createCollectionStore() returning loose types
+
 ## 0.0.2
 
 ### Patch Changes
