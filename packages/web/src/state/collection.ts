@@ -1,4 +1,4 @@
-import type { Description, Layout, LayoutName } from '@aeriajs/types'
+import type { Description, Layout, LayoutName, PackReferences, PropertyValidationError } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, type UnwrapGetters, type GlobalStateManager } from '@aeria-ui/state-management'
 import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
@@ -16,6 +16,10 @@ import {
 
 } from './helpers.js'
 
+export type CollectionStoreItem = Record<string, any> & {
+  _id?: any
+}
+
 export type CollectionStoreState<TItem extends CollectionStoreItem = any> =
   ReturnType<typeof internalCreateCollectionStore<TItem>>['state']
   & UnwrapGetters<ReturnType<ReturnType<typeof internalCreateCollectionStore>['getters']>>
@@ -26,30 +30,59 @@ export type CollectionStore<TItem extends CollectionStoreItem = any> = Collectio
   $actions: ReturnType<typeof useStoreActions>
 }
 
-export type CollectionStoreItem = Record<string, any> & {
-  _id?: any
+export type InitialState<TItem extends CollectionStoreItem> = {
+  rawDescription: Description
+  item: TItem
+  referenceItem: TItem
+  condensedItem: PackReferences<TItem>
+  freshItem: TItem
+  diffedItem: Partial<TItem>
+
+  items: TItem[]
+  filters: Record<string, any>
+  freshFilters: Record<string, any>
+  activeFilters: Record<string, any>
+  filtersPreset: Record<string, any>
+  preferredTableProperties: any[]
+  selected: TItem[] | string[]
+
+  currentLayout: string
+  validationErrors: Record<string, PropertyValidationError>
+  loading: Record<string, boolean>
+  textQuery: string
+
+  pagination: {
+    offset: number
+    limit: number
+    recordsCount: number
+    recordsTotal: number
+    currentPage: number
+  }
+
+  transformers: Record<string, (value: any)=> any>
 }
 
 const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
-  const initialState = reactive({
+  const item = () => ({} as TItem)
+  const initialState = reactive<InitialState<TItem>>({
     rawDescription: {} as Description,
-    item: {} as TItem,
-    referenceItem: {} as TItem,
-    diffedItem: {} as Partial<TItem>,
-    condensedItem: {} as TItem,
-    freshItem: {} as TItem,
+    item: item(),
+    referenceItem: item(),
+    condensedItem: item(),
+    freshItem: item(),
+    diffedItem: {},
 
-    items: [] as TItem[],
-    filters: {} as Record<string, any>,
-    freshFilters: {} as Record<string, any>,
-    activeFilters: {} as Record<string, any>,
-    filtersPreset: {} as Record<string, any>,
-    preferredTableProperties: [] as any[],
-    selected: [] as TItem[] | string[],
+    items: [],
+    filters: {},
+    freshFilters: {},
+    activeFilters: {},
+    filtersPreset: {},
+    preferredTableProperties: [],
+    selected: [],
+
     currentLayout: '',
-
-    validationErrors: {} as any,
-    loading: {} as Record<string, boolean>,
+    validationErrors: {},
+    loading: {},
     textQuery: '',
 
     pagination: {
@@ -60,10 +93,10 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       currentPage: 0,
     },
 
-    transformers: {} as Record<string, (value: any)=> any>,
+    transformers: {},
   })
 
-  const getters = (state: typeof initialState, storeActions: Record<string, (...args: any[])=> any>) => {
+  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> any>) => {
     const description = computed((): Description => {
       if( state.rawDescription.preferred ) {
         const userStore = useStore('user')
