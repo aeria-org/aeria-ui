@@ -24,7 +24,7 @@ export type Options = {
    * Ensure certain icons are always collected.
    * Useful when icons can't be found with static search.
    */
-  ensureList?: Array<string>
+  safeList?: Array<string>
   /**
    * Will scrap DOM files in the specified libraries case set.
    * (in webpack you must use a custom module.rules property to emulate this prop).

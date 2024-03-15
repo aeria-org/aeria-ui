@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises'
 import { DEFAULT_STYLE } from './constants.js'
 
 export type Options = {
-  ensureList?: string[]
+  safeList?: string[]
   libraries?: string[]
   preEmit?: ()=> Promise<void>
   hash?: boolean
@@ -40,8 +40,8 @@ export const scrapper = (options: Options) => async (source: string) => {
   const shouldAdd = new Set<string>()
   const regexes = makeExpressions()
 
-  if( options.ensureList && !icons.size ) {
-    options.ensureList.forEach((iconName) => {
+  if( options.safeList && !icons.size ) {
+    options.safeList.forEach((iconName) => {
       shouldAdd.add(iconName)
     })
   }

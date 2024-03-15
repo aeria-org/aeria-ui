@@ -38,7 +38,7 @@
   "devDependencies": {
     "@aeriajs/types": "*",
     "@vitejs/plugin-vue": "^4.2.3",
-    "aeria-ui-build": "^0.0.7",
+    "aeria-ui-build": "^0.0.8",
     "vite": "^4.4.8",
     "vite-plugin-dts": "^3.3.0",
     "vite-plugin-static-copy": "^0.17.0",

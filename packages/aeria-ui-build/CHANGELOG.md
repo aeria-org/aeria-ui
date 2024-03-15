@@ -1,5 +1,13 @@
 # aeria-ui-build
 
+## 0.0.8
+
+### Patch Changes
+
+- Fix icons safeList
+- Updated dependencies
+  - aeria-icons@0.0.3
+
 ## 0.0.7
 
 ### Patch Changes

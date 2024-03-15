@@ -14,6 +14,8 @@ export default defineConfig(async () => {
   const instanceConfig = await getInstanceConfig()
   const viteConfig = instanceConfig.vite || {}
 
+  const { icons: iconsConfig = {} } = instanceConfig
+
   const config = deepMerge(viteConfig, {
     publicDir: 'static',
     resolve: {
@@ -28,7 +30,8 @@ export default defineConfig(async () => {
     plugins: [
       aeriaIcons({
         hash: true,
-        libraries: instanceConfig.icons?.libraries || [],
+        safeList: iconsConfig.safeList,
+        libraries: iconsConfig.libraries,
         async preEmit() {
           const userIcons = await import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
           const builtinsIcons = await import('@aeriajs/builtins-icons')
