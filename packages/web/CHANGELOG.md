@@ -1,5 +1,11 @@
 # @aeria-ui/web
 
+## 0.0.14
+
+### Patch Changes
+
+- Fix incorrect internal type
+
 ## 0.0.13
 
 ### Patch Changes
