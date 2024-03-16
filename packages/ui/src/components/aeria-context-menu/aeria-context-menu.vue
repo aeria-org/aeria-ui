@@ -93,12 +93,10 @@ const position = computed(() => {
           contextmenuVisible = false
         }
       }"
-      animate
       fill
-
       class="content"
     >
-      <div>
+      <div class="content__body">
         <div
           v-if="$slots.header"
           class="content__section"
@@ -190,3 +188,4 @@ const position = computed(() => {
   }
 }
 </style>
+

@@ -1,0 +1,17 @@
+@keyframes anim-floating {
+  from { scale: .98; }
+  to { scale: 1; }
+}
+
+@keyframes anim-fixed-right {
+  from { translate: 4% 0; }
+  to { translate: 0; }
+}
+
+.animate() {
+  @cubic-bezier: cubic-bezier(.16,1, .7, 1.04);
+  --theme-animation-dropdown: anim-floating .35s @cubic-bezier forwards;
+  --theme-animation-floating: anim-floating .35s @cubic-bezier forwards;
+  --theme-animation-fixed-right: anim-fixed-right .35s @cubic-bezier forwards;
+}
+

@@ -1,5 +1,21 @@
 # @aeria-ui/ui
 
+## 0.0.17
+
+### Patch Changes
+
+- Add animations
+- Updated dependencies
+  - @aeria-ui/state-management@0.0.5
+  - @aeria-ui/web@0.0.16
+
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @aeria-ui/web@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes

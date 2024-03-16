@@ -13,7 +13,6 @@ type Props = {
   floating?: boolean
   loading?: boolean
   bordered?: boolean
-  animate?: boolean
   overlay?: boolean
   invisibleOverlay?: boolean
   collapsed?: boolean
@@ -99,7 +98,6 @@ const toggleCollapsed = (value: boolean) => {
         panel__content
         ${!(isFloating || fixedRight) && 'panel__content--rounded'}
         ${isFloating && 'panel__content--floating'}
-        ${animate && 'panel__content--animate'}
         ${bordered && 'panel__content--bordered-body'}
         ${fixedRight && 'panel__content--fixed-right'}
         ${transparent && 'panel__content--transparent'}

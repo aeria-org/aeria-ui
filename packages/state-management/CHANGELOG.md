@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.5
+
+### Patch Changes
+
+- Add animations
+
 ## 0.0.4
 
 ### Patch Changes
