@@ -1,6 +1,6 @@
 {
   "name": "@aeria-ui/state-management",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "dist"
   ],
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
   "peerDependencies": {
     "vue": "*"

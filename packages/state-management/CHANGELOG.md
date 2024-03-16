@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.6
+
+### Patch Changes
+
+- Fix exports
+
 ## 0.0.5
 
 ### Patch Changes

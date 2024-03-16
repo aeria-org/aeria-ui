@@ -1,6 +1,6 @@
 {
   "name": "aeria-ui",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "",
   "type": "module",
   "scripts": {
@@ -23,8 +23,8 @@
   ],
   "peerDependencies": {
     "@aeria-ui/i18n": "^0.0.0",
-    "@aeria-ui/state-management": "^0.0.5",
-    "@aeria-ui/ui": "^0.0.17",
-    "@aeria-ui/web": "^0.0.16"
+    "@aeria-ui/state-management": "^0.0.6",
+    "@aeria-ui/ui": "^0.0.19",
+    "@aeria-ui/web": "^0.0.17"
   }
 }

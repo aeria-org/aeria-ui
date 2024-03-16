@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,13 +17,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "main": "./src/index.ts",
+  "main": "dist/ui.js",
   "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./src/index.ts",
+    ".": "./dist/ui.js",
     "./themes/*": "./themes/*",
     "./*": "./dist/*"
   },
@@ -46,9 +46,9 @@
   },
   "peerDependencies": {
     "@aeriajs/common": "*",
-    "@aeria-ui/state-management": "^0.0.5",
+    "@aeria-ui/state-management": "^0.0.6",
     "@aeria-ui/i18n": "^0.0.0",
-    "@aeria-ui/web": "^0.0.16",
+    "@aeria-ui/web": "^0.0.17",
     "vue-router": "*"
   }
 }
