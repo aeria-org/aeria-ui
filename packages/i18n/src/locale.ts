@@ -1,11 +1,11 @@
 import { getValueFromPath } from '@aeriajs/common'
-import { reactive } from 'vue'
+import { reactive, inject, type Plugin } from 'vue'
 
 export type LocaleMessages = {
   [P in string]: string | [string, string] | LocaleMessages
 }
 
-export type Locales = Record<string, LocaleMessages | LocaleMessages[]>
+export type Locales = Record<string, LocaleMessages | LocaleMessages[] | undefined>
 
 export type I18nConfig = {
   current: string
@@ -19,29 +19,61 @@ export type TextOptions = {
   context?: string
 }
 
-window.I18N = reactive<I18nConfig>({
-  current: '',
-  locales: {},
-})
-
-export const createI18n = (config: I18nConfig) => {
-  Object.assign(window.I18N, config)
+export type GlobalI18n = {
+  __globalI18n: I18nConfig
 }
 
-export const setLocale = (current: string) => {
-  window.I18N.current = current
+export const I18N_KEY = Symbol('i18n')
+
+export const createI18n = () => {
+  const i18n = reactive<I18nConfig>({
+    current: '',
+    locales: {},
+  })
+
+  return {
+    __globalI18n: i18n,
+    install(app, options?: I18nConfig) {
+      if( options ) {
+        Object.assign(i18n, options)
+      }
+
+      app.provide(I18N_KEY, i18n)
+    },
+  } satisfies GlobalI18n & Plugin
 }
 
-export const getLocale = () => {
-  return window.I18N.current
+export const useI18n = () => {
+  const config = inject(I18N_KEY, {} as I18nConfig)
+  return {
+    config,
+    t: (text: string, options: TextOptions = {}) => {
+      return t(text, options, config)
+    },
+  }
+}
+
+export const getI18nConfig = (i18n: ReturnType<typeof useI18n>) => {
+  return i18n.config
+}
+
+export const setLocale = (current: string, config?: I18nConfig) => {
+  const i18n = config || getI18nConfig(useI18n())
+  i18n.current = current
+}
+
+export const getLocale = (config?: I18nConfig) => {
+  const i18n = config || getI18nConfig(useI18n())
+  return i18n.current
 }
 
 const capitalize = (text: string) => {
   return text[0].toUpperCase() + text.slice(1)
 }
 
-export const internalTranslate = (originalText: string, _options: TextOptions = {}): string => {
-  const localeMemo = window.I18N
+export const internalTranslate = (originalText: string, _options: TextOptions = {}, config?: I18nConfig): string => {
+  const i18n = config || getI18nConfig(useI18n())
+  const localeMemo = i18n
   if( !originalText ) {
     return ''
   }
@@ -59,7 +91,7 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
       const result = internalTranslate(text.slice(0, offset), Object.assign({
         plural: true,
         noFallback: true,
-      }, options))
+      }, options), i18n)
 
       if( result ) {
         return result
@@ -70,7 +102,7 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
       const camelCased = text.replace(/_(\w)/, (r) => r[1].toUpperCase())
       const result = internalTranslate(camelCased, Object.assign({
         noFallback: true,
-      }, options))
+      }, options), i18n)
 
       if( result ) {
         return result
@@ -92,11 +124,17 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
     : getValueFromPath(locale, fullPath(text))
 
   if( !result ) {
-    return options.noFallback
-      ? ''
-      : options.capitalize
-        ? capitalize(text)
-        : text
+    if( options.noFallback ) {
+      return ''
+    }
+
+    const fallback = /([ ]|(\.$))/.test(text)
+      ? text
+      : text.split('.').pop()!
+
+    return options.capitalize
+      ? capitalize(fallback)
+      : fallback
   }
 
   const resultText = typeof result === 'string' || Array.isArray(result)
@@ -118,12 +156,12 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
     : translated
 }
 
-export const t = (text: string, options: TextOptions = {}) => {
+export const t = (text: string, options: TextOptions = {}, i18n?: I18nConfig) => {
   if( !text ) {
     return ''
   }
 
-  const result = internalTranslate(text, options)
+  const result = internalTranslate(text, options, i18n)
   return result
 }
 

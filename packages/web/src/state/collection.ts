@@ -1,6 +1,6 @@
 import type { Description, Layout, LayoutName, PackReferences, PropertyValidationError } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
-import { useStore, type UnwrapGetters, type GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore, type UnwrapGetters, type StoreContext } from '@aeria-ui/state-management'
 import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { deepDiff } from './deepDiff.js'
@@ -347,12 +347,12 @@ export const createCollectionStore = <
       actions: ReturnType<typeof useStoreActions>
     )=> TStoreActions
   },
-  manager: GlobalStateManager,
+  context: StoreContext,
 ) => {
   const initial = internalCreateCollectionStore<Collections[TStoreId]['item']>()
   const state: any = initial.state
 
-  const actions = useStoreActions(state, manager)
+  const actions = useStoreActions(state, context)
   if( newer.actions ) {
     Object.assign(actions, newer.actions(state, actions))
   }

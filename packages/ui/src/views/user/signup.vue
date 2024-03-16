@@ -38,7 +38,7 @@ const insert = async () => {
   if( isLeft(userEither) ) {
     const error = unwrapEither(userEither)
     await metaStore.$actions.spawnModal({
-      title: 'Erro',
+      title: 'Error',
       body: error,
     })
     return
@@ -57,13 +57,13 @@ const insert = async () => {
 
 <template>
   <div>
-    <h1>Criar conta</h1>
+    <h1>{{ t('signup.header') }}</h1>
     <aeria-icon
       v-clickable
       icon="arrow-left"
       @click="router.push({ path: '/user/signin' })"
     >
-      Efetuar login
+      {{ t('signup.signin') }}
     </aeria-icon>
   </div>
 
@@ -98,7 +98,7 @@ const insert = async () => {
               element: 'checkbox'
             }"
           >
-            Declaro que li e aceito os termos de uso
+            {{ t('signup.tos_checkbox') }}
           </aeria-checkbox>
         </div>
 
@@ -106,7 +106,7 @@ const insert = async () => {
           :disabled="!!passwordError || !tosAccepted"
           @click.prevent="insert"
         >
-          Criar conta
+          {{ t('signup.submit') }}
         </aeria-button>
       </aeria-password-form>
     </template>

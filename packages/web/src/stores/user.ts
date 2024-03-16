@@ -25,7 +25,7 @@ type Credentials = {
   password: string
 }
 
-export const user = registerStore((manager) => {
+export const user = registerStore((context) => {
   const state = reactive({
     currentUser: {} as Partial<User>,
     credentials: {
@@ -70,7 +70,7 @@ export const user = registerStore((manager) => {
     state,
     getters: (state) => ({
       properties: () => {
-        const metaStore = meta(manager)
+        const metaStore = meta(context)
         const properties = state.description.properties
 
         properties.roles.items.enum = metaStore.roles
@@ -83,7 +83,7 @@ export const user = registerStore((manager) => {
       signout,
 
       async authenticate(this: any, payload: Credentials | { revalidate: true }) {
-        const metaStore = meta(manager)
+        const metaStore = meta(context)
 
         try {
           const resultEither = await this.$functions.authenticate(payload)
@@ -119,7 +119,7 @@ export const user = registerStore((manager) => {
         }
       },
     }),
-  }, manager)
+  }, context)
 
 })
 

@@ -411,7 +411,7 @@ provide('individualActions', individualActions)
             icon="funnel"
             @click="isFilterVisible = true"
           >
-            Filtros
+            {{ t('filters', { capitalize: true }) }}
           </aeria-icon>
 
           <div class="crud__context-badge">
@@ -434,7 +434,7 @@ provide('individualActions', individualActions)
             icon="table"
             @click="toggleLayout(store)"
           >
-            Alternar layout
+            {{ t('change_layout', { capitalize: true }) }}
           </aeria-icon>
         </template>
 
@@ -451,7 +451,7 @@ provide('individualActions', individualActions)
 
             @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
           >
-            {{ t(actionProps.name) }}
+            {{ t(actionProps.name, { capitalize: true }) }}
           </aeria-icon>
         </template>
       </aeria-context-menu>
@@ -477,7 +477,7 @@ provide('individualActions', individualActions)
 
         @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
       >
-        {{ t(actionProps.name) }}
+        {{ t(actionProps.name, { capitalize: true }) }}
       </aeria-button>
 
       <slot
@@ -510,7 +510,7 @@ provide('individualActions', individualActions)
             action: 'ui:spawnAdd'
           })()"
         >
-          Adicionar primeiro item
+          {{ t('add_first_item', { capitalize: true }) }}
         </aeria-button>
       </component>
 

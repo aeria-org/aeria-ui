@@ -2,7 +2,7 @@
 import { inject, watch } from 'vue'
 import { isLeft } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
-import { t } from '@aeria-ui/i18n'
+import { useI18n } from '@aeria-ui/i18n'
 
 import AeriaPanel from '../../../../aeria-panel/aeria-panel.vue'
 import AeriaForm from '../../../../form/aeria-form/aeria-form.vue'
@@ -25,6 +25,8 @@ const insert = async () => {
     isInsertVisible.value = false
   }
 }
+
+const { t } = useI18n()
 
 const cancel = () => {
   metaStore.$actions.ask({
@@ -56,12 +58,12 @@ watch(() => store.item._id, (_id) => {
         (() => {
           switch( isInsertVisible ) {
           case 'add':
-            return t('action.add')
+            return t('action.add', { capitalize: true })
           case 'duplicate':
-            return t('action.duplicate')
+            return t('action.duplicate', { capitalize: true })
           case 'edit':
           default:
-            return t('action.edit')
+            return t('action.edit', { capitalize: true })
           }
         })() }}
       </span>
@@ -112,7 +114,7 @@ watch(() => store.item._id, (_id) => {
         variant="transparent"
         @click="cancel"
       >
-        {{ t('action.cancel') }}
+        {{ t('action.cancel', { capitalize: true }) }}
       </aeria-button>
       <aeria-button
         large
@@ -120,7 +122,7 @@ watch(() => store.item._id, (_id) => {
         :loading="store.loading.insert"
         @click="insert"
       >
-        {{ t('action.insert') }}
+        {{ t('action.insert', { capitalize: true }) }}
       </aeria-button>
     </template>
   </aeria-panel>

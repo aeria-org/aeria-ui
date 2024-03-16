@@ -1,7 +1,7 @@
 import type { Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
 import { formatValue, getReferenceProperty, deepClone, isLeft, unwrapEither, isReference } from '@aeriajs/common'
-import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore, type StoreContext } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
 import { request } from '../http.js'
@@ -28,7 +28,8 @@ export type CustomOptions = {
   insert?: boolean
 }
 
-export const useStoreActions = (store: CollectionStore, manager: GlobalStateManager) => {
+export const useStoreActions = (store: CollectionStore, context: StoreContext) => {
+  const { manager } = context
   const actions = {
     setItem(item: typeof store['item']) {
       for( const key in store.item ) {
@@ -301,7 +302,9 @@ export const useStoreActions = (store: CollectionStore, manager: GlobalStateMana
       index?: string
     }) {
       const value = args.property.translate && typeof args.value === 'string'
-        ? t(args.value)
+        ? t(args.value, {
+          capitalize: true,
+        }, context.i18n)
         : args.value
 
       if( args.key in store.transformers ) {

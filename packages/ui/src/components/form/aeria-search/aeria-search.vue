@@ -198,7 +198,7 @@ const save = () => {
       <aeria-panel
         float
         close-hint
-        :title="`Selecionar ${t(propertyName)}`"
+        :title="`${t('action.select', { capitalize: true })} ${t(propertyName)}`"
         :overlay-layer="65"
         :model-value="panel"
 
@@ -258,7 +258,7 @@ const save = () => {
 
           <div v-else>
             <div v-if="isTyping">
-              Pesquisando...
+              {{ t('searching_ellipsis', { capitalize: true }) }}
             </div>
             <div
               v-else-if="
@@ -267,13 +267,13 @@ const save = () => {
                   && !(('items' in property && modelValue?.length) || (!Array.isArray(modelValue) && modelValue?._id))
               "
             >
-              Não há resultados
+              {{ t('no_results', { capitalize: true }) }}
             </div>
           </div>
         </div>
 
         <div class="search__summary">
-          Mostrando {{ matchingItems.length }} {{ t('of') }} {{ pagination.recordsTotal }}
+          {{ t('showing', { capitalize: true }) }} {{ matchingItems.length }} {{ t('of') }} {{ pagination.recordsTotal }}
         </div>
 
         <template #footer>
@@ -281,7 +281,7 @@ const save = () => {
             large
             @click="save"
           >
-            Salvar
+            {{ t('action.save', { capitalize: true }) }}
           </aeria-button>
         </template>
       </aeria-panel>
@@ -324,7 +324,7 @@ const save = () => {
             icon="plus"
             @click="openSelectPanel"
           >
-            Selecionar
+            {{ t('action.select', { capitalize: true }) }}
           </aeria-icon>
         </template>
       </aeria-search-container>

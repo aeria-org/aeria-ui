@@ -1,7 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@aeria-ui/i18n": [
+        "../i18n/dist"
+      ]
+    }
   },
   "include": [
     "src"

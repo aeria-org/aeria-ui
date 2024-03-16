@@ -427,7 +427,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
                 pushToArray(modelValue[fieldPropertyName], fieldProperty)
               "
             >
-              Adicionar
+              {{ t('action.add', { capitalize: true }) }}
             </aeria-button>
           </div>
 

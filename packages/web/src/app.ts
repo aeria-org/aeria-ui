@@ -2,8 +2,8 @@ import type { defineOptions } from './options.js'
 import { isLeft } from '@aeriajs/common'
 import { createApp } from 'vue'
 import { useRouter } from 'vue-router'
-import { createI18n, t } from '@aeria-ui/i18n'
-import { createGlobalStateManager } from '@aeria-ui/state-management'
+import { createI18n, t, type I18nConfig } from '@aeria-ui/i18n'
+import { createGlobalStateManager, type StoreContext } from '@aeria-ui/state-management'
 import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
 import { meta, user } from './stores/index.js'
@@ -31,22 +31,26 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const globalStateManager = createGlobalStateManager()
   app.use(globalStateManager)
 
-  const router = createRouter(routes || [], globalStateManager)
+  const i18n = createI18n()
+  app.use(i18n, options.i18n)
+
+  const context: StoreContext<{ i18n: I18nConfig }> = {
+    i18n: i18n.__globalI18n,
+    manager: globalStateManager,
+  }
+
+  const metaStore = meta(context)
+  const userStore = user(context)
+
+  const router = createRouter(routes || [], context)
   app.use(router)
 
-  const metaStore = meta(globalStateManager)
-  const userStore = user(globalStateManager)
-
   bootstrapRoutes(router, globalStateManager)
-
-  if( options.i18n ) {
-    createI18n(options.i18n)
-  }
 
   if( options.setup ) {
     await options.setup({
       app,
-      globalStateManager,
+      context,
     })
   }
 

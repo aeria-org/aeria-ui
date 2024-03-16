@@ -141,7 +141,7 @@ const position = computed(() => {
             >
               {{
                 action.translate
-                  ? t(action.name)
+                  ? t(action.name, { capitalize: true })
                   : action.name
               }}
             </aeria-icon>

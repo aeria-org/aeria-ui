@@ -24,7 +24,7 @@ export type Toast = {
   date: Date
 }
 
-export const meta = registerStore((manager) => {
+export const meta = registerStore((context) => {
   const freshState = {
     descriptions: {} as Record<string, Description>,
     roles: [] as string[],
@@ -79,7 +79,7 @@ export const meta = registerStore((manager) => {
         }
 
         if( deserialized.auth ) {
-          user(manager).$actions.setCurrentUser(deserialized.auth)
+          user(context).$actions.setCurrentUser(deserialized.auth)
         }
 
         for ( const [collectionName, description] of Object.entries(globalDescriptions) ) {
@@ -88,8 +88,8 @@ export const meta = registerStore((manager) => {
 
           const filters = freshFilters(description)
 
-          if( hasStore(collectionName, manager) ) {
-            const store = useStore(collectionName, manager)
+          if( hasStore(collectionName, context.manager) ) {
+            const store = useStore(collectionName, context.manager)
             Object.assign(store, {
               item,
               filters,
@@ -109,7 +109,7 @@ export const meta = registerStore((manager) => {
               freshFilters: deepClone(filters),
               rawDescription,
             },
-          }, manager))(manager)
+          }, context))(context)
 
         }
 
@@ -123,17 +123,17 @@ export const meta = registerStore((manager) => {
         title?: string
         body?: string
       }) {
-        const answer = await useStore('meta', manager).$actions.spawnPrompt({
-          body: t(props.body || 'prompt.default'),
+        const answer = await useStore('meta', context.manager).$actions.spawnPrompt({
+          body: t(props.body || 'prompt.default', {}, context.i18n),
           actions: [
             {
               name: 'cancel',
-              title: t('action.cancel'),
+              title: t('action.cancel', {}, context.i18n),
               variant: 'danger',
             },
             {
               name: 'confirm',
-              title: t('action.confirm'),
+              title: t('action.confirm', {}, context.i18n),
             },
           ],
         })

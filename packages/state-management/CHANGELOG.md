@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.7
+
+### Patch Changes
+
+- Use p/i in i18n
+
 ## 0.0.6
 
 ### Patch Changes

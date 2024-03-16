@@ -1,5 +1,21 @@
 # @aeria-ui/ui
 
+## 0.0.21
+
+### Patch Changes
+
+- Use p/i in i18n
+- Updated dependencies
+  - @aeria-ui/state-management@0.0.7
+  - @aeria-ui/i18n@0.0.1
+  - @aeria-ui/web@0.0.18
+
+## 0.0.20
+
+### Patch Changes
+
+- Remove hardcoded portuguese words
+
 ## 0.0.19
 
 ### Patch Changes

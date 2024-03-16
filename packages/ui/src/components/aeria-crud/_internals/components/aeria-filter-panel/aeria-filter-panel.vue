@@ -24,8 +24,6 @@ const filter = () => {
   router.push({
     query: convertToSearchQuery(store),
   })
-
-  console.log(convertToSearchQuery(store))
 }
 </script>
 
@@ -33,7 +31,7 @@ const filter = () => {
   <aeria-panel
     close-hint
     fixed-right
-    title="Filtrar por"
+    :title="t('filter_by', { capitalize: true })"
 
     @close="emit('update:modelValue', false)"
     @overlay-click="emit('update:modelValue', false)"
@@ -58,7 +56,7 @@ const filter = () => {
           emit('update:modelValue', false)
         "
       >
-        Limpar
+        {{ t('action.clear', { capitalize: true }) }}
         <aeria-badge>
           {{ store.filtersCount }}
         </aeria-badge>
@@ -69,7 +67,7 @@ const filter = () => {
         :disabled="!store.hasActiveFilters"
         @click="filter"
       >
-        Filtrar
+        {{ t('action.filter', { capitalize: true }) }}
       </aeria-button>
     </template>
   </aeria-panel>

@@ -1,3 +1,4 @@
+import type { I18nConfig } from '@aeria-ui/i18n'
 import {
   inject,
   isRef,
@@ -28,6 +29,11 @@ export type UnwrapGetters<TGetters extends Record<string, (()=> any) | ComputedR
   [P in keyof TGetters]: TGetters[P] extends ()=> infer Value
     ? Value
     : UnwrapRef<TGetters[P]>
+}
+
+export type StoreContext<T = {}> = T & {
+  i18n: I18nConfig
+  manager: GlobalStateManager
 }
 
 export const GLOBAL_STATE_KEY = Symbol('globalState')
@@ -97,15 +103,16 @@ export const internalRegisterStore = <
   TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>>,
   TStoreActions extends Record<string, (...args: any[])=> any>,
 >(
-  manager: GlobalStateManager,
-  fn: (manager: GlobalStateManager)=> {
+  context: StoreContext,
+  fn: (context: StoreContext)=> {
     $id: TStoreId
     state: TStoreState
     getters?: TStoreGetters,
     actions?: TStoreActions
   },
 ) => {
-  const { $id, state, getters, actions } = fn(manager)
+  const { manager } = context
+  const { $id, state, getters, actions } = fn(context)
   const globalState = manager.__globalState
 
   if( hasStore($id, manager) ) {
@@ -178,15 +185,15 @@ export const registerStore = <
   },
 
 >(
-  fn: (manager: GlobalStateManager)=> {
+  fn: (context: StoreContext)=> {
     $id: TStoreId
     state: TStoreState
     getters?: TStoreGetters,
     actions?: TStoreActions
   },
 ) => {
-  return (manager: GlobalStateManager) => {
-    return internalRegisterStore(manager, fn) as Return
+  return (context: StoreContext) => {
+    return internalRegisterStore(context, fn) as Return
   }
 }
 

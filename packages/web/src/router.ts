@@ -1,5 +1,5 @@
 import type { Icon } from '@aeriajs/types'
-import type { GlobalStateManager } from '@aeria-ui/state-management'
+import type { StoreContext } from '@aeria-ui/state-management'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { meta } from './stores/index.js'
 
@@ -22,14 +22,14 @@ export type Route = RouteMeta & Omit<RouteRecordRaw, 'children'> & {
 export type RouterExtensionNode = Omit<Route, 'name'>[]
 export type RouterExtension = Record<string, RouterExtensionNode>
 
-export const routerInstance = (routes: RouteRecordRaw[], manager: GlobalStateManager) => {
+export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) => {
   const router = createRouter({
     history: createWebHistory(),
     routes,
   })
 
   router.beforeEach(async (to, from) => {
-    const metaStore = meta(manager)
+    const metaStore = meta(context)
     metaStore.menu.visible = false
     metaStore.view.title = to.meta.title as string
 

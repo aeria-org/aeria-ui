@@ -33,13 +33,13 @@ const authenticate = async () => {
       v-html="instanceVars.signinText"
     />
     <div v-if="instanceVars.signupForm">
-      <span>Não possui uma conta?</span>
+      <span>{{ t('signin.no_account') }}&nbsp;</span>
       <span
         v-clickable
         style="color: #2d96fa"
         @click="router.push('/user/signup')"
       >
-        Criar uma conta
+        {{ t('signin.create_account') }}
       </span>
     </div>
   </div>
@@ -75,7 +75,7 @@ const authenticate = async () => {
           || !userStore.credentials.password"
       @click="authenticate"
     >
-      Entrar
+      {{ t('action.signin', { capitalize: true }) }}
     </aeria-button>
 
     <aeria-button
@@ -83,7 +83,7 @@ const authenticate = async () => {
       :disabled="userStore.loading.authenticate || metaStore.isLoading"
       @click="goToTarget"
     >
-      Continuar como {{ userStore.currentUser.name }}
+      {{ t('signin.proceed_as') }} {{ userStore.currentUser.name }}
     </aeria-button>
   </div>
 </template>
