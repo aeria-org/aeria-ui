@@ -81,7 +81,7 @@ const signout = async () => {
         icon="pencil"
         @click="editPanel = true"
       >
-        Editar perfil
+        {{ t('edit_profile', { capitalize: true }) }}
       </aeria-icon>
     </template>
 
@@ -91,7 +91,7 @@ const signout = async () => {
         icon="key"
         @click="$router.push('/dashboard/user/changepass')"
       >
-        Mudar senha
+        {{ t('change_password', { capitalize: true }) }}
       </aeria-icon>
     </template>
 
@@ -101,7 +101,7 @@ const signout = async () => {
         icon="sign-out"
         @click="signout"
       >
-        Sair
+        {{ t('signout', { capitalize: true }) }}
       </aeria-icon>
     </template>
   </aeria-menu>
@@ -110,7 +110,7 @@ const signout = async () => {
     v-model="editPanel"
     float
     close-hint
-    title="Editar perfil"
+    :title="t('edit_profile', { capitalize: true })"
     @overlay-click="editPanel = false"
   >
     <aeria-form
@@ -133,7 +133,7 @@ const signout = async () => {
         :loading="userStore.loading.insert"
         @click="insert"
       >
-        Salvar
+        {{ t('action.save', { capitalize: true }) }}
       </aeria-button>
     </template>
   </aeria-panel>

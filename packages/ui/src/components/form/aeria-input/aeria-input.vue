@@ -2,7 +2,6 @@
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, inject, watch } from 'vue'
-import { type MaskaDetail, vMaska } from 'maska'
 import { useClipboard } from '@aeria-ui/web'
 
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
@@ -19,6 +18,17 @@ type InputVariant =
   | 'normal'
   | 'bold'
   | 'light'
+
+type InputBind = {
+  name?: string
+  type: string
+  placeholder?: string
+  min?: number
+  max?: number
+  minlength?: number
+  maxlength?: number
+  readonly?: boolean
+}
 
 type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProperty)> & {
   variant?: InputVariant
@@ -41,14 +51,9 @@ const emit = defineEmits<{
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
 
-const inputBind: {
-  type: string
-  placeholder?: string
-  min?: number
-  max?: number
-  name?: string
-  readonly?: boolean
-} = {
+const inputBind: InputBind = {
+  name: props.propertyName,
+  readonly: readOnly,
   type: (() => {
     if( 'type' in property ) {
       switch( property.type ) {
@@ -74,21 +79,30 @@ const inputBind: {
 }
 
 if( 'type' in property ) {
-  if( property.type === 'number' ) {
-    inputBind.min = property.minimum || property.exclusiveMinimum
-    inputBind.max = property.maximum || property.exclusiveMaximum
+  if( property.type === 'number' || property.type === 'integer' ) {
+    if( property.minimum ) {
+      inputBind.min = property.minimum
+    }
+    if( property.exclusiveMinimum ) {
+      inputBind.min = property.exclusiveMinimum + 1
+    }
+    if( property.maximum ) {
+      inputBind.max = property.maximum
+    }
+    if( property.exclusiveMaximum ) {
+      inputBind.max = property.exclusiveMaximum - 1
+    }
   }
 
-  inputBind.name = props.propertyName
-  inputBind.readonly = readOnly
+  if( property.type === 'string' ) {
+    if( property.format === 'date' || property.format === 'date-time' ) {
+      inputBind.type = !searchOnly && property.format === 'date-time'
+        ? 'datetime-local'
+        : 'date'
+    }
 
-  if( property.type === 'string' && [
-    'date',
-    'date-time',
-  ].includes(property.format!) ) {
-    inputBind.type = !searchOnly && property.format === 'date-time'
-      ? 'datetime-local'
-      : 'date'
+    inputBind.minlength = property.minLength
+    inputBind.maxlength = property.maxLength
   }
 }
 
@@ -118,7 +132,7 @@ const inputValue = ref([
 
 const updateValue = (value: InputType) => {
   const newVal = (() => {
-    if( inputBind.type === 'number' ) {
+    if( inputBind.type === 'number' || inputBind.type === 'integer' ) {
       return Number(value)
     }
 
@@ -140,20 +154,10 @@ const updateValue = (value: InputType) => {
   emit('update:modelValue', newVal)
 }
 
-const onInput = (
-  event: CustomEvent<MaskaDetail> | Event,
-  options?: {
-    masked?: true
-  },
-) => {
-  const { masked } = options || {}
-
-  const value = inputValue.value = (event.target as HTMLInputElement).value
-  const newValue = masked
-    ? (<CustomEvent<MaskaDetail>>event).detail.unmasked
-    : value
-
-  updateValue(newValue)
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value
+  inputValue.value = value!
+  updateValue(value)
 }
 
 watch(() => props.modelValue, (value, oldValue) => {
@@ -217,16 +221,10 @@ watch(() => props.modelValue, (value, oldValue) => {
     `"
     >
       <input
-        v-maska
         v-focus="property.focus"
         v-bind="inputBind"
         :value="inputValue"
         data-component="input"
-        :data-maska="
-          'mask' in property
-            ? property.mask
-            : ''
-        "
 
         :class="`
           input__input
@@ -235,16 +233,16 @@ watch(() => props.modelValue, (value, oldValue) => {
           ${readOnly && 'input__input--readOnly'}
         `"
 
-        @maska="onInput($event, { masked: true })"
+        @input="onInput"
         @change="emit('change', $event)"
       >
       <aeria-icon
         v-if="hasIcon"
         :icon="property.icon || 'magnifying-glass'"
         :class="`
-          input__icon
-          input__icon--${variant}
-      `"
+            input__icon
+            input__icon--${variant}
+        `"
       />
 
       <div
@@ -266,3 +264,4 @@ watch(() => props.modelValue, (value, oldValue) => {
 </template>
 
 <style scoped src="./aeria-input.less"></style>
+

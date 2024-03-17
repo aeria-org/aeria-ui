@@ -258,7 +258,7 @@ const save = () => {
 
           <div v-else>
             <div v-if="isTyping">
-              {{ t('searching_ellipsis', { capitalize: true }) }}
+              {{ t('searching', { capitalize: true }) }}...
             </div>
             <div
               v-else-if="

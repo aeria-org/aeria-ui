@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from '@aeria-ui/i18n'
 import { useStore } from '@aeria-ui/state-management'
 
 import AeriaButton from '../../../../components/aeria-button/aeria-button.vue'
@@ -10,6 +11,8 @@ import AeriaPasswordForm from '../../../../components/dashboard/aeria-password-f
 const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
+
+const { t } = useI18n()
 
 const password = ref({
   password: '',
@@ -25,8 +28,12 @@ const insert = async () => {
   })
 
   await metaStore.$actions.spawnModal({
-    title: 'Feito!',
-    body: 'A senha foi atualizada',
+    title: `${t('done', {
+ capitalize: true,
+})}!`,
+    body: t('password_has_been_changed', {
+ capitalize: true,
+}),
   })
 
   router.back()
@@ -44,8 +51,9 @@ const insert = async () => {
         :disabled="!!passwordError"
         @click.prevent="insert"
       >
-        Salvar
+        {{ t('action.save', { capitalize: true }) }}
       </aeria-button>
     </aeria-password-form>
   </aeria-panel>
 </template>
+

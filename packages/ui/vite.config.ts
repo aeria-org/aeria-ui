@@ -37,7 +37,6 @@ export default defineConfig({
       external: [
         'vue',
         'vue-router',
-        'maska',
         /@aeria-ui\//,
         /@aeriajs\//,
       ]

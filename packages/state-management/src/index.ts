@@ -176,9 +176,9 @@ export const internalRegisterStore = <
 export const registerStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
-  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>>,
+  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>> | undefined,
   TStoreActions extends Record<string, (...args: any[])=> any>,
-  Return = TStoreState & (keyof TStoreGetters extends never ? {} : UnwrapGetters<TStoreGetters>) & {
+  Return = TStoreState & (keyof TStoreGetters extends never ? {} : UnwrapGetters<NonNullable<TStoreGetters>>) & {
     $id: TStoreId,
     $actions: TStoreActions
     $functions: Record<string, (...args: any[])=> any>
