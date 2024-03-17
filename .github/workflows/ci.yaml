@@ -43,6 +43,8 @@ jobs:
             && pnpm --filter='./packages/create-aeria-app' build \
             && pnpm --filter='./packages/aeria-ui' build
 
+      - name: Patch .npmrc
+        run: sed -i '1s/^/\/\/registry.npmjs.org\/:_authToken=${process.env.NPM_TOKEN}\n/' .npmrc
       - name: Create release PR
         uses: changesets/action@v1
         env:
