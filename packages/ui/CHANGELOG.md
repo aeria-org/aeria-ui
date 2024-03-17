@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.23
+
+### Patch Changes
+
+- Rename emptyComponent -> noResultsComponent
+
 ## 0.0.22
 
 ### Patch Changes
