@@ -69,7 +69,7 @@ importers:
         specifier: ^0.0.8
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.24
+        specifier: ^0.0.25
         version: link:../ui
       '@aeria-ui/web':
         specifier: ^0.0.19

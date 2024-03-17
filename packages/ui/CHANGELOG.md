@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.25
+
+### Patch Changes
+
+- Ui fixes
+
 ## 0.0.24
 
 ### Patch Changes
