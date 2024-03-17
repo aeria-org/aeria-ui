@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,9 +32,6 @@
     "themes",
     "vue.d.ts"
   ],
-  "dependencies": {
-    "maska": "^2.1.10"
-  },
   "devDependencies": {
     "@aeriajs/types": "*",
     "@vitejs/plugin-vue": "^4.2.3",
@@ -46,9 +43,9 @@
   },
   "peerDependencies": {
     "@aeriajs/common": "*",
-    "@aeria-ui/state-management": "^0.0.7",
+    "@aeria-ui/state-management": "^0.0.8",
     "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/web": "^0.0.18",
+    "@aeria-ui/web": "^0.0.19",
     "vue-router": "*"
   }
 }

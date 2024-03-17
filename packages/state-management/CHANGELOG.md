@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.8
+
+### Patch Changes
+
+- Drop Maska, fix minor bugs
+
 ## 0.0.7
 
 ### Patch Changes

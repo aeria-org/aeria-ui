@@ -66,13 +66,13 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.7
+        specifier: ^0.0.8
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.23
+        specifier: ^0.0.24
         version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.18
+        specifier: ^0.0.19
         version: link:../web
 
   packages/aeria-ui-build:
@@ -152,17 +152,14 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.7
+        specifier: ^0.0.8
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.18
+        specifier: ^0.0.19
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
         version: 0.0.4(@aeriajs/types@0.0.3)(bson@5.5.1)
-      maska:
-        specifier: ^2.1.10
-        version: 2.1.11
       vue-router:
         specifier: '*'
         version: 4.3.0(vue@3.4.21)
@@ -195,7 +192,7 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.7
+        specifier: ^0.0.8
         version: link:../state-management
       '@aeriajs/common':
         specifier: '*'
@@ -3854,10 +3851,6 @@ packages:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
     dev: true
-
-  /maska@2.1.11:
-    resolution: {integrity: sha512-IGqWjBnKxMYcVa06pb4mPfag9sJjnR2T15CdGfQ2llR3gajiSd4AxXCvNqHMEq9W3UBhjjTazgWumsP3sWrUSg==}
-    dev: false
 
   /mathml-tag-names@2.1.3:
     resolution: {integrity: sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg==}
