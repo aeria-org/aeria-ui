@@ -1,6 +1,5 @@
 # ignore misc
 .husky/* linguist-detectable=false
-.changeset/* linguist-detectable=false
 
 # ignore playground/index.html
 *.html linguist-detectable=false

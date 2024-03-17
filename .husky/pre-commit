@@ -7,5 +7,4 @@ done
 
 pnpm i
 git add pnpm-lock.yaml
-git rm -f --ignore-unmatch packages/packages
 
