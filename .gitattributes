@@ -1,9 +1,9 @@
 # ignore misc
-.husky/* linguist-detectable=false
+.husky/* linguist-vendored
 
 # ignore playground/index.html
-*.html linguist-detectable=false
+*.html linguist-vendored
 
 # ignore bin/index.js
-*.js linguist-detectable=false
+*.js linguist-vendored
 
