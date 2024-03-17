@@ -64,16 +64,6 @@ jobs:
         with:
           path: packages/aeria-icons/app/dist
 
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: |
-          pwd
-          ls -ltrah
-
   deploy:
     environment:
       name: github-pages
