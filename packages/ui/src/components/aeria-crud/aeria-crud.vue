@@ -150,7 +150,7 @@ const paginate = async (pagination: Pick<Pagination, 'offset' | 'limit'>) => {
   fetchItems()
 }
 
-const emptyComponent = inject('emptyComponent', null)
+const noResultsComponent = inject('noResultsComponent', null)
 
 watch(() => [
 router.currentRoute.value.path,
@@ -493,12 +493,12 @@ provide('individualActions', individualActions)
         store.itemsCount === 0
           && !store.loading.getAll
           && firstFetch
-          && (emptyComponent || $slots.empty)
+          && (noResultsComponent || $slots.empty)
       "
     >
       <component
-        :is="emptyComponent as Component"
-        v-if="emptyComponent"
+        :is="noResultsComponent as Component"
+        v-if="noResultsComponent"
         v-bind="{
           collection: store.$id
         }"
