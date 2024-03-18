@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-for ws in $(git diff --name-only --cached | grep -oE 'packages/([^/]+)' | uniq); do
-  pnpm --filter="./${ws}" lint:fix
-done
+if ! test $GITHUB_ACTIONS; then
+  pnpm i
+  for ws in $(git diff --name-only --cached | grep -oE 'packages/([^/]+)' | uniq); do
+    pnpm --filter="./${ws}" lint:fix
+  done
+else
+  pnpm i --no-frozen-lockfile
+fi
 
-pnpm i
 git add pnpm-lock.yaml
 

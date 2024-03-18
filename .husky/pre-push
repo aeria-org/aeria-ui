@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-if test -f .changeset/*.md; then
+if ! test $GITHUB_ACTIONS; then
   pnpm -r lint
 fi
 
