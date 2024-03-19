@@ -8,7 +8,7 @@
     "dev": "vite",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "tsc",
     "prepublishOnly": "pnpm lint && pnpm build"
   },
   "keywords": [],
