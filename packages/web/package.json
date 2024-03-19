@@ -7,7 +7,6 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "build": "tsc",
-    "watch": "tsc --watch",
     "prepublishOnly": "pnpm lint && pnpm build",
     "postinstall": "node dist/__scripts__/postinstall.js || true"
   },

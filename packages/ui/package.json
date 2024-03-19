@@ -11,7 +11,6 @@
     "lint-css": "stylelint '**/*.less'",
     "lint-css:fix": "stylelint --fix '**/*.less'",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
     "prepublishOnly": "pnpm lint && pnpm build"
   },
   "keywords": [],
