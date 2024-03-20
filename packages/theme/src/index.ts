@@ -1,6 +1,6 @@
 import type { Router, RouteRecordRaw } from 'vue-router'
 import { useBreakpoints, useNavbar, type MenuNode, type Route, type MenuSchema } from '@aeria-ui/web'
-import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore, getGlobalStateManager, type GlobalStateManager } from '@aeria-ui/state-management'
 import { reactive, inject, toRefs, onMounted } from 'vue'
 
 type NavbarRefs = {
@@ -8,6 +8,8 @@ type NavbarRefs = {
   router: Pick<Router, 'push'>
   isCurrent: Awaited<ReturnType<typeof useNavbar>>['isCurrent']
 }
+
+let manager: GlobalStateManager | undefined = undefined
 
 export const breakpoints = useBreakpoints()
 
@@ -33,7 +35,7 @@ export const memoizeBadge = (promise: ()=> Promise<any> | any, key: string) => {
   return result
 }
 
-export const pushRoute = (manager: GlobalStateManager, ...args: Parameters<Router['push']>) => {
+export const pushRoute = (...args: Parameters<Router['push']>) => {
   if( !breakpoints.value.md ) {
     const metaStore = useStore('meta', manager)
     metaStore.menu.visible = false
@@ -74,7 +76,7 @@ export const isCollapsibleRouteOpen = (node: MenuNode) => {
   return !node.collapsed
 }
 
-export const routeClick = (node: MenuNode, manager: GlobalStateManager) => {
+export const routeClick = (node: MenuNode) => {
   if( 'collapsed' in node ) {
     node.collapsed = node.collapsed
       ? false
@@ -82,18 +84,20 @@ export const routeClick = (node: MenuNode, manager: GlobalStateManager) => {
     return
   }
 
-  return pushRoute(manager, {
+  return pushRoute({
     path: node.path!,
   })
 }
 
 export const initTheme = () => {
   const menuSchema = inject<MenuSchema>('menuSchema', [])
+  manager = getGlobalStateManager()
 
   onMounted(async () => {
     const navbar = await useNavbar({
       schema: menuSchema,
     })
+
     Object.assign(navbarRefs, navbar)
   })
 }
