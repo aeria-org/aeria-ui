@@ -69,10 +69,10 @@ importers:
         specifier: ^0.0.8
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.25
+        specifier: ^0.0.26
         version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.19
+        specifier: ^0.0.20
         version: link:../web
 
   packages/aeria-ui-build:
@@ -173,7 +173,7 @@ importers:
         specifier: ^0.0.8
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.19
+        specifier: ^0.0.20
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
