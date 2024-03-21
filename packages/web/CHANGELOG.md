@@ -1,5 +1,11 @@
 # @aeria-ui/web
 
+## 0.0.20
+
+### Patch Changes
+
+- 99c6287: Add @aeria-ui/theme for providing a theming API, fix aeria-ui.d.ts
+
 ## 0.0.19
 
 ### Patch Changes
