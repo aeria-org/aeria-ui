@@ -93,7 +93,7 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2(vite@5.2.2)(vue@3.4.21)
       aeria-icons:
-        specifier: ^0.0.3
+        specifier: workspace:^
         version: link:../aeria-icons
       bson:
         specifier: '*'
