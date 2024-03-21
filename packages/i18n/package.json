@@ -19,7 +19,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.3.13"
+    "vue": "^3.4.21"
   },
   "peerDependencies": {
     "@aeriajs/common": "*"
