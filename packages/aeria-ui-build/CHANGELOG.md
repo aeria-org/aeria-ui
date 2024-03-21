@@ -1,5 +1,12 @@
 # aeria-ui-build
 
+## 0.0.9
+
+### Patch Changes
+
+- 70317ab: Update upstream
+- 8aca71d: Update upstream
+
 ## 0.0.8
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.27
+
+### Patch Changes
+
+- 70317ab: Update upstream
+- Updated dependencies [70317ab]
+  - @aeria-ui/i18n@0.0.2
+  - @aeria-ui/web@0.0.21
+
 ## 0.0.26
 
 ### Patch Changes
