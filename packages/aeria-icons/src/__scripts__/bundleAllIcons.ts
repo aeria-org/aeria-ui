@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { packTogether } from '../common.js'
 import { icons, IconStyle } from '@phosphor-icons/core'
 
-const bundlePath = fileURLToPath(import.meta.resolve('../../dist/icons.svg'))
+const bundlePath = fileURLToPath(await import.meta.resolve!('../../dist/icons.svg'))
 
 const bundle = async () => {
   const iconNames = icons.reduce((a, icon) => [
