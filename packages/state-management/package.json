@@ -23,6 +23,9 @@
   "exports": {
     ".": "./dist/index.js"
   },
+  "devDependencies": {
+    "vue": "*"
+  },
   "peerDependencies": {
     "vue": "*"
   }

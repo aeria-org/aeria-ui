@@ -36,8 +36,14 @@
       ]
     }
   },
+  "devDependencies": {
+    "@phosphor-icons/core": "^2.0.8",
+    "@vitejs/plugin-vue": "*",
+    "glob": "*",
+    "vite": "*"
+  },
   "peerDependencies": {
-    "@phosphor-icons/core": "*",
+    "@phosphor-icons/core": "^2.0.8",
     "@vitejs/plugin-vue": "*",
     "glob": "*",
     "vite": "*"

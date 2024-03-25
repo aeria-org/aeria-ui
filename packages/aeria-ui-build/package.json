@@ -40,9 +40,14 @@
     "aeria-icons": "*"
   },
   "devDependencies": {
+    "@aeriajs/builtins-icons": "*",
+    "@aeriajs/common": "*",
+    "@aeriajs/types": "*",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^20.8.6"
+    "@types/node": "^20.8.6",
+    "bson": "*",
+    "vue": "*"
   },
   "peerDependencies": {
     "@aeriajs/builtins-icons": "*",
