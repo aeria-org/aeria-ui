@@ -1,6 +1,6 @@
 import type { RequestConfig } from '@aeriajs/common'
 import type { InstanceConfig } from 'aeria-sdk'
-import { request as originalRequest, } from 'aeria-sdk/http'
+import { request as originalRequest } from 'aeria-sdk/http'
 import { API_URL, STORAGE_NAMESPACE } from './constants.js'
 
 export const request = <Return = any>(url: string, payload?: any, requestConfig?: RequestConfig) => {
