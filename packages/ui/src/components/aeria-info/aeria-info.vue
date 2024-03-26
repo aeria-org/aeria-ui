@@ -22,8 +22,7 @@ const where = props.where || 'top'
   <div
     v-if="breakpoints.md"
     class="info"
-    @mouseleave="visible = false
-    "
+    @mouseleave="visible = false"
   >
     <div
       v-if="visible"

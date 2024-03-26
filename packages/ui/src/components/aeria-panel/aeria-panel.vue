@@ -17,7 +17,6 @@ type Props = {
   invisibleOverlay?: boolean
   collapsed?: boolean
   collapsible?: boolean
-  fullAeriaidth?: boolean
   fill?: boolean
   fillFooter?: boolean
   transparent?: boolean

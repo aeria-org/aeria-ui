@@ -1,5 +1,6 @@
 {
   "name": "@aeria-ui/state-management",
+  "type": "module",
   "version": "0.0.8",
   "description": "",
   "main": "dist/index.js",
