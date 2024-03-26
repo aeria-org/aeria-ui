@@ -1,5 +1,11 @@
 # aeria-ui
 
+## 0.0.32
+
+### Patch Changes
+
+- 68f8e0d: Fix reexports
+
 ## 0.0.31
 
 ### Patch Changes
