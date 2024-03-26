@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,7 +35,7 @@
     "@aeriajs/common": "*",
     "@aeria-ui/state-management": "^0.0.9",
     "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/web": "^0.0.23",
+    "@aeria-ui/web": "^0.0.24",
     "@aeriajs/types": "*",
     "@vitejs/plugin-vue": "^4.2.3",
     "aeria-ui-build": "^0.0.8",
@@ -49,7 +49,7 @@
     "@aeriajs/common": "*",
     "@aeria-ui/state-management": "^0.0.9",
     "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/web": "^0.0.23",
+    "@aeria-ui/web": "^0.0.24",
     "vue-router": "*"
   }
 }
