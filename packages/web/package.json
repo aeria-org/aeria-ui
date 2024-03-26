@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/web",
   "type": "module",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
@@ -49,14 +49,14 @@
   },
   "devDependencies": {
     "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/state-management": "^0.0.8",
+    "@aeria-ui/state-management": "^0.0.9",
     "@types/node": "^20.8.6",
     "aeria-sdk": "~0.0.48",
     "vite": "^4.4.8"
   },
   "peerDependencies": {
     "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/state-management": "^0.0.8",
+    "@aeria-ui/state-management": "^0.0.9",
     "aeria-sdk": "~0.0.48"
   }
 }

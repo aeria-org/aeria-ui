@@ -66,13 +66,13 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.8
+        specifier: ^0.0.9
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.27
+        specifier: ^0.0.28
         version: link:../ui
       '@aeria-ui/web':
-        specifier: ^0.0.21
+        specifier: ^0.0.22
         version: link:../web
 
   packages/aeria-ui-build:
@@ -145,10 +145,10 @@ importers:
   packages/theme:
     devDependencies:
       '@aeria-ui/state-management':
-        specifier: ^0.0.8
+        specifier: ^0.0.9
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.21
+        specifier: ^0.0.22
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
@@ -166,10 +166,10 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.8
+        specifier: ^0.0.9
         version: link:../state-management
       '@aeria-ui/web':
-        specifier: ^0.0.21
+        specifier: ^0.0.22
         version: link:../web
       '@aeriajs/common':
         specifier: '*'
@@ -221,7 +221,7 @@ importers:
         specifier: ^0.0.1
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.8
+        specifier: ^0.0.9
         version: link:../state-management
       '@types/node':
         specifier: ^20.8.6
