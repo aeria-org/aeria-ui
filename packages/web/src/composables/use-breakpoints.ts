@@ -6,13 +6,13 @@ let listenerAttached = false
 
 export const useBreakpoints = () => {
   if( typeof window === 'undefined' ) {
-    return {} as {
+    return ref({} as {
       width: number
       height: number
       md: number
       lg: number
       xl: number
-    }
+    })
   }
 
   const viewport = ref({
