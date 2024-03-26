@@ -1,5 +1,11 @@
 # @aeria-ui/web
 
+## 0.0.23
+
+### Patch Changes
+
+- fa26205: Remove side effects
+
 ## 0.0.22
 
 ### Patch Changes
