@@ -1,5 +1,11 @@
 # @aeria-ui/web
 
+## 0.0.24
+
+### Patch Changes
+
+- 77ee8e5: Make code runnable on node
+
 ## 0.0.23
 
 ### Patch Changes
