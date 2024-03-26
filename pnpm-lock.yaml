@@ -227,8 +227,8 @@ importers:
         specifier: ^20.8.6
         version: 20.11.28
       aeria-sdk:
-        specifier: ~0.0.18
-        version: 0.0.39(@aeriajs/common@0.0.20)(@aeriajs/types@0.0.19)
+        specifier: ~0.0.48
+        version: 0.0.48(@aeriajs/common@0.0.20)(@aeriajs/types@0.0.19)
       vite:
         specifier: ^4.4.8
         version: 4.5.2(@types/node@20.11.28)
@@ -1870,12 +1870,12 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /aeria-sdk@0.0.39(@aeriajs/common@0.0.20)(@aeriajs/types@0.0.19):
-    resolution: {integrity: sha512-7m/LuQ+TnyOa0LBnYRoSFJ2IPCvoAkteL9mSPN8ZuZ4uTsNJ/ZCRIZGH/j20NmdH+SdPH6tkMTwMESYMZbavZA==}
+  /aeria-sdk@0.0.48(@aeriajs/common@0.0.20)(@aeriajs/types@0.0.19):
+    resolution: {integrity: sha512-DqajkSKG6wSF3FwULa5SYovuUr3sif/0RIQJwBJXdG+Sn8dij931dbDwqRRSSrBlMgHN+OQKXSiR1COYEQ8GSg==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.20
-      '@aeriajs/types': ^0.0.19
+      '@aeriajs/common': ^0.0.29
+      '@aeriajs/types': ^0.0.26
     dependencies:
       '@aeriajs/common': 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
       '@aeriajs/types': 0.0.19

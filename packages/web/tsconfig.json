@@ -19,6 +19,9 @@
       ],
       "aeria-ui-build": [
         "../aeria-ui-build/dist"
+      ],
+      "aeria-sdk/http": [
+        "../../node_modules/aeria-sdk/dist"
       ]
     }
   },
