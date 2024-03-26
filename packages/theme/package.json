@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/theme",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,14 +28,14 @@
   "devDependencies": {
     "@aeriajs/common": "*",
     "@aeria-ui/state-management": "^0.0.8",
-    "@aeria-ui/web": "^0.0.20",
+    "@aeria-ui/web": "^0.0.21",
     "vue": "*",
     "vue-router": "*"
   },
   "peerDependencies": {
     "@aeriajs/common": "*",
     "@aeria-ui/state-management": "^0.0.8",
-    "@aeria-ui/web": "^0.0.20",
+    "@aeria-ui/web": "^0.0.21",
     "vue": "*",
     "vue-router": "*"
   }

@@ -1,5 +1,11 @@
 # @aeria-ui/web
 
+## 0.0.21
+
+### Patch Changes
+
+- aaf5bca: Avoid collateral effect of `aeria-sdk`
+
 ## 0.0.20
 
 ### Patch Changes
