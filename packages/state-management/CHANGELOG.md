@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.9
+
+### Patch Changes
+
+- d86ca51: Switch `@aeria-ui/state-management` to esmodules
+
 ## 0.0.8
 
 ### Patch Changes
