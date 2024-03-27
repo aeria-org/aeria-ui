@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.31
+
+### Patch Changes
+
+- aa31085: Add alt to pictures
+
 ## 0.0.30
 
 ### Patch Changes

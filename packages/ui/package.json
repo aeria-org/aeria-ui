@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
