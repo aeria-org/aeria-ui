@@ -2,7 +2,7 @@ import type { defineOptions } from './options.js'
 import { isLeft } from '@aeriajs/common'
 import { createApp } from 'vue'
 import { useRouter } from 'vue-router'
-import { createI18n, t, type I18nConfig } from '@aeria-ui/i18n'
+import { createI18n, t } from '@aeria-ui/i18n'
 import { createGlobalStateManager, type StoreContext } from '@aeria-ui/state-management'
 import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
@@ -34,7 +34,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const i18n = createI18n()
   app.use(i18n, options.i18n)
 
-  const context: StoreContext<{ i18n: I18nConfig }> = {
+  const context: StoreContext = {
     i18n: i18n.__globalI18n,
     manager: globalStateManager,
   }

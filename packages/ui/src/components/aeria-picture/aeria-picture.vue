@@ -4,6 +4,7 @@ import { API_URL } from '@aeria-ui/web'
 
 type Props = {
   url?: string
+  alt: string
   fileId?: string
   modelValue?: string
   objectFit?: string
@@ -54,6 +55,7 @@ const expand = ref(false)
       >
         <img
           :src="url"
+          :alt="alt"
           :style="`
             max-height: 60vh;
             object-fit: contain;
