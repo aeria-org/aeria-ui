@@ -205,6 +205,7 @@ const buttonStyle = (subject: any, action: any) => {
                   v-model="row[column][0].link"
                   expandable
                   :meta="row[column][0]"
+                  alt="Row image"
                   class="table__picture"
                 />
 
@@ -213,6 +214,7 @@ const buttonStyle = (subject: any, action: any) => {
                   v-model="row[column].link"
                   expandable
                   :meta="row[column]"
+                  alt="Row image"
                   class="table__picture"
                 />
 

@@ -38,6 +38,7 @@ const firstIfArray = (what: any) => {
       :horizontal="componentName === 'list'"
     >
       <aeria-picture
+        alt="Item picture"
         expandable
         :url="firstIfArray(item[layoutOptions.picture!])?.link"
         :meta="firstIfArray(item[layoutOptions.picture!])"

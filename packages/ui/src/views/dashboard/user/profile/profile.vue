@@ -47,6 +47,7 @@ const signout = async () => {
 
 <template>
   <aeria-picture
+    alt="User picture"
     v-bind="{
       width: '14rem',
       height: '14rem'

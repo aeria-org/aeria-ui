@@ -83,6 +83,7 @@ const remove = async () => {
   <div class="file">
     <div v-if="fileRef || modelValue?._id">
       <aeria-picture
+        alt="Image preview"
         v-if="isImage"
         v-model="preview"
         :class="`
