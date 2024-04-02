@@ -13,6 +13,10 @@ const overlay: Directive = {
       return
     }
 
+    const {
+      layer = 50
+    } = value
+
     if( !el.parentNode ) {
       throw new Error('make sure a parent node exists when casting v-overlay')
     }
@@ -24,8 +28,6 @@ const overlay: Directive = {
         !binding.modifiers.invisibleOnLarge
           || window.matchMedia('(max-width: 600px)').matches
       )
-
-    const layer = value.layer || 50
 
     overlayElem.setAttribute('style', `
       position: fixed;

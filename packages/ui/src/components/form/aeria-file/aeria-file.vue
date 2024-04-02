@@ -83,9 +83,9 @@ const remove = async () => {
   <div class="file">
     <div v-if="fileRef || modelValue?._id">
       <aeria-picture
-        alt="Image preview"
         v-if="isImage"
         v-model="preview"
+        alt="Image preview"
         :class="`
           file__image
           ${(!store || modelValue?._id) || 'file__image--unsent'}
