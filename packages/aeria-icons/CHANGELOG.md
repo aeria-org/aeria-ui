@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.4
+
+### Patch Changes
+
+- 24c1b3d: Add md and astro extensions
+
 ## 0.0.3
 
 ### Patch Changes
