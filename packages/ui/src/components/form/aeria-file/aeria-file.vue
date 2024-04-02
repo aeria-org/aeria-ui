@@ -3,6 +3,7 @@ import type { Property, FileProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, computed } from 'vue'
 import { request, API_URL } from '@aeria-ui/web'
+import { t } from '@aeria-ui/i18n'
 import { useParentStore, getStoreId } from '@aeria-ui/state-management'
 import AeriaPicture from '../../aeria-picture/aeria-picture.vue'
 import AeriaButton from '../../aeria-button/aeria-button.vue'
@@ -16,12 +17,8 @@ type Props = FormFieldProps<any, Property & FileProperty> & {
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  (e:
-      | 'update:modelValue'
-      | 'update:content'
-      | 'change',
-   value: any
-  ): void
+  (e: 'update:content' | 'change', value: string | ArrayBuffer | null): void
+  (e: 'update:modelValue', value: File | null): void
 }>()
 
 const parentStoreId = getStoreId()
@@ -57,7 +54,7 @@ const insert = async (event: Event) => {
   const content = await readFile(file)
 
   if( store ) {
-    const { data: result } = await request(`${API_URL}/${store.$id}/upload?filename=${file.name}`, content, {
+    const { data: result } = await request(`${API_URL}/${store.$id}/upload?name=${file.name}`, content, {
       params: {
         method: 'POST',
         headers: {
@@ -68,6 +65,8 @@ const insert = async (event: Event) => {
     })
 
     emit('update:modelValue', result)
+  } else {
+    emit('update:modelValue', file)
   }
 
   emit('update:content', content)
@@ -113,7 +112,7 @@ const remove = async () => {
           small
           @click.prevent="clearPreview"
         >
-          Limpar
+          {{ t('action.clear', { capitalize: true }) }}
         </aeria-button>
       </div>
       <div
@@ -124,7 +123,7 @@ const remove = async () => {
           small
           @click.prevent="remove"
         >
-          Remover
+          {{ t('action.remove', { capitalize: true }) }}
         </aeria-button>
       </div>
     </div>

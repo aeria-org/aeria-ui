@@ -13,9 +13,7 @@ const overlay: Directive = {
       return
     }
 
-    const {
-      layer = 50
-    } = value
+    const { layer = 50 } = value
 
     if( !el.parentNode ) {
       throw new Error('make sure a parent node exists when casting v-overlay')
