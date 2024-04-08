@@ -65,6 +65,7 @@ value,
 
 <template>
   <label
+    v-clickable
     :class="`
     checkbox
     ${property.readOnly && 'checkbox--readOnly'}
@@ -80,10 +81,7 @@ value,
       class="checkbox__input"
     >
 
-    <div
-      v-clickable
-      class="checkbox__text"
-    >
+    <div class="checkbox__text">
       <div>
         <slot
           v-if="$slots.description"

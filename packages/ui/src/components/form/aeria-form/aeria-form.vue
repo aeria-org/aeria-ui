@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Property, Condition, BooleanProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import { onBeforeMount, ref, computed, provide, inject, isRef, type Ref } from 'vue'
+import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
 import { useBreakpoints, isDocumentComplete } from '@aeria-ui/web'
 import { useStore, getStoreId, STORE_ID } from '@aeria-ui/state-management'
@@ -74,9 +74,7 @@ const collectionName = refProperty
     : props.collection || getStoreId()
 
 const store = collectionName
-  ? useStore(isRef(collectionName)
-    ? collectionName.value
-    : collectionName)
+  ? useStore(unref(collectionName))
   : null
 
 if( !collectionName && process.env.NODE_ENV !== 'production' ) {

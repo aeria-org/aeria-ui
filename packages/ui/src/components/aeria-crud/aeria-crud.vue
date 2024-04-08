@@ -3,7 +3,7 @@ import type { ActionFilter, ActionEvent, Pagination, CollectionStore } from '@ae
 import type { Layout } from '@aeriajs/types'
 import type { Component } from 'vue'
 import type { RouteRecordNormalized } from 'vue-router'
-import { onUnmounted, ref, computed, provide, inject, watch, isRef, type Ref } from 'vue'
+import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { deepClone, getReferenceProperty } from '@aeriajs/common'
 import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/web'
@@ -82,9 +82,7 @@ watchStore(store, {
 const manager = getGlobalStateManager()
 
 const action = props.action
-  ? isRef(props.action)
-    ? props.action.value
-    : props.action
+  ? unref(props.action)
   : useAction(store, router, manager)
 
 call.value = action[0]

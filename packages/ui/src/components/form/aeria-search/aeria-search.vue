@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FormFieldProps, SearchProperty } from '../types'
 import { getReferenceProperty, convertConditionToQuery } from '@aeriajs/common'
-import { provide, computed, ref, watch, onMounted, isRef } from 'vue'
+import { provide, computed, ref, watch, onMounted, unref } from 'vue'
 import { useDebounce, type Pagination } from '@aeria-ui/web'
 import { useStore, useParentStore, getStoreId, STORE_ID, type Store } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
@@ -69,9 +69,7 @@ const inputValue = ref<Record<NonNullable<typeof indexes>[number], any>>({})
 const defaultFilters = () => {
   const subject: Record<string, Store> = {}
   if( parentStoreId ) {
-    const key = isRef(parentStoreId)
-      ? parentStoreId.value
-      : parentStoreId
+    const key = unref(parentStoreId)
     subject[key] = parentStore!
   }
 

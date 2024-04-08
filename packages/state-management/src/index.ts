@@ -1,7 +1,7 @@
 import type { I18nConfig } from '@aeria-ui/i18n'
 import {
   inject,
-  isRef,
+  unref,
   isReactive,
   reactive,
   computed,
@@ -85,9 +85,7 @@ export const useParentStore = (fallback?: string, manager?: GlobalStateManager) 
   }
 
   return useStore(
-    isRef(parentStoreId)
-      ? parentStoreId.value
-      : parentStoreId,
+    unref(parentStoreId),
     manager,
   )
 }
