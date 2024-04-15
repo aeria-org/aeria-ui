@@ -1,4 +1,5 @@
 .select {
+  --foreground-color: var(--select-foreground-color, var(--theme-foreground-color));
   --background-color: var(--select-background-color, var(--theme-background-color-shade-3));
   --border: var(--select-border, var(--theme-frame-border));
 
@@ -6,6 +7,7 @@
   align-items: center;
   border: 1px solid var(--border-color);
   border-radius: var(--theme-radius-medium);
+  color: var(--foreground-color);
   background: var(--background-color);
   gap: .4rem;
 

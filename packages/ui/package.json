@@ -22,7 +22,7 @@
     "access": "public"
   },
   "exports": {
-    ".": "./dist/ui.js",
+    ".": "./src/index.ts",
     "./themes/*": "./themes/*",
     "./*": "./dist/*"
   },
