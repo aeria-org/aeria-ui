@@ -2,7 +2,7 @@
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, inject, watch } from 'vue'
-import { useClipboard } from '@aeria-ui/web'
+import { useClipboard } from '@aeria-ui/core'
 
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'

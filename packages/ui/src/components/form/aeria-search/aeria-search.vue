@@ -2,7 +2,7 @@
 import type { FormFieldProps, SearchProperty } from '../types'
 import { getReferenceProperty, convertConditionToQuery } from '@aeriajs/common'
 import { provide, computed, ref, watch, onMounted, unref } from 'vue'
-import { useDebounce, type Pagination } from '@aeria-ui/web'
+import { useDebounce, type Pagination } from '@aeria-ui/core'
 import { useStore, useParentStore, getStoreId, STORE_ID, type Store } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 

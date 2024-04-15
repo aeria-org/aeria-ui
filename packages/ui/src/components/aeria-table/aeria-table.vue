@@ -2,7 +2,7 @@
 import type { Property, CollectionAction, TableLayout } from '@aeriajs/types'
 import { computed, type Ref } from 'vue'
 import { evaluateCondition, getReferenceProperty } from '@aeriajs/common'
-import { useBreakpoints } from '@aeria-ui/web'
+import { useBreakpoints } from '@aeria-ui/core'
 import { useStore, getStoreId } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 

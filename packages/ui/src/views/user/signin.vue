@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { STORAGE_NAMESPACE } from '@aeria-ui/web'
+import { STORAGE_NAMESPACE } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import { useRouter } from 'vue-router'
 import { isRight } from '@aeriajs/common'

@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "paths": {
-      "@aeria-ui/web": [
-        "../web/dist"
+      "@aeria-ui/core": [
+        "../core/dist"
       ],
       "@aeria-ui/state-management": [
         "../state-management/dist"
@@ -12,8 +12,8 @@
     }
   },
   "types": [
-    "../web/vue.d.ts",
-    "../web/@types/env.d.ts"
+    "../core/vue.d.ts",
+    "../core/@types/env.d.ts"
   ],
   "include": [
     "@types/*.d.ts",

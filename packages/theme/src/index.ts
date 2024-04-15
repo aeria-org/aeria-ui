@@ -1,5 +1,5 @@
 import type { Router, RouteRecordRaw } from 'vue-router'
-import { useBreakpoints, useNavbar, type MenuNode, type Route, type MenuSchema } from '@aeria-ui/web'
+import { useBreakpoints, useNavbar, type MenuNode, type Route, type MenuSchema } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager, type GlobalStateManager } from '@aeria-ui/state-management'
 import { reactive, inject, toRefs, onMounted } from 'vue'
 

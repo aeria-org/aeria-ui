@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useScrollObserver } from '@aeria-ui/web'
+import { useScrollObserver } from '@aeria-ui/core'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 // #region props

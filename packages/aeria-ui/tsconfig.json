@@ -14,8 +14,8 @@
       "@aeria-ui/ui": [
         "../ui/dist"
       ],
-      "@aeria-ui/web": [
-        "../web/dist"
+      "@aeria-ui/core": [
+        "../core/dist"
       ],
       "@aeria-ui/i18n": [
         "../i18n/dist"

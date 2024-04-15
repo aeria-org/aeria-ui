@@ -27,5 +27,5 @@ declare module 'vue-router/auto' {
 }
 
 var I18N: typeof import('@aeria-ui/i18n').I18nConfig
-var INSTANCE_VARS: import('aeria-ui-build').InstanceConfig['site']
+var INSTANCE_VARS: import('@aeria-ui/cli').InstanceConfig['site']
 

@@ -1,4 +1,4 @@
-import type { useAction, ActionEvent } from '@aeria-ui/web'
+import type { useAction, ActionEvent } from '@aeria-ui/core'
 import { ref } from 'vue'
 
 export const isInsertVisible = ref<boolean | string>(false)

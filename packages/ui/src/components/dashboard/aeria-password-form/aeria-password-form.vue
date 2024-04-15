@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePasswordPolicy } from '@aeria-ui/web'
+import { usePasswordPolicy } from '@aeria-ui/core'
 import { STORE_ID } from '@aeria-ui/state-management'
 import { computed, provide } from 'vue'
 import AeriaForm from '../../form/aeria-form/aeria-form.vue'

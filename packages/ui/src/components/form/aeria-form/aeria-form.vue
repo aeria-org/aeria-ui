@@ -3,7 +3,7 @@ import type { Property, Condition, BooleanProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
-import { useBreakpoints, isDocumentComplete } from '@aeria-ui/web'
+import { useBreakpoints, isDocumentComplete } from '@aeria-ui/core'
 import { useStore, getStoreId, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 

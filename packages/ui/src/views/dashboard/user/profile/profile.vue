@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@aeria-ui/state-management'
-import { STORAGE_NAMESPACE } from '@aeria-ui/web'
+import { STORAGE_NAMESPACE } from '@aeria-ui/core'
 
 import AeriaPanel from '../../../../components/aeria-panel/aeria-panel.vue'
 import AeriaForm from '../../../../components/form/aeria-form/aeria-form.vue'

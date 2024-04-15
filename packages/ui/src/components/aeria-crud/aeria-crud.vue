@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { ActionFilter, ActionEvent, Pagination, CollectionStore } from '@aeria-ui/web'
+import type { ActionFilter, ActionEvent, Pagination, CollectionStore } from '@aeria-ui/core'
 import type { Layout } from '@aeriajs/types'
 import type { Component } from 'vue'
 import type { RouteRecordNormalized } from 'vue-router'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { deepClone, getReferenceProperty } from '@aeriajs/common'
-import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/web'
+import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { API_URL } from '@aeria-ui/web'
+import { API_URL } from '@aeria-ui/core'
 
 type Props = {
   url?: string

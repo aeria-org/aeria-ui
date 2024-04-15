@@ -2,7 +2,7 @@
 import type { Property, FileProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, computed } from 'vue'
-import { request, API_URL } from '@aeria-ui/web'
+import { request, API_URL } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
 import { useParentStore, getStoreId } from '@aeria-ui/state-management'
 import AeriaPicture from '../../aeria-picture/aeria-picture.vue'

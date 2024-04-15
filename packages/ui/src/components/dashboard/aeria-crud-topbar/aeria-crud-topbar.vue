@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FiltersPreset } from '@aeriajs/types'
-import type { CollectionStore } from '@aeria-ui/web'
+import type { CollectionStore } from '@aeria-ui/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useParentStore } from '@aeria-ui/state-management'

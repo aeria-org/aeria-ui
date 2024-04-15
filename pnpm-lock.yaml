@@ -62,6 +62,12 @@ importers:
 
   packages/aeria-ui:
     devDependencies:
+      '@aeria-ui/cli':
+        specifier: ^0.0.0
+        version: link:../cli
+      '@aeria-ui/core':
+        specifier: ^0.0.24
+        version: link:../core
       '@aeria-ui/i18n':
         specifier: ^0.0.1
         version: link:../i18n
@@ -71,11 +77,8 @@ importers:
       '@aeria-ui/ui':
         specifier: ^0.0.31
         version: link:../ui
-      '@aeria-ui/web':
-        specifier: ^0.0.24
-        version: link:../web
 
-  packages/aeria-ui-build:
+  packages/cli:
     dependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.0.1
@@ -130,76 +133,7 @@ importers:
         specifier: '*'
         version: 3.4.21(typescript@5.4.2)
 
-  packages/i18n:
-    devDependencies:
-      '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
-
-  packages/state-management:
-    devDependencies:
-      vue:
-        specifier: '*'
-        version: 3.4.21(typescript@5.4.2)
-
-  packages/theme:
-    devDependencies:
-      '@aeria-ui/state-management':
-        specifier: ^0.0.9
-        version: link:../state-management
-      '@aeria-ui/web':
-        specifier: ^0.0.24
-        version: link:../web
-      '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
-      vue:
-        specifier: '*'
-        version: 3.4.21(typescript@5.4.2)
-      vue-router:
-        specifier: '*'
-        version: 4.3.0(vue@3.4.21)
-
-  packages/ui:
-    devDependencies:
-      '@aeria-ui/i18n':
-        specifier: ^0.0.1
-        version: link:../i18n
-      '@aeria-ui/state-management':
-        specifier: ^0.0.9
-        version: link:../state-management
-      '@aeria-ui/web':
-        specifier: ^0.0.24
-        version: link:../web
-      '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
-      '@aeriajs/types':
-        specifier: '*'
-        version: 0.0.19
-      '@vitejs/plugin-vue':
-        specifier: ^4.2.3
-        version: 4.6.2(vite@4.5.2)(vue@3.4.21)
-      aeria-ui-build:
-        specifier: ^0.0.8
-        version: link:../aeria-ui-build
-      vite:
-        specifier: ^4.4.8
-        version: 4.5.2(@types/node@20.5.1)
-      vite-plugin-dts:
-        specifier: ^3.3.0
-        version: 3.7.3(@types/node@20.5.1)(typescript@5.4.2)(vite@4.5.2)
-      vite-plugin-static-copy:
-        specifier: ^0.17.0
-        version: 0.17.1(vite@4.5.2)
-      vue-router:
-        specifier: '*'
-        version: 4.3.0(vue@3.4.21)
-      vue-tsc:
-        specifier: ^1.8.22
-        version: 1.8.27(typescript@5.4.2)
-
-  packages/web:
+  packages/core:
     dependencies:
       '@aeriajs/common':
         specifier: '*'
@@ -232,6 +166,75 @@ importers:
       vite:
         specifier: ^4.4.8
         version: 4.5.2(@types/node@20.11.28)
+
+  packages/i18n:
+    devDependencies:
+      '@aeriajs/common':
+        specifier: '*'
+        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
+
+  packages/state-management:
+    devDependencies:
+      vue:
+        specifier: '*'
+        version: 3.4.21(typescript@5.4.2)
+
+  packages/theme:
+    devDependencies:
+      '@aeria-ui/core':
+        specifier: ^0.0.24
+        version: link:../core
+      '@aeria-ui/state-management':
+        specifier: ^0.0.9
+        version: link:../state-management
+      '@aeriajs/common':
+        specifier: '*'
+        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
+      vue:
+        specifier: '*'
+        version: 3.4.21(typescript@5.4.2)
+      vue-router:
+        specifier: '*'
+        version: 4.3.0(vue@3.4.21)
+
+  packages/ui:
+    devDependencies:
+      '@aeria-ui/cli':
+        specifier: ^0.0.0
+        version: link:../cli
+      '@aeria-ui/core':
+        specifier: ^0.0.24
+        version: link:../core
+      '@aeria-ui/i18n':
+        specifier: ^0.0.1
+        version: link:../i18n
+      '@aeria-ui/state-management':
+        specifier: ^0.0.9
+        version: link:../state-management
+      '@aeriajs/common':
+        specifier: '*'
+        version: 0.0.20(@aeriajs/types@0.0.19)(bson@5.5.1)
+      '@aeriajs/types':
+        specifier: '*'
+        version: 0.0.19
+      '@vitejs/plugin-vue':
+        specifier: ^4.2.3
+        version: 4.6.2(vite@4.5.2)(vue@3.4.21)
+      vite:
+        specifier: ^4.4.8
+        version: 4.5.2(@types/node@20.5.1)
+      vite-plugin-dts:
+        specifier: ^3.3.0
+        version: 3.7.3(@types/node@20.5.1)(typescript@5.4.2)(vite@4.5.2)
+      vite-plugin-static-copy:
+        specifier: ^0.17.0
+        version: 0.17.1(vite@4.5.2)
+      vue-router:
+        specifier: '*'
+        version: 4.3.0(vue@3.4.21)
+      vue-tsc:
+        specifier: ^1.8.22
+        version: 1.8.27(typescript@5.4.2)
 
 packages:
 

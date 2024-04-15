@@ -1,4 +1,4 @@
-# @aeria-ui/web
+# @aeria-ui/core
 
 ## 0.0.24
 

@@ -1,5 +1,5 @@
 import type { FiltersPreset } from '@aeriajs/types'
-import type { CollectionStore } from '@aeria-ui/web'
+import type { CollectionStore } from '@aeria-ui/core'
 import { watch } from 'vue'
 import { useRouter } from 'vue-router'
 

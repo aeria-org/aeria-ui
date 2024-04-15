@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useBreakpoints } from '@aeria-ui/web'
+import { useBreakpoints } from '@aeria-ui/core'
 
 type Props = {
   where?:

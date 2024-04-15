@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { CollectionStore } from '@aeria-ui/web'
+import type { CollectionStore } from '@aeria-ui/core'
 import { useParentStore } from '@aeria-ui/state-management'
-import { convertToSearchQuery } from '@aeria-ui/web'
+import { convertToSearchQuery } from '@aeria-ui/core'
 import { useRouter } from 'vue-router'
 import AeriaPanel from '../../../../aeria-panel/aeria-panel.vue'
 import AeriaForm from '../../../../form/aeria-form/aeria-form.vue'

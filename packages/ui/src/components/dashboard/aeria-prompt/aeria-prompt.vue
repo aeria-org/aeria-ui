@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PromptAction } from '@aeria-ui/web'
+import type { PromptAction } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import AeriaPanel from '../../aeria-panel/aeria-panel.vue'
 import AeriaBareButton from '../../aeria-bare-button/aeria-bare-button.vue'

@@ -1,5 +1,5 @@
 declare module '@vue/runtime-core' {
-  import type { TemplateFunctions } from '@aeria-ui/web'
+  import type { TemplateFunctions } from '@aeria-ui/core'
 
   interface ComponentCustomProperties {
     formatDateTime: TemplateFunctions['formatDateTime']
@@ -8,7 +8,7 @@ declare module '@vue/runtime-core' {
     t: TemplateFunctions['t']
     viewTitle: string
     viewIcon: string
-    instanceVars: typeof import('aeria-ui-build').InstanceConfig['site']
+    instanceVars: typeof import('@aeria-ui/cli').InstanceConfig['site']
     currentUser: (Collections['user']['item'] extends infer UserCollection
       ? UserCollection extends (...args: any[]) => any
         ? ReturnType<UserCollection>

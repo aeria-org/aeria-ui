@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useScrollObserver } from '@aeria-ui/web'
+import { useScrollObserver } from '@aeria-ui/core'
 
 type Props = {
   observeScroll?: boolean

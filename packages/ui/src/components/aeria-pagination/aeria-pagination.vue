@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import { PAGINATION_PER_PAGE_DEFAULTS, type Pagination } from '@aeria-ui/web'
+import { PAGINATION_PER_PAGE_DEFAULTS, type Pagination } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
 
 import AeriaBareButton from '../aeria-bare-button/aeria-bare-button.vue'

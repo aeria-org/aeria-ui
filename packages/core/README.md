@@ -1,11 +1,11 @@
-# `@aeria-ui/web`
+# `@aeria-ui/core`
 
 ## Installation
 
 ```sh
-$ yarn add @aeria-ui/web
+$ yarn add @aeria-ui/core
 # or
-$ npm install @aeria-ui/web
+$ npm install @aeria-ui/core
 ```
 
 ## Usage
