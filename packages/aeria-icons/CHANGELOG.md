@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.5
+
+### Patch Changes
+
+- fb907bd: Rename packages
+
 ## 0.0.4
 
 ### Patch Changes

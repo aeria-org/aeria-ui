@@ -1,5 +1,13 @@
 # aeria-ui-build
 
+## 0.0.1
+
+### Patch Changes
+
+- fb907bd: Rename packages
+- Updated dependencies [fb907bd]
+  - aeria-icons@0.0.5
+
 ## 0.0.8
 
 ### Patch Changes

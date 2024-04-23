@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,10 +33,10 @@
   ],
   "devDependencies": {
     "@aeriajs/common": "*",
-    "@aeria-ui/cli": "^0.0.0",
-    "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/state-management": "^0.0.9",
-    "@aeria-ui/core": "^0.0.24",
+    "@aeria-ui/cli": "^0.0.1",
+    "@aeria-ui/i18n": "^0.0.2",
+    "@aeria-ui/state-management": "^0.0.10",
+    "@aeria-ui/core": "^0.0.25",
     "@aeriajs/types": "*",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.4.8",
@@ -47,9 +47,9 @@
   },
   "peerDependencies": {
     "@aeriajs/common": "*",
-    "@aeria-ui/state-management": "^0.0.9",
-    "@aeria-ui/i18n": "^0.0.1",
-    "@aeria-ui/core": "^0.0.24",
+    "@aeria-ui/state-management": "^0.0.10",
+    "@aeria-ui/i18n": "^0.0.2",
+    "@aeria-ui/core": "^0.0.25",
     "vue-router": "*"
   }
 }
