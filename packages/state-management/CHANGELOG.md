@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.10
+
+### Patch Changes
+
+- fb907bd: Rename packages
+
 ## 0.0.9
 
 ### Patch Changes

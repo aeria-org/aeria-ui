@@ -63,19 +63,19 @@ importers:
   packages/aeria-ui:
     devDependencies:
       '@aeria-ui/cli':
-        specifier: ^0.0.0
+        specifier: ^0.0.1
         version: link:../cli
       '@aeria-ui/core':
-        specifier: ^0.0.24
+        specifier: ^0.0.25
         version: link:../core
       '@aeria-ui/i18n':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.9
+        specifier: ^0.0.10
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.31
+        specifier: ^0.0.32
         version: link:../ui
 
   packages/cli:
@@ -152,10 +152,10 @@ importers:
         version: 4.3.0(vue@3.4.21)
     devDependencies:
       '@aeria-ui/i18n':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.9
+        specifier: ^0.0.10
         version: link:../state-management
       '@types/node':
         specifier: ^20.8.6
@@ -182,10 +182,10 @@ importers:
   packages/theme:
     devDependencies:
       '@aeria-ui/core':
-        specifier: ^0.0.24
+        specifier: ^0.0.25
         version: link:../core
       '@aeria-ui/state-management':
-        specifier: ^0.0.9
+        specifier: ^0.0.10
         version: link:../state-management
       '@aeriajs/common':
         specifier: '*'
@@ -200,16 +200,16 @@ importers:
   packages/ui:
     devDependencies:
       '@aeria-ui/cli':
-        specifier: ^0.0.0
+        specifier: ^0.0.1
         version: link:../cli
       '@aeria-ui/core':
-        specifier: ^0.0.24
+        specifier: ^0.0.25
         version: link:../core
       '@aeria-ui/i18n':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../i18n
       '@aeria-ui/state-management':
-        specifier: ^0.0.9
+        specifier: ^0.0.10
         version: link:../state-management
       '@aeriajs/common':
         specifier: '*'

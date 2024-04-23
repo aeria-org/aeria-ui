@@ -1,5 +1,14 @@
 # @aeria-ui/theme
 
+## 0.0.6
+
+### Patch Changes
+
+- fb907bd: Rename packages
+- Updated dependencies [fb907bd]
+  - @aeria-ui/core@0.0.25
+  - @aeria-ui/state-management@0.0.10
+
 ## 0.0.5
 
 ### Patch Changes
