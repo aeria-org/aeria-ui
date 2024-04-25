@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ../packages/cli/dist/cli.js -m serve"
+    "dev": "node ../packages/cli/dist/cli.js -m serve",
+    "build": "node ../packages/cli/dist/cli.js -m build"
   },
   "keywords": [],
   "author": "",

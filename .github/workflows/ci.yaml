@@ -65,6 +65,12 @@ jobs:
         with:
           path: packages/aeria-icons/app/dist
 
+      - name: Build playground
+        run: |
+          cd playground
+          pnpm install
+          pnpm build
+
   deploy:
     environment:
       name: github-pages
