@@ -11,13 +11,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@aeria-ui/cli": "file:../packages/cli",
+    "@aeria-ui/core": "file:../packages/core",
+    "@aeria-ui/i18n": "file:../packages/i18n",
+    "@aeria-ui/state-management": "file:../packages/state-management",
+    "@aeria-ui/ui": "file:../packages/ui",
+    "aeria-ui": "file:../packages/aeria-ui",
+    "playground": "link:"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "unplugin-vue-router": "^0.8.6"
-  },
-  "dependencies": {
-    "playground": "link:"
   }
 }

@@ -26,7 +26,14 @@ const animalStore = useStore('animal')
 
     <pre>{{ animalStore }}</pre>
 
-    <div class="tw-inline-flex">
+    <div class="
+      tw-inline-flex
+      tw-flex-col
+      tw-gap-2
+    ">
+      <aeria-input v-model="animalStore.specie">
+        Espécie
+      </aeria-input>
       <aeria-input v-model="animalStore.deep.dog.name">
         Nome cachorro
       </aeria-input>
