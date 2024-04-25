@@ -48,6 +48,13 @@ jobs:
         run: sed -i "1s/^/\/\/registry.npmjs.org\/:_authToken=${NPM_TOKEN}\n/" .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build playground
+        run: |
+          cd playground
+          pnpm install .
+          pnpm build
+
       - name: Create release PR
         uses: changesets/action@v1
         with:
@@ -64,12 +71,6 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: packages/aeria-icons/app/dist
-
-      - name: Build playground
-        run: |
-          cd playground
-          pnpm install .
-          pnpm build
 
   deploy:
     environment:

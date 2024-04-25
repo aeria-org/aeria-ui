@@ -33,7 +33,14 @@ export default defineConfig(async () => {
         safeList: iconsConfig.safeList,
         libraries: iconsConfig.libraries,
         async preEmit() {
-          const userIcons = await import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
+          const userIcons = await (async () => {
+            try {
+              return import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
+            } catch( err ) {
+              return []
+            }
+          })()
+
           const builtinsIcons = await import('@aeriajs/builtins-icons')
 
           userIcons.icons.forEach((icon: string) => {
