@@ -1,4 +1,5 @@
 import { registerStore } from 'aeria-ui'
+import { reactive } from 'vue'
 
 export const animal = registerStore(() => {
   const state = reactive({
