@@ -68,7 +68,7 @@ jobs:
       - name: Build playground
         run: |
           cd playground
-          pnpm install
+          pnpm install .
           pnpm build
 
   deploy:
