@@ -3,7 +3,11 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "@aeria-ui/ui/vue",
+      "unplugin-vue-router/client"
+    ]
   },
   "include": [
     "*.d.ts",
