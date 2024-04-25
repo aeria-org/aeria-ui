@@ -19,6 +19,9 @@ export default {
     ]
   },
   vite: {
+    // resolve: {
+    //   preserveSymlinks: true
+    // },
     plugins: [
       vueRouter({
         dts: './.aeria-ui/typed-router.d.ts'
