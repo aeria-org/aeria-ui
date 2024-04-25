@@ -35,7 +35,7 @@ export default defineConfig(async () => {
         async preEmit() {
           const userIcons = await (async () => {
             try {
-              return import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
+              return await import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
             } catch( err ) {
               return []
             }
