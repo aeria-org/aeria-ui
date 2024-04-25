@@ -19,28 +19,11 @@ export default {
     ]
   },
   vite: {
-    resolve: {
-      preserveSymlinks: true,
-      dedupe: [
-        '@aeria-ui/state-management',
-        '@aeria-ui/core',
-        '@aeria-ui/ui',
-        '@aeria-ui/i18n',
-        'aeria-sdk',
-        'vue-router',
-      ],
-    },
     plugins: [
       vueRouter({
         dts: './.aeria-ui/typed-router.d.ts'
       })
     ],
-    optimizeDeps: {
-      exclude: [
-        '@aeria-ui/state-management',
-        '@aeria-ui/i18n',
-        'vue-router',
-      ]
-    }
   },
 }
+

@@ -11,8 +11,6 @@ import { STORAGE_NAMESPACE } from './constants.js'
 import { bootstrapRoutes } from './bootstrap.js'
 import registerDirectives from './directives/index.js'
 
-export type * from './templateFunctions.js'
-
 export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const options = typeof optionsFn === 'function'
     ? await optionsFn()
