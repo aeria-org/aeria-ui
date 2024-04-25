@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.33
+
+### Patch Changes
+
+- c83804f: Fix exports
+
 ## 0.0.32
 
 ### Patch Changes
