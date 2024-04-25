@@ -1,1 +1,1 @@
-export * from './animal'
+export * from './animal.js'

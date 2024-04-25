@@ -1,0 +1,15 @@
+@import '@aeria-ui/ui/themes/light.less';
+@import '@aeria-ui/ui/themes/dark.less';
+@import '@aeria-ui/ui/themes/animate.less';
+
+@brand-color: #e97451;
+
+main {
+  .animate();
+  .light-theme(@brand-color, #fff);
+}
+
+main.main--dark {
+  .dark-theme(darken(@brand-color, 15%), #000);
+}
+

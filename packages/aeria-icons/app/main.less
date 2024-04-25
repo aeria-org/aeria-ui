@@ -1,6 +1,6 @@
 body, html {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -9,22 +9,22 @@ body {
 
 .topstrip {
   position: sticky;
+  z-index: 90;
   top: 0;
   left: 0;
-  height: 6rem;
 
   display: flex;
-  gap: 2rem;
+  height: 6rem;
   align-items: center;
+  padding: 0 2rem;
   background: #fff;
   box-shadow: 0 2px 16px #ddd;
-  padding: 0 2rem;
-  z-index: 90;
+  gap: 2rem;
 }
 
 .logo {
-  font-size: 1.2rem;
   margin-right: auto;
+  font-size: 1.2rem;
 }
 
 .styles,
@@ -34,8 +34,8 @@ body {
 
 .styles > div,
 .categories > div {
-  border: 1px solid red;
   padding: 1rem;
+  border: 1px solid red;
   cursor: pointer;
 }
 
@@ -48,10 +48,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  outline: 1px solid #f2f2f2;
   padding: 1rem;
   background: #fff;
+  gap: 1rem;
+  outline: 1px solid #f2f2f2;
 }
 
 .icon-info {

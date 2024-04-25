@@ -5,7 +5,7 @@ import { API_URL, STORAGE_NAMESPACE } from './constants.js'
 
 export const request = <Return = any>(url: string, payload?: any, requestConfig?: RequestConfig) => {
   const config: InstanceConfig = {
-    apiUrl: API_URL,
+    publicUrl: API_URL,
     storage: {
       strategy: 'localStorage',
       namespace: STORAGE_NAMESPACE,

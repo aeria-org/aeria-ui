@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const animalStore = STORES.animal
+const animalStore = useStore('animal')
 </script>
 
 <template>

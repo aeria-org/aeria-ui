@@ -5,14 +5,25 @@ const animalStore = useStore('animal')
 </script>
 
 <template>
-  <button @click="animalStore.$functions.get">Action!</button>
-  <button @click="animalStore.$actions.getAll">Function!</button>
-  <button @click="animalStore.$actions.insert({ what: { name: 'thor', specie: 'dog' } })">Insert</button>
-  <button @click="animalStore.$actions.inc">Inc</button>
-  <button @click="animalStore.$actions.bobby">Thor Bobby</button>
+  <main
+    id="main"
+    class="main main--default"
+  >
+    <div class="
+      tw-flex
+      tw-gap-2
+    ">
+      <aeria-button @click="animalStore.$actions.inc">Inc</aeria-button>
+      <aeria-button @click="animalStore.$actions.bobby">Thor Bobby</aeria-button>
+    </div>
 
-  <component-a></component-a>
-  <component-b></component-b>
+    <component-a></component-a>
+    <component-b></component-b>
 
-  <pre>{{ animalStore }}</pre>
+    <pre>{{ animalStore }}</pre>
+
+    <aeria-input v-model="animalStore.deep.dog.name">
+      Nome cachorro
+    </aeria-input>
+  </main>
 </template>

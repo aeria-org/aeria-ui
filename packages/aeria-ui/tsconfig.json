@@ -11,6 +11,9 @@
       "vite/client"
     ],
     "paths": {
+      "@aeria-ui/cli": [
+        "../cli/dist"
+      ],
       "@aeria-ui/ui": [
         "../ui/dist"
       ],

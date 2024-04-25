@@ -1,8 +1,19 @@
-import { createApp } from 'vue'
-import { animal as registerAnimalStore } from './stores'
+import { useApp, defineOptions } from 'aeria-ui'
+import { animal as registerAnimalStore } from './stores/index.js'
 import Main from './main.vue'
 
-registerAnimalStore()
+import '../../packages/ui/dist/style.css'
+import './style/main.css'
+import './style/main.less'
 
-const app = createApp(Main)
-app.mount('#app')
+const options = defineOptions({
+  component: Main,
+  setup: ({ context }) => {
+    registerAnimalStore(context)
+  }
+})
+
+useApp(options).then(({ mount }) => {
+  mount()
+})
+

@@ -1,34 +1,31 @@
-import { registerStore, createCollectionStore } from 'aeria-ui'
-import { computed } from 'vue'
+import { registerStore } from 'aeria-ui'
 
-type Animal = {
-  name: string
-  owner: boolean
-}
-
-export const animal = () => registerStore(() => {
-  return createCollectionStore<Animal>()({
-    $id: 'animal',
-    state: {
-      num: 0,
-      specie: '',
-      deep: {
-        dog: {
-          name: 'thor',
-        },
+export const animal = registerStore(() => {
+  const state = reactive({
+    num: 0,
+    specie: '',
+    deep: {
+      dog: {
+        name: 'thor',
       },
     },
-    getters: (state) => ({
-      computedName: computed(() => `doguinho: ${state.deep.dog.name}`),
-    }),
-    actions: (state) => ({
-      inc() {
+  })
+  const store = {
+    $id: 'animal',
+    state,
+    getters: {
+      computedName: () => `sr ${state.deep.dog.name}`
+    },
+    actions: {
+      inc: () => {
         state.num += 1
       },
-      bobby() {
+      bobby: () => {
         state.deep.dog.name = 'thor bobby'
       },
-    }),
-  })
+    }
+  }
+
+  return store
 })
 
