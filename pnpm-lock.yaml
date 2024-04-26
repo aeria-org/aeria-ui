@@ -70,7 +70,7 @@ importers:
         version: link:../core
       '@aeria-ui/i18n':
         specifier: ^0.0.2
-        version: link:../i18n
+        version: 0.0.2(@aeriajs/common@0.0.37)
       '@aeria-ui/state-management':
         specifier: ^0.0.10
         version: link:../state-management
@@ -153,7 +153,7 @@ importers:
     devDependencies:
       '@aeria-ui/i18n':
         specifier: ^0.0.2
-        version: link:../i18n
+        version: 0.0.2(@aeriajs/common@0.0.37)
       '@aeria-ui/state-management':
         specifier: ^0.0.10
         version: link:../state-management
@@ -166,12 +166,6 @@ importers:
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.12.7)
-
-  packages/i18n:
-    devDependencies:
-      '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
 
   packages/state-management:
     devDependencies:
@@ -207,7 +201,7 @@ importers:
         version: link:../core
       '@aeria-ui/i18n':
         specifier: ^0.0.2
-        version: link:../i18n
+        version: 0.0.2(@aeriajs/common@0.0.37)
       '@aeria-ui/state-management':
         specifier: ^0.0.10
         version: link:../state-management
@@ -241,6 +235,14 @@ packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /@aeria-ui/i18n@0.0.2(@aeriajs/common@0.0.37):
+    resolution: {integrity: sha512-yDDqXPrxA5vCaVib7PRRP/6nTCC16RKLHKQKxk4cEVaiLe9Xq5SWv5k7p1N1XEZwDQSC0sLCoB/d3x8rdUceKA==}
+    peerDependencies:
+      '@aeriajs/common': '*'
+    dependencies:
+      '@aeriajs/common': 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
     dev: true
 
   /@aeriajs/builtins-icons@0.0.4:
