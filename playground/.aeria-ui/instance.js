@@ -20,7 +20,7 @@ export default {
   },
   vite: {
     // resolve: {
-    //   preserveSymlinks: true
+    //   preserveSymlinks: true,
     // },
     plugins: [
       vueRouter({
