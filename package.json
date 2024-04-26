@@ -4,7 +4,7 @@
   "packageManager": "pnpm@8.7.6",
   "scripts": {
     "preinstall": "unlink node_modules/@aeria-ui || true",
-    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui; ln -s $(realpath packages/) node_modules/@aeria-ui"
+    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",

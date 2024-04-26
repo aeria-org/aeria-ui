@@ -53,6 +53,7 @@ jobs:
         run: |
           cd playground
           pnpm install .
+          pnpm postinstall
           pnpm build
 
       - name: Create release PR
