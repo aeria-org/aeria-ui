@@ -38,7 +38,7 @@ export default defineConfig(async () => {
               return await import(process.cwd() + '/../api/node_modules/.aeria/icons.mjs')
             } catch( err ) {
               return {
-                icons: []
+                icons: [],
               }
             }
           })()
