@@ -75,7 +75,7 @@ importers:
         specifier: ^0.0.10
         version: link:../state-management
       '@aeria-ui/ui':
-        specifier: ^0.0.33
+        specifier: ^0.0.34
         version: link:../ui
 
   packages/cli:
