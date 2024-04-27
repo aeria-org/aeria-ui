@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo skipping",
+    "postinstall": "node ../packages/core/dist/__scripts__/postinstall.js",
     "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },

@@ -4,7 +4,7 @@
   "packageManager": "pnpm@9.0.6",
   "scripts": {
     "preinstall": "unlink node_modules/@aeria-ui || true",
-    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui; rm -rf playground/.aeria-ui; if test -d .aeria-ui; then mv .aeria-ui playground; fi"
+    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui"
   },
   "devDependencies": {
     "@aeria-ui/cli": "link:./packages/cli",
