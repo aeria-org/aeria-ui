@@ -3,6 +3,7 @@ import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, inject, watch } from 'vue'
 import { useClipboard } from '@aeria-ui/core'
+import { maskText } from '../../utils'
 
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
@@ -31,7 +32,8 @@ type InputBind = {
 }
 
 type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProperty)> & {
-  variant?: InputVariant
+  variant?: InputVariant,
+  mask?: string
 }
 
 const props = defineProps<Props>()
@@ -157,6 +159,7 @@ const updateValue = (value: InputType) => {
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
   inputValue.value = value!
+
   updateValue(value)
 }
 
@@ -164,12 +167,13 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( value instanceof Date ) {
     return
   }
-
   if( oldValue && !value ) {
     inputValue.value = undefined
   } else if( value && oldValue === undefined ) {
     inputValue.value = value
   }
+
+  inputValue.value = maskText(value as string, props.mask as string)
 })
 </script>
 
@@ -208,7 +212,6 @@ watch(() => props.modelValue, (value, oldValue) => {
           input__textarea
           input__input--${variant}
         `"
-
         @input="onInput"
       />
     </div>
@@ -225,7 +228,7 @@ watch(() => props.modelValue, (value, oldValue) => {
         v-bind="inputBind"
         :value="inputValue"
         data-component="input"
-
+        
         :class="`
           input__input
           input__input--${variant}
