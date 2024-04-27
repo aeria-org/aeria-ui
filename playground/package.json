@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo skipping",
-    "postinstall": "node ../packages/core/dist/__scripts__/postinstall.js",
+    "postinstall": "cat ../packages/core/dist/__scripts__/postinstall.ts | ts-node",
     "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },

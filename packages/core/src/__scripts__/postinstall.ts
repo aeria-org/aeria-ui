@@ -72,9 +72,7 @@ const install = async () => {
     return
   }
 
-  const aeriaDir = name === 'aeria-ui-monorepo'
-    ? path.join(base, 'playground' ,'.aeria-ui')
-    : path.join(base, '.aeria-ui')
+  const aeriaDir = path.join(base, '.aeria-ui')
 
   if( !fs.existsSync(aeriaDir) ) {
     await fs.promises.mkdir(aeriaDir)
