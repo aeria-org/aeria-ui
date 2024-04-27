@@ -16,12 +16,10 @@ function* getMaskIndexes(mask: string) {
 class Mask {
     private readonly maskInfos
     private defaultMask: typeof this.maskInfos[number]
-    private biggestLength
 
     constructor(mask: string[]) {
         this.maskInfos = mask.map(m => [...getMaskIndexes(m)]).sort((a, b) => a.length - b.length)
         this.defaultMask = this.maskInfos[0]
-        this.biggestLength = this.maskInfos[this.maskInfos.length - 1].length
     }
 
     public mask = (text: string, newMask?: typeof this.maskInfos[number]): string => {
@@ -29,10 +27,15 @@ class Mask {
             return text
         }
         let result = ""
-        const currentMask = newMask ? newMask : this.defaultMask
-        for (let maskCharIndex = 0, nonMaskIndex = 0; result.length <= this.biggestLength; maskCharIndex++) {
+        let currentMask
+        if (newMask){
+            currentMask = newMask
+        } else {
+            this.defaultMask = currentMask = this.maskInfos.find(mask => mask.filter(el => el.type).length >= text.length) ?? this.defaultMask
+        }
+        for (let maskCharIndex = 0, nonMaskIndex = 0; nonMaskIndex < text.length; maskCharIndex++) {
             const { char, type } = currentMask[maskCharIndex] ?? {}
-            
+
             //If the char doens't have any type then it's a required char
             if (nonMaskIndex < text.length && !type && char !== text[maskCharIndex]) {
                 result += char
@@ -40,45 +43,27 @@ class Mask {
             }
 
             if (maskCharIndex >= currentMask.length) {
-                //!newmask = If the mask was changed to fit another better one, cancel any new change
-                //If the text is bigger than the current mask, search if there's any bigger mask on maskInfos
-                if (!newMask && this.biggestLength !== currentMask.length && maskCharIndex == this.biggestLength - 1) {
-                    const biggerMask = this.maskInfos.find(mask => mask.length > maskCharIndex)
-                    if (biggerMask) {
-                        const biggerMaskResult = this.mask(text, biggerMask)
-                        if(biggerMaskResult.length >= result.length)
-                        {
-                            //If the new mask result doens't have any conflicts with this one, assign it to the default and return it
-                            this.defaultMask = biggerMask
-                            return biggerMaskResult
-                        }
-                    }
-                }
-                //If there's not any bigger masks, stop there
+                //If the current character exceeds the limit of the current mask, stop here
                 break
             }
             if ((!text[nonMaskIndex]?.match(type!) && text.length >= nonMaskIndex)) {
-                //Same logics here but with character matching
+                //!newmask = If the mask was changed to fit another better one, cancel any new change
                 //If the current character doens't match the current mask, search if there's another mask that matches it on it's same index
                 if (!newMask && text[nonMaskIndex]) {
                     const matchingMask = this.maskInfos.find(mask => text[nonMaskIndex].match(mask[maskCharIndex]?.type!))
                     if (matchingMask) {
                         const matchingMaskResult = this.mask(text, matchingMask)
-                        if(matchingMaskResult.length >= result.length)
-                        {
+                        if (matchingMaskResult.length >= result.length) {
                             this.defaultMask = matchingMask
                             return matchingMaskResult
                         }
                     }
                 }
-
+                //If another mask that matches the current char was not found, stop there
                 break
             }
-
-
             result += text[nonMaskIndex]
             nonMaskIndex++
-
         }
 
         return result
