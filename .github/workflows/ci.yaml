@@ -51,10 +51,7 @@ jobs:
 
       - name: Build playground
         run: |
-          cd playground
-          pnpm install .
-          pnpm postinstall
-          pnpm build
+          pnpm --filter=playground build
 
       - name: Create release PR
         uses: changesets/action@v1
