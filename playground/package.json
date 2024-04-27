@@ -1,12 +1,12 @@
 {
   "name": "playground",
-  "version": "1.0.0",
   "type": "module",
+  "private": true,
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo skipping",
-    "postinstall": "cat ../packages/core/dist/__scripts__/postinstall.ts | ts-node",
+    "postinstall": "cat ../packages/core/src/__scripts__/postinstall.ts | ts-node --skip-project",
     "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },
