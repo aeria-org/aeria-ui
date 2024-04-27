@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Property, FileProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
+import { isLeft } from '@aeriajs/common'
 import { ref, computed } from 'vue'
 import { request, API_URL } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
@@ -34,7 +35,7 @@ const preview = computed(() =>
     : props.modelValue?.link)
 
 const isImage = computed(() =>
-  (/^image\//.test(props.modelValue?.mime) && !fileRef.value?.type)
+  (/^image\//.test(props.modelValue?.type) && !fileRef.value?.type)
     || /^image\//.test(fileRef.value?.type!))
 
 const readFile = (file: File) => new Promise<string | ArrayBuffer | null>((resolve) => {
@@ -64,7 +65,12 @@ const insert = async (event: Event) => {
       },
     })
 
+    if( isLeft(result) ) {
+      return
+    }
+
     emit('update:modelValue', result)
+
   } else {
     emit('update:modelValue', file)
   }
