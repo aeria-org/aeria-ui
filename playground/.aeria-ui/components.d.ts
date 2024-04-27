@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AeriaButton: typeof import('@aeria-ui/ui')['AeriaButton']
     AeriaInput: typeof import('@aeria-ui/ui')['AeriaInput']
-    AeriaMain: typeof import('@aeria-ui/ui')['AeriaMain']
     ComponentA: typeof import('./../src/components/component-a.vue')['default']
     ComponentB: typeof import('./../src/components/component-b.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
