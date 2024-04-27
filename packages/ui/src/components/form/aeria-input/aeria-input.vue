@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import { ref, inject, watch } from 'vue'
+import { ref, inject, watch, onMounted } from 'vue'
 import { useClipboard } from '@aeria-ui/core'
-import { maskText } from '../../utils'
+import { Mask } from '../../utils'
 
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
@@ -33,7 +33,8 @@ type InputBind = {
 
 type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProperty)> & {
   variant?: InputVariant,
-  mask?: string
+  mask?: string[]
+  maskedValue?: false
 }
 
 const props = defineProps<Props>()
@@ -52,6 +53,12 @@ const emit = defineEmits<{
 }>()
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
+var componentMask: Mask
+
+onMounted(() => {
+  if(props.mask)
+    componentMask = new Mask(props.mask as string[])
+})
 
 const inputBind: InputBind = {
   name: props.propertyName,
@@ -122,7 +129,13 @@ const getDatetimeString = () => {
     return ''
   }
 }
-
+const maskInput = () => {
+  if(componentMask)
+  {
+    inputValue.value = componentMask.mask(componentMask.unmask(inputValue.value as string))
+    return props.maskedValue ? inputValue.value : componentMask.unmask(inputValue.value as string)
+  } 
+}
 const inputValue = ref([
   'date',
   'date-time',
@@ -133,6 +146,7 @@ const inputValue = ref([
       : props.modelValue)
 
 const updateValue = (value: InputType) => {
+  value = maskInput()
   const newVal = (() => {
     if( inputBind.type === 'number' || inputBind.type === 'integer' ) {
       return Number(value)
@@ -148,7 +162,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return value
+      default: return value 
     }
   })()
 
@@ -159,7 +173,6 @@ const updateValue = (value: InputType) => {
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
   inputValue.value = value!
-
   updateValue(value)
 }
 
@@ -172,8 +185,6 @@ watch(() => props.modelValue, (value, oldValue) => {
   } else if( value && oldValue === undefined ) {
     inputValue.value = value
   }
-
-  inputValue.value = maskText(value as string, props.mask as string)
 })
 </script>
 

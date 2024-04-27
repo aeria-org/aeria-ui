@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useStore } from 'aeria-ui'
+import {watch} from 'vue'
 
 const animalStore = useStore('animal')
+watch(() => animalStore.specie, (value, oldValue) => {
+  console.log(value)
+})
 </script>
 
 <template>
@@ -31,7 +35,7 @@ const animalStore = useStore('animal')
       tw-flex-col
       tw-gap-2
     ">
-      <aeria-input v-model="animalStore.specie">
+      <aeria-input :maskedValue="false" :mask="['(##) ####-####', '@@@@@-####']" v-model="animalStore.specie">
         Espécie
       </aeria-input>
       <aeria-input v-model="animalStore.deep.dog.name">
