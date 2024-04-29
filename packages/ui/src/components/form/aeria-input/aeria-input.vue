@@ -28,13 +28,13 @@ type InputBind = {
   max?: number
   minlength?: number
   maxlength?: number
-  readonly?: boolean
+  readonly?: boolean,
+  mask?: string[],
+  maskedValue?: boolean
 }
 
 type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProperty)> & {
   variant?: InputVariant,
-  mask?: string[]
-  maskedValue?: false
 }
 
 const props = defineProps<Props>()
@@ -53,13 +53,7 @@ const emit = defineEmits<{
 }>()
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
-let componentMask: Mask
 
-onMounted(() => {
-  if(props.mask) {
-componentMask = new Mask(props.mask)
-}
-})
 
 const inputBind: InputBind = {
   name: props.propertyName,
@@ -130,12 +124,11 @@ const getDatetimeString = () => {
     return ''
   }
 }
-const maskInput = () => {
-  //eslint-disable-next-line
-  if(componentMask) {
+const componentMask: Mask | null = props.property?.type === 'string' && props.property.mask ? new Mask(props.property.mask as string[]) : null
+const computeString = () => {
+  if(props.property?.type === 'string' && componentMask !== null) {
     inputValue.value = componentMask.mask(componentMask.unmask(inputValue.value as string))
-    //eslint-disable-next-line
-    return props.maskedValue
+    return props.property?.maskedValue === true
             ? inputValue.value
             : componentMask.unmask(inputValue.value)
   }
@@ -156,7 +149,7 @@ const updateValue = (value: InputType) => {
     }
 
     if( !('type' in property && property.type === 'string') ) {
-      return maskInput()
+      return computeString()
     }
 
     switch( property.format ) {
@@ -165,7 +158,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return maskInput()
+      default: return computeString()
     }
   })()
 
