@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.3
+
+### Patch Changes
+
+- d1f9f59: Release packages
+
 ## 0.0.2
 
 ### Patch Changes

@@ -53,11 +53,12 @@ const emit = defineEmits<{
 }>()
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
-var componentMask: Mask
+let componentMask: Mask
 
 onMounted(() => {
-  if(props.mask)
-    componentMask = new Mask(props.mask as string[])
+  if(props.mask) {
+componentMask = new Mask(props.mask)
+}
 })
 
 const inputBind: InputBind = {
@@ -130,11 +131,14 @@ const getDatetimeString = () => {
   }
 }
 const maskInput = () => {
-  if(componentMask)
-  {
+  //eslint-disable-next-line
+  if(componentMask) {
     inputValue.value = componentMask.mask(componentMask.unmask(inputValue.value as string))
-    return props.maskedValue ? inputValue.value : componentMask.unmask(inputValue.value as string)
-  } 
+    //eslint-disable-next-line
+    return props.maskedValue
+            ? inputValue.value
+            : componentMask.unmask(inputValue.value)
+  }
 }
 const inputValue = ref([
   'date',
@@ -161,7 +165,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return maskInput() 
+      default: return maskInput()
     }
   })()
 
@@ -238,7 +242,7 @@ watch(() => props.modelValue, (value, oldValue) => {
         v-bind="inputBind"
         :value="inputValue"
         data-component="input"
-        
+
         :class="`
           input__input
           input__input--${variant}

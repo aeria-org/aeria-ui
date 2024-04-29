@@ -1,5 +1,17 @@
 # aeria-ui
 
+## 0.0.37
+
+### Patch Changes
+
+- d1f9f59: Release packages
+- Updated dependencies [d1f9f59]
+  - @aeria-ui/cli@0.0.2
+  - @aeria-ui/core@0.0.26
+  - @aeria-ui/i18n@0.0.3
+  - @aeria-ui/state-management@0.0.11
+  - @aeria-ui/ui@0.0.35
+
 ## 0.0.36
 
 ### Patch Changes
