@@ -146,14 +146,13 @@ const inputValue = ref([
       : props.modelValue)
 
 const updateValue = (value: InputType) => {
-  value = maskInput()
   const newVal = (() => {
     if( inputBind.type === 'number' || inputBind.type === 'integer' ) {
       return Number(value)
     }
 
     if( !('type' in property && property.type === 'string') ) {
-      return value
+      return maskInput()
     }
 
     switch( property.format ) {
@@ -162,7 +161,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return value 
+      default: return maskInput() 
     }
   })()
 
