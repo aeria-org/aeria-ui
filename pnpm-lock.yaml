@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@aeriajs/common':
+        specifier: 0.0.39
+        version: 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
+      '@aeriajs/types':
+        specifier: 0.0.36
+        version: 0.0.36
     devDependencies:
       '@aeria-ui/cli':
         specifier: link:./packages/cli
@@ -40,10 +47,10 @@ importers:
         version: 8.57.0
       eslint-config-aeria:
         specifier: latest
-        version: 0.0.28(@stylistic/eslint-plugin@1.7.2)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)
+        version: 0.0.28(@stylistic/eslint-plugin@1.8.0)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)
       eslint-config-aeriaui:
         specifier: latest
-        version: 0.0.10(@aeriajs/common@0.0.37)(@eslint/eslintrc@3.0.2)(eslint-config-aeria@0.0.28)(eslint-plugin-vue@9.25.0)
+        version: 0.0.10(@aeriajs/common@0.0.39)(@eslint/eslintrc@3.0.2)(eslint-config-aeria@0.0.28)(eslint-plugin-vue@9.25.0)
       husky:
         specifier: ^9.0.10
         version: 9.0.11
@@ -154,11 +161,11 @@ importers:
   packages/core:
     dependencies:
       '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
+        specifier: ^0.0.39
+        version: 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
       '@aeriajs/types':
-        specifier: '*'
-        version: 0.0.34
+        specifier: ^0.0.36
+        version: 0.0.36
       vue:
         specifier: ^3.4.15
         version: 3.4.26(typescript@5.4.5)
@@ -179,8 +186,8 @@ importers:
         specifier: ^20.8.6
         version: 20.12.7
       aeria-sdk:
-        specifier: ~0.0.48
-        version: 0.0.61(@aeriajs/common@0.0.37)(@aeriajs/types@0.0.34)
+        specifier: ^0.0.62
+        version: 0.0.62(@aeriajs/common@0.0.39)(@aeriajs/types@0.0.36)
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.12.7)
@@ -230,11 +237,11 @@ importers:
         specifier: link:../state-management
         version: link:../state-management
       '@aeriajs/common':
-        specifier: '*'
-        version: 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
+        specifier: ^0.0.39
+        version: 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
       '@aeriajs/types':
-        specifier: '*'
-        version: 0.0.34
+        specifier: ^0.0.36
+        version: 0.0.36
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.3)(vue@3.4.26)
@@ -256,9 +263,12 @@ importers:
 
   playground:
     dependencies:
+      '@aeriajs/common':
+        specifier: 0.0.39
+        version: 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
       '@aeriajs/types':
-        specifier: 0.0.35
-        version: 0.0.35
+        specifier: 0.0.36
+        version: 0.0.36
       playground:
         specifier: 'link:'
         version: 'link:'
@@ -290,13 +300,23 @@ packages:
     dependencies:
       '@aeriajs/types': 0.0.34
       bson: 6.6.0
+    dev: true
+
+  /@aeriajs/common@0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0):
+    resolution: {integrity: sha512-jysV3isCzvvK0oxG6YncO3qEgUDxJ4pytesggCAJhRxFTJArTpTjd4kEm9TslN2+aBFi1OUlJ5PVgffBBSNqxg==}
+    peerDependencies:
+      '@aeriajs/types': ^0.0.36
+      bson: ^6.5.0
+    dependencies:
+      '@aeriajs/types': 0.0.36
+      bson: 6.6.0
 
   /@aeriajs/types@0.0.34:
     resolution: {integrity: sha512-4huP2OQ3hwfidktyD53lbrHvvSs6J3aRgM27WocT9/x593wL2TXUgT8f3O6SgGp2IWuTlyxyN70/R9noF2mbEg==}
+    dev: true
 
-  /@aeriajs/types@0.0.35:
-    resolution: {integrity: sha512-VZNMRH3fQDgprW0dj9COhsKQXweI34avOTHi23ep+3fkOXAJITMQbZ2Rqze1sopjMd9CPd7cNwkcLM5runXD+g==}
-    dev: false
+  /@aeriajs/types@0.0.36:
+    resolution: {integrity: sha512-t/tNo5JutzqJDmk3WhsmcjZQQtPPKClq/bLn5f9/MDxvqPUU1jrFb+mW1Mct1g+V48h5YMcrqlshZcje5yggXg==}
 
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1538,8 +1558,8 @@ packages:
       - '@types/node'
     dev: true
 
-  /@stylistic/eslint-plugin-js@1.7.2(eslint@8.57.0):
-    resolution: {integrity: sha512-ZYX7C5p7zlHbACwFLU+lISVh6tdcRP/++PWegh2Sy0UgMT5kU0XkPa2tKWEtJYzZmPhJxu9LxbnWcnE/tTwSDQ==}
+  /@stylistic/eslint-plugin-js@1.8.0(eslint@8.57.0):
+    resolution: {integrity: sha512-jdvnzt+pZPg8TfclZlTZPiUbbima93ylvQ+wNgHLNmup3obY6heQvgewSu9i2CfS61BnRByv+F9fxQLPoNeHag==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -1552,21 +1572,21 @@ packages:
       espree: 9.6.1
     dev: true
 
-  /@stylistic/eslint-plugin-jsx@1.7.2(eslint@8.57.0):
-    resolution: {integrity: sha512-lNZR5PR0HLJPs+kY0y8fy6KroKlYqA5PwsYWpVYWzqZWiL5jgAeUo4s9yLFYjJjzildJ5MsTVMy/xP81Qz6GXg==}
+  /@stylistic/eslint-plugin-jsx@1.8.0(eslint@8.57.0):
+    resolution: {integrity: sha512-PC7tYXipF03TTilGJva1amAham7qOAFXT5r5jLTY6iIxkFqyb6H7Ljx5pv8d7n98VyIVidOEKY/AP8vNzAFNKg==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: '>=8.40.0'
     dependencies:
-      '@stylistic/eslint-plugin-js': 1.7.2(eslint@8.57.0)
+      '@stylistic/eslint-plugin-js': 1.8.0(eslint@8.57.0)
       '@types/eslint': 8.56.10
       eslint: 8.57.0
       estraverse: 5.3.0
       picomatch: 4.0.2
     dev: true
 
-  /@stylistic/eslint-plugin-plus@1.7.2(eslint@8.57.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-luUfRVbBVtt0+/FNt8/76BANJEzb/nHWasHD7UUjyMrch2U9xUKpObrkTCzqBuisKek+uFupwGjqXqDP07+fQw==}
+  /@stylistic/eslint-plugin-plus@1.8.0(eslint@8.57.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-TkrjzzYmTuAaLvFwtxomsgMUD8g8PREOQOQzTfKmiJ6oc4XOyFW4q/L9ES1J3UFSLybNCwbhu36lhXJut1w2Sg==}
     peerDependencies:
       eslint: '*'
     dependencies:
@@ -1578,13 +1598,13 @@ packages:
       - typescript
     dev: true
 
-  /@stylistic/eslint-plugin-ts@1.7.2(eslint@8.57.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-szX89YPocwCe4T0eT3alj7MwEzDHt5+B+kb/vQfSSLIjI9CGgoWrgj50zU8PtaDctTh4ZieFBzU/lRmkSUo0RQ==}
+  /@stylistic/eslint-plugin-ts@1.8.0(eslint@8.57.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-WuCIhz4JEHxzhAWjrBASMGj6Or1wAjDqTsRIck3DRRrw/FJ8C/8AAuHPk8ECHNSDI5PZ0OT72nF2uSUn0aQq1w==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: '>=8.40.0'
     dependencies:
-      '@stylistic/eslint-plugin-js': 1.7.2(eslint@8.57.0)
+      '@stylistic/eslint-plugin-js': 1.8.0(eslint@8.57.0)
       '@types/eslint': 8.56.10
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
@@ -1593,16 +1613,16 @@ packages:
       - typescript
     dev: true
 
-  /@stylistic/eslint-plugin@1.7.2(eslint@8.57.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-TesaPR4AOCeD4unwu9gZCdTe8SsUpykriICuwXV8GFBgESuVbfVp+S8g6xTWe9ntVR803bNMtnr2UhxHW0iFqg==}
+  /@stylistic/eslint-plugin@1.8.0(eslint@8.57.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-JRR0lCDU97AiE0X6qTc/uf8Hv0yETUdyJgoNzTLUIWdhVJVe/KGPnFmEsO1iXfNUIS6vhv3JJ5vaZ2qtXhZe1g==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: '>=8.40.0'
     dependencies:
-      '@stylistic/eslint-plugin-js': 1.7.2(eslint@8.57.0)
-      '@stylistic/eslint-plugin-jsx': 1.7.2(eslint@8.57.0)
-      '@stylistic/eslint-plugin-plus': 1.7.2(eslint@8.57.0)(typescript@5.4.5)
-      '@stylistic/eslint-plugin-ts': 1.7.2(eslint@8.57.0)(typescript@5.4.5)
+      '@stylistic/eslint-plugin-js': 1.8.0(eslint@8.57.0)
+      '@stylistic/eslint-plugin-jsx': 1.8.0(eslint@8.57.0)
+      '@stylistic/eslint-plugin-plus': 1.8.0(eslint@8.57.0)(typescript@5.4.5)
+      '@stylistic/eslint-plugin-ts': 1.8.0(eslint@8.57.0)(typescript@5.4.5)
       '@types/eslint': 8.56.10
       eslint: 8.57.0
     transitivePeerDependencies:
@@ -1988,15 +2008,15 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /aeria-sdk@0.0.61(@aeriajs/common@0.0.37)(@aeriajs/types@0.0.34):
-    resolution: {integrity: sha512-5+gW8eKsIkBEtD89svm7pqDXzCi8UM0RCpfW3Ulv1rwMr6EIFJ76O5U1R1ImPRUl3wJqhSx9Y3p+baOXuQaXLg==}
+  /aeria-sdk@0.0.62(@aeriajs/common@0.0.39)(@aeriajs/types@0.0.36):
+    resolution: {integrity: sha512-ZCCa4lCoIrrnqlbNAjbE94YTIE5n3XHKSYepFRgcRZzWK7IEcpKxo7Gw1o6FQtkdJjszBGb73iSS6uS2fUNQSw==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.38
-      '@aeriajs/types': ^0.0.35
+      '@aeriajs/common': ^0.0.39
+      '@aeriajs/types': ^0.0.36
     dependencies:
-      '@aeriajs/common': 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
-      '@aeriajs/types': 0.0.34
+      '@aeriajs/common': 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
+      '@aeriajs/types': 0.0.36
     dev: true
 
   /ajv@6.12.6:
@@ -2895,19 +2915,19 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /eslint-config-aeria@0.0.28(@stylistic/eslint-plugin@1.7.2)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0):
+  /eslint-config-aeria@0.0.28(@stylistic/eslint-plugin@1.8.0)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0):
     resolution: {integrity: sha512-dOunAgFqH5AH3mob6f32pWVG4F6tVdL8r/CJXgMOAbYn3OwFnb9QmkplnAPlK4vevJwbAOAaOv4+sY/95aaiXw==}
     peerDependencies:
       '@stylistic/eslint-plugin': ^1.5.1
       '@typescript-eslint/eslint-plugin': ^6.16.0
       '@typescript-eslint/parser': ^6.21.0
     dependencies:
-      '@stylistic/eslint-plugin': 1.7.2(eslint@8.57.0)(typescript@5.4.5)
+      '@stylistic/eslint-plugin': 1.8.0(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
     dev: true
 
-  /eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.37)(@eslint/eslintrc@3.0.2)(eslint-config-aeria@0.0.28)(eslint-plugin-vue@9.25.0):
+  /eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.39)(@eslint/eslintrc@3.0.2)(eslint-config-aeria@0.0.28)(eslint-plugin-vue@9.25.0):
     resolution: {integrity: sha512-smEPowJQoBhjqSbXHDlGNkhu1TNQeiAA/u9Z8jRLbAAnuiCOLfsi7fXyuuSpdH/ImoUXwaekcWrKOdcPU1X6wQ==}
     peerDependencies:
       '@aeriajs/common': '*'
@@ -2915,9 +2935,9 @@ packages:
       eslint-config-aeria: '*'
       eslint-plugin-vue: ^9.22.0
     dependencies:
-      '@aeriajs/common': 0.0.37(@aeriajs/types@0.0.34)(bson@6.6.0)
+      '@aeriajs/common': 0.0.39(@aeriajs/types@0.0.36)(bson@6.6.0)
       '@eslint/eslintrc': 3.0.2
-      eslint-config-aeria: 0.0.28(@stylistic/eslint-plugin@1.7.2)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)
+      eslint-config-aeria: 0.0.28(@stylistic/eslint-plugin@1.8.0)(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)
       eslint-plugin-vue: 9.25.0(eslint@8.57.0)
     dev: true
 

@@ -54,7 +54,6 @@ const emit = defineEmits<{
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
 
-
 const inputBind: InputBind = {
   name: props.propertyName,
   readonly: readOnly,
@@ -124,11 +123,13 @@ const getDatetimeString = () => {
     return ''
   }
 }
-const componentMask: Mask | null = props.property?.type === 'string' && props.property.mask ? new Mask(props.property.mask as string[]) : null
+const componentMask: Mask | null = props.property?.type === 'string' && props.property.mask
+? new Mask(props.property.mask as string[])
+: null
 const computeString = () => {
   if(props.property?.type === 'string' && componentMask !== null) {
     inputValue.value = componentMask.mask(componentMask.unmask(inputValue.value as string))
-    return props.property?.maskedValue === true
+    return props.property.maskedValue === true
             ? inputValue.value
             : componentMask.unmask(inputValue.value)
   }

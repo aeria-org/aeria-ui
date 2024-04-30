@@ -35,10 +35,12 @@ watch(() => animalStore.specie, (value, oldValue) => {
       tw-flex-col
       tw-gap-2
     ">
-      <aeria-input :maskedValue="true" 
+      <aeria-input
       :property="{
         type: 'string',
-      }" :mask="['###.###.###-##', '###.###.###/####-##']" v-model="animalStore.specie">
+        mask: ['###.###.###-##', '###.###.###/####-##'],
+        maskedValue: true
+      }" v-model="animalStore.specie">
         Espécie
       </aeria-input>
       <aeria-input v-model="animalStore.deep.dog.name">
