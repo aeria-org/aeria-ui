@@ -32,24 +32,24 @@
     "vue.d.ts"
   ],
   "devDependencies": {
-    "@aeriajs/common": "*",
+    "@aeriajs/common": "^0.0.39",
     "@aeria-ui/cli": "link:../cli",
     "@aeria-ui/i18n": "link:../i18n",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/core": "link:../core",
-    "@aeriajs/types": "*",
+    "@aeriajs/types": "^0.0.36",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.4.8",
     "vite-plugin-dts": "^3.3.0",
     "vite-plugin-static-copy": "^0.17.0",
-    "vue-router": "*",
+    "vue-router": "^4.3.2",
     "vue-tsc": "^1.8.22"
   },
   "peerDependencies": {
-    "@aeriajs/common": "*",
+    "@aeriajs/common": "^0.0.39",
     "@aeria-ui/state-management": "^0.0.10",
     "@aeria-ui/i18n": "^0.0.2",
     "@aeria-ui/core": "^0.0.25",
-    "vue-router": "*"
+    "vue-router": "^4.3.2"
   }
 }

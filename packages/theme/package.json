@@ -26,17 +26,17 @@
     "dist"
   ],
   "devDependencies": {
-    "@aeriajs/common": "*",
+    "@aeriajs/common": "^0.0.39",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/core": "link:../core",
-    "vue": "*",
-    "vue-router": "*"
+    "vue": "^3.4.26",
+    "vue-router": "^4.3.2"
   },
   "peerDependencies": {
-    "@aeriajs/common": "*",
+    "@aeriajs/common": "^0.0.39",
     "@aeria-ui/state-management": "^0.0.10",
     "@aeria-ui/core": "^0.0.25",
-    "vue": "*",
-    "vue-router": "*"
+    "vue": "^3.4.26",
+    "vue-router": "^4.3.2"
   }
 }
