@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import { ref, inject, watch, onMounted } from 'vue'
-import { useClipboard } from '@aeria-ui/core'
-import { Mask } from '../../utils'
-
+import { ref, inject, watch } from 'vue'
+import { useClipboard, useMask } from '@aeria-ui/core'
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
 
@@ -123,12 +121,12 @@ const getDatetimeString = () => {
     return ''
   }
 }
-const componentMask: Mask | null = props.property?.type === 'string' && props.property.mask
-? new Mask(props.property.mask as string[])
+const componentMask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
+? useMask(props.property.mask as string[])
 : null
 const computeString = () => {
   if(props.property?.type === 'string' && componentMask !== null) {
-    inputValue.value = componentMask.mask(componentMask.unmask(inputValue.value as string))
+    inputValue.value = componentMask.enmask(componentMask.unmask(inputValue.value as string))
     return props.property.maskedValue === true
             ? inputValue.value
             : componentMask.unmask(inputValue.value)
