@@ -78,7 +78,7 @@ export const packTogether = async (icons: string[]) => {
 
     try {
       const newPath = path.join(
-        fileURLToPath(await import.meta.resolve!('@phosphor-icons/core')),
+        fileURLToPath(import.meta.resolve('@phosphor-icons/core')),
         '..',
         '..',
         'assets',
