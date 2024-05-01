@@ -37,23 +37,23 @@
     "unplugin-auto-import": "^0.15.3",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^5.0.12",
-    "aeria-icons": "*"
+    "aeria-icons": "^0.0.5"
   },
   "devDependencies": {
-    "@aeriajs/builtins-icons": "*",
-    "@aeriajs/common": "*",
-    "@aeriajs/types": "*",
+    "@aeriajs/builtins-icons": "^0.0.4",
+    "@aeriajs/common": "^0.0.39",
+    "@aeriajs/types": "^0.0.36",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^20.8.6",
-    "bson": "*",
-    "vue": "*"
+    "bson": "^6.6.0",
+    "vue": "^3.4.26"
   },
   "peerDependencies": {
-    "@aeriajs/builtins-icons": "*",
-    "@aeriajs/common": "*",
-    "@aeriajs/types": "*",
-    "bson": "*",
-    "vue": "*"
+    "@aeriajs/builtins-icons": "^0.0.4",
+    "@aeriajs/common": "^0.0.39",
+    "@aeriajs/types": "^0.0.36",
+    "bson": "^6.6.0",
+    "vue": "^3.4.26"
   }
 }
