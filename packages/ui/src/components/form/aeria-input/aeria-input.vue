@@ -2,8 +2,7 @@
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, inject, watch } from 'vue'
-import { useClipboard } from '@aeria-ui/core'
-
+import { useClipboard, useMask } from '@aeria-ui/core'
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
 
@@ -27,11 +26,13 @@ type InputBind = {
   max?: number
   minlength?: number
   maxlength?: number
-  readonly?: boolean
+  readonly?: boolean,
+  mask?: string[],
+  maskedValue?: boolean
 }
 
 type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProperty)> & {
-  variant?: InputVariant
+  variant?: InputVariant,
 }
 
 const props = defineProps<Props>()
@@ -120,7 +121,17 @@ const getDatetimeString = () => {
     return ''
   }
 }
-
+const componentMask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
+? useMask(props.property.mask as string[])
+: null
+const computeString = () => {
+  if(props.property?.type === 'string' && componentMask !== null) {
+    inputValue.value = componentMask.enmask(componentMask.unmask(inputValue.value as string))
+    return props.property.maskedValue === true
+            ? inputValue.value
+            : componentMask.unmask(inputValue.value)
+  }
+}
 const inputValue = ref([
   'date',
   'date-time',
@@ -137,7 +148,7 @@ const updateValue = (value: InputType) => {
     }
 
     if( !('type' in property && property.type === 'string') ) {
-      return value
+      return computeString()
     }
 
     switch( property.format ) {
@@ -146,7 +157,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return value
+      default: return computeString()
     }
   })()
 
@@ -164,7 +175,6 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( value instanceof Date ) {
     return
   }
-
   if( oldValue && !value ) {
     inputValue.value = undefined
   } else if( value && oldValue === undefined ) {
@@ -208,7 +218,6 @@ watch(() => props.modelValue, (value, oldValue) => {
           input__textarea
           input__input--${variant}
         `"
-
         @input="onInput"
       />
     </div>
