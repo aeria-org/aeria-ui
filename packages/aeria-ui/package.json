@@ -1,7 +1,7 @@
 {
   "name": "aeria-ui",
   "type": "module",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,10 +29,10 @@
     "@aeria-ui/ui": "link:../ui"
   },
   "peerDependencies": {
-    "@aeria-ui/cli": "^0.0.1",
-    "@aeria-ui/core": "^0.0.25",
-    "@aeria-ui/i18n": "^0.0.2",
-    "@aeria-ui/state-management": "^0.0.10",
-    "@aeria-ui/ui": "^0.0.34"
+    "@aeria-ui/cli": "^0.0.2",
+    "@aeria-ui/core": "^0.0.26",
+    "@aeria-ui/i18n": "^0.0.3",
+    "@aeria-ui/state-management": "^0.0.11",
+    "@aeria-ui/ui": "^0.0.35"
   }
 }

@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.2
+
+### Patch Changes
+
+- d1f9f59: Release packages
+
 ## 0.0.1
 
 ### Patch Changes
