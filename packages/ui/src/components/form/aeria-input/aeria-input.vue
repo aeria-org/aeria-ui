@@ -27,7 +27,7 @@ type InputBind = {
   minlength?: number
   maxlength?: number
   readonly?: boolean,
-  mask?: string[],
+  mask?: string | string[],
   maskedValue?: boolean
 }
 
@@ -124,13 +124,14 @@ const getDatetimeString = () => {
 const componentMask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
 ? useMask(props.property.mask as string[])
 : null
-const computeString = () => {
+const computeString = (value: string) => {
   if(props.property?.type === 'string' && componentMask !== null) {
     inputValue.value = componentMask.enmask(componentMask.unmask(inputValue.value as string))
     return props.property.maskedValue === true
             ? inputValue.value
             : componentMask.unmask(inputValue.value)
   }
+  return value
 }
 const inputValue = ref([
   'date',
@@ -148,7 +149,7 @@ const updateValue = (value: InputType) => {
     }
 
     if( !('type' in property && property.type === 'string') ) {
-      return computeString()
+      return computeString(value as string)
     }
 
     switch( property.format ) {
@@ -157,7 +158,7 @@ const updateValue = (value: InputType) => {
         return new Date(value as string)
       }
 
-      default: return computeString()
+      default: return computeString(value as string)
     }
   })()
 
