@@ -7,7 +7,7 @@ const MaskType = {
 function* getMaskIndexes(mask: string) {
   for (const char of mask) {
     yield {
-      char: char,
+      char,
       type: <RegExp | undefined>MaskType[char as keyof (typeof MaskType)],
     }
   }
