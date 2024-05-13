@@ -178,8 +178,8 @@ watch(() => props.modelValue, (value, oldValue) => {
   }
   if( oldValue && !value ) {
     inputValue.value = undefined
-  } else if( value && oldValue === undefined ) {
-    inputValue.value = value
+  } else {
+    inputValue.value = value as string
   }
 })
 </script>
