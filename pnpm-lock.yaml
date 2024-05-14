@@ -179,8 +179,8 @@ importers:
         specifier: ^20.8.6
         version: 20.12.11
       aeria-sdk:
-        specifier: ^0.0.62
-        version: 0.0.62(@aeriajs/common@0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0))(@aeriajs/types@0.0.40)
+        specifier: ^0.0.66
+        version: 0.0.66(@aeriajs/common@0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0))(@aeriajs/types@0.0.40)
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.12.11)(less@4.2.0)
@@ -1184,12 +1184,12 @@ packages:
       glob: '*'
       vite: '*'
 
-  aeria-sdk@0.0.62:
-    resolution: {integrity: sha512-ZCCa4lCoIrrnqlbNAjbE94YTIE5n3XHKSYepFRgcRZzWK7IEcpKxo7Gw1o6FQtkdJjszBGb73iSS6uS2fUNQSw==}
+  aeria-sdk@0.0.66:
+    resolution: {integrity: sha512-LFLsfNpdVUwWFWDIGJvTjdHfl9pF3IDdW1xTNfA8HJEkLkoVHrR1jXDrQHfDp7AiIn1q4gB90ENQIMLWCDtFvw==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.39
-      '@aeriajs/types': ^0.0.36
+      '@aeriajs/common': ^0.0.43
+      '@aeriajs/types': ^0.0.40
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -4439,7 +4439,7 @@ snapshots:
       glob: 10.3.15
       vite: 5.2.11(@types/node@20.12.11)(less@4.2.0)
 
-  aeria-sdk@0.0.62(@aeriajs/common@0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0))(@aeriajs/types@0.0.40):
+  aeria-sdk@0.0.66(@aeriajs/common@0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0))(@aeriajs/types@0.0.40):
     dependencies:
       '@aeriajs/common': 0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0)
       '@aeriajs/types': 0.0.40
