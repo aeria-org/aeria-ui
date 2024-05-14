@@ -4,6 +4,18 @@
 
 ### Patch Changes
 
+- c5b1138: Added mask in the property of the input component
+- f8f96ed: Bump dependencies
+- Updated dependencies [c5b1138]
+- Updated dependencies [f8f96ed]
+  - @aeria-ui/core@0.0.26
+  - @aeria-ui/i18n@0.0.4
+  - @aeria-ui/state-management@0.0.12
+
+## 0.0.35
+
+### Patch Changes
+
 - d1f9f59: Release packages
 - Updated dependencies [d1f9f59]
   - @aeria-ui/core@0.0.26

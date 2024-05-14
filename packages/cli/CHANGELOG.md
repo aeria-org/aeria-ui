@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.3
+
+### Patch Changes
+
+- f8f96ed: Bump dependencies
+
 ## 0.0.2
 
 ### Patch Changes
