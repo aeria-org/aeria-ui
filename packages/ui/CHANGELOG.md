@@ -1,5 +1,38 @@
 # @aeria-ui/ui
 
+## 0.0.38
+
+### Patch Changes
+
+- Updated dependencies [8f31b75]
+  - @aeria-ui/core@0.0.28
+
+## 0.0.37
+
+### Patch Changes
+
+- 42ad094: Update dependencies
+
+## 0.0.36
+
+### Patch Changes
+
+- Updated dependencies [be3b19a]
+  - @aeria-ui/i18n@0.0.5
+  - @aeria-ui/core@0.0.27
+
+## 0.0.35
+
+### Patch Changes
+
+- c5b1138: Added mask in the property of the input component
+- f8f96ed: Bump dependencies
+- Updated dependencies [c5b1138]
+- Updated dependencies [f8f96ed]
+  - @aeria-ui/core@0.0.26
+  - @aeria-ui/i18n@0.0.4
+  - @aeria-ui/state-management@0.0.12
+
 ## 0.0.35
 
 ### Patch Changes

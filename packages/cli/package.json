@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/cli",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -51,8 +51,8 @@
   },
   "peerDependencies": {
     "@aeriajs/builtins-icons": "^0.0.4",
-    "@aeriajs/common": "^0.0.39",
-    "@aeriajs/types": "^0.0.36",
+    "@aeriajs/common": "^0.0.43",
+    "@aeriajs/types": "^0.0.40",
     "bson": "^6.6.0",
     "vue": "^3.4.26"
   }

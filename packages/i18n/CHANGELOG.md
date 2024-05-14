@@ -1,5 +1,17 @@
 # @aeria-ui/i18n
 
+## 0.0.5
+
+### Patch Changes
+
+- be3b19a: Update dependencies
+
+## 0.0.4
+
+### Patch Changes
+
+- f8f96ed: Bump dependencies
+
 ## 0.0.3
 
 ### Patch Changes
