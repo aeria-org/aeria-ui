@@ -35,7 +35,7 @@
   "peerDependencies": {
     "@aeria-ui/core": "^0.0.26",
     "@aeria-ui/state-management": "^0.0.12",
-    "@aeriajs/common": "^0.0.39",
+    "@aeriajs/common": "^0.0.43",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
   }
