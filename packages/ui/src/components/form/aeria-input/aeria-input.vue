@@ -27,7 +27,7 @@ type InputBind = {
   minlength?: number
   maxlength?: number
   readonly?: boolean,
-  mask?: string | string[]
+  mask?: string | readonly string[]
   maskedValue?: boolean
 }
 
@@ -117,21 +117,9 @@ const getDatetimeString = () => {
       ? new Date(props.modelValue).toISOString().split('T').shift()
       : ''
     return date
-  } catch( e ) {
+  } catch( err ) {
     return ''
   }
-}
-const componentMask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
-? useMask(props.property.mask as string[])
-: null
-const computeString = (value: string) => {
-  if(props.property?.type === 'string' && componentMask !== null) {
-    inputValue.value = componentMask.enmask(componentMask.unmask(inputValue.value as string))
-    return props.property.maskedValue === true
-            ? inputValue.value
-            : componentMask.unmask(inputValue.value)
-  }
-  return value
 }
 const inputValue = ref([
   'date',
@@ -142,23 +130,40 @@ const inputValue = ref([
       ? ''
       : props.modelValue)
 
+const mask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
+  ? useMask(props.property.mask)
+  : null
+
+const computeString = (value: string) => {
+  if( typeof inputValue.value === 'string' && props.property?.type === 'string' && mask !== null ) {
+    inputValue.value = mask.enmask(mask.unmask(inputValue.value))
+    return props.property.maskedValue === true
+      ? inputValue.value
+      : mask.unmask(inputValue.value)
+  }
+  return value
+}
+
 const updateValue = (value: InputType) => {
   const newVal = (() => {
+    if( !value || typeof value !== 'string' ) {
+      return value
+    }
     if( inputBind.type === 'number' || inputBind.type === 'integer' ) {
       return Number(value)
     }
 
     if( !('type' in property && property.type === 'string') ) {
-      return computeString(value as string)
+      return computeString(value)
     }
 
     switch( property.format ) {
       case 'date':
       case 'date-time': {
-        return new Date(value as string)
+        return new Date(value)
       }
 
-      default: return computeString(value as string)
+      default: return computeString(value)
     }
   })()
 

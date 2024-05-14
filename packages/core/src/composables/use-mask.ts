@@ -13,10 +13,11 @@ function* getMaskIndexes(mask: string) {
   }
 }
 
-export const useMask = (mask: string | string[]) => {
-  const maskInfos = Array.isArray(mask)
-    ? mask.map((m) => [...getMaskIndexes(m)]).sort((a, b) => a.length - b.length)
-    : [[...getMaskIndexes(mask)]]
+export const useMask = (mask: string | readonly string[]) => {
+  const maskInfos = typeof mask === 'string'
+    ? [[...getMaskIndexes(mask)]]
+    : mask.map((m) => [...getMaskIndexes(m)]).sort((a, b) => a.length - b.length)
+
   let defaultMask = maskInfos[0]
 
   const enmask = (text: string, newMask?: typeof defaultMask): string => {
