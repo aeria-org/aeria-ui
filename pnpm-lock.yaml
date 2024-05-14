@@ -255,6 +255,10 @@ importers:
         version: 2.0.17(typescript@5.4.5)
 
   playground:
+    dependencies:
+      playground:
+        specifier: 'link:'
+        version: 'link:'
     devDependencies:
       autoprefixer:
         specifier: ^10.4.19
