@@ -4,7 +4,7 @@ import type { FormFieldProps } from '../types'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
 import { useBreakpoints, isDocumentComplete } from '@aeria-ui/core'
-import { useStore, getStoreId, STORE_ID } from '@aeria-ui/state-management'
+import { useStore, getStoreId, STORE_ID, getGlobalStateManager } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
@@ -13,6 +13,8 @@ import AeriaSelect from '../aeria-select/aeria-select.vue'
 import AeriaInput from '../aeria-input/aeria-input.vue'
 
 import { getComponent, pushToArray, spliceFromArray } from './_internals/helpers.js'
+
+const stateManager = getGlobalStateManager()
 
 type LayoutConfig = {
   span?: string
@@ -423,7 +425,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
               "
               @click.prevent="
                 if(!modelValue[fieldPropertyName]) modelValue[fieldPropertyName] = [];
-                pushToArray(modelValue[fieldPropertyName], fieldProperty)
+                pushToArray(modelValue[fieldPropertyName], fieldProperty, stateManager)
               "
             >
               {{ t('action.add', { capitalize: true }) }}
