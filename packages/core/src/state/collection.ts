@@ -1,4 +1,4 @@
-import type { Description, Layout, LayoutName, PackReferences, PropertyValidationError } from '@aeriajs/types'
+import type { Description, Layout, PackReferences, PropertyValidationError } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, type UnwrapGetters, type StoreContext } from '@aeria-ui/state-management'
 import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
@@ -307,7 +307,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
         options: {},
       })),
 
-      $currentLayout: computed(() => state.currentLayout || (description.value.layout?.name || 'tabular') as LayoutName),
+      $currentLayout: computed(() => state.currentLayout || (description.value.layout?.name || 'tabular')),
 
       tableProperties: computed(() => {
         const preferredProperties = state.preferredTableProperties.length > 0

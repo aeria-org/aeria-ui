@@ -27,7 +27,7 @@ type InputBind = {
   minlength?: number
   maxlength?: number
   readonly?: boolean,
-  mask?: string | string[],
+  mask?: string | string[]
   maskedValue?: boolean
 }
 
@@ -179,7 +179,7 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( oldValue && !value ) {
     inputValue.value = undefined
   } else {
-    inputValue.value = value as string
+    inputValue.value = String(value)
   }
 })
 </script>

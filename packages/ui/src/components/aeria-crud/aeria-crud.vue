@@ -439,7 +439,7 @@ provide('individualActions', individualActions)
         <!-- <aeria-icon icon="gear"></aeria-icon> -->
         <template
           v-for="(actionProps, index) in actionButtons"
-          :key="actionProps.name"
+          :key="actionProps.label"
           #[`action-${index}`]
         >
           <aeria-icon
@@ -449,7 +449,7 @@ provide('individualActions', individualActions)
 
             @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
           >
-            {{ t(actionProps.name, { capitalize: true }) }}
+            {{ t(actionProps.label, { capitalize: true }) }}
           </aeria-icon>
         </template>
       </aeria-context-menu>
@@ -475,7 +475,7 @@ provide('individualActions', individualActions)
 
         @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
       >
-        {{ t(actionProps.name, { capitalize: true }) }}
+        {{ t(actionProps.label, { capitalize: true }) }}
       </aeria-button>
 
       <slot

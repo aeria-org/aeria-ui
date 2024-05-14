@@ -287,7 +287,7 @@ const buttonStyle = (subject: any, action: any) => {
               :style="buttonStyle(row, action)"
               @click="action.click(row)"
             >
-              {{ t(action.name) }}
+              {{ t(action.label) }}
             </aeria-button>
 
             <aeria-context-menu
@@ -325,7 +325,7 @@ const buttonStyle = (subject: any, action: any) => {
               @click="action.click(row)"
             >
               <aeria-icon :icon="action.icon || 'gear'">
-                {{ t(action.name) }}
+                {{ t(action.label) }}
               </aeria-icon>
             </aeria-bare-button>
 

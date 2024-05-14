@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useStore } from 'aeria-ui'
-import {watch} from 'vue'
+import {watch, reactive} from 'vue'
+
+const state = reactive({
+  ceps: []
+})
 
 const animalStore = useStore('animal')
 watch(() => animalStore.specie, (value, oldValue) => {
@@ -47,6 +51,23 @@ watch(() => animalStore.specie, (value, oldValue) => {
         Nome cachorro
       </aeria-input>
     </div>
+
+    <aeria-form
+        v-model="state"
+        :property="{
+          type: 'object',
+          properties: {
+          ceps: {
+            type: 'array',
+            items: {
+            type: 'string',
+            mask: '##-#'
+            }
+          }
+          }
+        }"
+      >
+    </aeria-form>
   </main>
 </template>
 
