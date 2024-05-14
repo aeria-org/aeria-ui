@@ -12,7 +12,7 @@ import AeriaButton from '../../aeria-button/aeria-button.vue'
 import AeriaSelect from '../aeria-select/aeria-select.vue'
 import AeriaInput from '../aeria-input/aeria-input.vue'
 
-import { getComponent, pushToArray, spliceFromArray } from './_internals/helpers'
+import { getComponent, pushToArray, spliceFromArray } from './_internals/helpers.js'
 
 type LayoutConfig = {
   span?: string
@@ -410,6 +410,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
           style="display: grid; row-gap: .4rem"
         >
           <div>
+            <pre>{{ modelValue }}</pre>
             <aeria-button
               small
               variant="alt"

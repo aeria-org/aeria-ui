@@ -26,8 +26,8 @@ type InputBind = {
   max?: number
   minlength?: number
   maxlength?: number
-  readonly?: boolean,
-  mask?: string[],
+  readonly?: boolean
+  mask?: string[]
   maskedValue?: boolean
 }
 
@@ -175,11 +175,7 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( value instanceof Date ) {
     return
   }
-  if( oldValue && !value ) {
-    inputValue.value = undefined
-  } else if( value && oldValue === undefined ) {
-    inputValue.value = value
-  }
+  inputValue.value = value ||  undefined
 })
 </script>
 

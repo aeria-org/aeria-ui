@@ -1,7 +1,7 @@
 {
   "name": "aeria-ui-monorepo",
   "private": true,
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "preinstall": "unlink node_modules/@aeria-ui || true",
     "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui"
@@ -17,7 +17,7 @@
     "@commitlint/config-conventional": "^17.7.0",
     "aeria-ui": "link:./packages/aeria-ui",
     "eslint": "^8.57.0",
-    "eslint-config-aeria": "latest",
+    "eslint-config-aeria": "^0.0.29",
     "eslint-config-aeriaui": "latest",
     "husky": "^9.0.10",
     "postcss-less": "^6.0.0",
