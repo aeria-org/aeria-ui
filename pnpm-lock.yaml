@@ -230,11 +230,11 @@ importers:
         specifier: link:../state-management
         version: link:../state-management
       '@aeriajs/common':
-        specifier: ^0.0.39
-        version: 0.0.39(@aeriajs/types@0.0.36)(bson@6.7.0)
+        specifier: ^0.0.43
+        version: 0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0)
       '@aeriajs/types':
-        specifier: ^0.0.36
-        version: 0.0.36
+        specifier: ^0.0.40
+        version: 0.0.40
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.3(@types/node@20.12.11)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
@@ -274,20 +274,11 @@ packages:
   '@aeriajs/builtins-icons@0.0.7':
     resolution: {integrity: sha512-RgwcS7X79/cjkRr3pr1H8f3MQ1BjR9kEB3BLiFh/IpyalNBAnQa2dQsbJn4gMIt82w0RqREHLO8FuV467Vh0+g==}
 
-  '@aeriajs/common@0.0.39':
-    resolution: {integrity: sha512-jysV3isCzvvK0oxG6YncO3qEgUDxJ4pytesggCAJhRxFTJArTpTjd4kEm9TslN2+aBFi1OUlJ5PVgffBBSNqxg==}
-    peerDependencies:
-      '@aeriajs/types': ^0.0.36
-      bson: ^6.5.0
-
   '@aeriajs/common@0.0.43':
     resolution: {integrity: sha512-UGXFsn2pRdfOXG1T5rr5f6CPWjcwixKAf0CPAvMm85bh/6hryF04LXReGgKbjmJhHLgHmrtRSlK6TPcAD17KPA==}
     peerDependencies:
       '@aeriajs/types': ^0.0.40
       bson: ^6.5.0
-
-  '@aeriajs/types@0.0.36':
-    resolution: {integrity: sha512-t/tNo5JutzqJDmk3WhsmcjZQQtPPKClq/bLn5f9/MDxvqPUU1jrFb+mW1Mct1g+V48h5YMcrqlshZcje5yggXg==}
 
   '@aeriajs/types@0.0.40':
     resolution: {integrity: sha512-9QljRXS0qbv7Tm6I/Uo8O3ldWtM1GtZp3P9lohWko0UxAtUu/LLT8oBPN2iWz9gPQqB5D4ACzqh0HB2pLvScZg==}
@@ -3454,17 +3445,10 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.7': {}
 
-  '@aeriajs/common@0.0.39(@aeriajs/types@0.0.36)(bson@6.7.0)':
-    dependencies:
-      '@aeriajs/types': 0.0.36
-      bson: 6.7.0
-
   '@aeriajs/common@0.0.43(@aeriajs/types@0.0.40)(bson@6.7.0)':
     dependencies:
       '@aeriajs/types': 0.0.40
       bson: 6.7.0
-
-  '@aeriajs/types@0.0.36': {}
 
   '@aeriajs/types@0.0.40': {}
 
