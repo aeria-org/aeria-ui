@@ -43,7 +43,7 @@ importers:
         version: 0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))
       eslint-config-aeriaui:
         specifier: latest
-        version: 0.0.10(@aeriajs/common@0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0))
+        version: 0.0.10(@aeriajs/common@0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0))
       husky:
         specifier: ^9.0.10
         version: 9.0.11
@@ -127,14 +127,14 @@ importers:
         version: 5.2.11(@types/node@20.12.12)(less@4.2.0)
     devDependencies:
       '@aeriajs/builtins-icons':
-        specifier: ^0.0.7
+        specifier: '0.0'
         version: 0.0.7
       '@aeriajs/common':
-        specifier: ^0.0.44
-        version: 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+        specifier: '0.0'
+        version: 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
       '@aeriajs/types':
-        specifier: ^0.0.41
-        version: 0.0.41
+        specifier: '0.0'
+        version: 0.0.42
       '@types/ejs':
         specifier: ^3.1.2
         version: 3.1.5
@@ -154,11 +154,11 @@ importers:
   packages/core:
     dependencies:
       '@aeriajs/common':
-        specifier: ^0.0.44
-        version: 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+        specifier: '0.0'
+        version: 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
       '@aeriajs/types':
-        specifier: ^0.0.41
-        version: 0.0.41
+        specifier: '0.0'
+        version: 0.0.42
       vue:
         specifier: ^3.4.15
         version: 3.4.27(typescript@5.4.5)
@@ -180,7 +180,7 @@ importers:
         version: 20.12.12
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.66(@aeriajs/common@0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0))(@aeriajs/types@0.0.41)
+        version: 0.0.68(@aeriajs/common@0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0))(@aeriajs/types@0.0.42)
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.12.12)(less@4.2.0)
@@ -188,8 +188,8 @@ importers:
   packages/i18n:
     devDependencies:
       '@aeriajs/common':
-        specifier: ^0.0.44
-        version: 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+        specifier: '0.0'
+        version: 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
 
   packages/state-management:
     devDependencies:
@@ -206,8 +206,8 @@ importers:
         specifier: link:../state-management
         version: link:../state-management
       '@aeriajs/common':
-        specifier: ^0.0.44
-        version: 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+        specifier: '0.0'
+        version: 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
       vue:
         specifier: ^3.4.26
         version: 3.4.27(typescript@5.4.5)
@@ -230,11 +230,11 @@ importers:
         specifier: link:../state-management
         version: link:../state-management
       '@aeriajs/common':
-        specifier: ^0.0.44
-        version: 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+        specifier: '0.0'
+        version: 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
       '@aeriajs/types':
-        specifier: ^0.0.41
-        version: 0.0.41
+        specifier: '0.0'
+        version: 0.0.42
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
         version: 4.6.2(vite@4.5.3(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
@@ -274,14 +274,14 @@ packages:
   '@aeriajs/builtins-icons@0.0.7':
     resolution: {integrity: sha512-RgwcS7X79/cjkRr3pr1H8f3MQ1BjR9kEB3BLiFh/IpyalNBAnQa2dQsbJn4gMIt82w0RqREHLO8FuV467Vh0+g==}
 
-  '@aeriajs/common@0.0.44':
-    resolution: {integrity: sha512-G2y1Lxft4kB++Jolxa+ePUd4IJq/PDDxCEFcYJOiwj8uRau94w/kcQohSC2ro4f+vwKrE4QrQGNBJrg72XH88w==}
+  '@aeriajs/common@0.0.45':
+    resolution: {integrity: sha512-Aj9rUGmRYb+vnhsD9roBjAA0rTXLqzZHRfAPvvPQEwS+/FYx+AFSEHPoGoJMga/tvtUOVTB1H7i/n2Qsn/sbpg==}
     peerDependencies:
-      '@aeriajs/types': ^0.0.41
+      '@aeriajs/types': ^0.0.42
       bson: ^6.5.0
 
-  '@aeriajs/types@0.0.41':
-    resolution: {integrity: sha512-QAX+LS0z91DAGMhQb6C55DXwsB34msrugXtlfvkDelxCNGqiVTVdY1JrQaDoNd9HFuHYV+wsdsa4nSIHyf3TaQ==}
+  '@aeriajs/types@0.0.42':
+    resolution: {integrity: sha512-3qjyxdzGWAtiJwO3xFjgXBNHdW8Ny8zcX+F7twGgI3teAIG7StHtY9hURYXzDxkWHBRk1nS40q3PAffLpF6SSw==}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1184,12 +1184,12 @@ packages:
       glob: '*'
       vite: '*'
 
-  aeria-sdk@0.0.66:
-    resolution: {integrity: sha512-LFLsfNpdVUwWFWDIGJvTjdHfl9pF3IDdW1xTNfA8HJEkLkoVHrR1jXDrQHfDp7AiIn1q4gB90ENQIMLWCDtFvw==}
+  aeria-sdk@0.0.68:
+    resolution: {integrity: sha512-zlsLyGKM6o2IGPK3WT9Kjdvb7EKWI3ywlOSTn2EElsoPJ8HpJwBe9u0VGu3cO9kUB2PJ3FTA+0xGM4lwKgrh5g==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.43
-      '@aeriajs/types': ^0.0.40
+      '@aeriajs/common': ^0.0.45
+      '@aeriajs/types': ^0.0.42
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1591,8 +1591,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.768:
-    resolution: {integrity: sha512-z2U3QcvNuxdkk33YV7R1bVMNq7fL23vq3WfO5BHcqrm4TnDGReouBfYKLEFh5umoK1XACjEwp8mmnhXk2EJigw==}
+  electron-to-chromium@1.4.769:
+    resolution: {integrity: sha512-bZu7p623NEA2rHTc9K1vykl57ektSPQYFFqQir8BOYf6EKOB+yIsbFB9Kpm7Cgt6tsLr9sRkqfqSZUw7LP1XxQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3445,12 +3445,12 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.7': {}
 
-  '@aeriajs/common@0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)':
+  '@aeriajs/common@0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)':
     dependencies:
-      '@aeriajs/types': 0.0.41
+      '@aeriajs/types': 0.0.42
       bson: 6.7.0
 
-  '@aeriajs/types@0.0.41': {}
+  '@aeriajs/types@0.0.42': {}
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -4439,10 +4439,10 @@ snapshots:
       glob: 10.3.15
       vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)
 
-  aeria-sdk@0.0.66(@aeriajs/common@0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0))(@aeriajs/types@0.0.41):
+  aeria-sdk@0.0.68(@aeriajs/common@0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0))(@aeriajs/types@0.0.42):
     dependencies:
-      '@aeriajs/common': 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
-      '@aeriajs/types': 0.0.41
+      '@aeriajs/common': 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
+      '@aeriajs/types': 0.0.42
 
   ajv@6.12.6:
     dependencies:
@@ -4580,7 +4580,7 @@ snapshots:
   browserslist@4.23.0:
     dependencies:
       caniuse-lite: 1.0.30001618
-      electron-to-chromium: 1.4.768
+      electron-to-chromium: 1.4.769
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
 
@@ -4842,7 +4842,7 @@ snapshots:
     dependencies:
       jake: 10.9.1
 
-  electron-to-chromium@1.4.768: {}
+  electron-to-chromium@1.4.769: {}
 
   emoji-regex@8.0.0: {}
 
@@ -5006,9 +5006,9 @@ snapshots:
       '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
 
-  eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0)):
+  eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0)):
     dependencies:
-      '@aeriajs/common': 0.0.44(@aeriajs/types@0.0.41)(bson@6.7.0)
+      '@aeriajs/common': 0.0.45(@aeriajs/types@0.0.42)(bson@6.7.0)
       '@eslint/eslintrc': 2.1.4
       eslint-config-aeria: 0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))
       eslint-plugin-vue: 9.26.0(eslint@8.57.0)

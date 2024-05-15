@@ -40,9 +40,9 @@
     "vite": "^5.0.12"
   },
   "devDependencies": {
-    "@aeriajs/builtins-icons": "^0.0.7",
-    "@aeriajs/common": "^0.0.44",
-    "@aeriajs/types": "^0.0.41",
+    "@aeriajs/builtins-icons": "0.0",
+    "@aeriajs/common": "0.0",
+    "@aeriajs/types": "0.0",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^20.8.6",
@@ -50,9 +50,9 @@
     "vue": "^3.4.26"
   },
   "peerDependencies": {
-    "@aeriajs/builtins-icons": "^0.0.7",
-    "@aeriajs/common": "^0.0.44",
-    "@aeriajs/types": "^0.0.41",
+    "@aeriajs/builtins-icons": "0.0",
+    "@aeriajs/common": "0.0",
+    "@aeriajs/types": "0.0",
     "bson": "^6.6.0",
     "vue": "^3.4.26"
   }
