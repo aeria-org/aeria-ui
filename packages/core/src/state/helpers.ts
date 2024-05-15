@@ -52,9 +52,9 @@ export const removeEmpty = (item: Record<string, any>) => {
   return Object.fromEntries(entries)
 }
 
-export const normalizeActions = <const TActions extends CollectionActions<any>>(actions?: CollectionActions<any>) => {
+export const normalizeActions = <const TActions extends CollectionActions<any>>(actions?: CollectionActions<any>): NormalizedActions<TActions> => {
   if( !actions ) {
-    return [] as NormalizedActions<TActions>
+    return []
   }
 
   return Object.entries(actions).reduce((a: object[], [key, value]) => {
