@@ -5,9 +5,13 @@ import { t } from '@aeria-ui/i18n'
 import AeriaBareButton from '../aeria-bare-button/aeria-bare-button.vue'
 import AeriaPanel from '../aeria-panel/aeria-panel.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
+import { CollectionAction } from '@aeriajs/types'
 
 type Props = {
-  actions?: any
+  actions?: (CollectionAction<any> & {
+    action: string
+    click: (...args: any[])=> void
+  })[]
   subject?: any
   overlayLayer?: number
 }
@@ -28,8 +32,8 @@ const userStore = useStore('user')
 const contextmenu = ref<HTMLDivElement | null>(null)
 const contextmenuVisible = ref(false)
 
-const filterActions = (actions: any[]) => {
-  return actions.filter((action: any) => {
+const filterActions = (actions: Props['actions']) => {
+  return actions?.filter((action: any) => {
     if( action.roles ) {
       return action.roles.include(userStore.currentUser.role)
     }
@@ -69,7 +73,7 @@ const position = computed(() => {
 
 <template>
   <div
-    v-if="Object.keys($slots).some((key) => key !== 'default') || actions?.length > 0"
+    v-if="Object.keys($slots).some((key) => key !== 'default') || (actions !== undefined && actions.length > 0)"
     ref="contextmenu"
     class="contextmenu"
   >
@@ -122,7 +126,7 @@ const position = computed(() => {
         </div>
 
         <div
-          v-if="actions?.length > 0"
+          v-if="actions !== undefined && actions.length > 0"
           class="content__section"
           @click="contextmenuVisible = false"
         >
