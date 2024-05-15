@@ -19,9 +19,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@aeriajs/common": "^0.0.43"
+    "@aeriajs/common": "^0.0.44"
   },
   "peerDependencies": {
-    "@aeriajs/common": "^0.0.43"
+    "@aeriajs/common": "^0.0.44"
   }
 }
