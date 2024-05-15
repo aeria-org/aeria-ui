@@ -1,6 +1,6 @@
 import { type Property } from '@aeriajs/types'
 import { deepClone, getReferenceProperty, freshItem } from '@aeriajs/common'
-import { GlobalStateManager, useStore } from '@aeria-ui/state-management'
+import { type GlobalStateManager, useStore } from '@aeria-ui/state-management'
 
 import AeriaInput from '../../aeria-input/aeria-input.vue'
 import AeriaOptions from '../../aeria-options/aeria-options.vue'

@@ -141,8 +141,8 @@ const position = computed(() => {
             >
               {{
                 action.translate
-                  ? t(action.name, { capitalize: true })
-                  : action.name
+                  ? t(action.label, { capitalize: true })
+                  : action.label
               }}
             </aeria-icon>
           </aeria-bare-button>
