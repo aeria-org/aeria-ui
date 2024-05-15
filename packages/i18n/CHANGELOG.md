@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.7
+
+### Patch Changes
+
+- 7b25d09: Update dependencies
+
 ## 0.0.6
 
 ### Patch Changes

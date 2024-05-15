@@ -1,5 +1,13 @@
 # @aeria-ui/theme
 
+## 0.0.13
+
+### Patch Changes
+
+- 7b25d09: Update dependencies
+- Updated dependencies [7b25d09]
+  - @aeria-ui/core@0.0.31
+
 ## 0.0.12
 
 ### Patch Changes
