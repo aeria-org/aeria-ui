@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.39
+
+### Patch Changes
+
+- 79322f3: Bump dependencies
+- Updated dependencies [79322f3]
+  - @aeria-ui/core@0.0.29
+  - @aeria-ui/i18n@0.0.6
+
 ## 0.0.38
 
 ### Patch Changes
