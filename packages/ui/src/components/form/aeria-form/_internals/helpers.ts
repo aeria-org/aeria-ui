@@ -1,6 +1,6 @@
 import { type Property } from '@aeriajs/types'
 import { deepClone, getReferenceProperty, freshItem } from '@aeriajs/common'
-import { useStore } from '@aeria-ui/state-management'
+import { type GlobalStateManager, useStore } from '@aeria-ui/state-management'
 
 import AeriaInput from '../../aeria-input/aeria-input.vue'
 import AeriaOptions from '../../aeria-options/aeria-options.vue'
@@ -78,14 +78,14 @@ export const getComponent = (property: Property, customComponents: Record<string
   return defaultComponents[mappedComponentType]
 }
 
-export const pushToArray = (modelValue: any[] | undefined, property: Property) => {
+export const pushToArray = (modelValue: any[] | undefined, property: Property, manager: GlobalStateManager) => {
   modelValue ??= []
   const nestedProp = 'items' in property
     ? property.items
     : property
 
-  if( '$ref' in property ) {
-    const helperStore = useStore(property.$ref)
+  if( '$ref' in nestedProp ) {
+    const helperStore = useStore(nestedProp.$ref, manager)
     const newVal = deepClone(helperStore.$freshItem)
     return modelValue.unshift(newVal)
   }
