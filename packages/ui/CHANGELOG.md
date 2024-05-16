@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.42
+
+### Patch Changes
+
+- 362079c: fixed mask bug, fixed null manager bug in aeria-form, fixed individualActions having null labels
+
 ## 0.0.41
 
 ### Patch Changes
