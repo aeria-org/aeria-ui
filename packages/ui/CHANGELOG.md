@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.43
+
+### Patch Changes
+
+- 0177f07: Remove pre tag
+
 ## 0.0.42
 
 ### Patch Changes
