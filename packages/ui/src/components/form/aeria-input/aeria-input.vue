@@ -190,7 +190,7 @@ watch(() => props.modelValue, (value, oldValue) => {
     inputValue.value = undefined
   } else {
     if(mask !== null) {
-      inputValue.value = mask?.enmask(String(value), true)
+      inputValue.value = mask.enmask(String(value), true)
     } else {
       inputValue.value = String(value)
     }

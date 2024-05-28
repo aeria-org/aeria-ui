@@ -26,8 +26,7 @@ export const useMask = (mask: string | readonly string[]) => {
     }
     let result = ''
     let currentMask
-    if(rawValue)
-    {
+    if(rawValue) {
       text = unmask(text)
     }
 
