@@ -412,7 +412,6 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
           style="display: grid; row-gap: .4rem"
         >
           <div>
-            <pre>{{ modelValue }}</pre>
             <aeria-button
               small
               variant="alt"

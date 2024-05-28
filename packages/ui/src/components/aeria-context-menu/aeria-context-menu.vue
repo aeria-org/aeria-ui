@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CollectionAction } from '@aeriajs/types'
 import { ref, computed } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
