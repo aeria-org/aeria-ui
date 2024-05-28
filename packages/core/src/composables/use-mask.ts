@@ -20,13 +20,13 @@ export const useMask = (mask: string | readonly string[]) => {
 
   let defaultMask = maskInfos[0]
 
-  const enmask = (text: string, rawValue?: boolean, newMask?: typeof defaultMask): string => {
+  const enmask = (text: string, newMask?: typeof defaultMask, options = { defaultValue: false }): string => {
     if (text.length < 1 || maskInfos.length < 1) {
       return text
     }
     let result = ''
     let currentMask
-    if(rawValue) {
+    if(options.defaultValue === true) {
       text = unmask(text)
     }
 
@@ -55,7 +55,7 @@ export const useMask = (mask: string | readonly string[]) => {
         if (!newMask && text[nonMaskIndex]) {
           const matchingMask = maskInfos.find((mask) => text[nonMaskIndex].match(mask[maskCharIndex].type as RegExp))
           if (matchingMask) {
-            const matchingMaskResult = enmask(text, false, matchingMask)
+            const matchingMaskResult = enmask(text, matchingMask)
             if (matchingMaskResult.length >= result.length) {
               defaultMask = matchingMask
               return matchingMaskResult

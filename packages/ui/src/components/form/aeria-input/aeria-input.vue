@@ -141,7 +141,7 @@ const mask: ReturnType<typeof useMask> | null = props.property?.type === 'string
 
 const computeString = (value: string) => {
   if( typeof inputValue.value === 'string' && props.property?.type === 'string' && mask !== null ) {
-    inputValue.value = mask.enmask(inputValue.value, true)
+    inputValue.value = mask.enmask(inputValue.value, undefined, { defaultValue: true })
     return props.property.maskedValue === true
       ? inputValue.value
       : mask.unmask(inputValue.value)
@@ -189,11 +189,9 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( oldValue && !value ) {
     inputValue.value = undefined
   } else {
-    if(mask !== null) {
-      inputValue.value = mask.enmask(String(value), true)
-    } else {
-      inputValue.value = String(value)
-    }
+    inputValue.value = mask
+        ? mask.enmask(String(value), undefined, {defaultValue: true})
+        : String(value)
   }
 })
 </script>
