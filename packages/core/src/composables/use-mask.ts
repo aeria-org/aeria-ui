@@ -1,14 +1,21 @@
-const MaskType = {
+const MaskType: Record<string, RegExp> = {
   '#': /[0-9]/,
   '@': /[a-zA-Z]/,
   '*': /[a-zA-Z0-9]/,
-} as const
+}
 
 function* getMaskIndexes(mask: string) {
   for (const char of mask) {
+    if( char in MaskType ) {
+      yield {
+        char,
+        type: MaskType[char],
+      }
+      continue
+    }
+
     yield {
       char,
-      type: <RegExp | undefined>MaskType[char as keyof (typeof MaskType)],
     }
   }
 }
@@ -20,36 +27,51 @@ export const useMask = (mask: string | readonly string[]) => {
 
   let defaultMask = maskInfos[0]
 
-  const enmask = (text: string, newMask?: typeof defaultMask): string => {
+  const enmask = (
+    text: string,
+    newMask?: typeof defaultMask,
+    options = {
+      defaultValue: false,
+    }
+  ): string => {
     if (text.length < 1 || maskInfos.length < 1) {
       return text
     }
     let result = ''
     let currentMask
+    if(options.defaultValue === true) {
+      text = unmask(text)
+    }
+
     if (newMask){
       currentMask = newMask
     } else {
-      //If there is no mask to change, check if there's any mask with the length bigger or equal to the text, otherwise mantain the default mask
+      // If there is no mask to change, check if there's any mask with the length bigger or equal to the text, otherwise mantain the default mask
       defaultMask = currentMask = maskInfos.find((mask) => mask.filter((el) => el.type).length >= text.length) ?? defaultMask
     }
+
     for (let maskCharIndex = 0, nonMaskIndex = 0; nonMaskIndex < text.length; maskCharIndex++) {
       const { char, type } = currentMask[maskCharIndex] ?? {}
 
-      //If the char doens't have any type then it's a required char
+      // If the char doens't have any type then it's a required char
       if (nonMaskIndex < text.length && !type && char !== text[maskCharIndex]) {
         result += char
         continue
       }
 
       if (maskCharIndex >= currentMask.length) {
-        //If the current character exceeds the limit of the current mask, stop here
+        // If the current character exceeds the limit of the current mask, stop here
         break
       }
       if ((type !== undefined && !text[nonMaskIndex].match(type)) && text.length >= nonMaskIndex) {
-        //!newmask = If the mask was changed to fit another better one, cancel any new change
-        //If the current character doens't match the current mask, search if there's another mask that matches it on it's same index
+        // !newmask = If the mask was changed to fit another better one, cancel any new change
+        // If the current character doens't match the current mask, search if there's another mask that matches it on it's same index
         if (!newMask && text[nonMaskIndex]) {
-          const matchingMask = maskInfos.find((mask) => text[nonMaskIndex].match(mask[maskCharIndex].type as RegExp))
+          const matchingMask = maskInfos.find((mask) => {
+            const maskType = mask[maskCharIndex].type
+            return maskType && text[nonMaskIndex].match(maskType)
+          })
+
           if (matchingMask) {
             const matchingMaskResult = enmask(text, matchingMask)
             if (matchingMaskResult.length >= result.length) {
@@ -58,7 +80,7 @@ export const useMask = (mask: string | readonly string[]) => {
             }
           }
         }
-        //If another mask that matches the current char was not found, stop there
+        // If another mask that matches the current char was not found, stop there
         break
       }
       result += text[nonMaskIndex]
@@ -82,3 +104,4 @@ export const useMask = (mask: string | readonly string[]) => {
     unmask,
   }
 }
+

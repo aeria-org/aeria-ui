@@ -6,6 +6,7 @@ import { t } from '@aeria-ui/i18n'
 import AeriaBareButton from '../aeria-bare-button/aeria-bare-button.vue'
 import AeriaPanel from '../aeria-panel/aeria-panel.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
+import { CollectionAction } from '@aeriajs/types'
 
 type Props = {
   actions?: (CollectionAction<any> & {

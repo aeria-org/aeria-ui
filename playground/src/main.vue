@@ -8,7 +8,7 @@ const state = reactive({
 
 const animalStore = useStore('animal')
 watch(() => animalStore.specie, (value, oldValue) => {
-  console.log(value)
+  console.log('modelValue:', value)
 })
 </script>
 
@@ -42,7 +42,7 @@ watch(() => animalStore.specie, (value, oldValue) => {
       <aeria-input
       :property="{
         type: 'string',
-        mask: ['###.###.###-##', '###.###.###/####-##'],
+        mask: ['###.###.###-##', '###.###.###/####-##', '@@.@@'],
         maskedValue: true
       }" v-model="animalStore.specie">
         Espécie
