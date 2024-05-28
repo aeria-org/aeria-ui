@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import { ref, inject, watch } from 'vue'
+import { ref, inject, watch, onMounted } from 'vue'
 import { useClipboard, useMask } from '@aeria-ui/core'
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
@@ -110,6 +110,11 @@ if( 'type' in property ) {
 if( inputBind.type === 'text' && searchOnly ) {
   inputBind.type = 'search'
 }
+onMounted(() => {
+  if(props.modelValue !== null) {
+    updateValue(props.modelValue)
+  }
+})
 
 const getDatetimeString = () => {
   try {
@@ -136,7 +141,7 @@ const mask: ReturnType<typeof useMask> | null = props.property?.type === 'string
 
 const computeString = (value: string) => {
   if( typeof inputValue.value === 'string' && props.property?.type === 'string' && mask !== null ) {
-    inputValue.value = mask.enmask(mask.unmask(inputValue.value))
+    inputValue.value = mask.enmask(inputValue.value, true)
     return props.property.maskedValue === true
       ? inputValue.value
       : mask.unmask(inputValue.value)
@@ -184,7 +189,11 @@ watch(() => props.modelValue, (value, oldValue) => {
   if( oldValue && !value ) {
     inputValue.value = undefined
   } else {
-    inputValue.value = String(value)
+    if(mask !== null) {
+      inputValue.value = mask?.enmask(String(value), true)
+    } else {
+      inputValue.value = String(value)
+    }
   }
 })
 </script>
