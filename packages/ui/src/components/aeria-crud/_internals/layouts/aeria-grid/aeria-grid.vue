@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LayoutOptions } from '@aeriajs/types'
+import type { LayoutOptions } from '@aeriajs/types'
 import { useParentStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
