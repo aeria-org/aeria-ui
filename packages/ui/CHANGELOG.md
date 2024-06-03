@@ -1,5 +1,16 @@
 # @aeria-ui/ui
 
+## 0.0.44
+
+### Patch Changes
+
+- 220604d: updated Either checkings to isError syntax
+- 97948a6: fixed mask bug, fixed null manager bug in aeria-form, fixed individualActions having null labels
+- 97948a6: fixed mask not applying correctly when maskedValue param is false, fixed mask not applying on the component start
+- Updated dependencies [220604d]
+- Updated dependencies [97948a6]
+  - @aeria-ui/core@0.0.32
+
 ## 0.0.43
 
 ### Patch Changes
