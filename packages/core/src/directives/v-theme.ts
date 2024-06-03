@@ -1,4 +1,4 @@
-import type {  Directive } from 'vue'
+import type { Directive } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 
