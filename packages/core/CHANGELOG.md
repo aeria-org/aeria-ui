@@ -1,5 +1,12 @@
 # @aeria-ui/core
 
+## 0.0.32
+
+### Patch Changes
+
+- 220604d: updated Either checkings to isError syntax
+- 97948a6: fixed mask not applying correctly when maskedValue param is false, fixed mask not applying on the component start
+
 ## 0.0.31
 
 ### Patch Changes
