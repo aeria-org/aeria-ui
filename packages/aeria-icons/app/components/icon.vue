@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type PhosphorIcon, IconStyle } from '@phosphor-icons/core'
+import { PhosphorIcon, IconStyle } from '@phosphor-icons/core'
 
 withDefaults(defineProps<{
   name: PhosphorIcon['name']
