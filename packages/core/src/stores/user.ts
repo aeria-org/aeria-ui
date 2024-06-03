@@ -1,4 +1,4 @@
-import { HTTPStatus, type Description } from '@aeriajs/types'
+import { type Description } from '@aeriajs/types'
 import { registerStore } from '@aeria-ui/state-management'
 import { isError, error } from '@aeriajs/common'
 import { reactive } from 'vue'
@@ -116,9 +116,8 @@ export const user = registerStore((context) => {
           console.trace(err)
 
           return error({
-            httpStatus: HTTPStatus.InternalServerError,
             code: 'TRY_CATCH_ERROR',
-            message: err as string,
+            message: String(err),
           })
         }
       },
