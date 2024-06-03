@@ -1,4 +1,4 @@
-import { Directive } from 'vue'
+import type { Directive } from 'vue'
 
 const focus: Directive = (el, binding) => {
   if( binding.value ) {

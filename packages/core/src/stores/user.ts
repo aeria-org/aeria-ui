@@ -1,4 +1,4 @@
-import { Description } from '@aeriajs/types'
+import type { Description } from '@aeriajs/types'
 import { registerStore } from '@aeria-ui/state-management'
 import { isError, error } from '@aeriajs/common'
 import { reactive } from 'vue'
