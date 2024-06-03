@@ -1,6 +1,6 @@
 import type { Directive } from 'vue'
-import { useStore } from '@aeria-ui/state-management'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore } from '@aeria-ui/state-management'
 
 const theme: Directive = {
   mounted(_, binding) {
