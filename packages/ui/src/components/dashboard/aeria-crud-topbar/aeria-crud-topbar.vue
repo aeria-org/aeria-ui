@@ -51,10 +51,10 @@ const store = computed(() => {
           v-if="preset.icon"
           :icon="preset.icon"
         >
-          {{ preset.name || t(presetName, { plural: true }) }}
+          {{ preset.label || t(presetName, { plural: true }) }}
         </aeria-icon>
         <div v-else>
-          {{ preset.name || t(presetName, { plural: true }) }}
+          {{ preset.label || t(presetName, { plural: true }) }}
         </div>
 
         <aeria-badge v-if="preset.badgeFunction">

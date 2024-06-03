@@ -32,7 +32,7 @@ export const useMask = (mask: string | readonly string[]) => {
     newMask?: typeof defaultMask,
     options = {
       defaultValue: false,
-    }
+    },
   ): string => {
     if (text.length < 1 || maskInfos.length < 1) {
       return text
