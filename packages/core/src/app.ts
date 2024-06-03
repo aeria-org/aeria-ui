@@ -1,5 +1,5 @@
 import type { defineOptions } from './options.js'
-import { isLeft } from '@aeriajs/common'
+import { isError } from '@aeriajs/common'
 import { createApp } from 'vue'
 import { useRouter } from 'vue-router'
 import { createI18n, t } from '@aeria-ui/i18n'
@@ -92,12 +92,12 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     let hasError = false
 
     try {
-      const resultEither = await metaStore.$actions.describe({
+      const result = await metaStore.$actions.describe({
         roles: true,
         revalidate: true,
       })
 
-      if( isLeft(resultEither) ) {
+      if( isError(result) ) {
         hasError = true
       }
     } catch( err: any ) {

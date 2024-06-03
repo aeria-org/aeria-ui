@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "playground": "link:"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

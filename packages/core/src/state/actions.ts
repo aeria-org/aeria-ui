@@ -1,6 +1,6 @@
 import type { Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
-import { formatValue, getReferenceProperty, deepClone, isLeft, unwrapEither, isReference } from '@aeriajs/common'
+import { formatValue, getReferenceProperty, deepClone, isReference, isError } from '@aeriajs/common'
 import { useStore, type StoreContext } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
@@ -191,21 +191,20 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           ...payload,
           what: payload?.what || store.item,
         },
-        (resultEither) => {
-          if( isLeft(resultEither) ) {
-            const error: any = unwrapEither(resultEither)
+        (insertResult) => {
+          if( isError(insertResult) ) {
+            const error = insertResult.value
             if( [
               'INVALID_PROPERTIES',
               'MISSING_PROPERTIES',
             ].includes(error.code) ) {
-              store.validationErrors = error.errors
+              store.validationErrors = error.details as any
             }
 
-            return resultEither
+            return insertResult
           }
 
-          const result = unwrapEither(resultEither)
-          return actions.insertItem(result)
+          return actions.insertItem(insertResult)
         },
         options,
       )
@@ -215,7 +214,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       const candidate = Object.assign({}, payload?.what || store.diffedItem)
       const newItem = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
 
-      if( isLeft(newItem) ) {
+      if( isError(newItem) ) {
         return newItem
       }
 

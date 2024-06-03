@@ -43,7 +43,7 @@ importers:
         version: 0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))
       eslint-config-aeriaui:
         specifier: latest
-        version: 0.0.10(@aeriajs/common@0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0))
+        version: 0.0.10(@aeriajs/common@0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0))
       husky:
         specifier: ^9.0.10
         version: 9.0.11
@@ -70,13 +70,13 @@ importers:
         version: 2.1.1
       '@vitejs/plugin-vue':
         specifier: '*'
-        version: 4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
+        version: 4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
       glob:
         specifier: '*'
         version: 10.4.1
       vite:
         specifier: '*'
-        version: 5.2.12(@types/node@20.12.12)(less@4.2.0)
+        version: 5.2.12(@types/node@20.14.0)(less@4.2.0)
 
   packages/aeria-ui:
     devDependencies:
@@ -103,10 +103,10 @@ importers:
         version: 15.2.3(rollup@4.18.0)
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
+        version: 4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
       aeria-icons:
         specifier: ^0.0.5
-        version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5)))(glob@10.4.1)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))
+        version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5)))(glob@10.4.1)(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))
       ejs:
         specifier: ^3.1.9
         version: 3.1.10
@@ -124,17 +124,17 @@ importers:
         version: 0.24.1(@babel/parser@7.24.6)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5))
       vite:
         specifier: ^5.0.12
-        version: 5.2.12(@types/node@20.12.12)(less@4.2.0)
+        version: 5.2.12(@types/node@20.14.0)(less@4.2.0)
     devDependencies:
       '@aeriajs/builtins-icons':
         specifier: '0.0'
         version: 0.0.7
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+        version: 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.51
+        version: 0.0.53
       '@types/ejs':
         specifier: ^3.1.2
         version: 3.1.5
@@ -143,7 +143,7 @@ importers:
         version: 4.0.9
       '@types/node':
         specifier: ^20.8.6
-        version: 20.12.12
+        version: 20.14.0
       bson:
         specifier: ^6.6.0
         version: 6.7.0
@@ -155,10 +155,10 @@ importers:
     dependencies:
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+        version: 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.51
+        version: 0.0.53
       vue:
         specifier: ^3.4.15
         version: 3.4.27(typescript@5.4.5)
@@ -177,19 +177,19 @@ importers:
         version: link:../state-management
       '@types/node':
         specifier: ^20.8.6
-        version: 20.12.12
+        version: 20.14.0
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.77(@aeriajs/common@0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0))(@aeriajs/types@0.0.51)
+        version: 0.0.79(@aeriajs/common@0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0))(@aeriajs/types@0.0.53)
       vite:
         specifier: ^4.4.8
-        version: 4.5.3(@types/node@20.12.12)(less@4.2.0)
+        version: 4.5.3(@types/node@20.14.0)(less@4.2.0)
 
   packages/i18n:
     devDependencies:
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+        version: 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
 
   packages/state-management:
     devDependencies:
@@ -207,7 +207,7 @@ importers:
         version: link:../state-management
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+        version: 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
       vue:
         specifier: ^3.4.26
         version: 3.4.27(typescript@5.4.5)
@@ -231,22 +231,22 @@ importers:
         version: link:../state-management
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+        version: 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.51
+        version: 0.0.53
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
-        version: 4.6.2(vite@4.5.3(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
+        version: 4.6.2(vite@4.5.3(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
       vite:
         specifier: ^4.4.8
-        version: 4.5.3(@types/node@20.12.12)(less@4.2.0)
+        version: 4.5.3(@types/node@20.14.0)(less@4.2.0)
       vite-plugin-dts:
         specifier: ^3.3.0
-        version: 3.9.1(@types/node@20.12.12)(rollup@4.18.0)(typescript@5.4.5)(vite@4.5.3(@types/node@20.12.12)(less@4.2.0))
+        version: 3.9.1(@types/node@20.14.0)(rollup@4.18.0)(typescript@5.4.5)(vite@4.5.3(@types/node@20.14.0)(less@4.2.0))
       vite-plugin-static-copy:
         specifier: ^0.17.0
-        version: 0.17.1(vite@4.5.3(@types/node@20.12.12)(less@4.2.0))
+        version: 0.17.1(vite@4.5.3(@types/node@20.14.0)(less@4.2.0))
       vue-router:
         specifier: ^4.3.2
         version: 4.3.2(vue@3.4.27(typescript@5.4.5))
@@ -255,6 +255,10 @@ importers:
         version: 1.8.27(typescript@5.4.5)
 
   playground:
+    dependencies:
+      playground:
+        specifier: 'link:'
+        version: 'link:'
     devDependencies:
       autoprefixer:
         specifier: ^10.4.19
@@ -274,14 +278,14 @@ packages:
   '@aeriajs/builtins-icons@0.0.7':
     resolution: {integrity: sha512-RgwcS7X79/cjkRr3pr1H8f3MQ1BjR9kEB3BLiFh/IpyalNBAnQa2dQsbJn4gMIt82w0RqREHLO8FuV467Vh0+g==}
 
-  '@aeriajs/common@0.0.54':
-    resolution: {integrity: sha512-x6tjbPGu2SZgoVAm1Fn0zAacs3HC8mMV3geHHGLA4tifJygGeB5Ok/nOFPgmHWHK98ICl051pfJoKJaT2SAGxA==}
+  '@aeriajs/common@0.0.56':
+    resolution: {integrity: sha512-yGdmfbvkhyWqbXcLV2+/Vy0jbMRmM8fu0fYdzQ9pasGY/W5yHPJ8YZeYFequ2CREAjtGMHGiC51nJyomBEiN9w==}
     peerDependencies:
-      '@aeriajs/types': ^0.0.51
+      '@aeriajs/types': ^0.0.53
       bson: ^6.5.0
 
-  '@aeriajs/types@0.0.51':
-    resolution: {integrity: sha512-j1/FXhRtJUP2cDjj9f9cml5muWwLB9yNVt9038r2gilzHWOltX8AoR87xbG83oHvANrvqUegau+3hxkEeqLRjg==}
+  '@aeriajs/types@0.0.53':
+    resolution: {integrity: sha512-FA8SKU1sjzBmq1awo8vIGm2CjO79Z+fcdsJpTT1Y6U+NUdwzIfGo3vn79uXoIeT2i5AIfG2lrPPXbrh6m20gkg==}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -749,8 +753,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/regexpp@4.10.0':
-    resolution: {integrity: sha512-Cu96Sd2By9mCNTx2iyKOmq10v22jUVQv0lQnlGNy16oE9589yE+QADPbrMGCkA51cKZSg3Pu/aTJVTGfL/qjUA==}
+  '@eslint-community/regexpp@4.10.1':
+    resolution: {integrity: sha512-Zm2NGpWELsQAD1xsJzGQpYfvICSsFkEpU0jxBjfdC6uNEWXcHnfs9hScFWtXVDVl+rBQJGrl4g1vcKIejpH9dA==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
   '@eslint/eslintrc@2.1.4':
@@ -1020,8 +1024,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.12.12':
-    resolution: {integrity: sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==}
+  '@types/node@20.14.0':
+    resolution: {integrity: sha512-5cHBxFGJx6L4s56Bubp4fglrEpmyJypsqI6RgzMfBHWUJQGWAAi8cWcgetEbZXHYXo9C2Fa4EEds/uSyS4cxmA==}
 
   '@types/node@20.5.1':
     resolution: {integrity: sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==}
@@ -1133,8 +1137,8 @@ packages:
   '@vue/compiler-ssr@3.4.27':
     resolution: {integrity: sha512-CVRzSJIltzMG5FcidsW0jKNQnNRYC8bT21VegyMMtHmhW3UOI7knmUehzswXLrExDLE6lQCZdrhD4ogI7c+vuw==}
 
-  '@vue/devtools-api@6.6.1':
-    resolution: {integrity: sha512-LgPscpE3Vs0x96PzSSB4IGVSZXZBZHpfxs+ZA1d+VEPwHdOXowy/Y2CsvCAIFrf+ssVU1pD1jidj505EpUnfbA==}
+  '@vue/devtools-api@6.6.2':
+    resolution: {integrity: sha512-134clD8u7cBBXdmBbXI282gHGF7T/eAbD/G7mAK2llQF62IbI4ny28IVamZVMoJSvfImC2Xxnj732hXkJvUj6g==}
 
   '@vue/language-core@1.8.27':
     resolution: {integrity: sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA==}
@@ -1187,12 +1191,12 @@ packages:
       glob: '*'
       vite: '*'
 
-  aeria-sdk@0.0.77:
-    resolution: {integrity: sha512-0g7177NCfkWjs97eeBZZQ27EdmXJT/UvIwYk9B29dTPm6osO/2WOY4Mv6tgL7+yYtSb6Vc+aWBIMZMnjxT4eDw==}
+  aeria-sdk@0.0.79:
+    resolution: {integrity: sha512-XDmXzqzmwjhhXSQ/0Oc5/Z/w0hK23e4tmnZSbSqNhEh1pXCOFtLPvZj556AYM5dL0HGeKORNvcLJusfXrj8/eg==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.54
-      '@aeriajs/types': ^0.0.51
+      '@aeriajs/common': ^0.0.56
+      '@aeriajs/types': ^0.0.53
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1266,8 +1270,8 @@ packages:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
     engines: {node: '>=0.10.0'}
 
-  ast-kit@0.12.1:
-    resolution: {integrity: sha512-O+33g7x6irsESUcd47KdfWUrS2F6aGp9KeVJFGj0YjIznfXpBxVGjA0w+y/1OKqX4mFOfmZ9Xpf1ixPT4n9xxw==}
+  ast-kit@0.12.2:
+    resolution: {integrity: sha512-es1zHFsnZ4Y4efz412nnrU3KvVAhgqy90a7Yt9Wpi5vQ3l4aYMOX0Qx4FD0elKr5ITEhiUGCSFcgGYf4YTuACg==}
     engines: {node: '>=16.14.0'}
 
   ast-walker-scope@0.6.1:
@@ -1355,8 +1359,8 @@ packages:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
     engines: {node: '>=6'}
 
-  caniuse-lite@1.0.30001624:
-    resolution: {integrity: sha512-0dWnQG87UevOCPYaOR49CBcLBwoZLpws+k6W37nLjWUhumP1Isusj0p2u+3KhjNloRWK9OKMgjBBzPujQHw4nA==}
+  caniuse-lite@1.0.30001627:
+    resolution: {integrity: sha512-4zgNiB8nTyV/tHhwZrFs88ryjls/lHiqFhrxCW4qSTeuRByBVnPYpDInchOIySWknznucaf31Z4KYqjfbrecVw==}
 
   chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -1525,8 +1529,8 @@ packages:
   de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
 
-  debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+  debug@4.3.5:
+    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -1594,8 +1598,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.783:
-    resolution: {integrity: sha512-bT0jEz/Xz1fahQpbZ1D7LgmPYZ3iHVY39NcWWro1+hA2IvjiPeaXtfSqrQ+nXjApMvQRE2ASt1itSLRrebHMRQ==}
+  electron-to-chromium@1.4.788:
+    resolution: {integrity: sha512-ubp5+Ev/VV8KuRoWnfP2QF2Bg+O2ZFdb49DiiNbz2VmgkIqrnyYaqIOqj8A6K/3p1xV0QcU5hBQ1+BmB6ot1OA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2161,8 +2165,8 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  jackspeak@3.1.2:
-    resolution: {integrity: sha512-kWmLKn2tRtfYMF/BakihVVRzBKOxz4gJMiL2Rj91WnAB5TPZumSH99R/Yf1qE1u4uRimvCSJfm6hnxohXeEXjQ==}
+  jackspeak@3.2.0:
+    resolution: {integrity: sha512-eXIwN9gutMuB1AMW241gIHSEeaSMafWnxWXb/JGYWqifway4QgqBJLl7nYlmhGrxnHQ3wNc/QYFZ95aDtHHzpA==}
     engines: {node: '>=14'}
 
   jake@10.9.1:
@@ -3311,8 +3315,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-eslint-parser@9.4.2:
-    resolution: {integrity: sha512-Ry9oiGmCAK91HrKMtCrKFWmSFWvYkpGglCeFAIqDdr9zdXmMMpJOmUJS7WWsW7fX81h6mwHmUZCQQ1E0PkSwYQ==}
+  vue-eslint-parser@9.4.3:
+    resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -3412,8 +3416,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml@2.4.2:
-    resolution: {integrity: sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==}
+  yaml@2.4.3:
+    resolution: {integrity: sha512-sntgmxj8o7DE7g/Qi60cqpLBA3HG3STcDA0kO+WfB05jEKhZMbY7umNm2rBpQvsmZ16/lPXCJGW2672dgOUkrg==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -3454,12 +3458,12 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.7': {}
 
-  '@aeriajs/common@0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)':
+  '@aeriajs/common@0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)':
     dependencies:
-      '@aeriajs/types': 0.0.51
+      '@aeriajs/types': 0.0.53
       bson: 6.7.0
 
-  '@aeriajs/types@0.0.51': {}
+  '@aeriajs/types@0.0.53': {}
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -3929,12 +3933,12 @@ snapshots:
       eslint: 8.57.0
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/regexpp@4.10.0': {}
+  '@eslint-community/regexpp@4.10.1': {}
 
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.4
+      debug: 4.3.5
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.1
@@ -3950,7 +3954,7 @@ snapshots:
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
-      debug: 4.3.4
+      debug: 4.3.5
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -4006,23 +4010,23 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@microsoft/api-extractor-model@7.28.13(@types/node@20.12.12)':
+  '@microsoft/api-extractor-model@7.28.13(@types/node@20.14.0)':
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.12.12)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.0)
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.43.0(@types/node@20.12.12)':
+  '@microsoft/api-extractor@7.43.0(@types/node@20.14.0)':
     dependencies:
-      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.12.12)
+      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.14.0)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.12.12)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.0)
       '@rushstack/rig-package': 0.5.2
-      '@rushstack/terminal': 0.10.0(@types/node@20.12.12)
-      '@rushstack/ts-command-line': 4.19.1(@types/node@20.12.12)
+      '@rushstack/terminal': 0.10.0(@types/node@20.14.0)
+      '@rushstack/ts-command-line': 4.19.1(@types/node@20.14.0)
       lodash: 4.17.21
       minimatch: 3.0.8
       resolve: 1.22.8
@@ -4125,7 +4129,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
 
-  '@rushstack/node-core-library@4.0.2(@types/node@20.12.12)':
+  '@rushstack/node-core-library@4.0.2(@types/node@20.14.0)':
     dependencies:
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -4134,23 +4138,23 @@ snapshots:
       semver: 7.5.4
       z-schema: 5.0.5
     optionalDependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.0
 
   '@rushstack/rig-package@0.5.2':
     dependencies:
       resolve: 1.22.8
       strip-json-comments: 3.1.1
 
-  '@rushstack/terminal@0.10.0(@types/node@20.12.12)':
+  '@rushstack/terminal@0.10.0(@types/node@20.14.0)':
     dependencies:
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.12.12)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.0)
       supports-color: 8.1.1
     optionalDependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.0
 
-  '@rushstack/ts-command-line@4.19.1(@types/node@20.12.12)':
+  '@rushstack/ts-command-line@4.19.1(@types/node@20.14.0)':
     dependencies:
-      '@rushstack/terminal': 0.10.0(@types/node@20.12.12)
+      '@rushstack/terminal': 0.10.0(@types/node@20.14.0)
       '@types/argparse': 1.0.38
       argparse: 1.0.10
       string-argv: 0.3.2
@@ -4232,7 +4236,7 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.12.12':
+  '@types/node@20.14.0':
     dependencies:
       undici-types: 5.26.5
 
@@ -4246,13 +4250,13 @@ snapshots:
 
   '@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:
-      '@eslint-community/regexpp': 4.10.0
+      '@eslint-community/regexpp': 4.10.1
       '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/scope-manager': 6.21.0
       '@typescript-eslint/type-utils': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
       graphemer: 1.4.0
       ignore: 5.3.1
@@ -4270,7 +4274,7 @@ snapshots:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.5)
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
     optionalDependencies:
       typescript: 5.4.5
@@ -4286,7 +4290,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.5)
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
       ts-api-utils: 1.3.0(typescript@5.4.5)
     optionalDependencies:
@@ -4300,7 +4304,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.4
+      debug: 4.3.5
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -4332,14 +4336,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@4.6.2(vite@4.5.3(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue@4.6.2(vite@4.5.3(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      vite: 4.5.3(@types/node@20.12.12)(less@4.2.0)
+      vite: 4.5.3(@types/node@20.14.0)(less@4.2.0)
       vue: 3.4.27(typescript@5.4.5)
 
-  '@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)
+      vite: 5.2.12(@types/node@20.14.0)(less@4.2.0)
       vue: 3.4.27(typescript@5.4.5)
 
   '@volar/language-core@1.11.1':
@@ -4360,7 +4364,7 @@ snapshots:
       '@babel/types': 7.24.6
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
       '@vue/compiler-sfc': 3.4.27
-      ast-kit: 0.12.1
+      ast-kit: 0.12.2
       local-pkg: 0.5.0
       magic-string-ast: 0.6.1
     optionalDependencies:
@@ -4398,7 +4402,7 @@ snapshots:
       '@vue/compiler-dom': 3.4.27
       '@vue/shared': 3.4.27
 
-  '@vue/devtools-api@6.6.1': {}
+  '@vue/devtools-api@6.6.2': {}
 
   '@vue/language-core@1.8.27(typescript@5.4.5)':
     dependencies:
@@ -4450,17 +4454,17 @@ snapshots:
 
   acorn@8.11.3: {}
 
-  aeria-icons@0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5)))(glob@10.4.1)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)):
+  aeria-icons@0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5)))(glob@10.4.1)(vite@5.2.12(@types/node@20.14.0)(less@4.2.0)):
     dependencies:
       '@phosphor-icons/core': 2.1.1
-      '@vitejs/plugin-vue': 4.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
+      '@vitejs/plugin-vue': 4.6.2(vite@5.2.12(@types/node@20.14.0)(less@4.2.0))(vue@3.4.27(typescript@5.4.5))
       glob: 10.4.1
-      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)
+      vite: 5.2.12(@types/node@20.14.0)(less@4.2.0)
 
-  aeria-sdk@0.0.77(@aeriajs/common@0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0))(@aeriajs/types@0.0.51):
+  aeria-sdk@0.0.79(@aeriajs/common@0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0))(@aeriajs/types@0.0.53):
     dependencies:
-      '@aeriajs/common': 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
-      '@aeriajs/types': 0.0.51
+      '@aeriajs/common': 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
+      '@aeriajs/types': 0.0.53
 
   ajv@6.12.6:
     dependencies:
@@ -4538,7 +4542,7 @@ snapshots:
 
   arrify@1.0.1: {}
 
-  ast-kit@0.12.1:
+  ast-kit@0.12.2:
     dependencies:
       '@babel/parser': 7.24.6
       pathe: 1.1.2
@@ -4546,7 +4550,7 @@ snapshots:
   ast-walker-scope@0.6.1:
     dependencies:
       '@babel/parser': 7.24.6
-      ast-kit: 0.12.1
+      ast-kit: 0.12.2
 
   astral-regex@2.0.0: {}
 
@@ -4555,7 +4559,7 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001624
+      caniuse-lite: 1.0.30001627
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -4597,8 +4601,8 @@ snapshots:
 
   browserslist@4.23.0:
     dependencies:
-      caniuse-lite: 1.0.30001624
-      electron-to-chromium: 1.4.783
+      caniuse-lite: 1.0.30001627
+      electron-to-chromium: 1.4.788
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
 
@@ -4626,7 +4630,7 @@ snapshots:
 
   camelcase@5.3.1: {}
 
-  caniuse-lite@1.0.30001624: {}
+  caniuse-lite@1.0.30001627: {}
 
   chalk@2.4.2:
     dependencies:
@@ -4803,7 +4807,7 @@ snapshots:
 
   de-indent@1.0.2: {}
 
-  debug@4.3.4:
+  debug@4.3.5:
     dependencies:
       ms: 2.1.2
 
@@ -4860,7 +4864,7 @@ snapshots:
     dependencies:
       jake: 10.9.1
 
-  electron-to-chromium@1.4.783: {}
+  electron-to-chromium@1.4.788: {}
 
   emoji-regex@8.0.0: {}
 
@@ -5024,9 +5028,9 @@ snapshots:
       '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
 
-  eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0)):
+  eslint-config-aeriaui@0.0.10(@aeriajs/common@0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0))(@eslint/eslintrc@2.1.4)(eslint-config-aeria@0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5)))(eslint-plugin-vue@9.26.0(eslint@8.57.0)):
     dependencies:
-      '@aeriajs/common': 0.0.54(@aeriajs/types@0.0.51)(bson@6.7.0)
+      '@aeriajs/common': 0.0.56(@aeriajs/types@0.0.53)(bson@6.7.0)
       '@eslint/eslintrc': 2.1.4
       eslint-config-aeria: 0.0.29(@stylistic/eslint-plugin@1.8.1(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))
       eslint-plugin-vue: 9.26.0(eslint@8.57.0)
@@ -5040,7 +5044,7 @@ snapshots:
       nth-check: 2.1.1
       postcss-selector-parser: 6.1.0
       semver: 7.6.2
-      vue-eslint-parser: 9.4.2(eslint@8.57.0)
+      vue-eslint-parser: 9.4.3(eslint@8.57.0)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5055,7 +5059,7 @@ snapshots:
   eslint@8.57.0:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.57.0)
-      '@eslint-community/regexpp': 4.10.0
+      '@eslint-community/regexpp': 4.10.1
       '@eslint/eslintrc': 2.1.4
       '@eslint/js': 8.57.0
       '@humanwhocodes/config-array': 0.11.14
@@ -5065,7 +5069,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.4
+      debug: 4.3.5
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
@@ -5287,7 +5291,7 @@ snapshots:
   glob@10.4.1:
     dependencies:
       foreground-child: 3.1.1
-      jackspeak: 3.1.2
+      jackspeak: 3.2.0
       minimatch: 9.0.4
       minipass: 7.1.2
       path-scurry: 1.11.1
@@ -5532,7 +5536,7 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  jackspeak@3.1.2:
+  jackspeak@3.2.0:
     dependencies:
       '@isaacs/cliui': 8.0.2
     optionalDependencies:
@@ -5980,7 +5984,7 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)):
     dependencies:
       lilconfig: 3.1.1
-      yaml: 2.4.2
+      yaml: 2.4.3
     optionalDependencies:
       postcss: 8.4.38
       ts-node: 10.9.2(@types/node@20.5.1)(typescript@5.4.5)
@@ -6354,7 +6358,7 @@ snapshots:
       cosmiconfig: 9.0.0(typescript@5.4.5)
       css-functions-list: 3.2.2
       css-tree: 2.3.1
-      debug: 4.3.4
+      debug: 4.3.5
       fast-glob: 3.3.2
       fastest-levenshtein: 1.0.16
       file-entry-cache: 9.0.0
@@ -6621,7 +6625,7 @@ snapshots:
       '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
       chokidar: 3.6.0
-      debug: 4.3.4
+      debug: 4.3.5
       fast-glob: 3.3.2
       local-pkg: 0.4.3
       magic-string: 0.30.10
@@ -6649,7 +6653,7 @@ snapshots:
       pathe: 1.1.2
       scule: 1.3.0
       unplugin: 1.10.1
-      yaml: 2.4.2
+      yaml: 2.4.3
     optionalDependencies:
       vue-router: 4.3.2(vue@3.4.27(typescript@5.4.5))
     transitivePeerDependencies:
@@ -6684,48 +6688,48 @@ snapshots:
 
   validator@13.12.0: {}
 
-  vite-plugin-dts@3.9.1(@types/node@20.12.12)(rollup@4.18.0)(typescript@5.4.5)(vite@4.5.3(@types/node@20.12.12)(less@4.2.0)):
+  vite-plugin-dts@3.9.1(@types/node@20.14.0)(rollup@4.18.0)(typescript@5.4.5)(vite@4.5.3(@types/node@20.14.0)(less@4.2.0)):
     dependencies:
-      '@microsoft/api-extractor': 7.43.0(@types/node@20.12.12)
+      '@microsoft/api-extractor': 7.43.0(@types/node@20.14.0)
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
       '@vue/language-core': 1.8.27(typescript@5.4.5)
-      debug: 4.3.4
+      debug: 4.3.5
       kolorist: 1.8.0
       magic-string: 0.30.10
       typescript: 5.4.5
       vue-tsc: 1.8.27(typescript@5.4.5)
     optionalDependencies:
-      vite: 4.5.3(@types/node@20.12.12)(less@4.2.0)
+      vite: 4.5.3(@types/node@20.14.0)(less@4.2.0)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite-plugin-static-copy@0.17.1(vite@4.5.3(@types/node@20.12.12)(less@4.2.0)):
+  vite-plugin-static-copy@0.17.1(vite@4.5.3(@types/node@20.14.0)(less@4.2.0)):
     dependencies:
       chokidar: 3.6.0
       fast-glob: 3.3.2
       fs-extra: 11.2.0
       picocolors: 1.0.1
-      vite: 4.5.3(@types/node@20.12.12)(less@4.2.0)
+      vite: 4.5.3(@types/node@20.14.0)(less@4.2.0)
 
-  vite@4.5.3(@types/node@20.12.12)(less@4.2.0):
+  vite@4.5.3(@types/node@20.14.0)(less@4.2.0):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.38
       rollup: 3.29.4
     optionalDependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.0
       fsevents: 2.3.3
       less: 4.2.0
 
-  vite@5.2.12(@types/node@20.12.12)(less@4.2.0):
+  vite@5.2.12(@types/node@20.14.0)(less@4.2.0):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.0
       fsevents: 2.3.3
       less: 4.2.0
 
@@ -6733,9 +6737,9 @@ snapshots:
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
 
-  vue-eslint-parser@9.4.2(eslint@8.57.0):
+  vue-eslint-parser@9.4.3(eslint@8.57.0):
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
       eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
@@ -6748,7 +6752,7 @@ snapshots:
 
   vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)):
     dependencies:
-      '@vue/devtools-api': 6.6.1
+      '@vue/devtools-api': 6.6.2
       vue: 3.4.27(typescript@5.4.5)
 
   vue-template-compiler@2.7.16:
@@ -6849,7 +6853,7 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml@2.4.2: {}
+  yaml@2.4.3: {}
 
   yargs-parser@18.1.3:
     dependencies:

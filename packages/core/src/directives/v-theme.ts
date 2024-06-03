@@ -1,5 +1,5 @@
-import { type Directive } from 'vue'
-import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
+import { Directive } from 'vue'
+import { useStore, GlobalStateManager } from '@aeria-ui/state-management'
 
 const theme: Directive = {
   mounted(_, binding) {
