@@ -13,7 +13,7 @@ type User = {
 }
 
 type AuthResult = {
-  token: {  
+  token: {
     type: 'bearer'
     content: string
   }

@@ -3,7 +3,6 @@ import type { GlobalStateManager } from '@aeria-ui/state-management'
 import { deepClone, getReferenceProperty, freshItem } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
 
-
 import AeriaInput from '../../aeria-input/aeria-input.vue'
 import AeriaOptions from '../../aeria-options/aeria-options.vue'
 import AeriaSwitch from '../../aeria-switch/aeria-switch.vue'
