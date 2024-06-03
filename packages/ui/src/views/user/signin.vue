@@ -2,7 +2,7 @@
 import { STORAGE_NAMESPACE } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import { useRouter } from 'vue-router'
-import { isRight } from '@aeriajs/common'
+import { isError } from '@aeriajs/common'
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
 
@@ -18,8 +18,8 @@ const goToTarget = () => {
 }
 
 const authenticate = async () => {
-  const resultEither = await userStore.$actions.authenticate(userStore.credentials)
-  if( isRight(resultEither) ) {
+  const result = await userStore.$actions.authenticate(userStore.credentials)
+  if( !isError(result) ) {
     goToTarget()
   }
 }

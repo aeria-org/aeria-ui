@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Property, FileProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import { isLeft } from '@aeriajs/common'
+import { isError } from '@aeriajs/common'
 import { ref, computed } from 'vue'
 import { request, API_URL } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
@@ -65,7 +65,7 @@ const insert = async (event: Event) => {
       },
     })
 
-    if( isLeft(result) ) {
+    if( isError(result) ) {
       return
     }
 

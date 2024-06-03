@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,7 @@
     "url": ""
   },
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./src/index.ts",
     "./stores": "./dist/stores/index.js",
     "./types": "./dist/types/index.js",
     "./vue": {

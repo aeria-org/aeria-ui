@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, watch } from 'vue'
-import { isLeft } from '@aeriajs/common'
+import { isError } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
@@ -20,8 +20,8 @@ const individualActions = inject('individualActions', [])
 const isInsertReadOnly = false
 
 const insert = async () => {
-  const resultEither = await store.$actions.deepInsert()
-  if( !isLeft(resultEither) ) {
+  const result = await store.$actions.deepInsert()
+  if( !isError(result) ) {
     isInsertVisible.value = false
   }
 }

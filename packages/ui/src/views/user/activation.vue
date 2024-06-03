@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@aeria-ui/state-management'
-import { unsafe } from '@aeriajs/common'
+import { throwIfLeft } from '@aeriajs/common'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -20,7 +20,7 @@ const step = router.currentRoute.value.query.step as Step | undefined || 'succes
 const userId = router.currentRoute.value.query.u
 const token = router.currentRoute.value.query.t
 
-const userInfo: any = unsafe(await userStore.$functions.getInfo({
+const userInfo: any = throwIfLeft(await userStore.$functions.getInfo({
   userId,
   token,
 }))

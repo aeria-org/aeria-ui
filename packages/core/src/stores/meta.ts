@@ -1,6 +1,6 @@
 import type { Description } from '@aeriajs/types'
 import type { PromptAction } from '../behavior/index.js'
-import { deepClone, deserialize, isLeft } from '@aeriajs/common'
+import { deepClone, deserialize, isError } from '@aeriajs/common'
 import { reactive } from 'vue'
 
 import { useStore, hasStore, registerStore } from '@aeria-ui/state-management'
@@ -65,7 +65,7 @@ export const meta = registerStore((context) => {
       async describe(props?: { revalidate?: boolean, roles?: boolean }) {
         state.isLoading = true
         const { data: response } = await request(`${API_URL}/describe`, props)
-        if( isLeft(response) ) {
+        if( isError(response) ) {
           return response
         }
 

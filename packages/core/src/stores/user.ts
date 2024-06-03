@@ -1,6 +1,6 @@
-import type { Description } from '@aeriajs/types'
+import { HTTPStatus, type Description } from '@aeriajs/types'
 import { registerStore } from '@aeria-ui/state-management'
-import { left, right, isLeft, unwrapEither } from '@aeriajs/common'
+import { isError, error } from '@aeriajs/common'
 import { reactive } from 'vue'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
@@ -86,18 +86,18 @@ export const user = registerStore((context) => {
         const metaStore = meta(context)
 
         try {
-          const resultEither = await this.$functions.authenticate(payload)
-          if( isLeft(resultEither) ) {
-            const error = unwrapEither(resultEither)
+          const result = await this.$functions.authenticate(payload)
+          if( isError(result) ) {
+            const errorMessage = result.value.code
             metaStore.$actions.spawnModal({
               title: 'Erro!',
-              body: error as string,
+              body: errorMessage,
             })
 
-            return left(error)
+            return result
           }
 
-          const auth: AuthResult = unwrapEither(resultEither)
+          const auth: AuthResult = result
 
           state.credentials = {
             email: '',
@@ -109,13 +109,17 @@ export const user = registerStore((context) => {
             roles: true,
           })
 
-          return right('ok')
+          return 'ok'
 
         } catch( err ) {
           signout()
           console.trace(err)
 
-          return left(err)
+          return error({
+            httpStatus: HTTPStatus.InternalServerError,
+            code: 'TRY_CATCH_ERROR',
+            message: err as string,
+          })
         }
       },
     }),
