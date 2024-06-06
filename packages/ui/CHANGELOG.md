@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.45
+
+### Patch Changes
+
+- 05e14e4: Update `aeria-context-menu` to invoke store lazily
+
 ## 0.0.44
 
 ### Patch Changes
