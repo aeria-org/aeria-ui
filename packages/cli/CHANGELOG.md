@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.7
+
+### Patch Changes
+
+- 3884e75: Fix `aeria-context-menu` types and vite external modules
+
 ## 0.0.6
 
 ### Patch Changes
