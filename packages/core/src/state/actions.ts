@@ -198,7 +198,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
               'INVALID_PROPERTIES',
               'MISSING_PROPERTIES',
             ].includes(error.code) ) {
-              store.validationErrors = error.details as any
+              store.validationErrors = error.details
             }
 
             return insertResult

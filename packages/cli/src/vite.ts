@@ -122,8 +122,8 @@ export default defineConfig(async () => {
           if( !warning.code || !['UNUSED_EXTERNAL_IMPORT'].includes(warning.code) ) {
             rollupWarn(warning)
           }
-        }
-      }
+        },
+      },
     },
   } satisfies InlineConfig)
 
