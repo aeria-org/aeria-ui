@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.33
+
+### Patch Changes
+
+- 42eb070: Feat: expose `registerDirectives`
+
 ## 0.0.32
 
 ### Patch Changes
