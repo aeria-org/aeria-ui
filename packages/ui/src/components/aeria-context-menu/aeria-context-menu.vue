@@ -9,7 +9,6 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
   actions?: (CollectionAction<any> & {
-    action: string
     click: (...args: any[])=> void
   })[]
   subject?: any
@@ -32,10 +31,10 @@ const contextmenu = ref<HTMLDivElement | null>(null)
 const contextmenuVisible = ref(false)
 
 const filterActions = (actions: Props['actions']) => {
-  return actions?.filter((action: any) => {
+  return actions?.filter((action) => {
     if( action.roles ) {
       const userStore = useStore('user')
-      return action.roles.include(userStore.currentUser.role)
+      return action.roles.includes(userStore.currentUser.role)
     }
 
     return !!action.click
