@@ -6,7 +6,7 @@ import Clickable from './v-clickable.js'
 import Focus from './v-focus.js'
 import Theme from './v-theme.js'
 
-export default (app: App) => {
+export const registerDirectives = (app: App) => {
   app.directive('overlay', Overlay)
   app.directive('loading', Loading)
   app.directive('clickable', Clickable)

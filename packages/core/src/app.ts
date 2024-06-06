@@ -9,7 +9,7 @@ import { templateFunctions } from './templateFunctions.js'
 import { meta, user } from './stores/index.js'
 import { STORAGE_NAMESPACE } from './constants.js'
 import { bootstrapRoutes } from './bootstrap.js'
-import registerDirectives from './directives/index.js'
+import { registerDirectives } from './directives/index.js'
 
 export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const options = typeof optionsFn === 'function'
