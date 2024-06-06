@@ -28,13 +28,13 @@ defineProps<Props>()
 
 const emit = defineEmits<Emits>()
 
-const userStore = useStore('user')
 const contextmenu = ref<HTMLDivElement | null>(null)
 const contextmenuVisible = ref(false)
 
 const filterActions = (actions: Props['actions']) => {
   return actions?.filter((action: any) => {
     if( action.roles ) {
+      const userStore = useStore('user')
       return action.roles.include(userStore.currentUser.role)
     }
 
