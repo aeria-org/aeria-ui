@@ -34,7 +34,7 @@ const filterActions = (actions: Props['actions']) => {
   return actions?.filter((action) => {
     if( action.roles ) {
       const userStore = useStore('user')
-      return action.roles.includes(userStore.currentUser.role)
+      return action.roles.some((role) => userStore.currentUser.roles.includes(role))
     }
 
     return !!action.click
