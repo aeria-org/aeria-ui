@@ -54,7 +54,7 @@ export const useMask = (mask: string | readonly string[]) => {
       const { char, type } = currentMask[maskCharIndex] ?? {}
 
       // If the char doens't have any type then it's a required char
-      if (char !== undefined && !type && char !== text[maskCharIndex]) {
+      if (char && !type && char !== text[maskCharIndex]) {
         result += char
         continue
       }
