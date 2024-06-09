@@ -50,11 +50,11 @@ export const useMask = (mask: string | readonly string[]) => {
       defaultMask = currentMask = maskInfos.find((mask) => mask.filter((el) => el.type).length >= text.length) ?? defaultMask
     }
 
-    for (let maskCharIndex = 0, nonMaskIndex = 0; nonMaskIndex < text.length; maskCharIndex++) {
+    for (let maskCharIndex = 0, textIndex = 0; textIndex < text.length; maskCharIndex++) {
       const { char, type } = currentMask[maskCharIndex] ?? {}
 
       // If the char doens't have any type then it's a required char
-      if (nonMaskIndex < text.length && !type && char !== text[maskCharIndex]) {
+      if (char !== undefined && !type && char !== text[maskCharIndex]) {
         result += char
         continue
       }
@@ -63,13 +63,13 @@ export const useMask = (mask: string | readonly string[]) => {
         // If the current character exceeds the limit of the current mask, stop here
         break
       }
-      if ((type !== undefined && !text[nonMaskIndex].match(type)) && text.length >= nonMaskIndex) {
+      if ((type !== undefined && !text[textIndex].match(type)) && text.length >= textIndex) {
         // !newmask = If the mask was changed to fit another better one, cancel any new change
         // If the current character doens't match the current mask, search if there's another mask that matches it on it's same index
-        if (!newMask && text[nonMaskIndex]) {
+        if (!newMask && text[textIndex]) {
           const matchingMask = maskInfos.find((mask) => {
-            const maskType = mask[maskCharIndex].type
-            return maskType && text[nonMaskIndex].match(maskType)
+            const maskType = mask[maskCharIndex]?.type
+            return maskType && text[textIndex].match(maskType)
           })
 
           if (matchingMask) {
@@ -83,8 +83,8 @@ export const useMask = (mask: string | readonly string[]) => {
         // If another mask that matches the current char was not found, stop there
         break
       }
-      result += text[nonMaskIndex]
-      nonMaskIndex++
+      result += text[textIndex]
+      textIndex++
     }
 
     return result
