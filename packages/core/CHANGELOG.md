@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.34
+
+### Patch Changes
+
+- dd45e43: fixed bugs in aeria-context menu and input mask
+
 ## 0.0.33
 
 ### Patch Changes

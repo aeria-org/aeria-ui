@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/theme",
   "type": "module",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,7 +33,7 @@
     "vue-router": "^4.3.2"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.33",
+    "@aeria-ui/core": "^0.0.34",
     "@aeria-ui/state-management": "^0.0.12",
     "@aeriajs/common": "0.0",
     "vue": "^3.4.26",
