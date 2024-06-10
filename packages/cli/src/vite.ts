@@ -102,28 +102,10 @@ export default defineConfig(async () => {
     ],
     optimizeDeps: {
       include: ['bson'],
+      exclude: ['mongodb'],
     },
     build: {
       target: 'esnext',
-      rollupOptions: {
-        external: [
-          'path',
-          'crypto',
-          '@aeriajs/builtins',
-          '@aeriajs/cli',
-          '@aeriajs/core',
-          '@aeriajs/entrypoint',
-          '@aeriajs/http',
-          '@aeriajs/node-http',
-          '@aeriajs/security',
-          '@aeriajs/server',
-        ],
-        onwarn: (warning, rollupWarn) => {
-          if( !warning.code || !['UNUSED_EXTERNAL_IMPORT'].includes(warning.code) ) {
-            rollupWarn(warning)
-          }
-        },
-      },
     },
   } satisfies InlineConfig)
 
