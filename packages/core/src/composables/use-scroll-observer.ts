@@ -7,7 +7,7 @@ type ScrollObserverOptions = {
 export const useScrollObserver = (element?: Ref<HTMLElement | null> | null, options?: ScrollObserverOptions) => {
   const { antecipate = 0 } = options || {}
 
-  const reachedEnd = ref(true)
+  const reachedEnd = ref<boolean>(true)
   const updateScroll = () => {
     const targetEl = element!.value
     reachedEnd.value = targetEl
