@@ -93,20 +93,22 @@ const getSearchResults = async () => {
       filters: defaultFilters(),
     })
   }
+  
+  const inputQueries = indexes.filter((i) => inputValue.value[i]?.length > 0).map((i) => ({
+    [i]: {
+      $regex: inputValue.value[i].trim()
+        .replace('(', '\\(')
+        .replace(')', '\\)'),
+      $options: 'i',
+    },
+  }))
 
   return store.$actions.custom('getAll', {
     limit: DEFAULT_LIMIT,
     offset: batch.value * DEFAULT_LIMIT,
     filters: {
-      ...defaultFilters(),
-      $or: indexes.filter((i) => inputValue.value[i]?.length > 0).map((i) => ({
-        [i]: {
-          $regex: inputValue.value[i].trim()
-            .replace('(', '\\(')
-            .replace(')', '\\)'),
-          $options: 'i',
-        },
-      })),
+    ...defaultFilters(),
+    ...(inputQueries?.length > 0 && { $or: inputQueries })
     },
   })
 }
