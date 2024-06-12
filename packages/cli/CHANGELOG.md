@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.8
+
+### Patch Changes
+
+- 5e1e4eb: Quickfix vite config
+
 ## 0.0.7
 
 ### Patch Changes
