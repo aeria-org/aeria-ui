@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import type { user } from '@aeriajs/builtins'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@aeria-ui/state-management'
-import { isError } from '@aeriajs/common'
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaIcon from '../../components/aeria-icon/aeria-icon.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
@@ -30,16 +30,15 @@ const password = ref({
 
 const insert = async () => {
   userStore.item.password = password.value.password
-  const accountResult = await userStore.$functions.createAccount({
+  const { error } = await <ReturnType<typeof user.functions.createAccount>>userStore.$functions.createAccount({
     ...newUser.value,
     password: password.value.password,
   })
 
-  if( isError(accountResult) ) {
-    const error = accountResult.value.code
-    await metaStore.$actions.spawnModal({
+  if( error ) {
+    metaStore.$actions.spawnModal({
       title: 'Error',
-      body: error,
+      body: error.code,
     })
     return
   }

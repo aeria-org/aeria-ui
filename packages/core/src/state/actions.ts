@@ -1,6 +1,6 @@
 import type { Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
-import { formatValue, getReferenceProperty, deepClone, isReference, isError } from '@aeriajs/common'
+import { formatValue, getReferenceProperty, deepClone, isReference, Result } from '@aeriajs/common'
 import { useStore, type StoreContext } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
@@ -151,7 +151,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       return actions.customEffect(
         'get', payload,
-        (result) => {
+        ({ result }) => {
           if( result ) {
             actions.setItem(result)
           }
@@ -191,9 +191,8 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           ...payload,
           what: payload?.what || store.item,
         },
-        (insertResult) => {
-          if( isError(insertResult) ) {
-            const error = insertResult.value
+        ({ error, result }) => {
+          if( error ) {
             if( [
               'INVALID_PROPERTIES',
               'MISSING_PROPERTIES',
@@ -201,10 +200,10 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
               store.validationErrors = error.details
             }
 
-            return insertResult
+            return error
           }
 
-          return actions.insertItem(insertResult)
+          return actions.insertItem(result)
         },
         options,
       )
@@ -212,10 +211,10 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
     async deepInsert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
       const candidate = Object.assign({}, payload?.what || store.diffedItem)
-      const newItem = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
+      const { error, result: newItem } = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
 
-      if( isError(newItem) ) {
-        return newItem
+      if( error ) {
+        return Result.error(error)
       }
 
       return actions.insert({

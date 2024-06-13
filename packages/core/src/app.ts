@@ -1,5 +1,4 @@
 import type { defineOptions } from './options.js'
-import { isError } from '@aeriajs/common'
 import { createApp } from 'vue'
 import { useRouter } from 'vue-router'
 import { createI18n, t } from '@aeria-ui/i18n'
@@ -76,7 +75,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
       viewIcon: () => {
         const currentRoute = router.currentRoute.value
         return currentRoute.meta.icon
-          || metaStore.descriptions[currentRoute.params.collection as string].icon
+          || metaStore.descriptions[currentRoute.params.collection as string]?.icon
       },
     },
     methods: templateFunctions,
@@ -92,12 +91,12 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     let hasError = false
 
     try {
-      const result = await metaStore.$actions.describe({
+      const { error } = await metaStore.$actions.describe({
         roles: true,
         revalidate: true,
       })
 
-      if( isError(result) ) {
+      if( error ) {
         hasError = true
       }
     } catch( err: any ) {

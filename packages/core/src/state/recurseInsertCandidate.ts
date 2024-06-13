@@ -1,5 +1,5 @@
 import type { Property } from '@aeriajs/types'
-import { getReferenceProperty, isError } from '@aeriajs/common'
+import { Result, getReferenceProperty } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
 export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
@@ -10,9 +10,9 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   if( 'properties' in property ) {
     const entries: [string, string][] = []
     for( const key in obj ) {
-      const result = await recurseInsertCandidate(obj[key], property.properties[key], manager)
-      if( result && isError(result) ) {
-        return result
+      const { error, result } = await recurseInsertCandidate(obj[key], property.properties[key], manager)
+      if( error ) {
+        return Result.error(error)
       }
 
       entries.push([
@@ -27,9 +27,9 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   if( 'items' in property ) {
     const arr: any[] = []
     for( const elem of obj ) {
-      const result = await recurseInsertCandidate(elem, property.items, manager)
-      if( result && isError(result) ) {
-        return result
+      const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
+      if( error ) {
+        return Result.error(error)
       }
 
       arr.push(result)
@@ -41,13 +41,13 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
     const collection = getReferenceProperty(property)!.$ref
     const helperStore = useStore(collection, manager)
 
-    const result = await helperStore.$actions.deepInsert({
+    const { error, result } = await helperStore.$actions.deepInsert({
       what: obj,
     })
 
-    return isError(result)
-      ? result
-      : result._id
+    return error
+      ? Result.error(error)
+      : Result.result(result._id)
   }
 
   return obj

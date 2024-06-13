@@ -93,7 +93,7 @@ const getSearchResults = async () => {
       filters: defaultFilters(),
     })
   }
-  
+
   const inputQueries = indexes.filter((i) => inputValue.value[i]?.length > 0).map((i) => ({
     [i]: {
       $regex: inputValue.value[i].trim()
@@ -108,7 +108,9 @@ const getSearchResults = async () => {
     offset: batch.value * DEFAULT_LIMIT,
     filters: {
     ...defaultFilters(),
-    ...(inputQueries?.length > 0 && { $or: inputQueries })
+    ...(inputQueries.length > 0 && {
+ $or: inputQueries,
+}),
     },
   })
 }

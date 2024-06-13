@@ -1,10 +1,11 @@
 import type { Description } from '@aeriajs/types'
+import type { user as originalUser } from '@aeriajs/builtins'
 import { registerStore } from '@aeria-ui/state-management'
-import { isError, error } from '@aeriajs/common'
 import { reactive } from 'vue'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
+import { Result } from 'aeria-sdk'
 
 type User = {
   _id: string
@@ -86,39 +87,33 @@ export const user = registerStore((context) => {
         const metaStore = meta(context)
 
         try {
-          const result = await this.$functions.authenticate(payload)
-          if( isError(result) ) {
-            const errorMessage = result.value.code
+          const { error, result: authResult } = await <ReturnType<typeof originalUser.functions.authenticate>>this.$functions.authenticate(payload)
+          if( error ) {
+            const errorMessage = error.code
             metaStore.$actions.spawnModal({
               title: 'Erro!',
               body: errorMessage,
             })
 
-            return result
+            return Result.error(error)
           }
-
-          const auth: AuthResult = result
 
           state.credentials = {
             email: '',
             password: '',
           }
 
-          setCurrentUser(auth)
+          setCurrentUser(authResult)
           await metaStore.$actions.describe({
             roles: true,
           })
 
-          return 'ok'
+          return Result.result(authResult)
 
         } catch( err ) {
           signout()
           console.trace(err)
-
-          return error({
-            code: 'TRY_CATCH_ERROR',
-            message: String(err),
-          })
+          throw err
         }
       },
     }),

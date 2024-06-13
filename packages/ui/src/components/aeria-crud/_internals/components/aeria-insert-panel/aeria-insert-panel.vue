@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { inject, watch } from 'vue'
-import { isError } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
@@ -20,8 +19,8 @@ const individualActions = inject('individualActions', [])
 const isInsertReadOnly = false
 
 const insert = async () => {
-  const result = await store.$actions.deepInsert()
-  if( !isError(result) ) {
+  const { error } = await store.$actions.deepInsert()
+  if( !error ) {
     isInsertVisible.value = false
   }
 }
@@ -38,7 +37,6 @@ const cancel = () => {
     body: t('prompt.close_panel'),
   })
 }
-
 watch(() => store.item._id, (_id) => {
   if( _id === null ) {
     isInsertVisible.value = false

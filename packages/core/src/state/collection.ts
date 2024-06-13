@@ -26,7 +26,10 @@ export type CollectionStoreState<TItem extends CollectionStoreItem = any> =
 
 export type CollectionStore<TItem extends CollectionStoreItem = any> = CollectionStoreState<TItem> & {
   $id: string
-  $functions: Record<string, any>
+  $functions: Record<
+    string,
+    <TFunction extends (...args: any[])=> any>(...args: Parameters<TFunction>)=> ReturnType<TFunction>
+  >
   $actions: ReturnType<typeof useStoreActions>
 }
 
@@ -98,13 +101,13 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
 
   const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> any>) => {
     const description = computed((): Description => {
-      if( state.rawDescription.preferred ) {
+      if (state.rawDescription.preferred) {
         const userStore = useStore('user')
         const description = Object.assign({}, state.rawDescription)
         const toMerge = {}
 
         userStore.currentUser.roles.forEach((role: string) => {
-          if( role in state.rawDescription.preferred! ) {
+          if (role in state.rawDescription.preferred!) {
             Object.assign(toMerge, deepMerge(toMerge, state.rawDescription.preferred![role]))
           }
         })
@@ -127,18 +130,18 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           : null
 
         const getValue = (value: any) => {
-          if( !property ) {
+          if (!property) {
             return value
           }
 
-          if( 'type' in property ) {
-            if( property.type === 'boolean' && value === false ) {
+          if ('type' in property) {
+            if (property.type === 'boolean' && value === false) {
               return {
                 $ne: true,
               }
             }
 
-            if( property.type === 'string' && !property.format ) {
+            if (property.type === 'string' && !property.format) {
               return {
                 $regex: String(value)
                   .replace('(', '\\(')
@@ -151,7 +154,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           return value?._id || value
         }
 
-        if( Array.isArray(value) ) {
+        if (Array.isArray(value)) {
           return {
             $in: value.map((v) => getValue(v)),
           }
@@ -161,7 +164,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       }
 
       const entries = Object.entries(sanitizedFilters).reduce((a: any[], [key, filter]) => {
-        if( key.startsWith('$') ) {
+        if (key.startsWith('$')) {
           return [
             ...a,
             [
@@ -171,15 +174,15 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           ]
         }
 
-        if( filter && typeof filter === 'object' && !Array.isArray(filter) ) {
+        if (filter && typeof filter === 'object' && !Array.isArray(filter)) {
           Object.keys(filter).forEach((key) => {
-            if( isNull(filter[key]) || Object.values(filter[key]).every((_) => isNull(_)) ) {
+            if (isNull(filter[key]) || Object.values(filter[key]).every((_) => isNull(_))) {
               delete filter[key]
             }
           })
         }
 
-        if( isNull(filter) || (typeof filter === 'object' && Object.keys(filter).length === 0) ) {
+        if (isNull(filter) || (typeof filter === 'object' && Object.keys(filter).length === 0)) {
           return a
         }
 
@@ -231,14 +234,14 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       $freshItem: computed(() => {
         const recurse = (store: any, parent?: string, grandParent?: string): TItem => {
           return Object.entries(properties.value).reduce((a, [key, property]) => {
-            if( 'items' in property ) {
+            if ('items' in property) {
               return {
                 ...a,
                 [key]: [],
               }
             }
 
-            if( isReference(property) && property.inline && store.$id !== grandParent ) {
+            if (isReference(property) && property.inline && store.$id !== grandParent) {
               const subject = getReferenceProperty(property)!.$ref
               const helperStore = useStore(subject)
 
@@ -276,7 +279,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       filtersCount: computed(() => Object.values($filters.value).filter((_) => !!_).length),
       hasActiveFilters: computed(() => Object.values(state.filters).some((_) => !!_)),
       availableFilters: computed(() => {
-        if( !description.value.filters ) {
+        if (!description.value.filters) {
           return {}
         }
 
@@ -353,11 +356,11 @@ export const createCollectionStore = <
   const state: any = initial.state
 
   const actions = useStoreActions(state, context)
-  if( newer.actions ) {
+  if (newer.actions) {
     Object.assign(actions, newer.actions(state, actions))
   }
 
-  if( newer.state ) {
+  if (newer.state) {
     Object.assign(state, newer.state)
   }
 
