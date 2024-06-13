@@ -1,4 +1,4 @@
-import type { Description } from '@aeriajs/types'
+import type { Description, ExtractSuccessful } from '@aeriajs/types'
 import type { PromptAction } from '../behavior/index.js'
 import { deepClone, deserialize, isError } from '@aeriajs/common'
 import { reactive } from 'vue'
@@ -64,15 +64,14 @@ export const meta = registerStore((context) => {
     actions: {
       async describe(props?: { revalidate?: boolean, roles?: boolean }) {
         state.isLoading = true
-        const { data: response } = await request(`${API_URL}/describe`, props)
-        if( isError(response) ) {
+        const response = await request<...>(`${API_URL}/describe`, props)
+
+        if( response._tag === 'Error' ) {
           return response
         }
 
-        const deserialized = deserialize(response)
-
-        const globalDescriptions: Record<CollectionName, Description> =
-          state.descriptions = deserialized.descriptions
+        const deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
+        const globalDescriptions = state.descriptions = deserialized.descriptions
 
         if( deserialized.roles ) {
           state.roles = deserialized.roles
