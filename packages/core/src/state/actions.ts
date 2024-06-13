@@ -136,8 +136,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         : {}
     },
 
-    count(payload: Pick<CrudParameters, 'filters'>) {
-      return actions.custom('count', payload)
+    async count(payload: Pick<CrudParameters, 'filters'>) {
+      const { result } = await actions.custom('count', payload)
+      return result
     },
 
     get(payloadSource: ActionFilter | string, options?: CustomOptions) {

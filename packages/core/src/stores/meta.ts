@@ -182,7 +182,6 @@ export const meta = registerStore((context) => {
       },
 
       spawnToast(
-        this: any,
         props: {
           text: string
           icon?: Icon
