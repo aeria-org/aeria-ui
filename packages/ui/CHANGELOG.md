@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.49
+
+### Patch Changes
+
+- 9947cc3: fixed invalid mongo query ($or with an empty array) on aeria-search filters
+- 9947cc3: fixed bugs in aeria-context menu and input mask
+- Updated dependencies [9947cc3]
+  - @aeria-ui/core@0.0.35
+
 ## 0.0.48
 
 ### Patch Changes
