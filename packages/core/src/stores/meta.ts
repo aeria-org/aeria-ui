@@ -181,12 +181,10 @@ export const meta = registerStore((context) => {
         })
       },
 
-      spawnToast(
-        props: {
-          text: string
-          icon?: Icon
-        },
-      ) {
+      spawnToast(props: {
+        text: string
+        icon?: Icon
+      }) {
         if( state.toasts.length >= 3 ) {
           state.toasts.splice(-1)
         }
