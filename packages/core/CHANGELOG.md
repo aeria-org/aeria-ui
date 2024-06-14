@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.37
+
+### Patch Changes
+
+- c4efde0: Fix `recurseInsertCandidate()`
+
 ## 0.0.36
 
 ### Patch Changes
