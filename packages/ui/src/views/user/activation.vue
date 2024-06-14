@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { user } from '@aeriajs/builtins'
 import { useStore } from '@aeria-ui/state-management'
-import { type user } from '@aeriajs/builtins'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
