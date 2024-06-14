@@ -2,7 +2,7 @@ import type { Property } from '@aeriajs/types'
 import { Result, getReferenceProperty } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Result.Either<unknown, unknown> => {
   if( !property ) {
     return obj
   }
