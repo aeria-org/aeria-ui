@@ -8,7 +8,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   }
 
   if( 'properties' in property ) {
-    const entries: [string, string][] = []
+    const entries: [string, unknown][] = []
     for( const key in obj ) {
       const { error, result } = await recurseInsertCandidate(obj[key], property.properties[key], manager)
       if( error ) {
@@ -25,7 +25,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   }
 
   if( 'items' in property ) {
-    const arr: any[] = []
+    const arr: unknown[] = []
     for( const elem of obj ) {
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {
