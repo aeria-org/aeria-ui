@@ -2,7 +2,7 @@ import type { Description } from '@aeriajs/types'
 import type { user as originalUser } from '@aeriajs/builtins'
 import { registerStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
-import { createCollectionStore } from '../state/collection.js'
+import { createCollectionStore, type CollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
 import { Result } from 'aeria-sdk'
@@ -83,11 +83,12 @@ export const user = registerStore((context) => {
       setCurrentUser,
       signout,
 
-      async authenticate(this: any, payload: Credentials | { revalidate: true }) {
+      async authenticate(payload: Credentials | { revalidate: true }) {
         const metaStore = meta(context)
+        const store = this as unknown as CollectionStore
 
         try {
-          const { error, result: authResult } = await <ReturnType<typeof originalUser.functions.authenticate>>this.$functions.authenticate(payload)
+          const { error, result: authResult } = await <ReturnType<typeof originalUser.functions.authenticate>>store.$functions.authenticate(payload)
           if( error ) {
             const errorMessage = error.code
             metaStore.$actions.spawnModal({
