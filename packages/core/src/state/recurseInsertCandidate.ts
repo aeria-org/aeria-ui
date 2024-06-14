@@ -1,14 +1,16 @@
 import type { Property } from '@aeriajs/types'
-import { Result, getReferenceProperty } from '@aeriajs/common'
+import { Result, getReferenceProperty, isResult } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Result.Either<unknown, unknown> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
   if( !property ) {
-    return obj
+    return isResult(obj)
+      ? obj
+      : Result.result(obj)
   }
 
   if( 'properties' in property ) {
-    const entries: [string, unknown][] = []
+    const entries: [string, string][] = []
     for( const key in obj ) {
       const { error, result } = await recurseInsertCandidate(obj[key], property.properties[key], manager)
       if( error ) {
@@ -21,11 +23,11 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
       ])
     }
 
-    return Object.fromEntries(entries)
+    return Result.result(Object.fromEntries(entries))
   }
 
   if( 'items' in property ) {
-    const arr: unknown[] = []
+    const arr: any[] = []
     for( const elem of obj ) {
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {
@@ -34,7 +36,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
 
       arr.push(result)
     }
-    return arr
+    return Result.result(arr)
   }
 
   if( 'inline' in property && property.inline ) {
@@ -50,5 +52,5 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
       : Result.result(result._id)
   }
 
-  return obj
+  return Result.result(obj)
 }

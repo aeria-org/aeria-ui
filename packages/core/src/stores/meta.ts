@@ -197,7 +197,7 @@ export const meta = registerStore((context) => {
         })
       },
 
-      popToast(itr?: number) {
+      popToast(this: any, itr?: number) {
         if( !itr ) {
           state.toasts.shift()
           return
