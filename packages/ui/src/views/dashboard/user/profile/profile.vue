@@ -124,7 +124,7 @@ const signout = async () => {
           'phone',
           'picture_file'
         ]),
-        layout: userStore.formLayout
+        formLayout: userStore.description.formLayout
       }"
     />
 

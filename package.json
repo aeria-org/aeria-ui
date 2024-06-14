@@ -4,26 +4,27 @@
   "packageManager": "pnpm@9.1.0",
   "scripts": {
     "preinstall": "unlink node_modules/@aeria-ui || true",
-    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui"
+    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui; rm -rf .aeria"
   },
   "devDependencies": {
-    "@aeria-ui/cli": "link:./packages/cli",
-    "@aeria-ui/core": "link:./packages/core",
-    "@aeria-ui/i18n": "link:./packages/i18n",
-    "@aeria-ui/state-management": "link:./packages/state-management",
-    "@aeria-ui/ui": "link:./packages/ui",
-    "@changesets/cli": "^2.26.2",
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "aeria-ui": "link:./packages/aeria-ui",
-    "eslint": "^8.57.0",
-    "eslint-config-aeria": "^0.0.29",
+    "@aeria-ui/cli": "link:packages/cli",
+    "@aeria-ui/core": "link:packages/core",
+    "@aeria-ui/i18n": "link:packages/i18n",
+    "@aeria-ui/state-management": "link:packages/state-management",
+    "@aeria-ui/ui": "link:packages/ui",
+    "@aeriajs/builtins": "^0.0.102",
+    "@changesets/cli": "^2.27.5",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "aeria-ui": "link:packages/aeria-ui",
+    "eslint": "^9.4.0",
+    "eslint-config-aeria": "^0.0.31",
     "eslint-config-aeriaui": "latest",
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "postcss-less": "^6.0.0",
-    "stylelint": "^16.2.0",
+    "stylelint": "^16.6.1",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-less": "^3.0.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   }
 }

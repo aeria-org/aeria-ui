@@ -1,8 +1,9 @@
-import type { Description, ExtractSuccessful } from '@aeriajs/types'
+import type { Description, Icon } from '@aeriajs/types'
 import type { PromptAction } from '../behavior/index.js'
-import { deepClone, deserialize, isError } from '@aeriajs/common'
+import type { builtinFunctions } from '@aeriajs/builtins'
+import type { ExtractResult } from '@aeriajs/types/dist/result.js'
+import { Result, deepClone, deserialize } from '@aeriajs/common'
 import { reactive } from 'vue'
-
 import { useStore, hasStore, registerStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { createCollectionStore } from '../state/collection.js'
@@ -11,14 +12,13 @@ import { API_URL, STORAGE_NAMESPACE } from '../constants.js'
 import { request } from '../http.js'
 import { user } from './user.js'
 
-type CollectionName = string
 type PromptAnswer = { name: string }
 
 const DEFAULT_THEME = 'default'
 
 export type Toast = {
   text: string
-  icon?: string
+  icon?: Icon
   itr: number
   idx: number
   date: Date
@@ -26,7 +26,7 @@ export type Toast = {
 
 export const meta = registerStore((context) => {
   const freshState = {
-    descriptions: {} as Record<string, Description>,
+    descriptions: {} as Record<string, Description | undefined>,
     roles: [] as string[],
     isLoading: false,
     globalIsLoading: false,
@@ -62,15 +62,16 @@ export const meta = registerStore((context) => {
     $id: 'meta',
     state,
     actions: {
-      async describe(props?: { revalidate?: boolean, roles?: boolean }) {
+      async describe(props?: Parameters<typeof builtinFunctions.describe>[0]) {
         state.isLoading = true
-        const response = await request<...>(`${API_URL}/describe`, props)
+        const { data: response } = await request(`${API_URL}/describe`, props)
 
         if( response._tag === 'Error' ) {
-          return response
+          return Result.error(response)
         }
 
         const deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
+
         const globalDescriptions = state.descriptions = deserialized.descriptions
 
         if( deserialized.roles ) {
@@ -113,7 +114,7 @@ export const meta = registerStore((context) => {
         }
 
         state.isLoading = false
-        return response
+        return Result.result(response)
       },
 
       async ask(props: {
@@ -180,13 +181,10 @@ export const meta = registerStore((context) => {
         })
       },
 
-      spawnToast(
-        this: any,
-        props: {
-          text: string
-          icon?: string
-        },
-      ) {
+      spawnToast(props: {
+        text: string
+        icon?: Icon
+      }) {
         if( state.toasts.length >= 3 ) {
           state.toasts.splice(-1)
         }
@@ -199,7 +197,7 @@ export const meta = registerStore((context) => {
         })
       },
 
-      popToast(this: { toasts: any[] }, itr?: number) {
+      popToast(this: any, itr?: number) {
         if( !itr ) {
           state.toasts.shift()
           return

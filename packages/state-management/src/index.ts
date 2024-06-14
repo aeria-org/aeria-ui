@@ -9,7 +9,6 @@ import {
   type UnwrapRef,
   type ComputedRef,
   type Plugin,
-
 } from 'vue'
 
 export type StoreState = Record<string, any>
