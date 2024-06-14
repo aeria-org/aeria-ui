@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@aeria-ui/state-management'
-import { throwIfError } from '@aeriajs/common'
+import { type user } from '@aeriajs/builtins'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -20,10 +20,14 @@ const step = router.currentRoute.value.query.step as Step | undefined || 'succes
 const userId = router.currentRoute.value.query.u
 const token = router.currentRoute.value.query.t
 
-const userInfo: any = throwIfError(await userStore.$functions.getInfo({
+const { error, result: userInfo } = await <ReturnType<typeof user.functions.getInfo>>userStore.$functions.getInfo({
   userId,
   token,
-}))
+})
+
+if( error ) {
+  throw error
+}
 
 const password = ref({
   name: userInfo.name,
