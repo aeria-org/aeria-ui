@@ -1,10 +1,10 @@
 import type { Property } from '@aeriajs/types'
-import { Result, getReferenceProperty } from '@aeriajs/common'
+import { Result, getReferenceProperty, isResult } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
 export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
   if( !property ) {
-    return Result.result(obj)
+    return isResult(obj) ? obj : Result.result(obj)
   }
 
   if( 'properties' in property ) {
