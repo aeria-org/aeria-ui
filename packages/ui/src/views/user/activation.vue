@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@aeria-ui/state-management'
-import { user } from '@aeriajs/builtins'
+import { type user } from '@aeriajs/builtins'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -25,8 +25,7 @@ const { error, result: userInfo } = await <ReturnType<typeof user.functions.getI
   token,
 })
 
-if( error )
-{
+if( error ) {
   throw error
 }
 
