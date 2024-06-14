@@ -1,16 +1,14 @@
-import type { Property } from '@aeriajs/types'
-import { Result, getReferenceProperty, isResult } from '@aeriajs/common'
+import type { Property, EndpointError } from '@aeriajs/types'
+import { Result, getReferenceProperty } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
   if( !property ) {
-    return isResult(obj)
-      ? obj
-      : Result.result(obj)
+    return Result.result(obj)
   }
 
   if( 'properties' in property ) {
-    const entries: [string, string][] = []
+    const entries: [string, unknown][] = []
     for( const key in obj ) {
       const { error, result } = await recurseInsertCandidate(obj[key], property.properties[key], manager)
       if( error ) {
@@ -27,7 +25,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   }
 
   if( 'items' in property ) {
-    const arr: any[] = []
+    const arr: unknown[] = []
     for( const elem of obj ) {
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {
