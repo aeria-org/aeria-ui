@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.13
+
+### Patch Changes
+
+- b2a411c: small refactors and updated error handling to last aeria version
+
 ## 0.0.12
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @aeria-ui/ui
 
+## 0.0.50
+
+### Patch Changes
+
+- b2a411c: small refactors and updated error handling to last aeria version
+- b2a411c: fixed invalid mongo query ($or with an empty array) on aeria-search filters
+- b2a411c: fixed bugs in aeria-context menu and input mask
+- Updated dependencies [b2a411c]
+- Updated dependencies [b2a411c]
+  - @aeria-ui/core@0.0.36
+  - @aeria-ui/state-management@0.0.13
+
 ## 0.0.49
 
 ### Patch Changes

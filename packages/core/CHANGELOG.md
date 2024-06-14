@@ -1,5 +1,14 @@
 # @aeria-ui/core
 
+## 0.0.36
+
+### Patch Changes
+
+- b2a411c: small refactors and updated error handling to last aeria version
+- b2a411c: fixed bugs in aeria-context menu and input mask
+- Updated dependencies [b2a411c]
+  - @aeria-ui/state-management@0.0.13
+
 ## 0.0.35
 
 ### Patch Changes
