@@ -4,7 +4,7 @@ import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
 export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<any> => {
   if( !property ) {
-    return obj
+    return Result.result(obj)
   }
 
   if( 'properties' in property ) {
@@ -21,7 +21,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
       ])
     }
 
-    return Object.fromEntries(entries)
+    return Result.result(Object.fromEntries(entries))
   }
 
   if( 'items' in property ) {
@@ -34,7 +34,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
 
       arr.push(result)
     }
-    return arr
+    return Result.result(arr)
   }
 
   if( 'inline' in property && property.inline ) {
@@ -50,5 +50,5 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
       : Result.result(result._id)
   }
 
-  return obj
+  return Result.result(obj)
 }
