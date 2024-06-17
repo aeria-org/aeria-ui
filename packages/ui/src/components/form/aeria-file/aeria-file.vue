@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Property, FileProperty, EndpointError } from '@aeriajs/types'
+import type { Property, FileProperty, EndpointError, Result } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
-import type { Result } from '@aeriajs/common'
 import { ref, computed } from 'vue'
 import { request, API_URL } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
@@ -15,11 +14,15 @@ type Props = FormFieldProps<any, Property & FileProperty> & {
   content?: any
 }
 
+type TempFile = {
+  tempId: string
+}
+
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'update:content' | 'change', value: string | ArrayBuffer | null): void
-  (e: 'update:modelValue', value: File | null): void
+  (e: 'update:modelValue', value: File | TempFile | null): void
 }>()
 
 const parentStoreId = getStoreId()
@@ -55,7 +58,7 @@ const insert = async (event: Event) => {
   const content = await readFile(file)
 
   if( store ) {
-    const { data: { error, result } } = await request<Result.Either<EndpointError, { tempId: string }>>(`${API_URL}/${store.$id}/upload?name=${file.name}`, content, {
+    const { data: { error, result } } = await request<Result.Either<EndpointError, TempFile>>(`${API_URL}/${store.$id}/upload?name=${file.name}`, content, {
       params: {
         method: 'POST',
         headers: {

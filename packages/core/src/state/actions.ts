@@ -1,6 +1,7 @@
 import type { Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
-import { formatValue, getReferenceProperty, deepClone, isReference, Result } from '@aeriajs/common'
+import { formatValue, getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
+import { Result } from '@aeriajs/types'
 import { useStore, type StoreContext } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'

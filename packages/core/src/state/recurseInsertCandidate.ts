@@ -1,8 +1,9 @@
 import type { Property, EndpointError } from '@aeriajs/types'
-import { Result, getReferenceProperty } from '@aeriajs/common'
+import { Result } from '@aeriajs/types'
+import { getReferenceProperty } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, Record<string, any>>> => {
   if( !property ) {
     return Result.result(obj)
   }
