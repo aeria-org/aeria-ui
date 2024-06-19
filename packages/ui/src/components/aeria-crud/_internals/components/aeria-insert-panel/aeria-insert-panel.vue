@@ -19,6 +19,7 @@ const individualActions = inject('individualActions', [])
 const isInsertReadOnly = false
 
 const insert = async () => {
+  console.log('insert')
   const { error } = await store.$actions.deepInsert()
   if( !error ) {
     isInsertVisible.value = false
