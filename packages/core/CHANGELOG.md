@@ -1,5 +1,17 @@
 # @aeria-ui/core
 
+## 0.0.38
+
+### Patch Changes
+
+- a74f016: Fix type errors and upstream compat
+
+## 0.0.37
+
+### Patch Changes
+
+- c4efde0: Fix `recurseInsertCandidate()`
+
 ## 0.0.36
 
 ### Patch Changes

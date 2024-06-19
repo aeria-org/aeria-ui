@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/core",
   "type": "module",
-  "version": "0.0.36",
+  "version": "0.0.38",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
