@@ -3,7 +3,7 @@ import { Result } from '@aeriajs/types'
 import { getReferenceProperty } from '@aeriajs/common'
 import { useStore, type GlobalStateManager } from '@aeria-ui/state-management'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, Record<string, any>>> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, any>> => {
   if( !property ) {
     return Result.result(obj)
   }
@@ -18,7 +18,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
 
       entries.push([
         key,
-        result,
+        result, 
       ])
     }
 
@@ -26,7 +26,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
   }
 
   if( 'items' in property ) {
-    const arr: any[] = []
+    const arr: string[] = []
     for( const elem of obj ) {
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {

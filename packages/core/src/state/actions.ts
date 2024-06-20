@@ -201,10 +201,10 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
               store.validationErrors = error.details
             }
 
-            return error
+            return Result.error(error)
           }
 
-          return actions.insertItem(result)
+          return Result.result(actions.insertItem(result))
         },
         options,
       )
@@ -213,14 +213,13 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     async deepInsert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
       const candidate = Object.assign({}, payload?.what || store.diffedItem)
       const { error, result: newItem } = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
-
       if( error ) {
         return Result.error(error)
       }
 
-      return Result.result(actions.insert({
-        what: condenseItem(newItem),
-      }, options))
+      return actions.insert({
+          what: condenseItem(newItem),
+        }, options)
     },
 
     async remove(payload: ActionFilter['filters'], options?: CustomOptions) {
