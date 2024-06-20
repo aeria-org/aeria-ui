@@ -18,7 +18,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
 
       entries.push([
         key,
-        result, 
+        result,
       ])
     }
 

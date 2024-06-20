@@ -16,13 +16,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "main": "dist/ui.js",
+  "main": "src/index.ts",
   "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./dist/ui.js",
+    ".": "./src/index.ts",
     "./themes/*": "./themes/*",
     "./*": "./dist/*"
   },

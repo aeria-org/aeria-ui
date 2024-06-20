@@ -218,8 +218,8 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       }
 
       return actions.insert({
-          what: condenseItem(newItem),
-        }, options)
+        what: condenseItem(newItem),
+      }, options)
     },
 
     async remove(payload: ActionFilter['filters'], options?: CustomOptions) {
