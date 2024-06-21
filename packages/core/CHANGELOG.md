@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.39
+
+### Patch Changes
+
+- 745d843: fix: insert error return type
+
 ## 0.0.38
 
 ### Patch Changes
