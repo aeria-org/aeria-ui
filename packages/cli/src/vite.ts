@@ -30,6 +30,7 @@ export default defineConfig(async () => {
     plugins: [
       aeriaIcons({
         hash: true,
+        defaultStyle: iconsConfig.defaultStyle,
         safeList: iconsConfig.safeList,
         libraries: iconsConfig.libraries,
         async preEmit() {

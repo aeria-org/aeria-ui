@@ -1,9 +1,11 @@
+import type { IconStyle } from '@phosphor-icons/core'
 import path from 'path'
 import { fileURLToPath } from 'node:url'
 import { readFile } from 'fs/promises'
-import { DEFAULT_STYLE } from './constants.js'
+import { FALLBACK_STYLE } from './constants.js'
 
 export type Options = {
+  defaultStyle?: IconStyle
   safeList?: string[]
   libraries?: string[]
   preEmit?: ()=> Promise<void>
@@ -23,11 +25,11 @@ const makeExpressions = () => {
 
 export const icons = new Set<string>()
 
-export const fileName = (iconName: string) => {
+export const fileName = (iconName: string, defaultStyle?: IconStyle) => {
   const [style, filename] = iconName.includes(':')
     ? iconName.split(':')
     : [
-      DEFAULT_STYLE,
+      defaultStyle || FALLBACK_STYLE,
       iconName,
     ]
 
@@ -62,7 +64,7 @@ export const scrapper = (options: Options) => async (source: string) => {
   }
 }
 
-export const packTogether = async (icons: string[]) => {
+export const packTogether = async (icons: string[], defaultStyle?: IconStyle) => {
   const symbols = []
   for( const iconName of icons ) {
     if( !iconName ) {
@@ -72,7 +74,7 @@ export const packTogether = async (icons: string[]) => {
     const [style, filename] = iconName.includes(':')
       ? iconName.split(':')
       : [
-        DEFAULT_STYLE,
+        FALLBACK_STYLE,
         iconName,
       ]
 
@@ -82,7 +84,7 @@ export const packTogether = async (icons: string[]) => {
         '..',
         '..',
         'assets',
-        fileName(iconName),
+        fileName(iconName, defaultStyle),
       )
 
       const content = await readFile(newPath)

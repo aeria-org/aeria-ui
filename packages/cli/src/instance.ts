@@ -1,4 +1,5 @@
 import type { InlineConfig } from 'vite'
+import type { IconStyle } from '@phosphor-icons/core'
 import { dynamicImport } from '@aeriajs/common'
 
 export type InstanceConfig = {
@@ -8,6 +9,7 @@ export type InstanceConfig = {
     signupForm?: boolean
   }
   icons?: {
+    defaultStyle?: IconStyle
     safeList?: string[]
     libraries?: string[]
   }

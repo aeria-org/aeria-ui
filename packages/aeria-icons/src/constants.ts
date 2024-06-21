@@ -1,1 +1,1 @@
-export const DEFAULT_STYLE = 'regular'
+export const FALLBACK_STYLE = 'regular'
