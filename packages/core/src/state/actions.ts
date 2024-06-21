@@ -1,4 +1,4 @@
-import type { Property } from '@aeriajs/types'
+import type { EndpointError, Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
 import { formatValue, getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { Result } from '@aeriajs/types'
@@ -75,7 +75,11 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return item
     },
 
-    removeItem(subject: typeof store['item']) {
+    removeItem({ error, result: subject }: Result.Either<EndpointError, typeof store['item']>) {
+      if(error) {
+        return Result.error(error)
+      }
+
       store.items = store.items.filter(({ _id }) => {
         if( Array.isArray(subject) ) {
           return !subject.find((sub) => sub._id === _id)
@@ -87,7 +91,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         store.item._id = null
       }
 
-      return subject
+      return Result.result(subject)
     },
 
     clearItem() {
@@ -141,7 +145,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return actions.custom('count', payload)
     },
 
-    get(payloadSource: ActionFilter | string, options?: CustomOptions) {
+    get(payloadSource: ActionFilter | string, options?: CustomOptions): Promise<Result.Either<EndpointError, typeof store['item']>> {
       const payload = typeof payloadSource === 'string'
         ? {
           filters: {
@@ -152,12 +156,13 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       return actions.customEffect(
         'get', payload,
-        ({ result }) => {
-          if( result ) {
-            actions.setItem(result)
+        ({ error, result }) => {
+          if( error ) {
+            return Result.error(error)
           }
 
-          return result
+          actions.setItem(result)
+          return Result.result(result)
         },
         options,
       )
@@ -167,7 +172,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return actions.custom('getAll', payload)
     },
 
-    async getAll(_payload?: ActionFilter) {
+    async getAll(_payload?: ActionFilter): Promise<Result.Either<EndpointError, typeof store['item'][]>> {
       const payload = Object.assign({}, _payload || {})
 
       if( typeof payload.limit !== 'number' ) {
@@ -182,8 +187,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       actions.setItems(response.data)
       Object.assign(store.pagination, response.pagination)
 
-      return response.data
-
+      return Result.result(response.data)
     },
 
     insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
