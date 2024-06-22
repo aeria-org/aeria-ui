@@ -78,7 +78,7 @@ const confirm = async () => {
     >
       <aeria-button
         :disabled="!!passwordError"
-        @click="confirm"
+        @click.prevent="confirm"
       >
         Cadastrar senha
       </aeria-button>

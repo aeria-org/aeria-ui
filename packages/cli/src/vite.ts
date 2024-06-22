@@ -68,7 +68,6 @@ export default defineConfig(async () => {
             'aeria-ui': [
               'useStore',
               'useParentStore',
-              'useClipboard',
               'useBreakpoints',
               'useAction',
               'useNavbar',

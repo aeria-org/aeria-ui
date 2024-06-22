@@ -54,7 +54,6 @@ declare global {
   const useAction: typeof import('aeria-ui')['useAction']
   const useAttrs: typeof import('vue')['useAttrs']
   const useBreakpoints: typeof import('aeria-ui')['useBreakpoints']
-  const useClipboard: typeof import('aeria-ui')['useClipboard']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useLink: typeof import('vue-router')['useLink']

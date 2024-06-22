@@ -82,10 +82,9 @@ export const user = registerStore((context) => {
     actions: (state) => ({
       setCurrentUser,
       signout,
-
       async authenticate(payload: Credentials | { revalidate: true }) {
-        const metaStore = meta(context)
         const store = this as unknown as CollectionStore
+        const metaStore = meta(context)
 
         try {
           const { error, result: authResult } = await <ReturnType<typeof originalUser.functions.authenticate>>store.$functions.authenticate(payload)
@@ -116,6 +115,27 @@ export const user = registerStore((context) => {
           console.trace(err)
           throw err
         }
+      },
+      async copyActivationLink(payload: { _id: string }) {
+        const store = this as unknown as CollectionStore
+        const metaStore = meta(context)
+
+        const { error, result } = await <ReturnType<typeof originalUser.functions.getActivationLink>>store.$functions.getActivationLink({
+          userId: payload._id,
+        })
+
+        if( error ) {
+          return metaStore.$actions.spawnToast({
+            text: 'Request failed',
+            icon: 'warning',
+          })
+        }
+
+        await navigator.clipboard.writeText(result.url)
+        return metaStore.$actions.spawnToast({
+          text: 'Link copiado',
+          icon: 'info',
+        })
       },
     }),
   }, context)

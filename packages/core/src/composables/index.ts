@@ -1,6 +1,5 @@
 export * from './use-action.js'
 export * from './use-breakpoints.js'
-export * from './use-clipboard.js'
 export * from './use-debounce.js'
 export * from './use-navbar.js'
 export * from './use-password-policy.js'

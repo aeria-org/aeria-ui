@@ -2,7 +2,7 @@
 import type { Property, NumberProperty, StringProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types'
 import { ref, inject, watch, onMounted } from 'vue'
-import { useClipboard, useMask } from '@aeria-ui/core'
+import { useMask } from '@aeria-ui/core'
 import AeriaInfo from '../../aeria-info/aeria-info.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
 
@@ -43,7 +43,9 @@ const searchOnly = inject<boolean>('searchOnly', false)
 const innerInputLabel = inject<boolean>('innerInputLabel', false)
 const readOnly = !searchOnly && property.readOnly
 
-const copyToClipboard = useClipboard()
+const copyToClipboard = (text: string) => {
+  return navigator.clipboard.writeText(text)
+}
 
 const emit = defineEmits<{
   (e: 'update:modelValue' | 'input', value: InputType): void
