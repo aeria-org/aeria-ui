@@ -49,7 +49,7 @@ const firstIfArray = (what: any) => {
         #badge
       >
         <aeria-badge
-          v-for="badge in item[layoutOptions.badge]"
+          v-for="badge in item[layoutOptions.badge!]"
           :key="`${item._id}-${badge}`"
           large
         >
@@ -68,8 +68,8 @@ const firstIfArray = (what: any) => {
         <aeria-badge>
           {{
             layoutOptions.translateBadge
-              ? t(item[layoutOptions.badge])
-              : item[layoutOptions[badge]]
+              ? t(item[layoutOptions.badge!])
+              : item[layoutOptions.badge!]
           }}
         </aeria-badge>
       </template>
