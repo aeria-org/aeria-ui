@@ -28,7 +28,7 @@ type Credentials = {
 
 export const user = registerStore((context) => {
   const state = reactive({
-    currentUser: {} as Partial<User>,
+    currentUser: {} as User,
     credentials: {
       email: '',
       password: '',
@@ -77,7 +77,7 @@ export const user = registerStore((context) => {
         properties.roles.items.enum = metaStore.roles
         return properties
       },
-      signedIn: () => !!state.currentUser.roles?.length,
+      signedIn: () => !!state.currentUser.roles.length,
     }),
     actions: (state) => ({
       setCurrentUser,

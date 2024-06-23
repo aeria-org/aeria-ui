@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Property, CollectionAction, TableLayout } from '@aeriajs/types'
 import { computed, type Ref } from 'vue'
-import { evaluateCondition, getReferenceProperty } from '@aeriajs/common'
+import { evaluateCondition, getReferenceProperty, arraysIntersect } from '@aeriajs/common'
 import { useBreakpoints } from '@aeria-ui/core'
 import { useStore, getStoreId } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
@@ -79,6 +79,15 @@ const dropdownActions = (subject: any) => {
 
   return props.actions.filter((action) => {
     const layout = props.layout.actions[action.action]
+    if( action.roles ) {
+      const userStore = useStore('user')
+      const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
+
+      if( !intersects ) {
+        return false
+      }
+    }
+
     return !isActionButton(layout, subject)
   })
 }

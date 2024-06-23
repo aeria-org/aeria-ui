@@ -3,7 +3,7 @@ import type { Route, MenuSchema, MenuNode } from '../index.js'
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@aeria-ui/state-management'
-import { arraysIntersects } from '@aeriajs/common'
+import { arraysIntersect } from '@aeriajs/common'
 
 type Props = {
   schema: MenuSchema
@@ -79,11 +79,11 @@ export const useNavbar = async (props: Props) => {
 
       if( roles ) {
         if( typeof roles === 'function' ) {
-          if( !await roles(userStore.currentUser.roles || []) ) {
+          if( !await roles(userStore.currentUser.roles) ) {
             return
           }
 
-        } else if( !arraysIntersects(userStore.currentUser.roles, roles) ) {
+        } else if( !arraysIntersect(userStore.currentUser.roles, roles) ) {
           return
         }
       }

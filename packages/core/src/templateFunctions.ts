@@ -1,7 +1,7 @@
 import {
   formatDateTime,
   getRelativeTimeFromNow,
-  arraysIntersects,
+  arraysIntersect,
 
 } from '@aeriajs/common'
 
@@ -10,7 +10,7 @@ import { t } from '@aeria-ui/i18n'
 
 const hasRoles = (roles: string | string[]) => {
   const userStore = useStore('user')
-  return arraysIntersects(roles, userStore.currentUser.roles)
+  return arraysIntersect(roles, userStore.currentUser.roles)
 }
 
 /**

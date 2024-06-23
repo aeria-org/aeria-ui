@@ -2,7 +2,7 @@ import type { Description } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import type { Router } from 'vue-router'
 import { watch } from 'vue'
-import { arraysIntersects } from '@aeriajs/common'
+import { arraysIntersect } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
 
 export const bootstrapRoutes = (router: Router, manager: GlobalStateManager) => {
@@ -14,7 +14,7 @@ export const bootstrapRoutes = (router: Router, manager: GlobalStateManager) => 
       const routeVisibility = description.route
       if(
         Array.isArray(routeVisibility)
-          && !arraysIntersects(userStore.currentUser.roles, routeVisibility)
+          && !arraysIntersect(userStore.currentUser.roles, routeVisibility)
       ) {
         return
       }

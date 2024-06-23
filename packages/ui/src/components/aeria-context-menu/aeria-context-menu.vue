@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CollectionAction } from '@aeriajs/types'
+import { arraysIntersect } from '@aeriajs/common'
 import { ref, computed } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
@@ -34,10 +35,10 @@ const filterActions = (actions: Props['actions']) => {
   return actions?.filter((action) => {
     if( action.roles ) {
       const userStore = useStore('user')
-      return action.roles.some((role) => userStore.currentUser.roles?.includes(role))
+      return arraysIntersect(action.roles, userStore.currentUser.roles)
     }
 
-    return !!action.click
+    return true
   })
 }
 
