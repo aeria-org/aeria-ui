@@ -1,5 +1,13 @@
 # aeria-ui
 
+## 0.0.58
+
+### Patch Changes
+
+- Updated dependencies [166541d]
+  - @aeria-ui/core@0.0.40
+  - @aeria-ui/ui@0.0.54
+
 ## 0.0.57
 
 ### Patch Changes
