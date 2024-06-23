@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.40
+
+### Patch Changes
+
+- 166541d: fixed get, getAll, remove, removeAll not returning Either
+
 ## 0.0.39
 
 ### Patch Changes
