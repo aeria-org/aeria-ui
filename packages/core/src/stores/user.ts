@@ -28,7 +28,11 @@ type Credentials = {
 
 export const user = registerStore((context) => {
   const state = reactive({
-    currentUser: {} as User,
+    currentUser: {
+      _id: '',
+      name: '',
+      roles: [],
+    } satisfies User as User,
     credentials: {
       email: '',
       password: '',
