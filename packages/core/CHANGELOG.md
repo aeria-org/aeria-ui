@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.41
+
+### Patch Changes
+
+- 542eb6b: Fix runtime bug
+
 ## 0.0.40
 
 ### Patch Changes
