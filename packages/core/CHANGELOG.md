@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.42
+
+### Patch Changes
+
+- 3657003: Fix signout state bug
+
 ## 0.0.41
 
 ### Patch Changes
