@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.55
+
+### Patch Changes
+
+- a5524b4: Fix exports
+
 ## 0.0.54
 
 ### Patch Changes
