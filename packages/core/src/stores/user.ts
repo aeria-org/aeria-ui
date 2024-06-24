@@ -26,13 +26,15 @@ type Credentials = {
   password: string
 }
 
+const freshUser = {
+  _id: '',
+  name: '',
+  roles: [],
+} satisfies User
+
 export const user = registerStore((context) => {
   const state = reactive({
-    currentUser: {
-      _id: '',
-      name: '',
-      roles: [],
-    } satisfies User as User,
+    currentUser: freshUser as User,
     credentials: {
       email: '',
       password: '',
@@ -54,10 +56,7 @@ export const user = registerStore((context) => {
   }
 
   function setCurrentUser(auth: AuthResult | {}) {
-    for( const key in state.currentUser ) {
-      delete state.currentUser[key as keyof typeof state.currentUser]
-    }
-
+    state.currentUser = Object.assign({}, freshUser)
     if( 'user' in auth ) {
       Object.assign(state.currentUser, auth.user)
     }
