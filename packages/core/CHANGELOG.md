@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.43
+
+### Patch Changes
+
+- 11ec9b5: Put all routes on navbar when no menuSchema is passed
+
 ## 0.0.42
 
 ### Patch Changes
