@@ -39,7 +39,9 @@ const getSchema = (schema: MenuSchema | Route[], router: Router) => {
 }
 
 export const useNavbar = async (props: Props) => {
-  const { schema: menuSchema } = props
+  const { schema: menuSchema = [] } = props
+
+  console.log({ menuSchema })
 
   const router = useRouter()
   const metaStore = useStore('meta')

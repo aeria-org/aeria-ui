@@ -1,5 +1,5 @@
 import type { defineOptions } from './options.js'
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { createI18n, t } from '@aeria-ui/i18n'
 import { createGlobalStateManager, type StoreContext } from '@aeria-ui/state-management'
@@ -42,7 +42,20 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const router = createRouter(routes || [], context)
   app.use(router)
 
-  bootstrapRoutes(router, globalStateManager)
+  const reactiveMenuSchema = ref(menuSchema)
+
+  if( menuSchema ) {
+    bootstrapRoutes(router, globalStateManager)
+  } else {
+    console.log(router.getRoutes())
+    bootstrapRoutes(router, globalStateManager, () => {
+      reactiveMenuSchema.value = router.getRoutes().flatMap((route) => {
+        return typeof route.name === 'string' && route.meta.fromDescriptions
+          ? route.name
+          : []
+      })
+    })
+  }
 
   if( options.setup ) {
     await options.setup({
@@ -51,7 +64,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     })
   }
 
-  app.provide('menuSchema', menuSchema)
+  app.provide('menuSchema', reactiveMenuSchema)
 
   app.mixin({
     computed: {
@@ -59,23 +72,35 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
       currentUser: () => userStore.currentUser,
       viewTitle: () => {
         const currentRoute = useRouter().currentRoute.value
-        const title = currentRoute.meta.title as string
+        const title = currentRoute.meta.title
 
-        if( !title ) {
+        if( typeof title !== 'string' ) {
           return
         }
 
-        return title.replace(
-          '%viewTitle%',
-          t(currentRoute.params.collection as string, {
-            plural: true,
-          }),
-        )
+        if( typeof currentRoute.params.collection === 'string' ) {
+          return title.replace(
+            '%viewTitle%',
+            t(currentRoute.params.collection, {
+              plural: true,
+            }),
+          )
+        }
+
+        return title
       },
       viewIcon: () => {
         const currentRoute = router.currentRoute.value
-        return currentRoute.meta.icon
-          || metaStore.descriptions[currentRoute.params.collection as string]?.icon
+        if( currentRoute.meta.icon ) {
+          return currentRoute.meta.icon
+        }
+
+        if( typeof currentRoute.params.collection === 'string' )  {
+          const description = metaStore.descriptions[currentRoute.params.collection]
+          if( description ) {
+            return description.icon 
+          }
+        }
       },
     },
     methods: templateFunctions,
