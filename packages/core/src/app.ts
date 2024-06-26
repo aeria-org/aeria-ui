@@ -95,10 +95,10 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
           return currentRoute.meta.icon
         }
 
-        if( typeof currentRoute.params.collection === 'string' )  {
+        if( typeof currentRoute.params.collection === 'string' ) {
           const description = metaStore.descriptions[currentRoute.params.collection]
           if( description ) {
-            return description.icon 
+            return description.icon
           }
         }
       },

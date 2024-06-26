@@ -5,7 +5,7 @@ import { watch } from 'vue'
 import { arraysIntersect } from '@aeriajs/common'
 import { useStore } from '@aeria-ui/state-management'
 
-export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?: () => void) => {
+export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?: ()=> void) => {
   const metaStore = useStore('meta', manager)
   const userStore = useStore('user', manager)
 
