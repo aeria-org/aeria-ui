@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.44
+
+### Patch Changes
+
+- 31bd8a1: Update navbar and remove debugging information
+
 ## 0.0.43
 
 ### Patch Changes
