@@ -22,7 +22,13 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'update:content' | 'change', value: string | ArrayBuffer | null): void
-  (e: 'update:modelValue', value: File | TempFile | null): void
+  (
+    e: 'update:modelValue',
+    value:
+      | File
+      | TempFile & { file: File }
+      | null
+  ): void
 }>()
 
 const parentStoreId = getStoreId()
@@ -30,7 +36,7 @@ const store = parentStoreId
   ? useParentStore()
   : null
 
-const fileRef = ref<File | null>(null)
+const fileRef = ref<File | null>(props.modelValue?.file || null)
 
 const preview = computed(() =>
   fileRef.value
@@ -48,6 +54,9 @@ const readFile = (file: File) => new Promise<string | ArrayBuffer | null>((resol
 })
 
 const clearPreview = () => {
+  if( props.modelValue.tempId ) {
+    emit('update:modelValue', null)
+  }
   fileRef.value = null
 }
 
@@ -72,7 +81,10 @@ const insert = async (event: Event) => {
       return
     }
 
-    emit('update:modelValue', result)
+    emit('update:modelValue', {
+      tempId: result.tempId,
+      file,
+    })
 
   } else {
     emit('update:modelValue', file)

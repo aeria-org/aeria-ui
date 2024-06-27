@@ -16,7 +16,6 @@ export const getComponent = (property: Property, customComponents: Record<string
     ? property.items
     : property
 
-  // strangely enough this won't work if placed outside function
   const defaultComponents = {
     options: AeriaOptions,
     select: AeriaSelect,
@@ -88,18 +87,18 @@ export const pushToArray = (modelValue: any[] | undefined, property: Property, m
   if( '$ref' in nestedProp ) {
     const helperStore = useStore(nestedProp.$ref, manager)
     const newVal = deepClone(helperStore.$freshItem)
-    return modelValue.unshift(newVal)
+    return modelValue.push(newVal)
   }
 
   if( 'properties' in nestedProp ) {
-    return modelValue.unshift(freshItem(nestedProp))
+    return modelValue.push(freshItem(nestedProp))
   }
 
   if( 'type' in nestedProp && nestedProp.type === 'boolean' ) {
-    return modelValue.unshift({})
+    return modelValue.push({})
   }
 
-  return modelValue.unshift(null)
+  return modelValue.push(null)
 }
 
 export const spliceFromArray = (modelValue: any[], index: number) => {

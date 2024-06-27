@@ -3,7 +3,7 @@ import type { Property, Condition, BooleanProperty, Description } from '@aeriajs
 import type { FormFieldProps } from '../types'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
-import { useBreakpoints, isDocumentComplete } from '@aeria-ui/core'
+import { useBreakpoints, isDocumentComplete, getObjectKey } from '@aeria-ui/core'
 import { useStore, getStoreId, STORE_ID, getGlobalStateManager } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
@@ -432,37 +432,39 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
             </aeria-button>
           </div>
 
-          <div
-            v-for="(_, listIndex) in modelValue[fieldPropertyName]"
-            :key="`rep-${fieldPropertyName}-${listIndex}`"
-            style="display: flex; column-gap: .6rem; align-items: center"
-          >
-            <div style="flex-grow: 1">
-              <component
-                :is="getComponent(fieldProperty, formComponents)"
-                v-model="modelValue[fieldPropertyName][listIndex]"
-                v-bind="{
-                  property: fieldProperty.items,
-                  propertyName: fieldPropertyName,
-                  parentCollection: collectionName,
-                  parentPropertyName,
-                  columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
-                    || layout?.fields?.$default?.optionsColumns,
-                  validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
-                  ...(fieldProperty.componentProps || {})
-                }"
+          <div class="form__array">
+            <div
+              v-for="(item, listIndex) in modelValue[fieldPropertyName]"
+              :key="`rep-${fieldPropertyName}-${getObjectKey(item, listIndex)}`"
+              class="form__array-item"
+            >
+              <div style="flex-grow: 1">
+                <component
+                  :is="getComponent(fieldProperty, formComponents)"
+                  v-model="modelValue[fieldPropertyName][listIndex]"
+                  v-bind="{
+                    property: fieldProperty.items,
+                    propertyName: fieldPropertyName,
+                    parentCollection: collectionName,
+                    parentPropertyName,
+                    columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
+                      || layout?.fields?.$default?.optionsColumns,
+                    validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
+                    ...(fieldProperty.componentProps || {})
+                  }"
 
-                @input="emit('input', fieldPropertyName)"
-                @change="emit('change', $event)"
+                  @input="emit('input', fieldPropertyName)"
+                  @change="emit('change', $event)"
+                />
+              </div>
+
+              <aeria-icon
+                v-clickable
+                reactive
+                icon="trash"
+                @click="spliceFromArray(modelValue[fieldPropertyName], listIndex)"
               />
             </div>
-
-            <aeria-icon
-              v-clickable
-              reactive
-              icon="trash"
-              @click="spliceFromArray(modelValue[fieldPropertyName], listIndex)"
-            />
           </div>
         </div>
 
