@@ -74,6 +74,7 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
       meta: {
         title: 'user',
         icon: 'users',
+        collection: 'user',
       },
       redirect: '/dashboard/c/user',
       children: [

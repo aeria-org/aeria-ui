@@ -31,7 +31,7 @@ export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?
         meta: {
           title: description.$id,
           icon: description.icon,
-          fromDescriptions: true,
+          collection: description.$id,
         },
       }
 

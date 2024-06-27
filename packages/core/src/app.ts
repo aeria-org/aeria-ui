@@ -47,10 +47,9 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   if( menuSchema ) {
     bootstrapRoutes(router, globalStateManager)
   } else {
-    console.log(router.getRoutes())
     bootstrapRoutes(router, globalStateManager, () => {
       reactiveMenuSchema.value = router.getRoutes().flatMap((route) => {
-        return typeof route.name === 'string' && route.meta.fromDescriptions
+        return typeof route.name === 'string' && route.meta.collection
           ? route.name
           : []
       })
