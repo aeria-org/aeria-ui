@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.47
+
+### Patch Changes
+
+- 2e8e725: Fix `useAction()`
+
 ## 0.0.46
 
 ### Patch Changes
