@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.62
+
+### Patch Changes
+
+- 9624709: Fix `aeria-search`
+
 ## 0.0.61
 
 ### Patch Changes
