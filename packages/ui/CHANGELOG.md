@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.60
+
+### Patch Changes
+
+- 68a97eb: Fix array rendering in forms
+- Updated dependencies [68a97eb]
+  - @aeria-ui/core@0.0.45
+
 ## 0.0.59
 
 ### Patch Changes
