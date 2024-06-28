@@ -120,7 +120,12 @@ const fetchItems = async (optPayload?: ActionFilter) => {
   }
 
   store.loading.getAll = true
-  const { data, pagination } = await store.$actions.retrieveItems(payload)
+  const { error, result } = await store.$actions.retrieveItems(payload)
+  if( error ) {
+    return
+  }
+
+  const { data, pagination } = result
   store.pagination.recordsCount = pagination.recordsCount
   store.pagination.recordsTotal = pagination.recordsTotal
 

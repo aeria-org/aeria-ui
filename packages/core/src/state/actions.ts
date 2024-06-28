@@ -1,4 +1,4 @@
-import type { EndpointError, Property } from '@aeriajs/types'
+import type { EndpointError, Property, PaginatedGetAllReturnType } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
 import { formatValue, getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { Result } from '@aeriajs/types'
@@ -106,7 +106,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       store.items = []
     },
 
-    async custom(verb: string | null, payload?: any, options?: CustomOptions) {
+    async custom<ResponseType = any>(verb: string | null, payload?: any, options?: CustomOptions): Promise<ResponseType> {
       store.validationErrors = {}
       if( !options?.skipLoading ) {
         store.loading[verb || ''] = true
@@ -169,7 +169,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     retrieveItems(payload?: ActionFilter) {
-      return actions.custom('getAll', payload)
+      return actions.custom<PaginatedGetAllReturnType<{}>>('getAll', payload)
     },
 
     async getAll(_payload?: ActionFilter): Promise<Result.Either<EndpointError, typeof store['item'][]>> {
@@ -183,11 +183,15 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         payload.offset = store.pagination.offset
       }
 
-      const response = await actions.retrieveItems(payload)
-      actions.setItems(response.data)
-      Object.assign(store.pagination, response.pagination)
+      const { error, result } = await actions.retrieveItems(payload)
+      if( error ) {
+        return Result.error(error)
+      }
 
-      return Result.result(response.data)
+      actions.setItems(result.data)
+      Object.assign(store.pagination, result.pagination)
+
+      return Result.result(result.data)
     },
 
     insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
