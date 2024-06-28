@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.46
+
+### Patch Changes
+
+- 6642f4d: Update getAll
+
 ## 0.0.45
 
 ### Patch Changes
