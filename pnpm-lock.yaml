@@ -25,7 +25,7 @@ importers:
         version: link:packages/ui
       '@aeriajs/builtins':
         specifier: '0.0'
-        version: 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
+        version: 0.0.121(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.121)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
       '@changesets/cli':
         specifier: ^2.27.5
         version: 2.27.6
@@ -281,11 +281,11 @@ packages:
   '@aeriajs/builtins-icons@0.0.7':
     resolution: {integrity: sha512-RgwcS7X79/cjkRr3pr1H8f3MQ1BjR9kEB3BLiFh/IpyalNBAnQa2dQsbJn4gMIt82w0RqREHLO8FuV467Vh0+g==}
 
-  '@aeriajs/builtins@0.0.120':
-    resolution: {integrity: sha512-C3uQq/jtcgyucJa4wEIszWytf8EiPyLHe5z+HJ5fZQzvwdlm6S4FXh50up/Tf/GU28ujyIH1ka9jZ6VqWAAO0g==}
+  '@aeriajs/builtins@0.0.121':
+    resolution: {integrity: sha512-ki3fNVS/wQCyH2pknmxDcVGObWvFsgXbpthOGUscqZl0sSRgL2BETNQu24XXtpK5GOYR6QNSlAh37OWRjV45mw==}
     peerDependencies:
       '@aeriajs/common': ^0.0.77
-      '@aeriajs/core': ^0.0.120
+      '@aeriajs/core': ^0.0.121
       '@aeriajs/entrypoint': ^0.0.79
       '@aeriajs/types': ^0.0.67
       '@aeriajs/validation': ^0.0.80
@@ -296,14 +296,14 @@ packages:
       '@aeriajs/types': ^0.0.67
       bson: ^6.5.0
 
-  '@aeriajs/core@0.0.120':
-    resolution: {integrity: sha512-ZJz2oI5M8z8fdKSesLAn6R1KhRm2TGOvL8dTKyNmm2EvUUsMJkqIkkCHg+MWxIEsQnpKoGsY/zCwBljbIqgJ7A==}
+  '@aeriajs/core@0.0.121':
+    resolution: {integrity: sha512-B/xbX9PJt7a65/rYXfNodpvezgagMhNc8o2IePLjPFsZGeVTNaGxY6PAUs/abZMD4uyiUl0KtGMGLl3vk7Il1A==}
     peerDependencies:
-      '@aeriajs/builtins': ^0.0.120
+      '@aeriajs/builtins': ^0.0.121
       '@aeriajs/common': ^0.0.77
       '@aeriajs/entrypoint': ^0.0.79
       '@aeriajs/http': ^0.0.88
-      '@aeriajs/security': ^0.0.120
+      '@aeriajs/security': ^0.0.121
       '@aeriajs/types': ^0.0.67
       '@aeriajs/validation': ^0.0.80
 
@@ -321,11 +321,11 @@ packages:
       '@aeriajs/types': ^0.0.67
       '@aeriajs/validation': ^0.0.80
 
-  '@aeriajs/security@0.0.120':
-    resolution: {integrity: sha512-EU3zp7YwiarVhX/CvAL8sanbUYCnZMztJaAYajeyqgS5SjaF1c/d57GJFz+X3ZJDNFY8q/Ggymna8Wl+y0uN+A==}
+  '@aeriajs/security@0.0.121':
+    resolution: {integrity: sha512-OyWwPklff/a/7JMR9s9v9JIxhJAQek2mWn/wtUuLHkJ3lQ7ZVI1ap8JkCDqJcS1qL8GJEJyMjV9JKAT2ajo74A==}
     peerDependencies:
       '@aeriajs/common': ^0.0.77
-      '@aeriajs/core': ^0.0.120
+      '@aeriajs/core': ^0.0.121
       '@aeriajs/types': ^0.0.67
       mongodb: ^6.5.0
 
@@ -800,8 +800,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/regexpp@4.10.1':
-    resolution: {integrity: sha512-Zm2NGpWELsQAD1xsJzGQpYfvICSsFkEpU0jxBjfdC6uNEWXcHnfs9hScFWtXVDVl+rBQJGrl4g1vcKIejpH9dA==}
+  '@eslint-community/regexpp@4.11.0':
+    resolution: {integrity: sha512-G/M/tIiMrTAxEWRfLfQJMmGNX28IxBg4PBz8XqQhqUHLFI6TL2htpIB1iQCj144V5ee/JaKyT9/WZ0MGZWfA7A==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
   '@eslint/config-array@0.16.0':
@@ -1967,8 +1967,8 @@ packages:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
 
-  https-proxy-agent@7.0.4:
-    resolution: {integrity: sha512-wlwpilI7YdjSkWaQ/7omYBMTliDcmCN8OLihO6I9B86g06lMyAoqgoDpV0XqoaPOKj+0DIdAvnsWfyAAhmimcg==}
+  https-proxy-agent@7.0.5:
+    resolution: {integrity: sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==}
     engines: {node: '>= 14'}
 
   human-id@1.0.2:
@@ -3415,10 +3415,10 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.7': {}
 
-  '@aeriajs/builtins@0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))':
+  '@aeriajs/builtins@0.0.121(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.121)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))':
     dependencies:
       '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
-      '@aeriajs/core': 0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
+      '@aeriajs/core': 0.0.121(@aeriajs/builtins@0.0.121)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.121)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
       '@aeriajs/entrypoint': 0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       '@aeriajs/types': 0.0.67
       '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
@@ -3432,13 +3432,13 @@ snapshots:
       '@aeriajs/types': 0.0.67
       bson: 6.8.0
 
-  '@aeriajs/core@0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)':
+  '@aeriajs/core@0.0.121(@aeriajs/builtins@0.0.121)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.121)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)':
     dependencies:
-      '@aeriajs/builtins': 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
+      '@aeriajs/builtins': 0.0.121(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.121)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
       '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       '@aeriajs/entrypoint': 0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       '@aeriajs/http': 0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
-      '@aeriajs/security': 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))
+      '@aeriajs/security': 0.0.121(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.121)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))
       '@aeriajs/types': 0.0.67
       '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       jsonwebtoken: 9.0.2
@@ -3467,10 +3467,10 @@ snapshots:
       '@aeriajs/types': 0.0.67
       '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
 
-  '@aeriajs/security@0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))':
+  '@aeriajs/security@0.0.121(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.121)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))':
     dependencies:
       '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
-      '@aeriajs/core': 0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
+      '@aeriajs/core': 0.0.121(@aeriajs/builtins@0.0.121)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.121)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
       '@aeriajs/types': 0.0.67
       mongodb: 6.8.0(socks@2.8.3)
 
@@ -3939,7 +3939,7 @@ snapshots:
       eslint: 9.5.0
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/regexpp@4.10.1': {}
+  '@eslint-community/regexpp@4.11.0': {}
 
   '@eslint/config-array@0.16.0':
     dependencies:
@@ -4273,7 +4273,7 @@ snapshots:
 
   '@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2)':
     dependencies:
-      '@eslint-community/regexpp': 4.10.1
+      '@eslint-community/regexpp': 4.11.0
       '@typescript-eslint/parser': 7.14.1(eslint@9.5.0)(typescript@5.5.2)
       '@typescript-eslint/scope-manager': 7.14.1
       '@typescript-eslint/type-utils': 7.14.1(eslint@9.5.0)(typescript@5.5.2)
@@ -4972,7 +4972,7 @@ snapshots:
   eslint@9.5.0:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.5.0)
-      '@eslint-community/regexpp': 4.10.1
+      '@eslint-community/regexpp': 4.11.0
       '@eslint/config-array': 0.16.0
       '@eslint/eslintrc': 3.1.0
       '@eslint/js': 9.5.0
@@ -5284,7 +5284,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@7.0.4:
+  https-proxy-agent@7.0.5:
     dependencies:
       agent-base: 7.1.1
       debug: 4.3.5
@@ -5683,7 +5683,7 @@ snapshots:
       debug: 4.3.5
       find-cache-dir: 3.3.2
       follow-redirects: 1.15.6(debug@4.3.5)
-      https-proxy-agent: 7.0.4
+      https-proxy-agent: 7.0.5
       mongodb: 5.9.2
       new-find-package-json: 2.0.0
       semver: 7.6.2
