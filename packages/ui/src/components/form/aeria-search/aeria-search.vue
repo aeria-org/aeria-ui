@@ -120,14 +120,23 @@ const search = async () => {
     return
   }
 
-  const response = await getSearchResults()
-  searchResponse.value.pagination = response.pagination
+  const { error, result } = await getSearchResults()
+  if( error ) {
+    const metaStore = useStore('meta')
+    metaStore.$actions.spawnToast({
+      text: 'Request failed',
+      icon: 'warning',
+    })
+    return
+  }
+
+  searchResponse.value.pagination = result.pagination
 
   if( batch.value === 0 ) {
     searchResponse.value.data.splice(0)
   }
 
-  searchResponse.value.data.push(...response.data)
+  searchResponse.value.data.push(...result.data)
 }
 
 const [doLazySearch] = useDebounce({
