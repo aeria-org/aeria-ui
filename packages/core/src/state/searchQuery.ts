@@ -2,7 +2,8 @@ import type { Property } from '@aeriajs/types'
 import type { RouteRecordNormalized } from 'vue-router'
 import type { CollectionStore } from './collection.js'
 
-const dateTupleToString = (tuple: { $gte?: string, $lte?: string }) => {
+const dateTupleToString = (tuple: { $gte?: string,
+  $lte?: string }) => {
   if( !tuple.$gte || !tuple.$lte ) {
     return
   }

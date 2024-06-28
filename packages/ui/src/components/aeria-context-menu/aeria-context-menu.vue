@@ -21,7 +21,8 @@ type Action = {
 }
 
 type Emits = {
-  (e: 'actionClick', event: { action: Action, subject: any }): void
+  (e: 'actionClick', event: { action: Action,
+subject: any }): void
 }
 
 defineProps<Props>()
