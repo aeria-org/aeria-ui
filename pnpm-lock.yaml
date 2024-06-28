@@ -25,7 +25,7 @@ importers:
         version: link:packages/ui
       '@aeriajs/builtins':
         specifier: '0.0'
-        version: 0.0.119(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/core@0.0.119)(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))
+        version: 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
       '@changesets/cli':
         specifier: ^2.27.5
         version: 2.27.6
@@ -46,7 +46,7 @@ importers:
         version: 0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))
       eslint-config-aeriaui:
         specifier: latest
-        version: 0.0.11(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@eslint/eslintrc@3.1.0)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2)))(eslint-plugin-vue@9.26.0(eslint@9.5.0))
+        version: 0.0.11(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@eslint/eslintrc@3.1.0)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2)))(eslint-plugin-vue@9.26.0(eslint@9.5.0))
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -73,7 +73,7 @@ importers:
         version: 2.1.1
       '@vitejs/plugin-vue':
         specifier: '*'
-        version: 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))
+        version: 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))
       glob:
         specifier: '*'
         version: 10.4.2
@@ -106,10 +106,10 @@ importers:
         version: 15.2.3(rollup@4.18.0)
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))
+        version: 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))
       aeria-icons:
         specifier: ^0.0.5
-        version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2)))(glob@10.4.2)(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))
+        version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2)))(glob@10.4.2)(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))
       ejs:
         specifier: ^3.1.9
         version: 3.1.10
@@ -124,7 +124,7 @@ importers:
         version: 0.15.3(rollup@4.18.0)
       unplugin-vue-components:
         specifier: ^0.24.1
-        version: 0.24.1(@babel/parser@7.24.7)(rollup@4.18.0)(vue@3.4.30(typescript@5.5.2))
+        version: 0.24.1(@babel/parser@7.24.7)(rollup@4.18.0)(vue@3.4.31(typescript@5.5.2))
       vite:
         specifier: ^5.0.12
         version: 5.3.2(@types/node@20.14.9)(less@4.2.0)
@@ -134,10 +134,10 @@ importers:
         version: 0.0.7
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+        version: 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.66
+        version: 0.0.67
       '@types/ejs':
         specifier: ^3.1.2
         version: 3.1.5
@@ -152,25 +152,25 @@ importers:
         version: 6.8.0
       vue:
         specifier: ^3.4.26
-        version: 3.4.30(typescript@5.5.2)
+        version: 3.4.31(typescript@5.5.2)
 
   packages/core:
     dependencies:
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+        version: 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.66
+        version: 0.0.67
       vue:
         specifier: ^3.4.15
-        version: 3.4.30(typescript@5.5.2)
+        version: 3.4.31(typescript@5.5.2)
       vue-demi:
         specifier: ^0.13.6
-        version: 0.13.11(vue@3.4.30(typescript@5.5.2))
+        version: 0.13.11(vue@3.4.31(typescript@5.5.2))
       vue-router:
         specifier: ^4.3.2
-        version: 4.4.0(vue@3.4.30(typescript@5.5.2))
+        version: 4.4.0(vue@3.4.31(typescript@5.5.2))
     devDependencies:
       '@aeria-ui/i18n':
         specifier: link:../i18n
@@ -183,7 +183,7 @@ importers:
         version: 20.14.9
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.105(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
+        version: 0.0.106(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.14.9)(less@4.2.0)
@@ -192,13 +192,13 @@ importers:
     devDependencies:
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+        version: 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
 
   packages/state-management:
     devDependencies:
       vue:
         specifier: ^3.4.26
-        version: 3.4.30(typescript@5.5.2)
+        version: 3.4.31(typescript@5.5.2)
 
   packages/theme:
     devDependencies:
@@ -210,13 +210,13 @@ importers:
         version: link:../state-management
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+        version: 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       vue:
         specifier: ^3.4.26
-        version: 3.4.30(typescript@5.5.2)
+        version: 3.4.31(typescript@5.5.2)
       vue-router:
         specifier: ^4.3.2
-        version: 4.4.0(vue@3.4.30(typescript@5.5.2))
+        version: 4.4.0(vue@3.4.31(typescript@5.5.2))
 
   packages/ui:
     devDependencies:
@@ -234,13 +234,13 @@ importers:
         version: link:../state-management
       '@aeriajs/common':
         specifier: '0.0'
-        version: 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+        version: 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       '@aeriajs/types':
         specifier: '0.0'
-        version: 0.0.66
+        version: 0.0.67
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
-        version: 4.6.2(vite@4.5.3(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))
+        version: 4.6.2(vite@4.5.3(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))
       vite:
         specifier: ^4.4.8
         version: 4.5.3(@types/node@20.14.9)(less@4.2.0)
@@ -252,7 +252,7 @@ importers:
         version: 0.17.1(vite@4.5.3(@types/node@20.14.9)(less@4.2.0))
       vue-router:
         specifier: ^4.3.2
-        version: 4.4.0(vue@3.4.30(typescript@5.5.2))
+        version: 4.4.0(vue@3.4.31(typescript@5.5.2))
       vue-tsc:
         specifier: ^2.0.22
         version: 2.0.22(typescript@5.5.2)
@@ -274,69 +274,69 @@ importers:
         version: 3.4.4
       unplugin-vue-router:
         specifier: ^0.8.6
-        version: 0.8.8(rollup@4.18.0)(vue-router@4.4.0(vue@3.4.30(typescript@5.5.2)))(vue@3.4.30(typescript@5.5.2))
+        version: 0.8.8(rollup@4.18.0)(vue-router@4.4.0(vue@3.4.31(typescript@5.5.2)))(vue@3.4.31(typescript@5.5.2))
 
 packages:
 
   '@aeriajs/builtins-icons@0.0.7':
     resolution: {integrity: sha512-RgwcS7X79/cjkRr3pr1H8f3MQ1BjR9kEB3BLiFh/IpyalNBAnQa2dQsbJn4gMIt82w0RqREHLO8FuV467Vh0+g==}
 
-  '@aeriajs/builtins@0.0.119':
-    resolution: {integrity: sha512-AMNpAQ7ydkCMJaORpGNnTCO0odJL0tkDQ7HzLoXFQZ/MpRG6S49RAO7N/0qo/tvSl+aJ6fP0MhlhtVTwxx7BFQ==}
+  '@aeriajs/builtins@0.0.120':
+    resolution: {integrity: sha512-C3uQq/jtcgyucJa4wEIszWytf8EiPyLHe5z+HJ5fZQzvwdlm6S4FXh50up/Tf/GU28ujyIH1ka9jZ6VqWAAO0g==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/core': ^0.0.119
-      '@aeriajs/entrypoint': ^0.0.78
-      '@aeriajs/types': ^0.0.66
-      '@aeriajs/validation': ^0.0.79
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/core': ^0.0.120
+      '@aeriajs/entrypoint': ^0.0.79
+      '@aeriajs/types': ^0.0.67
+      '@aeriajs/validation': ^0.0.80
 
-  '@aeriajs/common@0.0.76':
-    resolution: {integrity: sha512-RSYa5L/kzmVc+oJS1bd6jXiEqPLjjmD/dGQrKoSz7046eazfU8TiuebcqKYnnVW0OGdaB6W2DE4eu6ZmUHbzqw==}
+  '@aeriajs/common@0.0.77':
+    resolution: {integrity: sha512-+7lsVTVHDBMN5qE0b0lUsN+aEGvLIMxagVvVc03h7qUco5fD+jxRdSslrvQ3Th3qv4+dVs9kb9Wjf27VA/vIOg==}
     peerDependencies:
-      '@aeriajs/types': ^0.0.66
+      '@aeriajs/types': ^0.0.67
       bson: ^6.5.0
 
-  '@aeriajs/core@0.0.119':
-    resolution: {integrity: sha512-00oEFUGZdIfUGKkLGK9nMyvnA+CJ+iyHqhpczUwy1/07LSviqhRLVLGdjAXBtuSPZiEe0gai6QZ1QCi2gEe3Vw==}
+  '@aeriajs/core@0.0.120':
+    resolution: {integrity: sha512-ZJz2oI5M8z8fdKSesLAn6R1KhRm2TGOvL8dTKyNmm2EvUUsMJkqIkkCHg+MWxIEsQnpKoGsY/zCwBljbIqgJ7A==}
     peerDependencies:
-      '@aeriajs/builtins': ^0.0.119
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/entrypoint': ^0.0.78
-      '@aeriajs/http': ^0.0.87
-      '@aeriajs/security': ^0.0.119
-      '@aeriajs/types': ^0.0.66
-      '@aeriajs/validation': ^0.0.79
+      '@aeriajs/builtins': ^0.0.120
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/entrypoint': ^0.0.79
+      '@aeriajs/http': ^0.0.88
+      '@aeriajs/security': ^0.0.120
+      '@aeriajs/types': ^0.0.67
+      '@aeriajs/validation': ^0.0.80
 
-  '@aeriajs/entrypoint@0.0.78':
-    resolution: {integrity: sha512-7wrOcLSQxWDNT+RBbpfOHou4QUbkU4zeIuJ5LaWhNQU/lObJPVUupqomSpOd3ZVSvgOadpG3rtAkrdBiKb+DGA==}
+  '@aeriajs/entrypoint@0.0.79':
+    resolution: {integrity: sha512-vNa2WharSxcLL4PN6LB1eatk2MjPvd9cMet2CXN7wPOXfNGLYr1J16W01g6au42nKFFfTBU5/pLzvrkHTxeing==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/types': ^0.0.66
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/types': ^0.0.67
 
-  '@aeriajs/http@0.0.87':
-    resolution: {integrity: sha512-3u/YGDMwoeFIpsOINF+r4vQw1SqF2p5ZOmqu2s42nYeXGXwpb1crpR6KtawdwpPYQdKH42OnXfhTTSnOQWZqkw==}
+  '@aeriajs/http@0.0.88':
+    resolution: {integrity: sha512-UGrydcbro7iFaJLTtvInw41xVAZ9ozON1jAAJRu2iSC2+EOov1DQaS3sKXLzsNEty9xd+YbM5rEjctpOJe2BPg==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/entrypoint': ^0.0.78
-      '@aeriajs/types': ^0.0.66
-      '@aeriajs/validation': ^0.0.79
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/entrypoint': ^0.0.79
+      '@aeriajs/types': ^0.0.67
+      '@aeriajs/validation': ^0.0.80
 
-  '@aeriajs/security@0.0.119':
-    resolution: {integrity: sha512-gvFxU4A6MOyZPxmdbh6U0gtZcTkfzazkg7R8/C7NkF8H1diOT0D+jung5VJ5ktCIYrSeGQ7nOeTWS2xNLNHYHA==}
+  '@aeriajs/security@0.0.120':
+    resolution: {integrity: sha512-EU3zp7YwiarVhX/CvAL8sanbUYCnZMztJaAYajeyqgS5SjaF1c/d57GJFz+X3ZJDNFY8q/Ggymna8Wl+y0uN+A==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/core': ^0.0.119
-      '@aeriajs/types': ^0.0.66
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/core': ^0.0.120
+      '@aeriajs/types': ^0.0.67
       mongodb: ^6.5.0
 
-  '@aeriajs/types@0.0.66':
-    resolution: {integrity: sha512-9k4uTLXYhuMm78bjQ52gWekaFzTkPj/5JnrwYVJc6O9KfHiWllk3Q4nfGWJkno6LBgmW0PeKqs7LpgnGjicl6A==}
+  '@aeriajs/types@0.0.67':
+    resolution: {integrity: sha512-36GIjIH7FBded2g+2b6jx3bz94SzaCf05oYzrASynu+WV41o3ATrJ5KiIRVU44PLnWgqIare3bYBDtsFx6HLWQ==}
 
-  '@aeriajs/validation@0.0.79':
-    resolution: {integrity: sha512-vCTcMT8/fXUOp4UkHO32eakV5tfXCVcArPk+DpuMgEe1psWoCsQxTjtyNuhjHLpg+CY67JQHslO+ullnKmHPCg==}
+  '@aeriajs/validation@0.0.80':
+    resolution: {integrity: sha512-5s/6w21CN0vXZv+A7NBzhJX4s2jOwXnwzsvt2FmCSmPAJUqo7d0J2cMPoHstRHC2lZaczf+f/0cd9t8gP21PPA==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/types': ^0.0.66
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/types': ^0.0.67
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1178,17 +1178,17 @@ packages:
       vue:
         optional: true
 
-  '@vue/compiler-core@3.4.30':
-    resolution: {integrity: sha512-ZL8y4Xxdh8O6PSwfdZ1IpQ24PjTAieOz3jXb/MDTfDtANcKBMxg1KLm6OX2jofsaQGYfIVzd3BAG22i56/cF1w==}
+  '@vue/compiler-core@3.4.31':
+    resolution: {integrity: sha512-skOiodXWTV3DxfDhB4rOf3OGalpITLlgCeOwb+Y9GJpfQ8ErigdBUHomBzvG78JoVE8MJoQsb+qhZiHfKeNeEg==}
 
-  '@vue/compiler-dom@3.4.30':
-    resolution: {integrity: sha512-+16Sd8lYr5j/owCbr9dowcNfrHd+pz+w2/b5Lt26Oz/kB90C9yNbxQ3bYOvt7rI2bxk0nqda39hVcwDFw85c2Q==}
+  '@vue/compiler-dom@3.4.31':
+    resolution: {integrity: sha512-wK424WMXsG1IGMyDGyLqB+TbmEBFM78hIsOJ9QwUVLGrcSk0ak6zYty7Pj8ftm7nEtdU/DGQxAXp0/lM/2cEpQ==}
 
-  '@vue/compiler-sfc@3.4.30':
-    resolution: {integrity: sha512-8vElKklHn/UY8+FgUFlQrYAPbtiSB2zcgeRKW7HkpSRn/JjMRmZvuOtwDx036D1aqKNSTtXkWRfqx53Qb+HmMg==}
+  '@vue/compiler-sfc@3.4.31':
+    resolution: {integrity: sha512-einJxqEw8IIJxzmnxmJBuK2usI+lJonl53foq+9etB2HAzlPjAS/wa7r0uUpXw5ByX3/0uswVSrjNb17vJm1kQ==}
 
-  '@vue/compiler-ssr@3.4.30':
-    resolution: {integrity: sha512-ZJ56YZGXJDd6jky4mmM0rNaNP6kIbQu9LTKZDhcpddGe/3QIalB1WHHmZ6iZfFNyj5mSypTa4+qDJa5VIuxMSg==}
+  '@vue/compiler-ssr@3.4.31':
+    resolution: {integrity: sha512-RtefmITAje3fJ8FSg1gwgDhdKhZVntIVbwupdyZDSifZTRMiWxWehAOTCc8/KZDnBOcYQ4/9VWxsTbd3wT0hAA==}
 
   '@vue/devtools-api@6.6.3':
     resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
@@ -1209,22 +1209,22 @@ packages:
       typescript:
         optional: true
 
-  '@vue/reactivity@3.4.30':
-    resolution: {integrity: sha512-bVJurnCe3LS0JII8PPoAA63Zd2MBzcKrEzwdQl92eHCcxtIbxD2fhNwJpa+KkM3Y/A4T5FUnmdhgKwOf6BfbcA==}
+  '@vue/reactivity@3.4.31':
+    resolution: {integrity: sha512-VGkTani8SOoVkZNds1PfJ/T1SlAIOf8E58PGAhIOUDYPC4GAmFA2u/E14TDAFcf3vVDKunc4QqCe/SHr8xC65Q==}
 
-  '@vue/runtime-core@3.4.30':
-    resolution: {integrity: sha512-qaFEbnNpGz+tlnkaualomogzN8vBLkgzK55uuWjYXbYn039eOBZrWxyXWq/7qh9Bz2FPifZqGjVDl/FXiq9L2g==}
+  '@vue/runtime-core@3.4.31':
+    resolution: {integrity: sha512-LDkztxeUPazxG/p8c5JDDKPfkCDBkkiNLVNf7XZIUnJ+66GVGkP+TIh34+8LtPisZ+HMWl2zqhIw0xN5MwU1cw==}
 
-  '@vue/runtime-dom@3.4.30':
-    resolution: {integrity: sha512-tV6B4YiZRj5QsaJgw2THCy5C1H+2UeywO9tqgWEc21tn85qHEERndHN/CxlyXvSBFrpmlexCIdnqPuR9RM9thw==}
+  '@vue/runtime-dom@3.4.31':
+    resolution: {integrity: sha512-2Auws3mB7+lHhTFCg8E9ZWopA6Q6L455EcU7bzcQ4x6Dn4cCPuqj6S2oBZgN2a8vJRS/LSYYxwFFq2Hlx3Fsaw==}
 
-  '@vue/server-renderer@3.4.30':
-    resolution: {integrity: sha512-TBD3eqR1DeDc0cMrXS/vEs/PWzq1uXxnvjoqQuDGFIEHFIwuDTX/KWAQKIBjyMWLFHEeTDGYVsYci85z2UbTDg==}
+  '@vue/server-renderer@3.4.31':
+    resolution: {integrity: sha512-D5BLbdvrlR9PE3by9GaUp1gQXlCNadIZytMIb8H2h3FMWJd4oUfkUTEH2wAr3qxoRz25uxbTcbqd3WKlm9EHQA==}
     peerDependencies:
-      vue: 3.4.30
+      vue: 3.4.31
 
-  '@vue/shared@3.4.30':
-    resolution: {integrity: sha512-CLg+f8RQCHQnKvuHY9adMsMaQOcqclh6Z5V9TaoMgy0ut0tz848joZ7/CYFFyF/yZ5i2yaw7Fn498C+CNZVHIg==}
+  '@vue/shared@3.4.31':
+    resolution: {integrity: sha512-Yp3wtJk//8cO4NItOPpi3QkLExAr/aLBGZMmTtW9WpdwBCJpRM6zj9WgWktXAl8IDIozwNMByT45JP3tO3ACWA==}
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -1251,12 +1251,12 @@ packages:
       glob: '*'
       vite: '*'
 
-  aeria-sdk@0.0.105:
-    resolution: {integrity: sha512-mwUR2AcNNtW35Ld32Dyua8BFl+J+zIgBhjUmABd5uu+Sybfqpuj1Q1SeEYJlBMzThbgjswrlXUsMkfPj679wWA==}
+  aeria-sdk@0.0.106:
+    resolution: {integrity: sha512-R7SEerOflPQxEXbWHedlBgAAPRSmcQCJ4GmnRc4SGHK4QRkMFHcKNwO5Y9wgBigrmHfEfdZ+npr5OLMecT7ubA==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.76
-      '@aeriajs/types': ^0.0.66
+      '@aeriajs/common': ^0.0.77
+      '@aeriajs/types': ^0.0.67
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -1619,8 +1619,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.813:
-    resolution: {integrity: sha512-VyJ4tS2uD5iXFBz30wD2c0KtKZoiSQEfRuhrgfsDBbRMDiQCH+ki+nqe8jVR2miEeLTbZ5dNbSt88fHO01Vc9A==}
+  electron-to-chromium@1.4.814:
+    resolution: {integrity: sha512-GVulpHjFu1Y9ZvikvbArHmAhZXtm3wHlpjTMcXNGKl4IQ4jMQjlnz8yMQYYqdLHKi/jEL2+CBC2akWVCoIGUdw==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2288,8 +2288,8 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  lru-cache@10.2.2:
-    resolution: {integrity: sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==}
+  lru-cache@10.3.0:
+    resolution: {integrity: sha512-CQl19J/g+Hbjbv4Y3mFNNXFEL/5t/KCg8POCuUqd4rMKjGG+j1ybER83hxV58zL+dFI1PTkt3GNFSHRt+d8qEQ==}
     engines: {node: 14 || >=16.14}
 
   lru-cache@4.1.5:
@@ -3299,8 +3299,8 @@ packages:
     peerDependencies:
       typescript: '*'
 
-  vue@3.4.30:
-    resolution: {integrity: sha512-NcxtKCwkdf1zPsr7Y8+QlDBCGqxvjLXF2EX+yi76rV5rrz90Y6gK1cq0olIhdWGgrlhs9ElHuhi9t3+W5sG5Xw==}
+  vue@3.4.31:
+    resolution: {integrity: sha512-njqRrOy7W3YLAlVqSKpBebtZpDVg21FPoaq1I7f/+qqBThK9ChAIjkRWgeP6Eat+8C+iia4P3OYqpATP21BCoQ==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -3415,32 +3415,32 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.7': {}
 
-  '@aeriajs/builtins@0.0.119(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/core@0.0.119)(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))':
+  '@aeriajs/builtins@0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))':
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/core': 0.0.119(@aeriajs/builtins@0.0.119)(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/http@0.0.87(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)))(@aeriajs/security@0.0.119)(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(socks@2.8.3)
-      '@aeriajs/entrypoint': 0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
-      '@aeriajs/types': 0.0.66
-      '@aeriajs/validation': 0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/core': 0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
+      '@aeriajs/entrypoint': 0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
+      '@aeriajs/types': 0.0.67
+      '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       bcrypt: 5.1.1
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)':
+  '@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)':
     dependencies:
-      '@aeriajs/types': 0.0.66
+      '@aeriajs/types': 0.0.67
       bson: 6.8.0
 
-  '@aeriajs/core@0.0.119(@aeriajs/builtins@0.0.119)(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/http@0.0.87(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)))(@aeriajs/security@0.0.119)(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(socks@2.8.3)':
+  '@aeriajs/core@0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)':
     dependencies:
-      '@aeriajs/builtins': 0.0.119(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/core@0.0.119)(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/entrypoint': 0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
-      '@aeriajs/http': 0.0.87(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))
-      '@aeriajs/security': 0.0.119(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/core@0.0.119)(@aeriajs/types@0.0.66)(mongodb@6.8.0(socks@2.8.3))
-      '@aeriajs/types': 0.0.66
-      '@aeriajs/validation': 0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
+      '@aeriajs/builtins': 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/entrypoint': 0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
+      '@aeriajs/http': 0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))
+      '@aeriajs/security': 0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))
+      '@aeriajs/types': 0.0.67
+      '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
       jsonwebtoken: 9.0.2
       mongodb: 6.8.0(socks@2.8.3)
     optionalDependencies:
@@ -3455,31 +3455,31 @@ snapshots:
       - socks
       - supports-color
 
-  '@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)':
+  '@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)':
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/types': 0.0.66
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/types': 0.0.67
 
-  '@aeriajs/http@0.0.87(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))':
+  '@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))':
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/entrypoint': 0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
-      '@aeriajs/types': 0.0.66
-      '@aeriajs/validation': 0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/entrypoint': 0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
+      '@aeriajs/types': 0.0.67
+      '@aeriajs/validation': 0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)
 
-  '@aeriajs/security@0.0.119(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/core@0.0.119)(@aeriajs/types@0.0.66)(mongodb@6.8.0(socks@2.8.3))':
+  '@aeriajs/security@0.0.120(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/core@0.0.120)(@aeriajs/types@0.0.67)(mongodb@6.8.0(socks@2.8.3))':
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/core': 0.0.119(@aeriajs/builtins@0.0.119)(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/http@0.0.87(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/entrypoint@0.0.78(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)))(@aeriajs/security@0.0.119)(@aeriajs/types@0.0.66)(@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66))(socks@2.8.3)
-      '@aeriajs/types': 0.0.66
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/core': 0.0.120(@aeriajs/builtins@0.0.120)(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/http@0.0.88(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/entrypoint@0.0.79(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)))(@aeriajs/security@0.0.120)(@aeriajs/types@0.0.67)(@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67))(socks@2.8.3)
+      '@aeriajs/types': 0.0.67
       mongodb: 6.8.0(socks@2.8.3)
 
-  '@aeriajs/types@0.0.66': {}
+  '@aeriajs/types@0.0.67': {}
 
-  '@aeriajs/validation@0.0.79(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66)':
+  '@aeriajs/validation@0.0.80(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67)':
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/types': 0.0.66
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/types': 0.0.67
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -4352,15 +4352,15 @@ snapshots:
       '@typescript-eslint/types': 7.14.1
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-vue@4.6.2(vite@4.5.3(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))':
+  '@vitejs/plugin-vue@4.6.2(vite@4.5.3(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))':
     dependencies:
       vite: 4.5.3(@types/node@20.14.9)(less@4.2.0)
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
 
-  '@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))':
+  '@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))':
     dependencies:
       vite: 5.3.2(@types/node@20.14.9)(less@4.2.0)
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
 
   '@volar/language-core@1.11.1':
     dependencies:
@@ -4387,48 +4387,48 @@ snapshots:
       path-browserify: 1.0.1
       vscode-uri: 3.0.8
 
-  '@vue-macros/common@1.10.4(rollup@4.18.0)(vue@3.4.30(typescript@5.5.2))':
+  '@vue-macros/common@1.10.4(rollup@4.18.0)(vue@3.4.31(typescript@5.5.2))':
     dependencies:
       '@babel/types': 7.24.7
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
-      '@vue/compiler-sfc': 3.4.30
+      '@vue/compiler-sfc': 3.4.31
       ast-kit: 0.12.2
       local-pkg: 0.5.0
       magic-string-ast: 0.6.2
     optionalDependencies:
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
     transitivePeerDependencies:
       - rollup
 
-  '@vue/compiler-core@3.4.30':
+  '@vue/compiler-core@3.4.31':
     dependencies:
       '@babel/parser': 7.24.7
-      '@vue/shared': 3.4.30
+      '@vue/shared': 3.4.31
       entities: 4.5.0
       estree-walker: 2.0.2
       source-map-js: 1.2.0
 
-  '@vue/compiler-dom@3.4.30':
+  '@vue/compiler-dom@3.4.31':
     dependencies:
-      '@vue/compiler-core': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/compiler-core': 3.4.31
+      '@vue/shared': 3.4.31
 
-  '@vue/compiler-sfc@3.4.30':
+  '@vue/compiler-sfc@3.4.31':
     dependencies:
       '@babel/parser': 7.24.7
-      '@vue/compiler-core': 3.4.30
-      '@vue/compiler-dom': 3.4.30
-      '@vue/compiler-ssr': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/compiler-core': 3.4.31
+      '@vue/compiler-dom': 3.4.31
+      '@vue/compiler-ssr': 3.4.31
+      '@vue/shared': 3.4.31
       estree-walker: 2.0.2
       magic-string: 0.30.10
       postcss: 8.4.38
       source-map-js: 1.2.0
 
-  '@vue/compiler-ssr@3.4.30':
+  '@vue/compiler-ssr@3.4.31':
     dependencies:
-      '@vue/compiler-dom': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/compiler-dom': 3.4.31
+      '@vue/shared': 3.4.31
 
   '@vue/devtools-api@6.6.3': {}
 
@@ -4436,8 +4436,8 @@ snapshots:
     dependencies:
       '@volar/language-core': 1.11.1
       '@volar/source-map': 1.11.1
-      '@vue/compiler-dom': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/compiler-dom': 3.4.31
+      '@vue/shared': 3.4.31
       computeds: 0.0.1
       minimatch: 9.0.5
       muggle-string: 0.3.1
@@ -4449,8 +4449,8 @@ snapshots:
   '@vue/language-core@2.0.22(typescript@5.5.2)':
     dependencies:
       '@volar/language-core': 2.3.4
-      '@vue/compiler-dom': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/compiler-dom': 3.4.31
+      '@vue/shared': 3.4.31
       computeds: 0.0.1
       minimatch: 9.0.5
       muggle-string: 0.4.1
@@ -4459,29 +4459,29 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.2
 
-  '@vue/reactivity@3.4.30':
+  '@vue/reactivity@3.4.31':
     dependencies:
-      '@vue/shared': 3.4.30
+      '@vue/shared': 3.4.31
 
-  '@vue/runtime-core@3.4.30':
+  '@vue/runtime-core@3.4.31':
     dependencies:
-      '@vue/reactivity': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/reactivity': 3.4.31
+      '@vue/shared': 3.4.31
 
-  '@vue/runtime-dom@3.4.30':
+  '@vue/runtime-dom@3.4.31':
     dependencies:
-      '@vue/reactivity': 3.4.30
-      '@vue/runtime-core': 3.4.30
-      '@vue/shared': 3.4.30
+      '@vue/reactivity': 3.4.31
+      '@vue/runtime-core': 3.4.31
+      '@vue/shared': 3.4.31
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.4.30(vue@3.4.30(typescript@5.5.2))':
+  '@vue/server-renderer@3.4.31(vue@3.4.31(typescript@5.5.2))':
     dependencies:
-      '@vue/compiler-ssr': 3.4.30
-      '@vue/shared': 3.4.30
-      vue: 3.4.30(typescript@5.5.2)
+      '@vue/compiler-ssr': 3.4.31
+      '@vue/shared': 3.4.31
+      vue: 3.4.31(typescript@5.5.2)
 
-  '@vue/shared@3.4.30': {}
+  '@vue/shared@3.4.31': {}
 
   JSONStream@1.3.5:
     dependencies:
@@ -4496,17 +4496,17 @@ snapshots:
 
   acorn@8.12.0: {}
 
-  aeria-icons@0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2)))(glob@10.4.2)(vite@5.3.2(@types/node@20.14.9)(less@4.2.0)):
+  aeria-icons@0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2)))(glob@10.4.2)(vite@5.3.2(@types/node@20.14.9)(less@4.2.0)):
     dependencies:
       '@phosphor-icons/core': 2.1.1
-      '@vitejs/plugin-vue': 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.30(typescript@5.5.2))
+      '@vitejs/plugin-vue': 4.6.2(vite@5.3.2(@types/node@20.14.9)(less@4.2.0))(vue@3.4.31(typescript@5.5.2))
       glob: 10.4.2
       vite: 5.3.2(@types/node@20.14.9)(less@4.2.0)
 
-  aeria-sdk@0.0.105(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@aeriajs/types@0.0.66):
+  aeria-sdk@0.0.106(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@aeriajs/types@0.0.67):
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
-      '@aeriajs/types': 0.0.66
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
+      '@aeriajs/types': 0.0.67
 
   agent-base@6.0.2:
     dependencies:
@@ -4648,7 +4648,7 @@ snapshots:
   browserslist@4.23.1:
     dependencies:
       caniuse-lite: 1.0.30001638
-      electron-to-chromium: 1.4.813
+      electron-to-chromium: 1.4.814
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.1)
 
@@ -4845,7 +4845,7 @@ snapshots:
     dependencies:
       jake: 10.9.1
 
-  electron-to-chromium@1.4.813: {}
+  electron-to-chromium@1.4.814: {}
 
   emoji-regex@8.0.0: {}
 
@@ -4934,9 +4934,9 @@ snapshots:
       '@typescript-eslint/eslint-plugin': 7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2)
       '@typescript-eslint/parser': 7.14.1(eslint@9.5.0)(typescript@5.5.2)
 
-  eslint-config-aeriaui@0.0.11(@aeriajs/common@0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0))(@eslint/eslintrc@3.1.0)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2)))(eslint-plugin-vue@9.26.0(eslint@9.5.0)):
+  eslint-config-aeriaui@0.0.11(@aeriajs/common@0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0))(@eslint/eslintrc@3.1.0)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2)))(eslint-plugin-vue@9.26.0(eslint@9.5.0)):
     dependencies:
-      '@aeriajs/common': 0.0.76(@aeriajs/types@0.0.66)(bson@6.8.0)
+      '@aeriajs/common': 0.0.77(@aeriajs/types@0.0.67)(bson@6.8.0)
       '@eslint/eslintrc': 3.1.0
       eslint-config-aeria: 0.0.31(@stylistic/eslint-plugin@2.3.0(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2))(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))
       eslint-plugin-vue: 9.26.0(eslint@9.5.0)
@@ -5568,7 +5568,7 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  lru-cache@10.2.2: {}
+  lru-cache@10.3.0: {}
 
   lru-cache@4.1.5:
     dependencies:
@@ -5881,7 +5881,7 @@ snapshots:
 
   path-scurry@1.11.1:
     dependencies:
-      lru-cache: 10.2.2
+      lru-cache: 10.3.0
       minipass: 7.1.2
 
   path-type@4.0.0: {}
@@ -6430,7 +6430,7 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  unplugin-vue-components@0.24.1(@babel/parser@7.24.7)(rollup@4.18.0)(vue@3.4.30(typescript@5.5.2)):
+  unplugin-vue-components@0.24.1(@babel/parser@7.24.7)(rollup@4.18.0)(vue@3.4.31(typescript@5.5.2)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
@@ -6442,18 +6442,18 @@ snapshots:
       minimatch: 7.4.6
       resolve: 1.22.8
       unplugin: 1.10.1
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
     optionalDependencies:
       '@babel/parser': 7.24.7
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  unplugin-vue-router@0.8.8(rollup@4.18.0)(vue-router@4.4.0(vue@3.4.30(typescript@5.5.2)))(vue@3.4.30(typescript@5.5.2)):
+  unplugin-vue-router@0.8.8(rollup@4.18.0)(vue-router@4.4.0(vue@3.4.31(typescript@5.5.2)))(vue@3.4.31(typescript@5.5.2)):
     dependencies:
       '@babel/types': 7.24.7
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
-      '@vue-macros/common': 1.10.4(rollup@4.18.0)(vue@3.4.30(typescript@5.5.2))
+      '@vue-macros/common': 1.10.4(rollup@4.18.0)(vue@3.4.31(typescript@5.5.2))
       ast-walker-scope: 0.6.1
       chokidar: 3.6.0
       fast-glob: 3.3.2
@@ -6465,7 +6465,7 @@ snapshots:
       unplugin: 1.10.1
       yaml: 2.4.5
     optionalDependencies:
-      vue-router: 4.4.0(vue@3.4.30(typescript@5.5.2))
+      vue-router: 4.4.0(vue@3.4.31(typescript@5.5.2))
     transitivePeerDependencies:
       - rollup
       - vue
@@ -6538,9 +6538,9 @@ snapshots:
 
   vscode-uri@3.0.8: {}
 
-  vue-demi@0.13.11(vue@3.4.30(typescript@5.5.2)):
+  vue-demi@0.13.11(vue@3.4.31(typescript@5.5.2)):
     dependencies:
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
 
   vue-eslint-parser@9.4.3(eslint@9.5.0):
     dependencies:
@@ -6555,10 +6555,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-router@4.4.0(vue@3.4.30(typescript@5.5.2)):
+  vue-router@4.4.0(vue@3.4.31(typescript@5.5.2)):
     dependencies:
       '@vue/devtools-api': 6.6.3
-      vue: 3.4.30(typescript@5.5.2)
+      vue: 3.4.31(typescript@5.5.2)
 
   vue-template-compiler@2.7.16:
     dependencies:
@@ -6579,13 +6579,13 @@ snapshots:
       semver: 7.6.2
       typescript: 5.5.2
 
-  vue@3.4.30(typescript@5.5.2):
+  vue@3.4.31(typescript@5.5.2):
     dependencies:
-      '@vue/compiler-dom': 3.4.30
-      '@vue/compiler-sfc': 3.4.30
-      '@vue/runtime-dom': 3.4.30
-      '@vue/server-renderer': 3.4.30(vue@3.4.30(typescript@5.5.2))
-      '@vue/shared': 3.4.30
+      '@vue/compiler-dom': 3.4.31
+      '@vue/compiler-sfc': 3.4.31
+      '@vue/runtime-dom': 3.4.31
+      '@vue/server-renderer': 3.4.31(vue@3.4.31(typescript@5.5.2))
+      '@vue/shared': 3.4.31
     optionalDependencies:
       typescript: 5.5.2
 
