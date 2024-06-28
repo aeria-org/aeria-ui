@@ -1,5 +1,5 @@
 import type { Router } from 'vue-router'
-import type { CollectionAction } from '@aeriajs/types'
+import type { CollectionAction, Result } from '@aeriajs/types'
 import type { Store, GlobalStateManager } from '@aeria-ui/state-management'
 import { useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
@@ -97,17 +97,13 @@ export const useAction = <Filters extends { _id: string | string[] }>(
       }
 
       return actionEffect
-        ? (payload: any) => store.$actions.customEffect(actionName, payload, (value: any) => {
+        ? (payload: any) => store.$actions.customEffect(actionName, payload, ({ error, result }: Result.Either<unknown, unknown>) => {
           const effect = getEffect(store, actionEffect)
-          if( !value || value._tag === 'Left' ) {
+          if( error ) {
             return
           }
 
-          const subject = value._tag === 'Right'
-            ? value.value
-            : value
-
-          return effect(subject)
+          return effect(result)
         })
         : (payload: any) => store.$actions.custom(actionName, payload)
     })()
