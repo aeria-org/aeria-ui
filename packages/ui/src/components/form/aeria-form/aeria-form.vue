@@ -266,7 +266,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
 }
 
 const focusOnRender = () => {
-  if( !readOnly && !alreadyFocused.value )  {
+  if( !readOnly && !alreadyFocused.value ) {
     alreadyFocused.value = true
     return true
   }

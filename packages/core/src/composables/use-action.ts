@@ -67,7 +67,6 @@ export const useAction = <Filters extends { _id: string | string[] }>(
             params.collection = store.description.$id
           }
 
-
           router.push({
             name: actionName.split('route:')[1],
             query: actionProps.query || {},
