@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
-const readOnly = props.readOnly || props.property?.readOnly
+const readOnly = props.readOnly || props.property.readOnly
 const options = 'items' in props.property
   ? props.property.items.enum
   : props.property.enum

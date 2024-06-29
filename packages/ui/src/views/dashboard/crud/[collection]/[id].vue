@@ -17,8 +17,8 @@ watch(() => props.collection, () => {
   const store = useStore(props.collection, manager)
   store.$actions.get({
     filters: {
-      _id: props.id
-    }
+      _id: props.id,
+    },
   })
 }, {
   immediate: true,
@@ -27,9 +27,9 @@ watch(() => props.collection, () => {
 
 <template>
   <aeria-insert-panel
+    :key="id"
     bordered
     rounded
-    :key="id"
     :collection="collection"
     :read-only="section !== 'edit'"
     style="--panel-max-width: 40rem;"

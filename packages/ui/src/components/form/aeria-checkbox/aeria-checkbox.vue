@@ -65,7 +65,6 @@ const bindVal = computed({
       }
     }
 
-
     emit('update:modelValue', props.value)
   },
 })
@@ -92,8 +91,8 @@ const handleClick = (e: Event) => {
         readOnly,
         checked: bindVal
       }"
-      @click="handleClick"
       class="checkbox__input"
+      @click="handleClick"
     >
 
     <div class="checkbox__text">

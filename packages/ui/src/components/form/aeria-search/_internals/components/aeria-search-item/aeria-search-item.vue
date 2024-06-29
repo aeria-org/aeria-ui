@@ -89,7 +89,7 @@ const handleClick = () => {
       params: {
         collection: refProperty.$ref,
         id: props.item._id,
-      }
+      },
     })
     return
   }

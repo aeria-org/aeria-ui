@@ -330,8 +330,8 @@ provide('individualActions', individualActions)
 <template>
   <aeria-filter-panel
     v-if="isFilterVisible"
-    v-model="isFilterVisible"
     :key="store.$id"
+    v-model="isFilterVisible"
   />
 
   <aeria-insert-panel

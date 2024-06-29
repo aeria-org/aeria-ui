@@ -16,6 +16,7 @@ type Props = {
 }
 
 type Emits = {
+  (e: 'update:modelValue', value: boolean): void
   (e: 'cancel'): void
 }
 
@@ -57,8 +58,11 @@ watch(() => store.item._id, (_id) => {
     :loading="store.loading.get"
     @overlay-click="askToCancel"
   >
-    <template #header v-if="$slots.header">
-      <slot name="header"></slot>
+    <template
+      v-if="$slots.header"
+      #header
+    >
+      <slot name="header" />
     </template>
 
     <aeria-form
@@ -102,7 +106,10 @@ watch(() => store.item._id, (_id) => {
         />
       </aeria-context-menu>
     </template>
-    <template #footer v-if="!readOnly">
+    <template
+      v-if="!readOnly"
+      #footer
+    >
       <aeria-button
         variant="transparent"
         @click="askToCancel"

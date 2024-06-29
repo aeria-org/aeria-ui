@@ -330,7 +330,10 @@ const save = () => {
           @update:model-value="update"
         />
 
-        <template #footer v-if="!readOnly">
+        <template
+          v-if="!readOnly"
+          #footer
+        >
           <aeria-icon
             v-clickable
             icon="plus"
