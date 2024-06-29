@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.48
+
+### Patch Changes
+
+- 01c16d4: Minor refactors
+
 ## 0.0.47
 
 ### Patch Changes
