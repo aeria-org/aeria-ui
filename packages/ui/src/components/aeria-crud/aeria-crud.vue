@@ -305,8 +305,8 @@ watch(() => actionEventBus.value, async (_event) => {
  deep: true,
 })
 
-watch(() => isInsertVisible, (value) => {
-  if( value.value === false ) {
+watch(() => isInsertVisible, ({ value: visible }) => {
+  if( visible === false ) {
     metaStore.view.collection = props.collection
     store.$actions.clearItem()
   }

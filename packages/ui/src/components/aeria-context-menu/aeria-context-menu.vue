@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CollectionAction } from '@aeriajs/types'
-import { arraysIntersect } from '@aeriajs/common'
+import { arraysIntersect, deepClone } from '@aeriajs/common'
 import { ref, computed } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
@@ -21,8 +21,11 @@ type Action = {
 }
 
 type Emits = {
-  (e: 'actionClick', event: { action: Action,
-subject: any }): void
+  (e: 'actionClick',
+    event: {
+      action: Action,
+      subject: any
+  }): void
 }
 
 defineProps<Props>()
@@ -43,12 +46,13 @@ const filterActions = (actions: Props['actions']) => {
   })
 }
 
-const onClick = (action: Action, subject: any) => {
+const onClick = (action: Action, _subject: any) => {
+  const subject = deepClone(_subject)
   action.click(subject)
   emit('actionClick', {
- action,
-subject,
-})
+    action,
+    subject,
+  })
 
   contextmenuVisible.value = false
 }
