@@ -59,14 +59,19 @@ export const useAction = <Filters extends { _id: string | string[] }>(
             })
           }
 
+          const params = actionProps.params || {}
+          if( filters ) {
+            params.id = filters._id
+          }
+          if( store.description && typeof store.description === 'object' ) {
+            params.collection = store.description.$id
+          }
+
+
           router.push({
             name: actionName.split('route:')[1],
-            params: filters
-              ? Object.assign({
-                id: filters._id,
-              }, actionProps.params || {})
-              : {},
             query: actionProps.query || {},
+            params,
           })
         }
       }

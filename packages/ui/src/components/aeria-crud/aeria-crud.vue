@@ -155,8 +155,8 @@ const paginate = async (pagination: Pick<Pagination, 'offset' | 'limit'>) => {
 const noResultsComponent = inject('noResultsComponent', null)
 
 watch(() => [
-router.currentRoute.value.path,
-router.currentRoute.value.query.section,
+  router.currentRoute.value.path,
+  router.currentRoute.value.query.section,
 ], async (newVal, oldVal) => {
   if( oldVal ) {
     if( oldVal[0] === newVal[0] && oldVal[1] === newVal[1] ) {
@@ -313,7 +313,7 @@ watch(() => isInsertVisible, (value) => {
 })
 
 const individualActions = computed(() => {
-  return store.individualActions.map((action: any) => ({
+  return store.individualActions.map((action) => ({
     click: call.value(action),
     ...action,
   }))

@@ -11,7 +11,7 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
   collection?: string
-  modelValue?: boolean
+  modelValue?: boolean | string
   readOnly?: boolean
 }
 

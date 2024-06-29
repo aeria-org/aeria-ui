@@ -264,6 +264,13 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
     ? validationErrors.value[key].errors
     : null
 }
+
+const focusOnRender = () => {
+  if( !readOnly && !alreadyFocused.value )  {
+    alreadyFocused.value = true
+    return true
+  }
+}
 </script>
 
 <template>
@@ -484,7 +491,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
             validationErrors: getNestedValidationError(fieldPropertyName)
           }"
 
-          v-focus="!alreadyFocused && (alreadyFocused = !!focus)"
+          v-focus="focusOnRender()"
 
           @input="emit('input', fieldPropertyName)"
           @change="emit('change', $event)"

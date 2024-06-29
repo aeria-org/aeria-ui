@@ -36,11 +36,13 @@ const modelValue = !props.booleanRef
   : (() => {
     const value = ref(props.modelValue)
     const comp = computed({
-      get: () => value.value === 'true'
-        ? true
-: value.value === 'false'
-        ? false
-: null,
+      get: () => {
+        switch( value.value ) {
+          case 'true': return true
+          case 'false': return false
+          default: return null
+        }
+      },
       set: (newVal) => {
         value.value = newVal
       },
