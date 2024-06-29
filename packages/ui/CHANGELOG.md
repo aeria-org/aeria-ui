@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.64
+
+### Patch Changes
+
+- db6b8e5: Add view item view
+
 ## 0.0.63
 
 ### Patch Changes
