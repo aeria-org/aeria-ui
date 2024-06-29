@@ -57,12 +57,23 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
   },
   children: children.concat([
     {
-      path: 'c/:collection?',
+      path: 'c/:collection',
       name: '/dashboard/crud',
       props: true,
       components: {
-        default: () => import('./views/dashboard/crud-view/crud-view.vue'),
+        default: () => import('./views/dashboard/crud/[collection]/index.vue'),
         topbar: () => import('./components/dashboard/aeria-crud-topbar/aeria-crud-topbar.vue'),
+      },
+      meta: {
+        title: '%viewTitle%',
+      },
+    },
+    {
+      path: 'c/:collection/:id/:section?',
+      name: '/dashboard/crud/:id',
+      props: true,
+      components: {
+        default: () => import('./views/dashboard/crud/[collection]/[id].vue'),
       },
       meta: {
         title: '%viewTitle%',
@@ -80,7 +91,7 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
       children: [
         {
           path: 'profile',
-          component: () => import('./views/dashboard/user/profile/profile.vue'),
+          component: () => import('./views/dashboard/user/profile/index.vue'),
           meta: {
             title: 'Meu perfil',
             icon: 'user-square',
@@ -89,7 +100,7 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
         {
           path: 'changepass',
           name: '/dashboard/user/changepass',
-          component: () => import('./views/dashboard/user/password-change/password-change.vue'),
+          component: () => import('./views/dashboard/user/password-change/index.vue'),
           meta: {
             title: 'Mudar senha',
             icon: 'lock',

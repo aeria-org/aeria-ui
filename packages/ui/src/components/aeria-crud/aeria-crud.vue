@@ -16,15 +16,14 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 import AeriaInput from '../form/aeria-input/aeria-input.vue'
 import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 import AeriaBadge from '../aeria-badge/aeria-badge.vue'
-import AeriaFilterPanel from './_internals/components/aeria-filter-panel/aeria-filter-panel.vue'
-import AeriaInsertPanel from './_internals/components/aeria-insert-panel/aeria-insert-panel.vue'
+import AeriaFilterPanel from '../aeria-filter-panel/aeria-filter-panel.vue'
+import AeriaInsertPanel from '../aeria-insert-panel/aeria-insert-panel.vue'
 
 import { watchStore } from './_internals/helpers.js'
 import { getLayout } from './_internals/layouts/index.js'
 
 import {
   isInsertVisible,
-  isInsertReadonly,
   isFilterVisible,
   call,
   actionEventBus,
@@ -168,7 +167,6 @@ router.currentRoute.value.query.section,
   const route = router.currentRoute.value
   metaStore.view.title = props.collection
   metaStore.view.collection = props.collection
-  isInsertReadonly.value = false
 
   if( !props.noFetch && !route.query._popstate ) {
     const filters = convertFromSearchQuery(store, route as unknown as RouteRecordNormalized)
@@ -231,13 +229,7 @@ watch(() => actionEventBus.value, async (_event) => {
     return
   }
 
-  if (
-    [
-      'spawnEdit',
-      'spawnView',
-      'duplicate',
-    ].includes(event.name)
-  ) {
+  if ( event.name === 'spawnEdit' || event.name === 'duplicate' ) {
     getPromise = store.$actions.get({
       filters: {
         _id: event.params._id,
@@ -257,9 +249,6 @@ watch(() => actionEventBus.value, async (_event) => {
   } else if( event.name === 'spawnEdit' ) {
     store.$actions.setItem(event.params)
     isInsertVisible.value = 'edit'
-  } else if( event.name === 'spawnView' ) {
-    isInsertReadonly.value = true
-    isInsertVisible.value = 'view'
   } else if( event.name === 'duplicate' ) {
     await getPromise!
 
@@ -341,11 +330,33 @@ provide('individualActions', individualActions)
 <template>
   <aeria-filter-panel
     v-if="isFilterVisible"
-    :key="store.$id"
     v-model="isFilterVisible"
+    :key="store.$id"
   />
 
-  <aeria-insert-panel v-if="isInsertVisible">
+  <aeria-insert-panel
+    v-if="isInsertVisible"
+    v-model="isInsertVisible"
+    fixed-right
+    @cancel="isInsertVisible = false"
+  >
+    <template #header>
+      <span>{{
+        (() => {
+          switch( isInsertVisible ) {
+          case 'add':
+            return t('action.add', { capitalize: true })
+          case 'duplicate':
+            return t('action.duplicate', { capitalize: true })
+          case 'edit':
+          default:
+            return t('action.edit', { capitalize: true })
+          }
+        })() }}
+      </span>
+      <span>&nbsp;{{ t(metaStore.view.collection) }}</span>
+    </template>
+
     <template
       v-for="slotName in Object.keys($slots).filter(key => key.startsWith('field-'))"
       #[slotName]="slotProps"

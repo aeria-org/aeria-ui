@@ -140,4 +140,4 @@ const signout = async () => {
   </aeria-panel>
 </template>
 
-<style scoped src="./profile.less"></style>
+<style scoped src="./index.less"></style>

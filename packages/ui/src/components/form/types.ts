@@ -6,6 +6,7 @@ export type FormFieldProps<TModelValue, TProperty = Property> = {
   propertyName?: string
   parentPropertyName?: string
   parentCollection?: string
+  readOnly?: boolean
 }
 
 export type SearchProperty = RefProperty | ArrayOfRefs

@@ -99,7 +99,9 @@ const position = computed(() => {
         }
       }"
       fill
+      bordered
       class="content"
+      style="--panel-min-width: 0;"
     >
       <div class="content__body">
         <div

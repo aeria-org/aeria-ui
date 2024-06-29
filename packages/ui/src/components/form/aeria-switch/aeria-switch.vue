@@ -17,10 +17,11 @@ type Emits = {
 const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
-const property = props.property || {} as Property
+const property = props.property
+const readOnly = props.readOnly || property?.readOnly
 
 const toggle = () => {
-  if( !property.readOnly ) {
+  if( !readOnly ) {
     emit('change', !props.modelValue)
     emit('update:modelValue', !props.modelValue)
   }
@@ -31,13 +32,13 @@ const toggle = () => {
   <div class="switch-wrapper">
     <a
       v-clickable="{
-        blocked: property.readOnly
+        blocked: readOnly
       }"
 
       :class="`
         switch
         ${modelValue && 'switch--active'}
-        ${property.readOnly && 'switch--readOnly'}
+        ${readOnly && 'switch--readOnly'}
       `"
       @click.stop="toggle"
     >
@@ -53,7 +54,7 @@ const toggle = () => {
     <slot v-if="$slots.default" />
 
     <div v-else>
-      {{ property.description || propertyName }}
+      {{ property?.description || propertyName }}
     </div>
   </div>
 </template>

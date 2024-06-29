@@ -3,10 +3,10 @@ import type { CollectionStore } from '@aeria-ui/core'
 import { useParentStore } from '@aeria-ui/state-management'
 import { convertToSearchQuery } from '@aeria-ui/core'
 import { useRouter } from 'vue-router'
-import AeriaPanel from '../../../../aeria-panel/aeria-panel.vue'
-import AeriaForm from '../../../../form/aeria-form/aeria-form.vue'
-import AeriaButton from '../../../../aeria-button/aeria-button.vue'
-import AeriaBadge from '../../../../aeria-badge/aeria-badge.vue'
+import AeriaPanel from '../aeria-panel/aeria-panel.vue'
+import AeriaForm from '../form/aeria-form/aeria-form.vue'
+import AeriaButton from '../aeria-button/aeria-button.vue'
+import AeriaBadge from '../aeria-badge/aeria-badge.vue'
 
 type Emits = {
   (e: 'update:modelValue', value: boolean): void

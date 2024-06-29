@@ -95,9 +95,8 @@ const toggleCollapsed = (value: boolean) => {
       :class="`
         aeria-surface
         panel__content
-        ${!(isFloating || fixedRight) && 'panel__content--rounded'}
         ${isFloating && 'panel__content--floating'}
-        ${bordered && 'panel__content--bordered-body'}
+        ${bordered && 'panel__content--bordered'}
         ${fixedRight && 'panel__content--fixed-right'}
         ${transparent && 'panel__content--transparent'}
         ${transparentMobile && 'panel__content--transparent-mobile'}
@@ -129,13 +128,18 @@ const toggleCollapsed = (value: boolean) => {
           </div>
         </div>
 
-        <!-- <aeria-icon icon="minus"></aeria-icon> -->
-        <!-- <aeria-icon icon="plus"></aeria-icon> -->
         <aeria-icon
-          v-if="collapsible"
+          v-if="collapsible && isCollapsed"
           v-clickable
           reactive
-          :icon="!isCollapsed ? 'minus' : 'plus'"
+          icon="plus"
+          @click="toggleCollapsed(!isCollapsed)"
+        />
+        <aeria-icon
+          v-else-if="collapsible && !isCollapsed"
+          v-clickable
+          reactive
+          icon="minus"
           @click="toggleCollapsed(!isCollapsed)"
         />
         <aeria-icon

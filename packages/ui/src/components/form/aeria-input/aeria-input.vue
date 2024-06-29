@@ -41,7 +41,7 @@ const hasIcon = 'icon' in property || ('inputType' in property && property.input
 
 const searchOnly = inject<boolean>('searchOnly', false)
 const innerInputLabel = inject<boolean>('innerInputLabel', false)
-const readOnly = !searchOnly && property.readOnly
+const readOnly = !searchOnly && (props.readOnly || property.readOnly)
 
 const copyToClipboard = (text: string) => {
   return navigator.clipboard.writeText(text)

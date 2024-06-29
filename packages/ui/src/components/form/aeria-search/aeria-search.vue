@@ -310,6 +310,7 @@ const save = () => {
               item,
               indexes,
               property,
+              readOnly,
               modelValue
             }"
 
@@ -329,7 +330,7 @@ const save = () => {
           @update:model-value="update"
         />
 
-        <template #footer>
+        <template #footer v-if="!readOnly">
           <aeria-icon
             v-clickable
             icon="plus"

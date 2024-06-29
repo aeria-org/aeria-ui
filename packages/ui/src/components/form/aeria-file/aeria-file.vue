@@ -106,6 +106,7 @@ const remove = async () => {
         v-if="isImage"
         v-model="preview"
         alt="Image preview"
+        :expandable="readOnly"
         :class="`
           file__image
           ${(!store || modelValue?._id) || 'file__image--unsent'}
@@ -118,7 +119,10 @@ const remove = async () => {
         {{ modelValue.filename }}
       </a>
     </div>
-    <div class="file__actions">
+    <div
+      v-if="!readOnly"
+      class="file__actions"
+    >
       <input
         ref="file"
         type="file"

@@ -30,7 +30,6 @@ type LayoutConfig = {
 type Props = FormFieldProps<any> & {
   form?: Record<string, Property>
   collection?: string | Ref<string>
-  isReadOnly?: boolean
   searchOnly?: boolean
   layout?: {
     fields: Record<string, LayoutConfig>
@@ -48,7 +47,6 @@ type Props = FormFieldProps<any> & {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isReadOnly: false,
   searchony: false,
   validationErrors: null,
   highlightRequired: true,
@@ -75,6 +73,8 @@ const refProperty = props.property && getReferenceProperty(props.property)
 const collectionName = refProperty
     ? refProperty.$ref
     : props.collection || getStoreId()
+
+const readOnly = props.readOnly || props.property?.readOnly
 
 const store = collectionName
   ? useStore(unref(collectionName))
@@ -280,10 +280,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
 
     <slot />
 
-    <fieldset
-      v-if="!isReadOnly"
-      class="form__fieldset"
-    >
+    <fieldset class="form__fieldset">
       <div
         v-for="([fieldPropertyName, fieldProperty]) in properties"
         :key="`field-${fieldPropertyName}`"
@@ -306,6 +303,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
                 : 'properties' in fieldProperty,
               'form__field-required-hint':
                 highlightRequired
+                && !readOnly
                 && !searchOnly
                 && (!required || isRequired(fieldPropertyName, required, modelValue))
             }"
@@ -333,6 +331,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
           v-else-if="layout?.fields?.[fieldPropertyName]?.component && propertyComponents[layout.fields[fieldPropertyName].component!.name]"
           v-model="modelValue[fieldPropertyName]"
           v-bind="{
+            readOnly,
             property: fieldProperty,
             propertyName: fieldPropertyName,
             ...layout.fields[fieldPropertyName].component!.props||{},
@@ -443,6 +442,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
                   :is="getComponent(fieldProperty, formComponents)"
                   v-model="modelValue[fieldPropertyName][listIndex]"
                   v-bind="{
+                    readOnly,
                     property: fieldProperty.items,
                     propertyName: fieldPropertyName,
                     parentCollection: collectionName,
@@ -473,6 +473,7 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
           v-else-if="modelValue"
           v-model="modelValue[fieldPropertyName]"
           v-bind="{
+            readOnly,
             property: fieldProperty,
             propertyName: fieldPropertyName,
             parentPropertyName,

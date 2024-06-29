@@ -17,8 +17,8 @@ const emit = defineEmits<{
 }>()
 
 const select = ref<HTMLSelectElement | null>(null)
+const property = props.property
 
-const property = props.property || {} as NonNullable<typeof props.property>
 const update = (value: any) => {
   if( props.booleanRef ) {
     modelValue.value = value
@@ -102,7 +102,7 @@ if( !!props.multiple ) {
       @change="update(($event.target as any).value)"
     >
       <aeria-icon
-        v-if="property.icon"
+        v-if="property && property.icon"
         :icon="property.icon"
       />
 
@@ -114,13 +114,15 @@ if( !!props.multiple ) {
       </option>
 
       <option
-        v-for="option in 'enum' in property ? property.enum : []"
+        v-for="option in property && 'enum' in property
+          ? property.enum
+          : []"
         :key="option"
         :value="option"
         :data-selected="isSelected(option)"
       >
         {{
-          property.translate
+          property?.translate
             ? t(option)
             : option
         }}

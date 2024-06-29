@@ -2,6 +2,7 @@
 import type { SearchProperty } from '../../../../types'
 import { getReferenceProperty } from '@aeriajs/common'
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useParentStore } from '@aeria-ui/state-management'
 
 type Props = {
@@ -9,12 +10,15 @@ type Props = {
   indexes: readonly string[]
   modelValue?: any
   property: SearchProperty
+  readOnly?: boolean
 }
 
 type Emits = {
   (e: 'update:modelValue', value: Props['modelValue']): void
   (e: 'change', value: Props['item']): void
 }
+
+const router = useRouter()
 
 const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
@@ -77,6 +81,23 @@ const deselect = async (options?: { purge?: true }) => {
     ? deleteFirst()
     : null)
 }
+
+const handleClick = () => {
+  if( props.readOnly ) {
+    router.push({
+      name: '/dashboard/crud/:id',
+      params: {
+        collection: refProperty.$ref,
+        id: props.item._id,
+      }
+    })
+    return
+  }
+
+  return isAlreadySelected.value
+    ? deselect()
+    : select()
+}
 </script>
 
 <template>
@@ -87,9 +108,7 @@ const deselect = async (options?: { purge?: true }) => {
       'item--selected': isAlreadySelected
     }"
 
-    @click="isAlreadySelected
-      ? deselect()
-      : select()"
+    @click="handleClick"
   >
     <slot />
 

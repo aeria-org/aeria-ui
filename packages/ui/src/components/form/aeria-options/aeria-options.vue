@@ -5,7 +5,9 @@ import { onBeforeMount } from 'vue'
 import AeriaCheckbox from '../aeria-checkbox/aeria-checkbox.vue'
 
 type Props = Omit<FormFieldProps<any>, 'property'> & {
-  property: EnumProperty | (ArrayProperty & { items: EnumProperty })
+  property: (EnumProperty | (ArrayProperty & { items: EnumProperty })) & {
+    readOnly?: boolean
+  }
   columns?: number
 }
 
@@ -19,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
+const readOnly = props.readOnly || props.property?.readOnly
 const options = 'items' in props.property
   ? props.property.items.enum
   : props.property.enum
@@ -55,6 +58,7 @@ onBeforeMount(() => {
       <aeria-checkbox
         v-bind="{
           value: option,
+          readOnly,
           property
         }"
 

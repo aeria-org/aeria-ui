@@ -3,77 +3,72 @@ import { inject, watch } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
-import AeriaPanel from '../../../../aeria-panel/aeria-panel.vue'
-import AeriaForm from '../../../../form/aeria-form/aeria-form.vue'
-import AeriaButton from '../../../../aeria-button/aeria-button.vue'
-import AeriaContextMenu from '../../../../aeria-context-menu/aeria-context-menu.vue'
-import AeriaIcon from '../../../../aeria-icon/aeria-icon.vue'
+import AeriaPanel from '../aeria-panel/aeria-panel.vue'
+import AeriaForm from '../form/aeria-form/aeria-form.vue'
+import AeriaButton from '../aeria-button/aeria-button.vue'
+import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
+import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
-import { isInsertVisible } from '../../store'
+type Props = {
+  collection?: string
+  modelValue?: boolean
+  readOnly?: boolean
+}
+
+type Emits = {
+  (e: 'cancel'): void
+}
+
+const props = defineProps<Props>()
+const emit = defineEmits<Emits>()
 
 const metaStore = useStore('meta')
-const store = useStore(metaStore.view.collection)
+const store = useStore(props.collection || metaStore.view.collection)
 const individualActions = inject('individualActions', [])
-
-// unused
-const isInsertReadOnly = false
 
 const insert = async () => {
   const { error } = await store.$actions.deepInsert()
   if( !error ) {
-    isInsertVisible.value = false
+    emit('update:modelValue', false)
   }
 }
 
 const { t } = useI18n()
 
-const cancel = () => {
+const askToCancel = () => {
   metaStore.$actions.ask({
     action: () => {
       store.$actions.clearItem()
       store.validationErrors = {}
-      isInsertVisible.value = false
+      emit('cancel')
     },
     body: t('prompt.close_panel'),
   })
 }
 watch(() => store.item._id, (_id) => {
   if( _id === null ) {
-    isInsertVisible.value = false
+    emit('update:modelValue', false)
   }
 })
 </script>
 
 <template>
   <aeria-panel
-    v-model="isInsertVisible"
-    fixed-right
     :loading="store.loading.get"
-    @overlay-click="cancel"
+    @overlay-click="askToCancel"
   >
-    <template #header>
-      <span>{{
-        (() => {
-          switch( isInsertVisible ) {
-          case 'add':
-            return t('action.add', { capitalize: true })
-          case 'duplicate':
-            return t('action.duplicate', { capitalize: true })
-          case 'edit':
-          default:
-            return t('action.edit', { capitalize: true })
-          }
-        })() }}
-      </span>
-      <span>&nbsp;{{ t(metaStore.view.collection) }}</span>
+    <template #header v-if="$slots.header">
+      <slot name="header"></slot>
     </template>
 
     <aeria-form
       v-model="store.item"
       v-bind="{
+        readOnly,
         collection: metaStore.view.collection,
-        form: store.properties,
-        isReadOnly: isInsertReadOnly,
+        form: store.description.form
+          ? store.$actions.useProperties(store.description.form)
+          : store.properties,
         layout: store.description.formLayout || {}
       }"
 
@@ -97,7 +92,7 @@ watch(() => store.item._id, (_id) => {
           actions: individualActions
             .filter(({ action }) => action !== 'ui/spawnEdit')
         }"
-        @action-click="isInsertVisible = false"
+        @action-click="emit('update:modelValue', false)"
       >
         <aeria-icon
           v-if="store.item._id"
@@ -107,16 +102,16 @@ watch(() => store.item._id, (_id) => {
         />
       </aeria-context-menu>
     </template>
-    <template #footer>
+    <template #footer v-if="!readOnly">
       <aeria-button
         variant="transparent"
-        @click="cancel"
+        @click="askToCancel"
       >
         {{ t('action.cancel', { capitalize: true }) }}
       </aeria-button>
       <aeria-button
         large
-        :disabled="!store.isInsertReady || isInsertReadOnly || store.loading.get"
+        :disabled="!store.isInsertReady || store.loading.get"
         :loading="store.loading.insert"
         @click="insert"
       >

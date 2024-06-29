@@ -20,10 +20,12 @@
     display: flex;
     overflow: hidden;
     flex-direction: column;
+    overflow: hidden;
     padding: 0;
 
-    &--rounded {
-      border: 1px solid var(--theme-border-color);
+    @media screen and (width >= 768px) {
+      min-width: var(--min-width);
+      max-width: var(--max-width);
     }
 
     &--outer-header {
@@ -38,10 +40,8 @@
       }
     }
 
-    &--bordered-body {
-      .panel__body {
-        border: 1px solid var(--theme-border-color);
-      }
+    &--bordered {
+      border: 1px solid var(--theme-border-color);
     }
 
     &--floating, &--fixed-right {
@@ -72,7 +72,6 @@
 
       animation: var(--theme-animation-floating);
       transform: translateY(-50%);
-
       @media screen and (width >= 768px) {
         min-width: var(--min-width);
         max-width: var(--max-width);

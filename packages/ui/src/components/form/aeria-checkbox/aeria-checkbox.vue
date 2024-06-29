@@ -10,14 +10,19 @@ type Props = FormFieldProps<any, (ArrayProperty | EnumProperty | BooleanProperty
 }
 
 const props = defineProps<Props>()
-const property = props.property || {} as NonNullable<typeof props.property>
+const property = props.property
+const readOnly = props.readOnly || property?.readOnly
 
-const type = !('enum' in property) && [
-'array',
-'boolean',
-].includes(property.type)
-  ? 'checkbox'
-  : 'radio'
+const type = (() => {
+  if( property && 'type' in property ) {
+    switch( property.type ) {
+      case 'array':
+      case 'boolean':
+        return 'checkbox'
+    }
+  }
+  return 'radio'
+})()
 
 const emit = defineEmits<{
   (e: 'update:modelValue' | 'change', value: Props['modelValue']): void
@@ -27,57 +32,67 @@ const value = props.value || false
 
 const bindVal = computed({
   get: () => {
-    if( 'type' in property && property.type === 'boolean' ) {
-      return !!props.value
-    }
-
-    if( 'items' in property ) {
-      return props.modelValue?.includes(props.value)
+    if( property ) {
+      if( 'type' in property && property.type === 'boolean' ) {
+        return !!props.value
+      }
+      if( 'items' in property ) {
+        return props.modelValue?.includes(props.value)
+      }
     }
 
     return props.modelValue === props.value
   },
 
   set: () => {
-    if( property.readOnly ) {
+    if( readOnly ) {
       return
     }
 
-    if( 'type' in property && property.type === 'boolean' ) {
-      emit('update:modelValue', !props.modelValue)
-      return
+    if( property ) {
+      if( 'type' in property && property.type === 'boolean' ) {
+        emit('update:modelValue', !props.modelValue)
+        return
+      }
+      if( 'items' in property ) {
+        if( props.modelValue?.includes(value) ) {
+          emit('update:modelValue', props.modelValue.filter((v: any) => v !== value))
+          return
+        }
+
+        emit('update:modelValue', [value].concat(props.modelValue || []))
+        return
+      }
     }
 
-    if( 'items' in property ) {
-      emit('update:modelValue', !props.modelValue?.includes(value)
-        ? [
- ...props.modelValue || [],
-value,
-]
-        : props.modelValue.filter((v: any) => v !== value))
-      return
-    }
 
     emit('update:modelValue', props.value)
   },
 })
+
+const handleClick = (e: Event) => {
+  if( readOnly ) {
+    e.preventDefault()
+  }
+}
 </script>
 
 <template>
   <label
     v-clickable
     :class="`
-    checkbox
-    ${property.readOnly && 'checkbox--readOnly'}
+      checkbox
+      ${readOnly && 'checkbox--readOnly'}
   `"
   >
     <input
       v-model="bindVal"
       v-bind="{
         type,
-        readOnly: property.readOnly,
+        readOnly,
         checked: bindVal
       }"
+      @click="handleClick"
       class="checkbox__input"
     >
 
@@ -89,7 +104,7 @@ value,
         />
         <div
           v-else-if="value"
-          v-html="property.translate ? t(value) : value"
+          v-html="property?.translate ? t(value) : value"
         />
         <slot v-else />
       </div>
@@ -99,7 +114,7 @@ value,
           name="hint"
         />
         <div
-          v-else-if="property.hint"
+          v-else-if="property?.hint"
           v-html="property.hint"
         />
       </div>
