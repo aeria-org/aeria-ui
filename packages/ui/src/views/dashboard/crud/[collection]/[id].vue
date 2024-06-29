@@ -13,7 +13,10 @@ type Props = {
 const props = defineProps<Props>()
 const manager = getGlobalStateManager()
 
-watch(() => [props.collection, props.id], () => {
+watch(() => [
+props.collection,
+props.id,
+], () => {
   const store = useStore(props.collection, manager)
   store.$actions.get({
     filters: {

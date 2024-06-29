@@ -50,7 +50,6 @@ const select = () => {
       : [props.modelValue])
     : props.modelValue
 
-  
   if( Array.isArray(modelValue) ) {
     emit('update:modelValue', modelValue.concat([props.item]))
   } else {
