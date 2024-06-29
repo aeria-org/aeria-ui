@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.66
+
+### Patch Changes
+
+- 331493e: Fix item view bug
+
 ## 0.0.65
 
 ### Patch Changes
