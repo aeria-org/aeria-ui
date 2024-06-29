@@ -262,7 +262,6 @@ const save = () => {
                 property,
               }"
               :key="`matching-${item._id}`"
-
               v-model="selected"
             />
           </aeria-search-container>
@@ -311,7 +310,7 @@ const save = () => {
               indexes,
               property,
               readOnly,
-              modelValue
+              modelValue,
             }"
 
             :key="`selected-${item._id}`"
@@ -325,7 +324,8 @@ const save = () => {
             item: modelValue,
             indexes,
             property: refProperty,
-            modelValue
+            readOnly,
+            modelValue,
           }"
           @update:model-value="update"
         />

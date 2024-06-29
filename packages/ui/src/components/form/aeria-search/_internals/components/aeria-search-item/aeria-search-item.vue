@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { SearchProperty } from '../../../../types'
+import type { SearchProperty } from '../../../../types.js'
 import { getReferenceProperty } from '@aeriajs/common'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useParentStore } from '@aeria-ui/state-management'
+import AeriaIcon from '../../../../../aeria-icon/aeria-icon.vue'
 
 type Props = {
   item: Record<string, any>
@@ -45,16 +46,16 @@ const select = () => {
   const filterEmpties = (array: any[]) => array.filter((e) => !!e?._id)
   const modelValue = 'items' in property
     ? filterEmpties(Array.isArray(props.modelValue)
-? props.modelValue
-: [props.modelValue])
+      ? props.modelValue
+      : [props.modelValue])
     : props.modelValue
 
-  emit('update:modelValue', Array.isArray(modelValue)
-    ? [
- ...modelValue,
-props.item,
-]
-    : props.item)
+  
+  if( Array.isArray(modelValue) ) {
+    emit('update:modelValue', modelValue.concat([props.item]))
+  } else {
+    emit('update:modelValue', props.item)
+  }
 
   emit('change', props.item)
 }
@@ -63,10 +64,10 @@ const deselect = async (options?: { purge?: true }) => {
   if( refProperty.purge && options?.purge ) {
     const { _id: itemId } = props.item
     await store.$actions.remove({
- filters: {
- _id: itemId,
-},
-})
+      filters: {
+        _id: itemId,
+      },
+    })
   }
 
   const deleteFirst = () => {
@@ -121,6 +122,12 @@ const handleClick = () => {
         {{ item[index] }}
       </div>
     </div>
+
+    <aeria-icon
+      v-if="readOnly"
+      icon="arrow-square-out"
+      style="--icon-color: var(--theme-brand-color-contrast);"
+    />
   </div>
 </template>
 
