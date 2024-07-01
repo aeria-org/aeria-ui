@@ -10,8 +10,8 @@ const theme: Directive = {
     }
   },
   unmounted(_, binding) {
-      const metaStore = useStore('meta', <GlobalStateManager>binding.value)
-      metaStore.themeOverride = ''
+    const metaStore = useStore('meta', <GlobalStateManager>binding.value)
+    metaStore.themeOverride = ''
   },
 }
 
