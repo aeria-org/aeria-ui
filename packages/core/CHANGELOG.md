@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.50
+
+### Patch Changes
+
+- 524c609: Fix check if property is reference
+
 ## 0.0.49
 
 ### Patch Changes
