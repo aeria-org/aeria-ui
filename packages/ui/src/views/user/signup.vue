@@ -13,7 +13,7 @@ const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
 
-if( !metaStore.descriptions.user ) {
+if( typeof metaStore.descriptions.user !== 'object' ) {
   await metaStore.$actions.describe({
     collections: ['user'],
     roles: true,
