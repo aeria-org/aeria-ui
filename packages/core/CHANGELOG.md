@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.49
+
+### Patch Changes
+
+- 4091b0b: Fix reactivity bug
+
 ## 0.0.48
 
 ### Patch Changes
