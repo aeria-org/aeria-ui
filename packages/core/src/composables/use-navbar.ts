@@ -112,7 +112,7 @@ export const useNavbar = async (props: Props) => {
 
     const pathMatches = typeof subroute.redirect === 'string'
       ? subroute.redirect === route.path
-      : subroute.path === route.redirectedFrom?.path || route.path
+      : subroute.path === (route.redirectedFrom?.path || route.path)
 
     return pathMatches
   }

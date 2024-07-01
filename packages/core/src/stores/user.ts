@@ -56,7 +56,15 @@ export const user = registerStore((context) => {
   }
 
   function setCurrentUser(auth: AuthResult | {}) {
-    state.currentUser = Object.assign({}, freshUser)
+    for( const key in state.currentUser ) {
+      switch( key ) {
+        case 'roles':
+          state.currentUser[key] = []
+          continue
+      }
+      delete state.currentUser[key as keyof typeof state.currentUser]
+    }
+
     if( 'user' in auth ) {
       Object.assign(state.currentUser, auth.user)
     }
