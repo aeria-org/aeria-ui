@@ -27,7 +27,7 @@ export type Toast = {
 
 export const meta = registerStore((context) => {
   const freshState = {
-    descriptions: {} as Record<string, Description | undefined>,
+    descriptions: {} as Record<string, Description>,
     roles: [] as string[],
     isLoading: false,
     globalIsLoading: false,

@@ -4,10 +4,14 @@ import { useStore } from '@aeria-ui/state-management'
 
 const theme: Directive = {
   mounted(_, binding) {
-    useStore('meta', <GlobalStateManager>binding.value).themeOverride = binding.arg
+    if( binding.arg ) {
+      const metaStore = useStore('meta', <GlobalStateManager>binding.value)
+      metaStore.themeOverride = binding.arg!
+    }
   },
   unmounted(_, binding) {
-    useStore('meta', <GlobalStateManager>binding.value).themeOverride = ''
+      const metaStore = useStore('meta', <GlobalStateManager>binding.value)
+      metaStore.themeOverride = ''
   },
 }
 

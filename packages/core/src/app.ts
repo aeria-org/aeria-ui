@@ -95,8 +95,8 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
         }
 
         if( typeof currentRoute.params.collection === 'string' ) {
-          const description = metaStore.descriptions[currentRoute.params.collection]
-          if( description ) {
+          if( currentRoute.params.collection in metaStore.descriptions ) {
+            const description = metaStore.descriptions[currentRoute.params.collection]
             return description.icon
           }
         }

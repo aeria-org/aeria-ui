@@ -1,4 +1,3 @@
-import type { Description } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import type { Router } from 'vue-router'
 import { watch } from 'vue'
@@ -9,13 +8,10 @@ export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?
   const metaStore = useStore('meta', manager)
   const userStore = useStore('user', manager)
 
-  watch(() => metaStore.descriptions, (descriptions: Record<string, Description>) => {
+  watch(() => metaStore.descriptions, (descriptions) => {
     Object.values(descriptions).forEach((description) => {
       const routeVisibility = description.route
-      if(
-        Array.isArray(routeVisibility)
-          && !arraysIntersect(userStore.currentUser.roles, routeVisibility)
-      ) {
+      if( routeVisibility && !arraysIntersect(userStore.currentUser.roles, routeVisibility) ) {
         return
       }
 

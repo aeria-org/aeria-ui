@@ -97,14 +97,14 @@ export const useNavbar = async (props: Props) => {
         return
       }
 
-      entries[key] = route as any
+      entries[key] = route
 
       if( children ) {
-        entries[key].children = await getRoutes(node as MenuNode)
+        entries[key].children = await getRoutes(node)
       }
     }))
 
-    return Object.values(entries) as Route[]
+    return Object.values(entries)
   }
 
   const isCurrent = (subroute: RouteRecordRaw) => {
@@ -112,7 +112,7 @@ export const useNavbar = async (props: Props) => {
 
     const pathMatches = typeof subroute.redirect === 'string'
       ? subroute.redirect === route.path
-      : subroute.path === (route.redirectedFrom?.path || route.path).split(/\/home$/)[0]
+      : subroute.path === route.redirectedFrom?.path || route.path
 
     return pathMatches
   }

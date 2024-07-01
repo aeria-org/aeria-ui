@@ -1,11 +1,11 @@
 import type { EndpointError, Property, PaginatedGetAllReturnType } from '@aeriajs/types'
-import type { CollectionStore } from './collection.js'
+import type { StoreContext } from '@aeria-ui/state-management'
 import { formatValue, getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { Result } from '@aeriajs/types'
-import { useStore, type StoreContext } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
 import { request } from '../http.js'
+import { useCollectionStore, type CollectionStore } from './collection.js'
 import { condenseItem } from './helpers.js'
 import { recurseInsertCandidate } from './recurseInsertCandidate.js'
 
@@ -306,7 +306,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       form?: boolean,
       property: Property,
       index?: string
-    }) {
+    }): any {
       const value = args.property.translate && typeof args.value === 'string'
         ? t(args.value, {
           capitalize: true,
@@ -320,10 +320,10 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       if( isReference(args.property) ) {
         const index = args.index || args.property.indexes?.[0]
 
-        const helperStore = useStore(getReferenceProperty(args.property)!.$ref, manager)
-        const property = helperStore.description.properties![index!]
+        const helperStore = useCollectionStore(getReferenceProperty(args.property)!.$ref, manager)
+        const property = helperStore.description.properties[index!]
 
-        if( property?.isReference ) {
+        if( 'isReference' in property && property.isReference ) {
           return helperStore.$actions.formatValue({
             property,
             key: args.key,
