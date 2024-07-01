@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.67
+
+### Patch Changes
+
+- a298bd1: Fix insert panel bug
+
 ## 0.0.66
 
 ### Patch Changes
