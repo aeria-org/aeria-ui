@@ -321,9 +321,11 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         const index = args.index || args.property.indexes?.[0]
 
         const helperStore = useCollectionStore(getReferenceProperty(args.property)!.$ref, manager)
-        const property = helperStore.description.properties[index!]
+        const property = index
+          ? helperStore.description.properties[index]
+          : undefined
 
-        if( 'isReference' in property && property.isReference ) {
+        if( property && isReference(property) ) {
           return helperStore.$actions.formatValue({
             property,
             key: args.key,
