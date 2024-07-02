@@ -1,8 +1,5 @@
 export const getObjectKey = (obj: any, index: number) => {
-  if( !obj ) {
-    return `empty-${index}`
-  }
-  if( typeof obj === 'object' ) {
+  if( obj && typeof obj === 'object' ) {
     if( '_id' in obj ) {
       return obj._id
     }
@@ -11,6 +8,6 @@ export const getObjectKey = (obj: any, index: number) => {
     }
     return `object-${index}`
   }
-  return `${obj}-${index}`
+  return `raw-${index}`
 }
 
