@@ -211,7 +211,7 @@ const buttonStyle = (subject: any, action: any) => {
               <div v-else-if="getReferenceProperty(property)?.$ref === 'file'">
                 <div v-if="row[column]">
                   <aeria-picture
-                    v-if="/^image/.test(row[column][0].type) && 'items' in property"
+                    v-if="'items' in property && row[column][0] && /^image/.test(row[column][0].type)"
                     v-model="row[column][0].link"
                     expandable
                     :meta="row[column][0]"
