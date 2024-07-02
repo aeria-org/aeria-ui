@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.51
+
+### Patch Changes
+
+- c1d131a: Fix rendering bug
+
 ## 0.0.50
 
 ### Patch Changes
