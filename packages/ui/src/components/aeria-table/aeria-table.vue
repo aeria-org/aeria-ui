@@ -209,31 +209,36 @@ const buttonStyle = (subject: any, action: any) => {
               </div>
 
               <div v-else-if="getReferenceProperty(property)?.$ref === 'file'">
-                <aeria-picture
-                  v-if="/^image/.test(row[column][0]?.type) && 'items' in property"
-                  v-model="row[column][0].link"
-                  expandable
-                  :meta="row[column][0]"
-                  alt="Row image"
-                  class="table__picture"
-                />
+                <div v-if="row[column]">
+                  <aeria-picture
+                    v-if="/^image/.test(row[column][0].type) && 'items' in property"
+                    v-model="row[column][0].link"
+                    expandable
+                    :meta="row[column][0]"
+                    alt="Row image"
+                    class="table__picture"
+                  />
 
-                <aeria-picture
-                  v-else-if="/^image/.test(row[column]?.type)"
-                  v-model="row[column].link"
-                  expandable
-                  :meta="row[column]"
-                  alt="Row image"
-                  class="table__picture"
-                />
+                  <aeria-picture
+                    v-else-if="/^image/.test(row[column].type)"
+                    v-model="row[column].link"
+                    expandable
+                    :meta="row[column]"
+                    alt="Row image"
+                    class="table__picture"
+                  />
 
-                <a
-                  v-else-if="row[column]?.link"
-                  :href="row[column].link"
-                  style="font-size: 10pt"
-                >
-                  {{ row[column].filename }}
-                </a>
+                  <a
+                    v-else-if="row[column].link"
+                    :href="row[column].link"
+                    style="font-size: 10pt"
+                  >
+                    {{ row[column].filename }}
+                  </a>
+                  <div v-else>
+                    -
+                  </div>
+                </div>
 
                 <div v-else>
                   -
