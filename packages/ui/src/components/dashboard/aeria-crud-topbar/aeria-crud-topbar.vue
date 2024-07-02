@@ -3,7 +3,7 @@ import type { FiltersPreset } from '@aeriajs/types'
 import type { CollectionStore } from '@aeria-ui/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useParentStore } from '@aeria-ui/state-management'
+import { useParentStore, getGlobalStateManager } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { togglePreset } from '../../aeria-crud/_internals/helpers'
 import { AeriaAsync } from '../../utils'
@@ -18,18 +18,38 @@ type Props = {
 const props = defineProps<Props>()
 const router = useRouter()
 const route = router.currentRoute
+const manager = getGlobalStateManager()
 
-const store = computed(() => {
+const store = computed((): CollectionStore | null => {
   try {
-    const collection = props.collection
-      ? props.collection
-      : (route.value.meta.collection || route.value.params.collection) as string
+    if( props.collection ) {
+      return useParentStore(props.collection,manager)
+    }
+    if( route.value.meta.collection ) {
+      return useParentStore(route.value.meta.collection, manager)
+    }
+    if( typeof route.value.params.collection === 'string' ) {
+      return useParentStore(route.value.params.collection, manager)
+    }
 
-    return useParentStore(collection) as CollectionStore
-  } catch( e ) {
+    return null
+
+  } catch( err ) {
     return null
   }
 })
+
+const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
+  const { error, result } = await store.$functions[preset.badgeFunction!]({
+    filters: preset.filters
+  })
+
+  if( error ) {
+    return 0
+  }
+
+  return result
+}
 </script>
 
 <template>
@@ -60,7 +80,7 @@ const store = computed(() => {
         <aeria-badge v-if="preset.badgeFunction">
           <aeria-async
             initial-value="0"
-            :promise="store.$functions[preset.badgeFunction]({ filters: preset.filters })"
+            :promise="count(preset, store)"
           />
         </aeria-badge>
       </div>

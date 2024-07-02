@@ -2,6 +2,7 @@
 import { useSlots, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useBreakpoints } from '@aeria-ui/core'
+import { deepMerge } from '@aeriajs/common'
 import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
@@ -32,20 +33,19 @@ const currentTab = computed(() => {
 
 const change = (tab: string) => {
   if( source === 'query' ) {
-    router.push({
+    router.push(deepMerge(router.currentRoute.value, {
       query: {
-        ...router.currentRoute.value.query,
         [props.query!]: tab,
       },
-    })
+    }))
     return
   }
 
-  router.push({
+  router.push(deepMerge(router.currentRoute.value, {
     params: {
       [props.param!]: tab,
     },
-  })
+  }))
 }
 </script>
 
