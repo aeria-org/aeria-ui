@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.71
+
+### Patch Changes
+
+- d23a61e: Fix table bug
+
 ## 0.0.70
 
 ### Patch Changes
