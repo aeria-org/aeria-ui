@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.72
+
+### Patch Changes
+
+- 1cb0186: Fix table bug
+
 ## 0.0.71
 
 ### Patch Changes
