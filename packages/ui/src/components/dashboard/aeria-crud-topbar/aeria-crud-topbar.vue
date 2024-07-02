@@ -3,7 +3,8 @@ import type { FiltersPreset } from '@aeriajs/types'
 import type { CollectionStore } from '@aeria-ui/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useParentStore, getGlobalStateManager } from '@aeria-ui/state-management'
+import { getGlobalStateManager } from '@aeria-ui/state-management'
+import { useParentCollectionStore } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
 import { togglePreset } from '../../aeria-crud/_internals/helpers'
 import { AeriaAsync } from '../../utils'
@@ -21,22 +22,17 @@ const route = router.currentRoute
 const manager = getGlobalStateManager()
 
 const store = computed((): CollectionStore | null => {
-  try {
-    if( props.collection ) {
-      return useParentStore(props.collection,manager)
-    }
-    if( route.value.meta.collection ) {
-      return useParentStore(route.value.meta.collection, manager)
-    }
-    if( typeof route.value.params.collection === 'string' ) {
-      return useParentStore(route.value.params.collection, manager)
-    }
-
-    return null
-
-  } catch( err ) {
-    return null
+  if( props.collection ) {
+    return useParentCollectionStore(props.collection,manager)
   }
+  if( typeof route.value.meta.collection === 'string' ) {
+    return useParentCollectionStore(route.value.meta.collection, manager)
+  }
+  if( typeof route.value.params.collection === 'string' ) {
+    return useParentCollectionStore(route.value.params.collection, manager)
+  }
+
+  return null
 })
 
 const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
