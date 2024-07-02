@@ -41,7 +41,7 @@ const store = computed((): CollectionStore | null => {
 
 const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
   const { error, result } = await store.$functions[preset.badgeFunction!]({
-    filters: preset.filters
+    filters: preset.filters,
   })
 
   if( error ) {
