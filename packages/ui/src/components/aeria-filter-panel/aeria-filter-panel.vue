@@ -29,7 +29,7 @@ const filter = () => {
     query: {},
   }, router.currentRoute.value)
 
-  for( const param of Object.keys(currentRoute.query) )  {
+  for( const param of Object.keys(currentRoute.query) ) {
     if( param.startsWith(`${storeId}.`) ) {
       delete currentRoute.query[param]
     }
