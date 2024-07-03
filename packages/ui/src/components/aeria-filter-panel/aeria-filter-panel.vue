@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { CollectionStore } from '@aeria-ui/core'
-import { useParentStore } from '@aeria-ui/state-management'
+import { inject, unref } from 'vue'
+import { useParentStore, STORE_ID } from '@aeria-ui/state-management'
 import { convertToSearchQuery } from '@aeria-ui/core'
+import { deepMerge } from '@aeriajs/common'
 import { useRouter } from 'vue-router'
 import AeriaPanel from '../aeria-panel/aeria-panel.vue'
 import AeriaForm from '../form/aeria-form/aeria-form.vue'
@@ -16,14 +18,27 @@ const emit = defineEmits<Emits>()
 const store = useParentStore() as CollectionStore
 const router = useRouter()
 
+const storeId = unref(inject<string>(STORE_ID))
+
 const filter = () => {
   store.pagination.offset = 0
   store.$actions.filter()
   emit('update:modelValue', false)
 
-  router.push({
+  const currentRoute = Object.assign({
+    query: {},
+  }, router.currentRoute.value)
+
+  for( const param of Object.keys(currentRoute.query) )  {
+    if( param.startsWith(`${storeId}.`) ) {
+      delete currentRoute.query[param]
+    }
+  }
+
+  router.currentRoute.value.query = {}
+  router.push(deepMerge(currentRoute, {
     query: convertToSearchQuery(store),
-  })
+  }))
 }
 </script>
 

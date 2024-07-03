@@ -5,7 +5,7 @@ import type { Component } from 'vue'
 import type { RouteRecordNormalized } from 'vue-router'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { deepClone, getReferenceProperty } from '@aeriajs/common'
+import { getReferenceProperty, deepClone, deepMerge } from '@aeriajs/common'
 import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
@@ -138,13 +138,12 @@ const fetchItems = async (optPayload?: ActionFilter) => {
 }
 
 const paginate = async (pagination: Pick<Pagination, 'offset' | 'limit'>) => {
-  router.push({
+  router.push(deepMerge(router.currentRoute.value, {
     query: {
-      ...router.currentRoute.value.query,
       offset: pagination.offset,
       limit: pagination.limit,
     },
-  })
+  }))
 
   store.pagination.offset = pagination.offset
   store.pagination.limit = pagination.limit
@@ -182,11 +181,11 @@ watch(() => [
 })
 
 const [performLazySearch] = debounce((value: string) => {
-  router.push({
+  router.push(deepMerge(router.currentRoute.value, {
     query: {
       search: value || undefined,
     },
-  })
+  }))
 
   if( !value ) {
     store.filters = deepClone(store.freshFilters)
