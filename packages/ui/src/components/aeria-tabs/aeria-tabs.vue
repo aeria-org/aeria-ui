@@ -18,34 +18,32 @@ const router = useRouter()
 
 const breakpoints = useBreakpoints()
 
-const source = 'query' in props && props.query
-  ? 'query'
-  : 'params'
-
 const currentTab = computed(() => {
-  const tab = router.currentRoute.value[source][props.query || props.param!]
-  if( tab ) {
-    return tab
+  if( props.query ) {
+    return router.currentRoute.value.query[props.query]
+  }
+  if( props.param ) {
+    return router.currentRoute.value.params[props.param]
   }
 
   return Object.keys(slots)[0]
 })
 
 const change = (tab: string) => {
-  if( source === 'query' ) {
+  if( props.query ) {
     router.push(deepMerge(router.currentRoute.value, {
       query: {
-        [props.query!]: tab,
+        [props.query]: tab,
       },
     }))
-    return
   }
-
-  router.push(deepMerge(router.currentRoute.value, {
-    params: {
-      [props.param!]: tab,
-    },
-  }))
+  if( props.param ) {
+    router.push(deepMerge(router.currentRoute.value, {
+      params: {
+        [props.param]: tab,
+      },
+    }))
+  }
 }
 </script>
 
