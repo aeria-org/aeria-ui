@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.52
+
+### Patch Changes
+
+- 04de16a: Add `useParentStoreCollection()`
+
 ## 0.0.51
 
 ### Patch Changes

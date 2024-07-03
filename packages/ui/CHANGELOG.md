@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.73
+
+### Patch Changes
+
+- 384050a: Crud topbar bug
+- 04de16a: Add `useParentStoreCollection()`
+- Updated dependencies [04de16a]
+  - @aeria-ui/core@0.0.52
+
 ## 0.0.72
 
 ### Patch Changes
