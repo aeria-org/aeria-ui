@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.74
+
+### Patch Changes
+
+- 64eaba2: Fix clear filters
+
 ## 0.0.73
 
 ### Patch Changes
