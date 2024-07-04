@@ -91,17 +91,8 @@ if( !collectionName && process.env.NODE_ENV !== 'production' ) {
 
 const alreadyFocused = ref(false)
 
-const form = computed((): Record<string, Property> | undefined => {
-  const properties = {}
-  if( props.includeId ) {
-    properties._id = {
-      type: 'string',
-      readOnly: true,
-      description: 'id',
-    }
-  }
-
-  Object.assign(properties, (() => {
+const form = computed(() => {
+  const fromProps = (() => {
     if( !props.form && props.property ) {
       if( 'properties' in props.property ) {
         return props.property.properties
@@ -111,8 +102,22 @@ const form = computed((): Record<string, Property> | undefined => {
     }
 
     return props.form
-  })())
+  })()
 
+  if( !fromProps ) {
+    return
+  }
+
+  const properties: Record<string, Property> = {}
+  if( props.includeId ) {
+    properties._id = {
+      type: 'string',
+      readOnly: true,
+      description: 'id',
+    }
+  }
+
+  Object.assign(properties, fromProps)
   return properties
 })
 
