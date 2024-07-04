@@ -1,5 +1,12 @@
 # @aeria-ui/ui
 
+## 0.0.76
+
+### Patch Changes
+
+- 1335a07: Add timestamps to visualization view and fix date input
+- 48327e9: Fix aeria-select width
+
 ## 0.0.75
 
 ### Patch Changes
