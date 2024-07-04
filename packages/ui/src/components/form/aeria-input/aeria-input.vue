@@ -122,28 +122,49 @@ onMounted(() => {
   }
 })
 
-const getDatetimeString = () => {
+const getDatetimeString = (value: InputType) => {
   try {
-    const date = props.modelValue
-      ? new Date(props.modelValue).toISOString().split('T').shift()
+    const date = typeof value === 'string'
+      ? new Date(value).toISOString().slice(0, 19)
       : ''
     return date
   } catch( err ) {
     return ''
   }
 }
-const inputValue = ref([
-  'date',
-  'date-time',
-].includes(inputBind.type)
-    ? getDatetimeString()
-    : props.modelValue === null || props.modelValue === undefined
-      ? ''
-      : props.modelValue)
+
+const inputValue = ref<InputType>('')
 
 const mask: ReturnType<typeof useMask> | null = props.property?.type === 'string' && props.property.mask
   ? useMask(props.property.mask)
   : null
+
+watch(() => props.modelValue, (value) => {
+  inputValue.value = (() => {
+    if( mask ) {
+      if( !value ) {
+        return ''
+      }
+      return mask.enmask(String(value), undefined, {
+        defaultValue: true,
+      })
+    }
+    switch( inputBind.type ) {
+      case 'date':
+      case 'datetime-local':
+        return getDatetimeString(value)
+    }
+    switch( value ) {
+      case null:
+      case undefined:
+        return ''
+      default:
+        return value
+    }
+  })()
+}, {
+  immediate: true,
+})
 
 const computeString = (value: string) => {
   if( typeof inputValue.value === 'string' && props.property?.type === 'string' && mask !== null ) {
@@ -189,21 +210,6 @@ const onInput = (event: Event) => {
   inputValue.value = value!
   updateValue(value)
 }
-
-watch(() => props.modelValue, (value, oldValue) => {
-  if( value instanceof Date ) {
-    return
-  }
-  if( oldValue && !value ) {
-    inputValue.value = undefined
-  } else {
-    inputValue.value = mask
-        ? mask.enmask(String(value), undefined, {
- defaultValue: true,
-})
-        : String(value)
-  }
-})
 </script>
 
 <template>

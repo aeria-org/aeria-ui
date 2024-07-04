@@ -14,6 +14,7 @@ type Props = {
   modelValue?: boolean | string
   readOnly?: boolean
   includeId?: boolean
+  includeTimestamps?: boolean
 }
 
 type Emits = {
@@ -79,6 +80,7 @@ watch(() => store.item._id, (_id) => {
       v-bind="{
         readOnly,
         includeId,
+        includeTimestamps,
         collection: metaStore.view.collection,
         form: store.description.form
           ? store.$actions.useProperties(store.description.form)

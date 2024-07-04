@@ -45,6 +45,7 @@ type Props = FormFieldProps<any> & {
   highlightRequired?: boolean
   focus?: boolean
   includeId?: boolean
+  includeTimestamps?: boolean
 }
 
 type Emits = {
@@ -113,7 +114,20 @@ const form = computed(() => {
     properties._id = {
       type: 'string',
       readOnly: true,
-      description: 'id',
+    }
+  }
+  if( props.includeTimestamps ) {
+    const timestamp = <const>{
+      type: 'string',
+      format: 'date-time',
+      readOnly: true,
+      isTimestamp: true,
+    }
+    if( !fromProps.created_at ) {
+      properties.created_at = timestamp
+    }
+    if( !fromProps.created_at ) {
+      properties.updated_at = timestamp
     }
   }
 
@@ -164,11 +178,14 @@ const filterProperties = (condition: (f: [string, Property])=> boolean) => {
   })
 }
 
-const has = (propertyName: string) => {
+const has = (propertyName: string, property: Property) => {
   if( props.searchOnly || !collectionName ) {
     return true
   }
   if( props.includeId && propertyName === '_id' ) {
+    return true
+  }
+  if( props.includeTimestamps && property.isTimestamp ) {
     return true
   }
 
@@ -179,8 +196,8 @@ const has = (propertyName: string) => {
   return !formProperties || formProperties.includes(propertyName)
 }
 
-const properties = filterProperties(([key]) => {
-  return has(key)
+const properties = filterProperties(([propertyName, property]) => {
+  return has(propertyName, property)
 })
 
 const breakpoints = useBreakpoints()
