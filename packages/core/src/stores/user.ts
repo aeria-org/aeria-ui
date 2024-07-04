@@ -13,7 +13,7 @@ type User = {
   roles: string[]
 }
 
-type AuthResult = {
+type SuccessfulAuthentication = {
   token: {
     type: 'bearer'
     content: string
@@ -55,7 +55,7 @@ export const user = registerStore((context) => {
     setCurrentUser(JSON.parse(auth))
   }
 
-  function setCurrentUser(auth: AuthResult | {}) {
+  function setCurrentUser(auth: SuccessfulAuthentication | {}) {
     for( const key in state.currentUser ) {
       switch( key ) {
         case 'roles':
