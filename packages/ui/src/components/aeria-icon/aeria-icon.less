@@ -1,3 +1,7 @@
+.icon-active {
+  border-color: var(--theme-brand-color) !important;
+}
+
 .icon {
   display: flex;
   align-items: center;
@@ -20,8 +24,16 @@
     }
 
     &:active {
-      border-color: var(--theme-brand-color-shade-3);
+      .icon-active();
     }
+
+    .icon--active {
+      .icon-active();
+    }
+  }
+
+  &--active {
+    .icon-active();
   }
 
   &--centered {

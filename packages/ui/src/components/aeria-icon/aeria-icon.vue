@@ -6,10 +6,11 @@ import { inject, computed } from 'vue'
 type Props = {
   icon?: Icon
   size?: string
-  medium?: boolean
-  reactive?: boolean | null
-  iconRight?: boolean
   fill?: string
+  medium?: boolean
+  reactive?: boolean
+  iconRight?: boolean
+  active?: boolean
 }
 
 const props = defineProps<Props>()
@@ -30,6 +31,7 @@ const computedIcon = computed((): Icon => {
     :class="`
       icon
       ${reactive && 'icon--reactive'}
+      ${active && 'icon--active'}
       ${
       $slots.default
         ? 'icon--centered'

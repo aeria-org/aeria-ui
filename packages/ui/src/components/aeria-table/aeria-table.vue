@@ -308,12 +308,16 @@ const buttonStyle = (subject: any, action: any) => {
               v-if="dropdownActions(row).length > 0"
               v-bind="{
                 subject: row,
-                actions: dropdownActions(row)
+                actions: dropdownActions(row),
+              }"
+              v-slot="{
+                visible,
               }"
             >
               <aeria-icon
                 v-clickable
                 reactive
+                :active="visible"
                 icon="dots-three"
               />
             </aeria-context-menu>

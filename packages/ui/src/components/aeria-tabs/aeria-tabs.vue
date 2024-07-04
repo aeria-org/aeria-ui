@@ -87,17 +87,20 @@ const change = (tab: string) => {
       class="tabs__context-menu"
     >
       <aeria-context-menu>
-        <aeria-icon
-          v-clickable
-          icon-right
-          icon="caret-down"
-          style="
-            --icon-color: var(--theme-brand-color-shade-1);
-          "
-          class="tabs__context-menu-icon"
-        >
-          <slot :name="currentTab" />
-        </aeria-icon>
+        <template #default="{ visible }">
+          <aeria-icon
+            v-clickable
+            icon-right
+            :active="visible"
+            icon="caret-down"
+            style="
+              --icon-color: var(--theme-brand-color-shade-1);
+            "
+            class="tabs__context-menu-icon"
+          >
+            <slot :name="currentTab" />
+          </aeria-icon>
+        </template>
 
         <template
           v-for="slotName in Object.keys($slots).filter((slotName) => slotName !== 'default')"

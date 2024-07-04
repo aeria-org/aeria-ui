@@ -92,12 +92,16 @@ const firstIfArray = (what: any) => {
           v-if="individualActions.length > 0"
           v-bind="{
             subject: item,
-            actions: individualActions
+            actions: individualActions,
+          }"
+          v-slot="{
+            visible,
           }"
         >
           <aeria-icon
             v-clickable
             reactive
+            :active="visible"
             icon="dots-three-vertical"
           />
         </aeria-context-menu>

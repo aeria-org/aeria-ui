@@ -107,7 +107,11 @@ watch(() => store.item._id, (_id) => {
         v-bind="{
           subject: store.item,
           actions: individualActions
-            .filter(({ action }) => action !== 'ui:spawnEdit')
+            .filter(({ action }) => action !== 'ui:spawnEdit'),
+          overlayLayer: 60,
+        }"
+        v-slot="{
+          visible,
         }"
         @action-click="emit('update:modelValue', false)"
       >
@@ -115,6 +119,7 @@ watch(() => store.item._id, (_id) => {
           v-if="store.item._id"
           v-clickable
           reactive
+          :active="visible"
           icon="dots-three"
         />
       </aeria-context-menu>

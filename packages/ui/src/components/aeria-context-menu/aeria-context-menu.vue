@@ -86,7 +86,11 @@ const position = computed(() => {
       class="contextmenu__trigger"
       @click="contextmenuVisible = true"
     >
-      <slot />
+      <slot
+        v-bind="{
+          visible: contextmenuVisible,
+        }"
+      />
     </a>
   </div>
 
