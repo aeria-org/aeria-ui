@@ -224,6 +224,7 @@ const save = () => {
             <aeria-select
               v-if="indexes.length > 1"
               v-model="searchField"
+              style="width: auto"
               @change="inputValue = {}"
             >
               <option
