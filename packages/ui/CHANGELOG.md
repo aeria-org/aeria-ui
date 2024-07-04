@@ -1,5 +1,15 @@
 # @aeria-ui/ui
 
+## 0.0.75
+
+### Patch Changes
+
+- 28fd59e: Ui fixes
+- 93ce3fa: Show id in view form
+- 7b7bd02: Fix tabs bug
+- Updated dependencies [28fd59e]
+  - @aeria-ui/core@0.0.53
+
 ## 0.0.74
 
 ### Patch Changes
