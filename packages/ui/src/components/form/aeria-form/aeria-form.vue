@@ -44,6 +44,7 @@ type Props = FormFieldProps<any> & {
   validationErrors?: Record<string, any> | null
   highlightRequired?: boolean
   focus?: boolean
+  includeId?: boolean
 }
 
 type Emits = {
@@ -91,15 +92,28 @@ if( !collectionName && process.env.NODE_ENV !== 'production' ) {
 const alreadyFocused = ref(false)
 
 const form = computed((): Record<string, Property> | undefined => {
-  if( !props.form && props.property ) {
-    if( 'properties' in props.property ) {
-      return props.property.properties
+  const properties = {}
+  if( props.includeId ) {
+    properties._id = {
+      type: 'string',
+      readOnly: true,
+      description: 'id',
     }
-
-    return store?.properties
   }
 
-  return props.form
+  Object.assign(properties, (() => {
+    if( !props.form && props.property ) {
+      if( 'properties' in props.property ) {
+        return props.property.properties
+      }
+
+      return store?.properties
+    }
+
+    return props.form
+  })())
+
+  return properties
 })
 
 const computedLayout = computed(() => {
@@ -147,6 +161,9 @@ const filterProperties = (condition: (f: [string, Property])=> boolean) => {
 
 const has = (propertyName: string) => {
   if( props.searchOnly || !collectionName ) {
+    return true
+  }
+  if( props.includeId && propertyName === '_id' ) {
     return true
   }
 

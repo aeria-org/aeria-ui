@@ -33,6 +33,7 @@ props.id,
     :key="id"
     bordered
     rounded
+    include-id
     :collection="collection"
     :read-only="section !== 'edit'"
     style="--panel-max-width: 40rem;"
