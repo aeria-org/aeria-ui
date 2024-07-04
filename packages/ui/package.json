@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -46,7 +46,7 @@
     "vue-tsc": "^2.0.22"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.52",
+    "@aeria-ui/core": "^0.0.53",
     "@aeria-ui/i18n": "^0.0.7",
     "@aeria-ui/state-management": "^0.0.13",
     "@aeriajs/common": "0.0",
