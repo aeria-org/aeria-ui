@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ArrayProperty, EnumProperty, BooleanProperty, Property } from '@aeriajs/types'
-import type { FormFieldProps } from '../types'
+import type { FormFieldProps } from '../types.js'
 import { t } from '@aeria-ui/i18n'
 import { computed } from 'vue'
 

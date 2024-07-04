@@ -125,7 +125,7 @@ export const meta = registerStore((context) => {
         body?: string
       }) {
         const answer = await useStore('meta', context.manager).$actions.spawnPrompt({
-          body: t(props.body || 'prompt.default', {}, context.i18n),
+          body: props.body || t('prompt.default', {}, context.i18n),
           actions: [
             {
               name: 'cancel',

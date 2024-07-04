@@ -1,8 +1,11 @@
 .info {
   position: relative;
   display: inline-flex;
+  --height: 2rem;
+  --vertical-offset: calc(var(--height) + .5rem);
 
   &__content {
+    height: var(--height);
     padding: .5rem 1rem;
     border-radius: 5px;
     background: #000;
@@ -18,13 +21,13 @@
     border-radius: 0 5rem 5rem 0 !important;
 
     &--top {
-      top: -80%;
+      top: calc(var(--vertical-offset) * -1);
       left: 50%;
       transform: translateX(-50%);
     }
 
     &--topleft {
-      top: -80%;
+      top: calc(var(--vertical-offset) * -1);
       right: 100%;
     }
 
@@ -35,7 +38,7 @@
     }
 
     &--bottom {
-      bottom: -80%;
+      bottom: calc(var(--vertical-offset) * -1);
       left: 50%;
       transform: translateX(-50%);
     }

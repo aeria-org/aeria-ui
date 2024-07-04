@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Property, FileProperty, EndpointError, Result } from '@aeriajs/types'
-import type { FormFieldProps } from '../types'
+import type { FormFieldProps } from '../types.js'
 import { ref, computed } from 'vue'
 import { request, API_URL } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
@@ -116,9 +116,10 @@ const remove = async () => {
         v-if="modelValue?._id"
         :href="modelValue.download_link"
       >
-        {{ modelValue.filename }}
+        {{ modelValue.name }}
       </a>
     </div>
+
     <div
       v-if="!readOnly"
       class="file__actions"

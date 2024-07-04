@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Property, Condition, BooleanProperty, Description } from '@aeriajs/types'
-import type { FormFieldProps } from '../types'
+import type { FormFieldProps } from '../types.js'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
 import { useBreakpoints, isDocumentComplete, getObjectKey } from '@aeria-ui/core'
@@ -46,20 +46,23 @@ type Props = FormFieldProps<any> & {
   focus?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  searchony: false,
-  validationErrors: null,
-  highlightRequired: true,
-})
-
-const emit = defineEmits<{
+type Emits = {
   (e:
     | 'update:modelValue'
     | 'input'
     | 'change',
   value: any
   ): void
-}>()
+  (e: 'clipboardCopy', value: string): void
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  searchony: false,
+  validationErrors: null,
+  highlightRequired: true,
+})
+
+const emit = defineEmits<Emits>()
 
 onBeforeMount(() => {
   if( !props.modelValue ) {
@@ -265,8 +268,11 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
     : null
 }
 
-const focusOnRender = () => {
-  if( !readOnly && !alreadyFocused.value ) {
+const focusOnRender = (property: Property) => {
+  if( readOnly || property.readOnly ) {
+    return
+  }
+  if( !props.parentPropertyName && !props.parentCollection && !alreadyFocused.value ) {
     alreadyFocused.value = true
     return true
   }
@@ -418,7 +424,7 @@ const focusOnRender = () => {
           "
           style="display: grid; row-gap: .4rem"
         >
-          <div>
+          <div v-if="!readOnly">
             <aeria-button
               small
               variant="alt"
@@ -466,6 +472,7 @@ const focusOnRender = () => {
               </div>
 
               <aeria-icon
+                v-if="!readOnly"
                 v-clickable
                 reactive
                 icon="trash"
@@ -491,10 +498,11 @@ const focusOnRender = () => {
             validationErrors: getNestedValidationError(fieldPropertyName)
           }"
 
-          v-focus="focusOnRender()"
+          v-focus="focusOnRender(fieldProperty)"
 
           @input="emit('input', fieldPropertyName)"
           @change="emit('change', $event)"
+          @clipboard-copy="emit('clipboardCopy', $event)"
         />
 
         <div

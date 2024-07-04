@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import type { Property, BooleanProperty } from '@aeriajs/types'
-import type { FormFieldProps } from '../types'
+import type { FormFieldProps } from '../types.js'
 
 type Props = FormFieldProps<any, Property & BooleanProperty>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ArrayProperty, EnumProperty } from '@aeriajs/types'
-import type { FormFieldProps } from '../types'
+import type { FormFieldProps } from '../types.js'
 import { onBeforeMount } from 'vue'
 import AeriaCheckbox from '../aeria-checkbox/aeria-checkbox.vue'
 

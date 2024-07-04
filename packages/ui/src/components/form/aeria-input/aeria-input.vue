@@ -35,7 +35,15 @@ type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProper
   variant?: InputVariant,
 }
 
+type Emits = {
+  (e: 'update:modelValue' | 'input', value: InputType): void
+  (e: 'change', value: any): void
+  (e: 'clipboardCopy', value: string): void
+}
+
 const props = defineProps<Props>()
+const emit = defineEmits<Emits>()
+
 const property = props.property || {} as NonNullable<typeof props.property>
 const hasIcon = 'icon' in property || ('inputType' in property && property.inputType === 'search')
 
@@ -44,13 +52,9 @@ const innerInputLabel = inject<boolean>('innerInputLabel', false)
 const readOnly = !searchOnly && (props.readOnly || property.readOnly)
 
 const copyToClipboard = (text: string) => {
+  emit('clipboardCopy', text)
   return navigator.clipboard.writeText(text)
 }
-
-const emit = defineEmits<{
-  (e: 'update:modelValue' | 'input', value: InputType): void
-  (e: 'change', value: any): void
-}>()
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
 
@@ -281,8 +285,9 @@ watch(() => props.modelValue, (value, oldValue) => {
           <template #text>Copiar</template>
           <aeria-icon
             v-clickable
+            reactive
             icon="clipboard"
-            @click="copyToClipboard(String(modelValue || ''))"
+            @click.prevent="copyToClipboard(String(modelValue || ''))"
           />
         </aeria-info>
       </div>

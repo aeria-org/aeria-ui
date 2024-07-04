@@ -20,10 +20,15 @@ const breakpoints = useBreakpoints()
 
 const currentTab = computed(() => {
   if( props.query ) {
-    return router.currentRoute.value.query[props.query]
-  }
-  if( props.param ) {
-    return router.currentRoute.value.params[props.param]
+    const tab = router.currentRoute.value.query[props.query]
+    if( tab ) {
+      return tab
+    }
+  } else if( props.param ) {
+    const tab = router.currentRoute.value.params[props.param]
+    if( tab ) {
+      return tab
+    }
   }
 
   return Object.keys(slots)[0]

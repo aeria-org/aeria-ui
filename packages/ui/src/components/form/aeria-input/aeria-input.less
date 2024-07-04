@@ -1,10 +1,7 @@
 .focus {
   .input {
     &__container {
-      &>.input__input,
-      &>.input__textarea {
-        border-color: var(--theme-brand-color);
-      }
+      border: 1px solid var(--theme-brand-color);
     }
 
     &__icon {
@@ -27,10 +24,10 @@
   &__container {
     position: relative;
     display: flex;
+    border: 1px solid var(--background-color);
 
     &>.input__input,
     &>.input__textarea {
-      border: 1px solid var(--background-color);
       background: var(--background-color);
     }
 
@@ -47,7 +44,6 @@
   &__input {
     width: 100%;
     height: var(--theme-input-height);
-    border: 1px solid red;
     outline: none;
 
     &--normal, &--bold {

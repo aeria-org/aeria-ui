@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FormFieldProps, SearchProperty } from '../types'
+import type { FormFieldProps, SearchProperty } from '../types.js'
 import { getReferenceProperty, convertConditionToQuery } from '@aeriajs/common'
 import { provide, computed, ref, watch, onMounted, unref } from 'vue'
 import { useDebounce, type Pagination } from '@aeria-ui/core'

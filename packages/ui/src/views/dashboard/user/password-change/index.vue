@@ -41,7 +41,10 @@ const insert = async () => {
 </script>
 
 <template>
-  <aeria-panel style="max-width: 40rem;">
+  <aeria-panel
+    bordered
+    style="--panel-max-width: 40rem;"
+  >
     <aeria-password-form
       v-slot="{ passwordError }"
       v-model="password"

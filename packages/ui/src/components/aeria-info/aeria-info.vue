@@ -4,18 +4,19 @@ import { useBreakpoints } from '@aeria-ui/core'
 
 type Props = {
   where?:
-    'top'
+    | 'top'
     | 'topleft'
     | 'left'
     | 'bottom'
     | 'right'
 }
 
-const props = defineProps<Props>()
-const breakpoints = useBreakpoints()
+withDefaults(defineProps<Props>(), {
+  where: 'top',
+})
 
+const breakpoints = useBreakpoints()
 const visible = ref(false)
-const where = props.where || 'top'
 </script>
 
 <template>
