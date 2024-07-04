@@ -90,12 +90,12 @@ const firstIfArray = (what: any) => {
       <template #actions>
         <aeria-context-menu
           v-if="individualActions.length > 0"
+          v-slot="{
+            visible,
+          }"
           v-bind="{
             subject: item,
             actions: individualActions,
-          }"
-          v-slot="{
-            visible,
           }"
         >
           <aeria-icon

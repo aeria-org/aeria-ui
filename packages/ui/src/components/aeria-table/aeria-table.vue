@@ -306,12 +306,12 @@ const buttonStyle = (subject: any, action: any) => {
 
             <aeria-context-menu
               v-if="dropdownActions(row).length > 0"
+              v-slot="{
+                visible,
+              }"
               v-bind="{
                 subject: row,
                 actions: dropdownActions(row),
-              }"
-              v-slot="{
-                visible,
               }"
             >
               <aeria-icon

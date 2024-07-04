@@ -104,14 +104,14 @@ watch(() => store.item._id, (_id) => {
     </aeria-form>
     <template #extra>
       <aeria-context-menu
+        v-slot="{
+          visible,
+        }"
         v-bind="{
           subject: store.item,
           actions: individualActions
             .filter(({ action }) => action !== 'ui:spawnEdit'),
           overlayLayer: 60,
-        }"
-        v-slot="{
-          visible,
         }"
         @action-click="emit('update:modelValue', false)"
       >
