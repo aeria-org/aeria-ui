@@ -97,6 +97,8 @@ const form = computed(() => {
     if( !props.form && props.property ) {
       if( 'properties' in props.property ) {
         return props.property.properties
+      } else {
+        return
       }
 
       return store?.properties
@@ -371,8 +373,9 @@ const focusOnRender = (property: Property) => {
         <slot
           v-if="$slots[`field-${fieldPropertyName}`]"
           v-bind="{
-            propery: fieldProperty,
-            properyName: fieldPropertyName,
+            readOnly,
+            property: fieldProperty,
+            propertyName: fieldPropertyName,
             modelValue,
           }"
           :name="`field-${fieldPropertyName}`"
