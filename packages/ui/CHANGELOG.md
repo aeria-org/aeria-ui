@@ -1,5 +1,12 @@
 # @aeria-ui/ui
 
+## 0.0.77
+
+### Patch Changes
+
+- b340466: Enhance context menus
+- 9f84812: Fix infinite loop in aeria-form
+
 ## 0.0.76
 
 ### Patch Changes
