@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.78
+
+### Patch Changes
+
+- d5b2823: Fix nested forms
+
 ## 0.0.77
 
 ### Patch Changes
