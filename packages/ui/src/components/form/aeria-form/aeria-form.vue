@@ -95,10 +95,12 @@ const alreadyFocused = ref(false)
 const form = computed(() => {
   const fromProps = (() => {
     if( !props.form && props.property ) {
-      if( 'properties' in props.property ) {
-        return props.property.properties
-      } else {
-        return
+      if( 'type' in props.property && props.property.type === 'object' ) {
+        if( 'properties' in props.property ) {
+          return props.property.properties
+        } else {
+          return
+        }
       }
 
       return store?.properties
