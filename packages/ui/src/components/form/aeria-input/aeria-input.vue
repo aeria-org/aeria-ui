@@ -235,6 +235,7 @@ const onInput = (event: Event) => {
       v-if="'element' in property && property.element === 'textarea'"
       :class="`
         input__container
+        input__container--textarea
         input__container--${variant}
     `"
     >

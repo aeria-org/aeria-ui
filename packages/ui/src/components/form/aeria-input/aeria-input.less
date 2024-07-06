@@ -20,7 +20,7 @@
 
 .input {
   --background-color: var(--input-background-color, var(--theme-background-color-shade-3));
-  --border: var(--input-border, var(--theme-frame-border, transparent));
+  --border: var(--input-border, var(--theme-frame-border, 1px solid transparent));
   --padding: var(--input-padding, var(--theme-input-padding));
   --padding-large: var(--input-padding-large, var(--theme-input-padding-large));
   --height: var(--input-height, var(--theme-input-height));
@@ -31,16 +31,23 @@
     display: flex;
 
     width: var(--input-width, 100%);
-    height: var(--height);
-    border: var(--border, 1px solid transparent);
+    border: var(--border);
 
-    &>.input__input,
-    &>.input__textarea {
-      background: var(--background-color);
+    &:not(&--textarea) {
+      height: var(--height);
+    }
+
+    &--bold {
+      height: var(--height-large);
     }
 
     &--light {
       border-bottom: 1px solid var(--theme-border-color);
+    }
+
+    &>.input__input,
+    &>.input__textarea {
+      background: var(--background-color);
     }
   }
 
@@ -66,7 +73,6 @@
     }
 
     &--bold {
-      height: var(--height-large);
       padding: var(--padding-large);
       font-size: 12.5pt;
     }
