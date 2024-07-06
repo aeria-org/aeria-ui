@@ -20,7 +20,7 @@
 
 .input {
   --background-color: var(--input-background-color, var(--theme-background-color-shade-3));
-  --border: var(--input-border, var(--theme-frame-border, 1px solid transparent));
+  --border: var(--input-border, var(--theme-frame-border));
   --padding: var(--input-padding, var(--theme-input-padding));
   --padding-large: var(--input-padding-large, var(--theme-input-padding-large));
   --height: var(--input-height, var(--theme-input-height));
@@ -35,6 +35,11 @@
 
     &:not(&--textarea) {
       height: var(--height);
+    }
+
+    &--normal, &--bold {
+      border-radius: var(--theme-radius-medium);
+      background: var(--background-color);
     }
 
     &--bold {
@@ -62,8 +67,6 @@
     outline: none;
 
     &--normal, &--bold {
-      border-radius: var(--theme-radius-medium);
-      background: var(--background-color);
       color: var(--theme-foreground-color);
     }
 

@@ -11,9 +11,11 @@ const metaStore = useStore('meta')
 
 const goToTarget = () => {
   const { next } = router.currentRoute.value.query
-  router.push(next && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) === next
-      ? next
-      : '/dashboard/')
+  if( next && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
+    return router.push(next)
+  }
+
+  return router.push('/dashboard/')
 }
 
 const authenticate = async () => {
