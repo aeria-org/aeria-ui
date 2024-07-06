@@ -26,7 +26,7 @@ type InputBind = {
   max?: number
   minlength?: number
   maxlength?: number
-  readonly?: boolean,
+  readonly?: boolean
   mask?: string | readonly string[]
   maskedValue?: boolean
 }
@@ -58,7 +58,7 @@ const copyToClipboard = (text: string) => {
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
 
-const inputBind: InputBind = {
+const inputBind: InputBind = Object.assign(Object.assign({}, props), {
   name: props.propertyName,
   readonly: readOnly,
   type: (() => {
@@ -83,7 +83,7 @@ const inputBind: InputBind = {
   placeholder: innerInputLabel
     ? property.description || props.propertyName
     : property.placeholder,
-}
+})
 
 if( 'type' in property ) {
   if( property.type === 'number' || property.type === 'integer' ) {

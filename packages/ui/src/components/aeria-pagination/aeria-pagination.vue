@@ -10,6 +10,7 @@ import AeriaSelect from '../form/aeria-select/aeria-select.vue'
 
 type Props = {
   pagination: Pagination
+  noSummary?: boolean
 }
 
 type Emits = {
@@ -58,67 +59,70 @@ limit,
 
 <template>
   <div class="pagination">
-    <aeria-select
-      v-model="limit"
-      :property="{
-        enum: [],
-        icon: 'list'
-      }"
-      class="pagination__control"
-    >
-      <option
-        v-for="limitOption in PAGINATION_PER_PAGE_DEFAULTS"
-        :key="`limit-${limitOption}`"
-        :value="limitOption"
+    <div class="pagination__arrows">
+      <aeria-bare-button
+        :disabled="page === 0"
+        @click="page = 0"
       >
-        {{ limitOption }}
-      </option>
-    </aeria-select>
-
-    <div class="pagination__control">
-      <aeria-bare-button @click="page = 0">
-        <aeria-icon
-          reactive
-          icon="caret-double-left"
-        />
+        <aeria-icon icon="caret-double-left" />
       </aeria-bare-button>
+
       <aeria-bare-button
         :disabled="page === 0"
         @click="paginate('previous')"
       >
-        <aeria-icon
-          reactive
-          icon="caret-left"
-        />
+        <aeria-icon icon="caret-left" />
       </aeria-bare-button>
-      <div class="pagination__page-input">
-        <aeria-input
-          :key="page"
-          v-model="pageInput"
-          :property="{
-            type: 'number',
-            minimum: 1
-          }"
 
-          @change="page = pageInput === 0 ? 0 : pageInput - 1;"
-        />
-        <span>{{ t('of') }} {{ pageCount }}</span>
-      </div>
       <aeria-bare-button
         :disabled="page === pageCount - 1"
         @click="paginate('next')"
       >
-        <aeria-icon
-          reactive
-          icon="caret-right"
-        />
+        <aeria-icon icon="caret-right" />
       </aeria-bare-button>
-      <aeria-bare-button @click="page = pageCount - 1">
-        <aeria-icon
-          reactive
-          icon="caret-double-right"
-        />
+
+      <aeria-bare-button
+        :disabled="page === pageCount - 1"
+        @click="page = pageCount - 1"
+      >
+        <aeria-icon icon="caret-double-right" />
       </aeria-bare-button>
+
+      <aeria-select
+        v-model="limit"
+        :property="{
+          enum: [],
+          icon: 'list'
+        }"
+        class="pagination__control"
+      >
+        <option
+          v-for="limitOption in PAGINATION_PER_PAGE_DEFAULTS"
+          :key="`limit-${limitOption}`"
+          :value="limitOption"
+        >
+          {{ limitOption }}
+        </option>
+      </aeria-select>
+    </div>
+
+    <div
+      v-if="!noSummary"
+      class="pagination__summary"
+    >
+      {{ t('Page') }}
+      <aeria-input
+        :key="page"
+        v-model="pageInput"
+        :property="{
+          type: 'number',
+          minimum: 1
+        }"
+
+        style="height: 100%"
+        @change="page = pageInput === 0 ? 0 : pageInput - 1;"
+      />
+      <span>{{ t('of') }} {{ pageCount }}</span>
     </div>
   </div>
 </template>

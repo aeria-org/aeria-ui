@@ -4,6 +4,7 @@ import type { FormFieldProps } from '../types.js'
 import { ref, computed, watch } from 'vue'
 import { t } from '@aeria-ui/i18n'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
+import AeriaInput from '../aeria-input/aeria-input.vue'
 
 type Props = FormFieldProps<any, Property & (EnumProperty | BooleanProperty)> & {
   booleanRef?: boolean
@@ -86,11 +87,12 @@ if( !!props.multiple ) {
 
 <template>
   <select
-    ref="select"
-    :value="modelValue"
+    v-if="!readOnly"
     v-bind="{
-      size: multiple
+      size: multiple,
+      value: modelValue,
     }"
+    ref="select"
 
     :class="{
       'select': true,
@@ -129,6 +131,12 @@ if( !!props.multiple ) {
 
     <slot />
   </select>
+
+  <aeria-input
+    v-else
+    read-only
+    :model-value="modelValue"
+  />
 </template>
 
 <style scoped src="./aeria-select.less"></style>

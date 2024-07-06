@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AeriaCrud from '../../../../components/aeria-crud/aeria-crud.vue'
+import AeriaCrud from '../../../components/aeria-crud/aeria-crud.vue'
 
 type Props = {
   collection: string

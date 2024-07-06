@@ -1,24 +1,35 @@
 .pagination {
-  display: flex;
-  box-sizing: content-box;
-  column-gap: 2rem;
+  display: inline-flex;
+  height: 2.6rem;
+  align-items: stretch;
+  gap: 1rem;
 
-  @media screen and (width <= 600px) {
-    display: none;
-  }
+  --input-width: 4rem;
+  --input-height: 100%;
+  --input-padding: 0 .4rem;
+  --input-border: 1px solid var(--theme-border-color);
 
-  &__control {
+  &__arrows {
     display: flex;
-    align-items: center;
-  }
+    align-items: stretch;
+    border: 1px solid var(--theme-border-color);
+    border-radius: var(--theme-radius-large);
 
-  &__page-input {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-
-    :deep([data-component="input"]) {
-      width: 2.8rem;
+    & > button:not(:last-child) {
+        border-right: 1px solid var(--theme-border-color);
     }
+    & > button > a {
+      padding: .6rem;
+
+      &:hover {
+        background: var(--theme-background-color-shade-2);
+      }
+    }
+  }
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
   }
 }

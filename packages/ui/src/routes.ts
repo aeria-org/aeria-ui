@@ -58,10 +58,10 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
   children: children.concat([
     {
       path: 'c/:collection',
-      name: '/dashboard/crud',
+      name: '/dashboard/:collection',
       props: true,
       components: {
-        default: () => import('./views/dashboard/crud/[collection]/index.vue'),
+        default: () => import('./views/dashboard/[collection]/index.vue'),
         topbar: () => import('./components/dashboard/aeria-crud-topbar/aeria-crud-topbar.vue'),
       },
       meta: {
@@ -70,10 +70,10 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
     },
     {
       path: 'c/:collection/:id/:section?',
-      name: '/dashboard/crud/:id',
+      name: '/dashboard/:collection/:id',
       props: true,
       components: {
-        default: () => import('./views/dashboard/crud/[collection]/[id].vue'),
+        default: () => import('./views/dashboard/[collection]/[id].vue'),
       },
       meta: {
         title: '%viewTitle%',

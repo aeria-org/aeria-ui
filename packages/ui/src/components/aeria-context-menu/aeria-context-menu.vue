@@ -17,7 +17,7 @@ type Props = {
 }
 
 type Action = {
-  click: (subject: any)=> void
+  click?: (subject: any)=> void
 }
 
 type Emits = {
@@ -47,8 +47,14 @@ const filterActions = (actions: Props['actions']) => {
 }
 
 const onClick = (action: Action, _subject: any) => {
-  const subject = deepClone(_subject)
-  action.click(subject)
+  const subject = _subject
+    ? deepClone(_subject)
+    : _subject
+
+  if( action.click ) {
+    action.click(subject)
+  }
+
   emit('actionClick', {
     action,
     subject,

@@ -85,11 +85,7 @@ const deselect = async (options?: { purge?: true }) => {
 const handleClick = () => {
   if( props.readOnly ) {
     router.push({
-      name: '/dashboard/crud/:id',
-      params: {
-        collection: refProperty.$ref,
-        id: props.item._id,
-      },
+      path: `/dashboard/c/${refProperty.$ref}/${props.item._id}`,
     })
     return
   }

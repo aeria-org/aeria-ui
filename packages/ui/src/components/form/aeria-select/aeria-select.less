@@ -1,27 +1,25 @@
 .select {
   --foreground-color: var(--select-foreground-color, var(--theme-foreground-color));
   --background-color: var(--select-background-color, var(--theme-background-color-shade-3));
-  --border-color: var(--select-border, var(--theme-frame-border, transparent));
+  --border: var(--select-border, var(--theme-frame-border, transparent));
+  --padding: var(--input-padding, var(--theme-input-padding));
+  --height: var(--input-height, var(--theme-input-height));
 
-  display: flex;
-  width: 100%;
-  height: var(--theme-input-height);
-  align-items: center;
-  padding: var(--theme-input-padding);
-  border: 1px solid var(--border-color);
+  width: var(--input-width, 100%);
+  height: var(--height);
+
+  padding: var(--padding);
+  border: var(--border, 1px solid transparent);
   border-radius: var(--theme-radius-medium);
   background: var(--background-color);
   color: var(--foreground-color);
-
   font-family: unset;
-  line-height: 1.5rem;
 
   &:focus {
     outline: none;
   }
 
   :deep(option) {
-    height: 100%;
     background: var(--background-color);
   }
 
@@ -35,8 +33,8 @@
     padding: 0;
 
     :deep(option) {
-      height: var(--theme-input-height);
-      padding: var(--theme-input-padding);
+      height: var(--height);
+      padding: var(--padding);
 
       &[data-selected="true"] {
         background: var(--theme-brand-color);

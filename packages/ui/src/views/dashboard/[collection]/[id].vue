@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { useStore, getGlobalStateManager } from '@aeria-ui/state-management'
-import AeriaInsertPanel from '../../../../components/aeria-insert-panel/aeria-insert-panel.vue'
+import AeriaInsertPanel from '../../../components/aeria-insert-panel/aeria-insert-panel.vue'
 
 type Props = {
   collection: string

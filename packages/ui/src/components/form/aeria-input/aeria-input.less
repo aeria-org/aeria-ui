@@ -20,11 +20,19 @@
 
 .input {
   --background-color: var(--input-background-color, var(--theme-background-color-shade-3));
+  --border: var(--input-border, var(--theme-frame-border, transparent));
+  --padding: var(--input-padding, var(--theme-input-padding));
+  --padding-large: var(--input-padding-large, var(--theme-input-padding-large));
+  --height: var(--input-height, var(--theme-input-height));
+  --height-large: var(--input-height-large, var(--theme-input-height-large));
 
   &__container {
     position: relative;
     display: flex;
-    border: 1px solid var(--background-color);
+
+    width: var(--input-width, 100%);
+    height: var(--height);
+    border: var(--border, 1px solid transparent);
 
     &>.input__input,
     &>.input__textarea {
@@ -32,7 +40,7 @@
     }
 
     &--light {
-      border-bottom: 1px solid #dedede;
+      border-bottom: 1px solid var(--theme-border-color);
     }
   }
 
@@ -43,7 +51,7 @@
 
   &__input {
     width: 100%;
-    height: var(--theme-input-height);
+    height: 100%;
     outline: none;
 
     &--normal, &--bold {
@@ -53,13 +61,13 @@
     }
 
     &--normal {
-      padding: var(--theme-input-padding);
+      padding: var(--padding);
       font-size: 11pt;
     }
 
     &--bold {
-      height: var(--theme-input-height-large);
-      padding: var(--theme-input-padding-large);
+      height: var(--height-large);
+      padding: var(--padding-large);
       font-size: 12.5pt;
     }
 
