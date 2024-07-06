@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.81
+
+### Patch Changes
+
+- f18e1f3: Input jumping on focus
+
 ## 0.0.80
 
 ### Patch Changes
