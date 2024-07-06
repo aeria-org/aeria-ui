@@ -1,5 +1,12 @@
 # @aeria-ui/ui
 
+## 0.0.82
+
+### Patch Changes
+
+- 588f2fb: Fix input sizing
+- 6593972: Fix type error
+
 ## 0.0.81
 
 ### Patch Changes
