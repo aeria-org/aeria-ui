@@ -11,7 +11,7 @@ const metaStore = useStore('meta')
 
 const goToTarget = () => {
   const { next } = router.currentRoute.value.query
-  if( next && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
+  if( typeof next === 'string' && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
     return router.push(next)
   }
 
