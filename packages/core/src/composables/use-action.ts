@@ -92,8 +92,12 @@ export const useAction = <Filters extends { _id: string | string[] }>(
     }
 
     const storeAction = (() => {
-      if( actionName in store.$actions ) {
-        return store.$actions[actionName]
+      const functionName = 'function' in actionProps && actionProps.function
+        ? actionProps.function
+        : actionName
+
+      if( functionName in store.$actions ) {
+        return store.$actions[functionName]
       }
 
       return 'effect' in actionProps && actionProps.effect

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { Icon } from '@aeriajs/types'
 import type { IconStyle } from '@phosphor-icons/core'
+import type { Icon } from '@aeriajs/types'
 import { inject, computed } from 'vue'
 
 type Props = {
-  icon?: Icon
+  icon?:
+    | Icon
+    | `${IconStyle}:${Icon}`
   size?: string
   fill?: string
   medium?: boolean
@@ -19,10 +21,10 @@ const reactive = typeof props.reactive === 'boolean'
   ? props.reactive
   : inject('iconReactive', false)
 
-const computedIcon = computed((): Icon => {
+const computedIcon = computed(() => {
   return props.icon?.includes(':')
     ? props.icon
-    : `regular:${<Exclude<Icon, `${IconStyle}:${string}`>>props.icon}`
+    : `regular:${<Icon>props.icon}`
 })
 </script>
 
