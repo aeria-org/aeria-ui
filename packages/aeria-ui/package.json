@@ -1,7 +1,7 @@
 {
   "name": "aeria-ui",
   "type": "module",
-  "version": "0.0.87",
+  "version": "0.0.88",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,6 +33,6 @@
     "@aeria-ui/core": "^0.0.54",
     "@aeria-ui/i18n": "^0.0.7",
     "@aeria-ui/state-management": "^0.0.13",
-    "@aeria-ui/ui": "^0.0.83"
+    "@aeria-ui/ui": "^0.0.84"
   }
 }
