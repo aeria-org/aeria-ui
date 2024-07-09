@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.83
+
+### Patch Changes
+
+- 2c96f13: Refactor actions and prompts
+- Updated dependencies [2c96f13]
+  - @aeria-ui/core@0.0.54
+
 ## 0.0.82
 
 ### Patch Changes
