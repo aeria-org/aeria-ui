@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.84
+
+### Patch Changes
+
+- e31fbe5: Fix date input
+
 ## 0.0.83
 
 ### Patch Changes
