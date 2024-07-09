@@ -110,7 +110,7 @@ watch(() => store.item._id, (_id) => {
         v-bind="{
           subject: store.item,
           actions: individualActions
-            .filter(({ action }) => action !== 'ui:spawnEdit'),
+            .filter(({ action }) => action !== 'spawnEdit'),
           overlayLayer: 60,
         }"
         @action-click="emit('update:modelValue', false)"

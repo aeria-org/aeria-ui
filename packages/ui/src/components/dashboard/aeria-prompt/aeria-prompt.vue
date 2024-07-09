@@ -6,15 +6,15 @@ import AeriaBareButton from '../../aeria-bare-button/aeria-bare-button.vue'
 
 type Props = {
   title?: string
-  actions: PromptAction[]
+  actions: Record<string, PromptAction>
 }
 
 defineProps<Props>()
 
 const metaStore = useStore('meta')
 
-const onClick = (answer: PromptAction) => {
-  metaStore.$actions.fulfillPrompt(answer)
+const onClick = (answer: string, action: PromptAction) => {
+  metaStore.$actions.fulfillPrompt(answer, action)
 }
 </script>
 
@@ -39,10 +39,10 @@ const onClick = (answer: PromptAction) => {
     <template #footer>
       <div
         class="prompt__actions"
-        :style="`grid-template-columns: repeat(${actions.length}, 1fr)`"
+        :style="`grid-template-columns: repeat(${Object.keys(actions).length}, 1fr)`"
       >
         <aeria-bare-button
-          v-for="(action, index) in actions"
+          v-for="([actionName, action], index) in Object.entries(actions)"
           :key="`action-${index}`"
 
           :class="`
@@ -50,11 +50,11 @@ const onClick = (answer: PromptAction) => {
             prompt__action--${action.variant || 'primary'}
           `"
           @click="action.click
-            ? action.click(action)
-            : onClick(action)
+            ? action.click(actionName, action)
+            : onClick(actionName, action)
           "
         >
-          {{ action.title || action.name }}
+          {{ action.title }}
         </aeria-bare-button>
       </div>
     </template>

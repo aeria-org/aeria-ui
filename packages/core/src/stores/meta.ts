@@ -13,7 +13,10 @@ import { API_URL, STORAGE_NAMESPACE } from '../constants.js'
 import { request } from '../http.js'
 import { user } from './user.js'
 
-type PromptAnswer = { name: string }
+type PromptAnswer = {
+  name: string
+  action: PromptAction
+}
 
 const DEFAULT_THEME = 'default'
 
@@ -52,7 +55,7 @@ export const meta = registerStore((context) => {
       visible: false,
       title: '',
       body: '',
-      actions: [] as PromptAction[],
+      actions: {} as Record<string, PromptAction>,
     },
     toasts: [] as Toast[],
   }
@@ -126,17 +129,15 @@ export const meta = registerStore((context) => {
       }) {
         const answer = await useStore('meta', context.manager).$actions.spawnPrompt({
           body: props.body || t('prompt.default', {}, context.i18n),
-          actions: [
-            {
-              name: 'cancel',
+          actions: {
+            cancel: {
               title: t('action.cancel', {}, context.i18n),
               variant: 'danger',
             },
-            {
-              name: 'confirm',
+            confirm: {
               title: t('action.confirm', {}, context.i18n),
             },
-          ],
+          },
         })
 
         if( answer.name === 'confirm' ) {
@@ -148,7 +149,7 @@ export const meta = registerStore((context) => {
       spawnPrompt(props: {
         title?: string
         body?: string
-        actions: PromptAction[]
+        actions: Record<string, PromptAction>
       }): Promise<PromptAnswer> {
         Object.assign(state.prompt, {
           ...props,
@@ -166,10 +167,13 @@ export const meta = registerStore((context) => {
         })
       },
 
-      fulfillPrompt(answer: PromptAnswer) {
+      fulfillPrompt(answer: string, action: PromptAction) {
         window.dispatchEvent(new CustomEvent('__prompt', {
           detail: {
-            option: answer,
+            option: {
+              name: answer,
+              action,
+            },
           },
         }))
       },

@@ -35,57 +35,53 @@ export const useAction = <Filters extends { _id: string | string[] }>(
     params: {},
   })
 
-  const fn = (actionProps: Omit<CollectionAction<any>, 'label'> & { action: string }): (filters?: Filters)=> void => {
+  const fn = (actionProps: CollectionAction<any> & { action: string }): (filters?: Filters)=> void => {
     const { action: actionName } = actionProps
-    const actionEffect = actionProps.effect as keyof typeof STORE_EFFECTS | undefined
-    const [scopeName, scopedAction] = actionName.split(/:(.*)/s)
 
-    if( scopedAction ) {
-      if( scopeName === 'route' ) {
-        return async (filters?: Filters) => {
-          if( actionProps.setItem ) {
-            store.$actions.setItem(filters)
-          }
+    if( 'route' in actionProps ) {
+      return async (filters?: Filters) => {
+        if( actionProps.route.setItem ) {
+          store.$actions.setItem(filters)
+        }
 
-          if( actionProps.clearItem ) {
-            store.$actions.clearItem()
-          }
+        if( actionProps.route.clearItem ) {
+          store.$actions.clearItem()
+        }
 
-          if( actionProps.fetchItem && filters?._id ) {
-            await store.$actions.get({
-              filters: {
-                _id: filters._id,
-              },
-            })
-          }
-
-          const params = actionProps.params || {}
-          if( filters ) {
-            params.id = filters._id
-          }
-          if( store.description && typeof store.description === 'object' ) {
-            params.collection = store.description.$id
-          }
-
-          router.push({
-            name: actionName.split('route:')[1],
-            query: actionProps.query || {},
-            params,
+        if( actionProps.route.fetchItem && filters?._id ) {
+          await store.$actions.get({
+            filters: {
+              _id: filters._id,
+            },
           })
         }
+
+        const params = actionProps.route.params || {}
+        if( filters ) {
+          params.id = filters._id
+        }
+        if( store.description && typeof store.description === 'object' ) {
+          params.collection = store.description.$id
+        }
+
+        router.push({
+          name: actionProps.route.name,
+          query: actionProps.route.query || {},
+          params,
+        })
       }
+    }
 
-      if( scopeName === 'ui' ) {
-        return (_filters?: Filters) => {
-          const filters = _filters
-            ? deepClone(_filters)
-            : {}
-          Object.assign(eventBus, {
-            id: Math.random(),
-            name: scopedAction,
-            params: filters,
-          })
-        }
+    if( 'event' in actionProps ) {
+      return (_filters?: Filters) => {
+        const filters = _filters
+          ? deepClone(_filters)
+          : {}
+        Object.assign(eventBus, {
+          id: Math.random(),
+          name: actionProps.event,
+          params: filters,
+        })
       }
     }
 
@@ -100,9 +96,9 @@ export const useAction = <Filters extends { _id: string | string[] }>(
         return store.$actions[actionName]
       }
 
-      return actionEffect
+      return 'effect' in actionProps && actionProps.effect
         ? (payload: any) => store.$actions.customEffect(actionName, payload, ({ error, result }: Result.Either<unknown, unknown>) => {
-          const effect = getEffect(store, actionEffect)
+          const effect = getEffect(store, actionProps.effect as keyof typeof STORE_EFFECTS)
           if( error ) {
             return
           }

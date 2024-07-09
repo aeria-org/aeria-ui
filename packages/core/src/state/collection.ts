@@ -228,7 +228,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       $filters,
       actions,
       individualActions: computed(() => normalizeActions(description.value.individualActions)),
-      hasSelectionActions: computed(() => actions.value.some((action) => !!action.selection)),
+      hasSelectionActions: computed(() => actions.value.some((action) => 'selection' in action && !!action.selection)),
       condensedItem: computed(() => condenseItem(state.item)),
 
       $freshItem: computed(() => {

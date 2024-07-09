@@ -167,7 +167,7 @@ watch(() => [
   metaStore.view.title = props.collection
   metaStore.view.collection = props.collection
 
-  if( !props.noFetch && !route.query._popstate ) {
+  if( !props.noFetch && (!route.query._popstate || store.itemsCount === 0) ) {
     const filters = convertFromSearchQuery(store, route as unknown as RouteRecordNormalized)
     if( Object.keys(filters).length > 0 ) {
       Object.assign(store.filters, filters)
@@ -460,7 +460,7 @@ provide('individualActions', individualActions)
           <aeria-icon
             v-if="actionProps"
             :icon="actionProps.icon || 'gear'"
-            :disabled="store.selected.length === 0 && actionProps.selection"
+            :disabled="store.selected.length === 0 && 'selection' in actionProps && actionProps.selection"
 
             @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
           >
@@ -486,7 +486,7 @@ provide('individualActions', individualActions)
         :key="`action-${index}`"
 
         :icon="actionProps.icon"
-        :disabled="store.selected.length === 0 && actionProps.selection"
+        :disabled="store.selected.length === 0 && 'selection' in actionProps && actionProps.selection"
 
         @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
       >
@@ -517,10 +517,10 @@ provide('individualActions', individualActions)
         }"
       >
         <aeria-button
-          v-if="store.filtersCount === 0 && store.description.actions && 'ui:spawnAdd' in store.description.actions"
+          v-if="store.filtersCount === 0 && store.description.actions && 'spawnAdd' in store.description.actions"
           icon="plus"
           @click="call({
-            action: 'ui:spawnAdd'
+            action: 'spawnAdd',
           })()"
         >
           {{ t('add_first_item', { capitalize: true }) }}

@@ -103,7 +103,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     clearItems() {
-      store.items = []
+      return store.items.splice(0)
     },
 
     async custom<ResponseType = any>(verb: string | null, payload?: any, options?: CustomOptions): Promise<ResponseType> {
