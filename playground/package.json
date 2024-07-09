@@ -6,16 +6,13 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo skipping",
-    "postinstall": "cat ../packages/core/src/__scripts__/postinstall.ts | ts-node --skip-project; if test -d .aeria-ui; then rm -rf ../.aeria-ui; else mv ../.aeria-ui .; fi",
+    "postinstall": "cat ../packages/core/src/__scripts__/postinstall.ts | ts-node --skip-project; if test -d .aeria-ui; then rm -rf ../.aeria-ui; else mv ../.aeria-ui .; fi; echo 'export {}' > ../node_modules/aeria-sdk/dist/runtime.mjs",
     "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "playground": "link:"
-  },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",

@@ -3,6 +3,7 @@ import { useStore } from 'aeria-ui'
 import {watch, reactive} from 'vue'
 
 const state = reactive({
+  date: new Date(),
   ceps: []
 })
 
@@ -52,18 +53,23 @@ watch(() => animalStore.specie, (value, oldValue) => {
       </aeria-input>
     </div>
 
+    <pre>{{ state }}</pre>
     <aeria-form
         v-model="state"
         :property="{
           type: 'object',
           properties: {
-          ceps: {
-            type: 'array',
-            items: {
-            type: 'string',
-            mask: '##-#'
+            date: {
+              type: 'string',
+              format: 'date-time',
+            },
+            ceps: {
+              type: 'array',
+              items: {
+                type: 'string',
+                mask: '##-#'
+              }
             }
-          }
           }
         }"
       >

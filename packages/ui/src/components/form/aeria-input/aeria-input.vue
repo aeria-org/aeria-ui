@@ -124,10 +124,15 @@ onMounted(() => {
 
 const getDatetimeString = (value: InputType) => {
   try {
-    const date = typeof value === 'string'
-      ? new Date(value).toISOString().slice(0, 19)
-      : ''
-    return date
+    const date = value instanceof Date
+      ? value
+      : new Date(value)
+    
+    switch( inputBind.type ) {
+      case 'date': return date.toISOString().slice(0, 10)
+      case 'datetime-local': return date.toISOString().slice(0, 19)
+      default: throw new Error()
+    }
   } catch( err ) {
     return ''
   }
@@ -207,7 +212,7 @@ const updateValue = (value: InputType) => {
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
-  inputValue.value = value!
+  inputValue.value = value
   updateValue(value)
 }
 </script>
