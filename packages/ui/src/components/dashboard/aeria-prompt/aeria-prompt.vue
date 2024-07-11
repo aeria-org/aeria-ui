@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import type { PromptAction } from '@aeria-ui/core'
+import type { PromptOption } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import AeriaPanel from '../../aeria-panel/aeria-panel.vue'
 import AeriaBareButton from '../../aeria-bare-button/aeria-bare-button.vue'
 
 type Props = {
   title?: string
-  actions: Record<string, PromptAction>
+  options: Record<string, PromptOption>
 }
 
 defineProps<Props>()
 
 const metaStore = useStore('meta')
 
-const onClick = (answer: string, action: PromptAction) => {
-  metaStore.$actions.fulfillPrompt(answer, action)
+const onClick = (answer: string, option: PromptOption) => {
+  metaStore.$actions.fulfillPrompt(answer, option)
 }
 </script>
 
@@ -38,23 +38,23 @@ const onClick = (answer: string, action: PromptAction) => {
 
     <template #footer>
       <div
-        class="prompt__actions"
-        :style="`grid-template-columns: repeat(${Object.keys(actions).length}, 1fr)`"
+        class="prompt__options"
+        :style="`grid-template-columns: repeat(${Object.keys(options).length}, 1fr)`"
       >
         <aeria-bare-button
-          v-for="([actionName, action], index) in Object.entries(actions)"
-          :key="`action-${index}`"
+          v-for="([optionName, option], index) in Object.entries(options)"
+          :key="`option-${index}`"
 
           :class="`
-            prompt__action
-            prompt__action--${action.variant || 'primary'}
+            prompt__option
+            prompt__option--${option.variant || 'primary'}
           `"
-          @click="action.click
-            ? action.click(actionName, action)
-            : onClick(actionName, action)
+          @click="option.click
+            ? option.click(optionName, option)
+            : onClick(optionName, option)
           "
         >
-          {{ action.title }}
+          {{ option.title }}
         </aeria-bare-button>
       </div>
     </template>

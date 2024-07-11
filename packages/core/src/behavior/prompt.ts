@@ -1,7 +1,7 @@
-export type PromptAction = {
+export type PromptOption = {
   title: string
   variant?:
     | 'primary'
     | 'danger'
-  click?: (answer: string, action: PromptAction)=> void
+  click?: (answer: string, action: PromptOption)=> void
 }

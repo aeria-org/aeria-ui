@@ -521,6 +521,7 @@ provide('individualActions', individualActions)
           icon="plus"
           @click="call({
             action: 'spawnAdd',
+            event: 'spawnAdd',
           })()"
         >
           {{ t('add_first_item', { capitalize: true }) }}

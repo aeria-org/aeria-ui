@@ -1,5 +1,5 @@
 import type { Description, Icon } from '@aeriajs/types'
-import type { PromptAction } from '../behavior/index.js'
+import type { PromptOption } from '../behavior/index.js'
 import type { builtinFunctions } from '@aeriajs/builtins'
 import type { ExtractResult } from '@aeriajs/types/dist/result.js'
 import { Result } from '@aeriajs/types'
@@ -15,7 +15,7 @@ import { user } from './user.js'
 
 type PromptAnswer = {
   name: string
-  action: PromptAction
+  action: PromptOption
 }
 
 const DEFAULT_THEME = 'default'
@@ -55,7 +55,7 @@ export const meta = registerStore((context) => {
       visible: false,
       title: '',
       body: '',
-      actions: {} as Record<string, PromptAction>,
+      options: {} as Record<string, PromptOption>,
     },
     toasts: [] as Toast[],
   }
@@ -129,7 +129,7 @@ export const meta = registerStore((context) => {
       }) {
         const answer = await useStore('meta', context.manager).$actions.spawnPrompt({
           body: props.body || t('prompt.default', {}, context.i18n),
-          actions: {
+          options: {
             cancel: {
               title: t('action.cancel', {}, context.i18n),
               variant: 'danger',
@@ -149,7 +149,7 @@ export const meta = registerStore((context) => {
       spawnPrompt(props: {
         title?: string
         body?: string
-        actions: Record<string, PromptAction>
+        options: Record<string, PromptOption>
       }): Promise<PromptAnswer> {
         Object.assign(state.prompt, {
           ...props,
@@ -167,7 +167,7 @@ export const meta = registerStore((context) => {
         })
       },
 
-      fulfillPrompt(answer: string, action: PromptAction) {
+      fulfillPrompt(answer: string, action: PromptOption) {
         window.dispatchEvent(new CustomEvent('__prompt', {
           detail: {
             option: {
