@@ -44,6 +44,14 @@ const selected = computed({
   set: (items: any[]) => store?.$actions.selectManyItems(items, true),
 })
 
+const columnsCount = computed(() => {
+  if( !props.columns ) {
+    return 0
+  }
+
+  return Object.keys(props.columns).length + Number(props.checkbox)
+})
+
 const isActionButton = (layout: TableLayout<any>['actions'][string], subject: any) => {
   if( !layout?.button ) {
     return false
@@ -113,7 +121,7 @@ const buttonStyle = (subject: any, action: any) => {
 
 <template>
   <table
-    v-if="(columns && Object.keys(columns).length > 0) || $slots.thead"
+    v-if="columnsCount > 0 || $slots.thead"
     class="
       table
       aeria-surface
@@ -372,9 +380,9 @@ const buttonStyle = (subject: any, action: any) => {
       />
 
       <tr v-else-if="columns && !rows?.length && !store?.loading.getAll">
-        <td :colspan="10">
+        <td :colspan="columnsCount + 1">
           <div class="table__empty">
-            Não foram encontrados resultados.
+            {{ t('no_results', { capitalize: true }) }}.
           </div>
         </td>
       </tr>

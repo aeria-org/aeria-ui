@@ -8,6 +8,10 @@ export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?
 
   watch(() => metaStore.descriptions, (descriptions) => {
     Object.values(descriptions).forEach((description) => {
+      if( description.hidden ) {
+        return
+      }
+
       const routeName = `/dashboard/${description.$id}`
       if( router.hasRoute(routeName) ) {
         return
