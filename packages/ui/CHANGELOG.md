@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.85
+
+### Patch Changes
+
+- e11cf98: Fix "add first item"
+- Updated dependencies [e11cf98]
+  - @aeria-ui/core@0.0.55
+
 ## 0.0.84
 
 ### Patch Changes
