@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.56
+
+### Patch Changes
+
+- c225de2: Visual fixes
+
 ## 0.0.55
 
 ### Patch Changes
