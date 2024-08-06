@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.87
+
+### Patch Changes
+
+- 7a8e47a: Fix input height
+
 ## 0.0.86
 
 ### Patch Changes
