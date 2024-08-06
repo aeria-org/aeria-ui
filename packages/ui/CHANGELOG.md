@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.88
+
+### Patch Changes
+
+- 1758c1e: Export `aeria-insert-panel`
+
 ## 0.0.87
 
 ### Patch Changes
