@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, watch } from 'vue'
+import { inject, computed, watch } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
@@ -11,6 +11,7 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
   collection?: string
+  form?: string[]
   modelValue?: boolean | string
   readOnly?: boolean
   includeId?: boolean
@@ -26,13 +27,26 @@ const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
 const metaStore = useStore('meta')
-const store = useStore(props.collection || metaStore.view.collection)
+const collectionName = props.collection || metaStore.view.collection
+
+const store = useStore(collectionName)
 const individualActions = inject('individualActions', [])
+
+const form = computed(() => {
+  if( props.form ) {
+    return store.$actions.useProperties(props.form)
+  }
+
+  return store.description.form
+    ? store.$actions.useProperties(store.description.form)
+    : store.properties
+})
 
 const insert = async () => {
   const { error } = await store.$actions.deepInsert()
   if( !error ) {
     emit('update:modelValue', false)
+    store.$actions.clearItem()
   }
 }
 
@@ -65,6 +79,7 @@ watch(() => store.item._id, (_id) => {
 
 <template>
   <aeria-panel
+    :model-value="modelValue"
     :loading="store.loading.get"
     @overlay-click="askToCancel"
   >
@@ -78,13 +93,11 @@ watch(() => store.item._id, (_id) => {
     <aeria-form
       v-model="store.item"
       v-bind="{
+        collection: collectionName,
         readOnly,
         includeId,
         includeTimestamps,
-        collection: metaStore.view.collection,
-        form: store.description.form
-          ? store.$actions.useProperties(store.description.form)
-          : store.properties,
+        form,
         layout: store.description.formLayout || {}
       }"
 

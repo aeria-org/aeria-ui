@@ -303,7 +303,7 @@ const buttonStyle = (subject: any, action: any) => {
               :key="`action-${action.action}`"
 
               small
-              variant="transparent"
+              variant="alt"
               :icon="action.icon"
 
               :style="buttonStyle(row, action)"
