@@ -131,7 +131,7 @@ watch(() => store.item._id, (_id) => {
     <template #extra>
       <aeria-context-menu
         v-slot="{
-          visible,
+          visible: contextMenuVisible,
         }"
         v-bind="{
           subject: store.item,
@@ -145,7 +145,7 @@ watch(() => store.item._id, (_id) => {
           v-if="store.item._id"
           v-clickable
           reactive
-          :active="visible"
+          :active="contextMenuVisible"
           icon="dots-three"
         />
       </aeria-context-menu>
