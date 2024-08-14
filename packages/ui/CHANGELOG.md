@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.88
+
+### Patch Changes
+
+- 1e6019d: Fix `aeria-insert-panel`
+- 1758c1e: Export `aeria-insert-panel`
+- Updated dependencies [1e6019d]
+  - @aeria-ui/core@0.0.57
+
 ## 0.0.87
 
 ### Patch Changes

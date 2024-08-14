@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.57
+
+### Patch Changes
+
+- 1e6019d: Fix `aeria-insert-panel`
+
 ## 0.0.56
 
 ### Patch Changes
