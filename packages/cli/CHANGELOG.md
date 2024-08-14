@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.9
+
+### Patch Changes
+
+- e09a803: Fix aeria-sdk invalidation
+
 ## 0.0.8
 
 ### Patch Changes
