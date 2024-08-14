@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, computed, watch } from 'vue'
+import { inject, computed, watch, onMounted } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
@@ -12,6 +12,7 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 type Props = {
   collection?: string
   form?: string[]
+  visible?: any
   modelValue?: any
   readOnly?: boolean
   includeId?: boolean
@@ -19,12 +20,13 @@ type Props = {
 }
 
 type Emits = {
-  (e: 'update:modelValue', value: boolean): void
+  (e: 'update:visible', value: boolean): void
+  (e: 'update:modelValue' | 'insert', value: any): void
   (e: 'cancel'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  modelValue: true,
+  visible: true,
 })
 
 const emit = defineEmits<Emits>()
@@ -34,6 +36,12 @@ const collectionName = props.collection || metaStore.view.collection
 
 const store = useStore(collectionName)
 const individualActions = inject('individualActions', [])
+
+onMounted(() => {
+  if( props.modelValue ) {
+    store.$actions.setItem(props.modelValue)
+  }
+})
 
 const form = computed(() => {
   if( props.form ) {
@@ -46,9 +54,11 @@ const form = computed(() => {
 })
 
 const insert = async () => {
-  const { error } = await store.$actions.deepInsert()
+  const { error, result } = await store.$actions.deepInsert()
   if( !error ) {
-    emit('update:modelValue', false)
+    emit('update:visible', false)
+    emit('update:modelValue', result)
+    emit('insert', result)
     store.$actions.clearItem()
   }
 }
@@ -75,14 +85,14 @@ const spawnClipboardToast = () => {
 
 watch(() => store.item._id, (_id) => {
   if( _id === null ) {
-    emit('update:modelValue', false)
+    emit('update:visible', false)
   }
 })
 </script>
 
 <template>
   <aeria-panel
-    :model-value="modelValue"
+    :model-value="visible"
     :loading="store.loading.get"
     @overlay-click="askToCancel"
   >
@@ -129,7 +139,7 @@ watch(() => store.item._id, (_id) => {
             .filter(({ action }) => action !== 'spawnEdit'),
           overlayLayer: 60,
         }"
-        @action-click="emit('update:modelValue', false)"
+        @action-click="emit('update:visible', false)"
       >
         <aeria-icon
           v-if="store.item._id"

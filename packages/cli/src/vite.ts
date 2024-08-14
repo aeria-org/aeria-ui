@@ -102,7 +102,7 @@ export default defineConfig(async () => {
     ],
     optimizeDeps: {
       include: ['bson'],
-      exclude: ['mongodb'],
+      exclude: ['mongodb', 'aeria-sdk'],
     },
     build: {
       target: 'esnext',

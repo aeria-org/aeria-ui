@@ -335,7 +335,7 @@ provide('individualActions', individualActions)
 
   <aeria-insert-panel
     v-if="isInsertVisible"
-    v-model="isInsertVisible"
+    v-model:visible="isInsertVisible"
     fixed-right
     @cancel="isInsertVisible = false"
   >
