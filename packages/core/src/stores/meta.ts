@@ -75,7 +75,6 @@ export const meta = registerStore((context) => {
         }
 
         const deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
-
         const globalDescriptions = state.descriptions = deserialized.descriptions
 
         if( deserialized.roles ) {

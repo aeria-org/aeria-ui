@@ -12,7 +12,7 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 type Props = {
   collection?: string
   form?: string[]
-  modelValue?: boolean | string
+  modelValue?: any
   readOnly?: boolean
   includeId?: boolean
   includeTimestamps?: boolean
@@ -23,7 +23,10 @@ type Emits = {
   (e: 'cancel'): void
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: true,
+})
+
 const emit = defineEmits<Emits>()
 
 const metaStore = useStore('meta')
