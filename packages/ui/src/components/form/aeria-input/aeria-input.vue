@@ -195,7 +195,7 @@ const updateValue = (value: InputType) => {
       case 'integer':
         return Number(value)
       case 'date':
-      case 'date-time': 
+      case 'date-time':
         return new Date(value)
 
       default: return computeString(value)
@@ -208,7 +208,9 @@ const updateValue = (value: InputType) => {
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
-  console.log({ value })
+  console.log({
+ value,
+})
   updateValue(value)
 }
 </script>
