@@ -55,6 +55,7 @@ const form = computed(() => {
 
 const insert = async () => {
   const { error, result } = await store.$actions.deepInsert()
+
   if( !error ) {
     emit('update:visible', false)
     emit('update:modelValue', result)
