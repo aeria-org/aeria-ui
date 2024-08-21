@@ -134,7 +134,6 @@ const getDatetimeString = (value: InputType) => {
       default: throw new Error()
     }
   } catch( err ) {
-  console.trace(err)
     return ''
   }
 }
@@ -208,9 +207,7 @@ const updateValue = (value: InputType) => {
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
-  console.log({
- value,
-})
+  inputValue.value = value
   updateValue(value)
 }
 </script>
