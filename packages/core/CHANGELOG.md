@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.58
+
+### Patch Changes
+
+- 06311cf: Allow custom values in meta in `definePage()`
+
 ## 0.0.57
 
 ### Patch Changes
