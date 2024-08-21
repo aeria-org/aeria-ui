@@ -45,8 +45,9 @@
 
     &--floating, &--fixed-right {
       .panel__header {
-        padding: .6rem 1.4rem;
+        min-height: var(--theme-panel-header-height);
         border-bottom: var(--theme-frame-border);
+        padding: .6rem 1.4rem;
         font-size: 14pt;
         font-weight: 600;
 
@@ -85,10 +86,6 @@
       border: 0;
       border-radius: 0;
       overscroll-behavior: contain;
-
-      .panel__header {
-        min-height: var(--theme-panel-header-height);
-      }
 
       @media screen and (width >= 768px) {
         width: var(--fixed-width);
