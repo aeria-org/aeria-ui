@@ -116,6 +116,7 @@ if( 'type' in property ) {
 if( inputBind.type === 'text' && searchOnly ) {
   inputBind.type = 'search'
 }
+
 onMounted(() => {
   if(props.modelValue !== null) {
     updateValue(props.modelValue)
@@ -124,19 +125,16 @@ onMounted(() => {
 
 const getDatetimeString = (value: InputType) => {
   try {
-    if( !value ) {
-      return ''
+    if( !(value instanceof Date) ) {
+      return value
     }
-    const date = value instanceof Date
-      ? value
-      : new Date(value)
-
     switch( inputBind.type ) {
-      case 'date': return date.toISOString().slice(0, 10)
-      case 'datetime-local': return date.toISOString().slice(0, 19)
+      case 'date': return value.toISOString().slice(0, 10)
+      case 'datetime-local': return value.toISOString().slice(0, 19)
       default: throw new Error()
     }
   } catch( err ) {
+  console.trace(err)
     return ''
   }
 }
@@ -191,19 +189,14 @@ const updateValue = (value: InputType) => {
     if( !value || typeof value !== 'string' ) {
       return value
     }
-    if( inputBind.type === 'number' || inputBind.type === 'integer' ) {
-      return Number(value)
-    }
 
-    if( !('type' in property && property.type === 'string') ) {
-      return computeString(value)
-    }
-
-    switch( property.format ) {
+    switch( inputBind.type ) {
+      case 'number':
+      case 'integer':
+        return Number(value)
       case 'date':
-      case 'date-time': {
+      case 'date-time': 
         return new Date(value)
-      }
 
       default: return computeString(value)
     }
@@ -215,7 +208,7 @@ const updateValue = (value: InputType) => {
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
-  inputValue.value = value
+  console.log({ value })
   updateValue(value)
 }
 </script>

@@ -74,6 +74,7 @@ watch(() => animalStore.specie, (value, oldValue) => {
         }"
       >
     </aeria-form>
+    <aeria-button @click="state.date = new Date">Update date</aeria-button>
   </main>
 </template>
 
