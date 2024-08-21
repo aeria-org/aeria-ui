@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.91
+
+### Patch Changes
+
+- 61390ca: Fix panel height
+
 ## 0.0.90
 
 ### Patch Changes
