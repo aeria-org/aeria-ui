@@ -97,7 +97,7 @@ const getSearchResults = async () => {
     offset: batch.value * DEFAULT_LIMIT,
     filters: {
       $text: {
-        $search: inputValue.value,
+        $search: `"${inputValue.value}"`,
         $caseSensitive: false,
       },
       ...defaultFilters(),
