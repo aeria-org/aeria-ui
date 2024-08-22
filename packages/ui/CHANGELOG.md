@@ -1,5 +1,12 @@
 # @aeria-ui/ui
 
+## 0.0.92
+
+### Patch Changes
+
+- f65c29e: Refactor `aeria-search` to use text queries
+- 507253c: Fix date inputs
+
 ## 0.0.91
 
 ### Patch Changes
