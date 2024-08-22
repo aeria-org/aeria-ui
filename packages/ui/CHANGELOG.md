@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.93
+
+### Patch Changes
+
+- 2c0b268: Use exact matches in $text queries in aeria-search
+
 ## 0.0.92
 
 ### Patch Changes
