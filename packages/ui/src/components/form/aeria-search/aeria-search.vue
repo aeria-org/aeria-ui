@@ -9,7 +9,6 @@ import { t } from '@aeria-ui/i18n'
 import AeriaPanel from '../../aeria-panel/aeria-panel.vue'
 import AeriaButton from '../../aeria-button/aeria-button.vue'
 import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
-import AeriaSelect from '../aeria-select/aeria-select.vue'
 import AeriaInput from '../aeria-input/aeria-input.vue'
 import AeriaSearchContainer from './_internals/components/aeria-search-container/aeria-search-container.vue'
 import AeriaSearchItem from './_internals/components/aeria-search-item/aeria-search-item.vue'
@@ -54,7 +53,7 @@ provide('omitInputLabels', true)
 const selected = ref(props.modelValue)
 
 const searchResponse = ref({
-  data: [] as any[],
+  data: [] as (unknown & { _id: string })[],
   pagination: {} as Pagination,
 })
 
@@ -62,9 +61,8 @@ const matchingItems = computed(() => searchResponse.value.data)
 const pagination = computed(() => searchResponse.value.pagination)
 const batch = ref(0)
 
-const searchField = ref(indexes[0])
 const isTyping = ref(false)
-const inputValue = ref<Record<NonNullable<typeof indexes>[number], any>>({})
+const inputValue = ref('')
 
 const defaultFilters = () => {
   const subject: Record<string, Store> = {}
@@ -86,7 +84,7 @@ const nextBatch = () => {
 }
 
 const getSearchResults = async () => {
-  if( Object.values(inputValue.value).every((v) => !(String(v).length > 0)) ) {
+  if( inputValue.value.length === 0 ) {
     return store.$actions.custom('getAll', {
       limit: DEFAULT_LIMIT,
       offset: batch.value * DEFAULT_LIMIT,
@@ -94,23 +92,15 @@ const getSearchResults = async () => {
     })
   }
 
-  const inputQueries = indexes.filter((i) => inputValue.value[i]?.length > 0).map((i) => ({
-    [i]: {
-      $regex: inputValue.value[i].trim()
-        .replace('(', '\\(')
-        .replace(')', '\\)'),
-      $options: 'i',
-    },
-  }))
-
   return store.$actions.custom('getAll', {
     limit: DEFAULT_LIMIT,
     offset: batch.value * DEFAULT_LIMIT,
     filters: {
-    ...defaultFilters(),
-    ...(inputQueries.length > 0 && {
- $or: inputQueries,
-}),
+      $text: {
+        $search: inputValue.value,
+        $caseSensitive: false,
+      },
+      ...defaultFilters(),
     },
   })
 }
@@ -173,9 +163,7 @@ const closeSelectPanel = () => {
   }
 }
 
-const isInputEmpty = computed(() => !Object.values(inputValue.value).some((value) => !!value))
-
-watch(isInputEmpty, (val, oldVal) => {
+watch(() => inputValue.value.length, (val, oldVal) => {
   if( val && !oldVal ) {
     search()
   }
@@ -220,35 +208,17 @@ const save = () => {
         @overlay-click="closeSelectPanel"
       >
         <div class="search__panel">
-          <div class="search__input">
-            <aeria-select
-              v-if="indexes.length > 1"
-              v-model="searchField"
-              style="width: auto"
-              @change="inputValue = {}"
-            >
-              <option
-                v-for="field in indexes"
-                :key="`searchfield-${field}`"
-                :value="field"
-              >
-                {{ t(field) }}
-              </option>
-            </aeria-select>
-
-            <div style="flex: 1">
-              <aeria-input
-                :key="`field-${searchField}`"
-                v-model="inputValue[searchField]"
-
-                :property="{
-                  ...store.properties[searchField],
-                  inputType: 'search'
-                }"
-                @input="lazySearch"
-              />
-            </div>
-          </div>
+          <aeria-input
+            v-model="inputValue"
+            v-bind="{
+              property: {
+                type: 'string',
+                placeholder: 'Pesquise aqui',
+                inputType: 'search'
+              }
+            }"
+            @input="lazySearch"
+          />
 
           <aeria-search-container
             v-if="matchingItems.length"
