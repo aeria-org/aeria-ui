@@ -128,9 +128,13 @@ const getDatetimeString = (value: InputType) => {
     if( !(value instanceof Date) ) {
       return value
     }
+    const date = value instanceof Date
+      ? value
+      : new Date(value)
+
     switch( inputBind.type ) {
-      case 'date': return value.toISOString().slice(0, 10)
-      case 'datetime-local': return value.toISOString().slice(0, 19)
+      case 'date': return date.toISOString().slice(0, 10)
+      case 'datetime-local': return date.toISOString().slice(0, 19)
       default: throw new Error()
     }
   } catch( err ) {
