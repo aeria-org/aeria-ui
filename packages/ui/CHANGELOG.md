@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.94
+
+### Patch Changes
+
+- 39fb1d0: Fix dates
+
 ## 0.0.93
 
 ### Patch Changes
