@@ -1,4 +1,4 @@
-import type { Description, Layout, PackReferences, PropertyValidationError } from '@aeriajs/types'
+import type { Description, Layout, PackReferences, PropertyValidationError, Property } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager } from '@aeria-ui/state-management'
 import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
@@ -28,7 +28,7 @@ export type CollectionStore<TItem extends CollectionStoreItem = any> = Collectio
   $id: string
   $functions: Record<
     string,
-    <TFunction extends (...args: any[])=> any>(...args: Parameters<TFunction>)=> ReturnType<TFunction>
+    <TFunction extends (...args: any[])=> unknown>(...args: Parameters<TFunction>)=> ReturnType<TFunction>
   >
   $actions: ReturnType<typeof useStoreActions>
 }
@@ -42,11 +42,11 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   diffedItem: Partial<TItem>
 
   items: TItem[]
-  filters: Record<string, any>
-  freshFilters: Record<string, any>
-  activeFilters: Record<string, any>
-  filtersPreset: Record<string, any>
-  preferredTableProperties: any[]
+  filters: Record<string, unknown>
+  freshFilters: Record<string, unknown>
+  activeFilters: Record<string, unknown>
+  filtersPreset: Record<string, unknown>
+  preferredTableProperties: string[]
   selected: TItem[] | string[]
 
   currentLayout: string
@@ -62,7 +62,7 @@ export type InitialState<TItem extends CollectionStoreItem> = {
     currentPage: number
   }
 
-  transformers: Record<string, (value: any)=> any>
+  transformers: Record<string, (value: unknown)=> unknown>
 }
 
 const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
@@ -99,7 +99,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     transformers: {},
   })
 
-  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> any>) => {
+  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> unknown>) => {
     const description = computed((): Description => {
       if (state.rawDescription.preferred) {
         const userStore = useStore('user')
@@ -124,12 +124,12 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     const $filters = computed(() => {
       const sanitizedFilters = removeEmpty(deepClone(state.filters))
 
-      const expr = (key: string, value: any) => {
+      const expr = (key: string, value: unknown) => {
         const property = key in properties.value
           ? properties.value[key]
           : null
 
-        const getValue = (value: any) => {
+        const getValue = (value: unknown) => {
           if (!property) {
             return value
           }
@@ -151,7 +151,9 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
             }
           }
 
-          return value?._id || value
+          return value && typeof value === 'object' && '_id' in value
+            ? value._id
+            : value
         }
 
         if (Array.isArray(value)) {
@@ -318,7 +320,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           : description.value.table
 
         return preferredProperties
-          ? storeActions.useProperties(preferredProperties)
+          ? storeActions.useProperties(preferredProperties) as Record<string, Property>
           : properties.value
       }),
 

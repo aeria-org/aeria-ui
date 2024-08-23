@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FiltersPreset } from '@aeriajs/types'
+import type { FiltersPreset, Result, EndpointError, CountPayload } from '@aeriajs/types'
 import type { CollectionStore } from '@aeria-ui/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
@@ -36,7 +36,7 @@ const store = computed((): CollectionStore | null => {
 })
 
 const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
-  const { error, result } = await store.$functions[preset.badgeFunction!]({
+  const { error, result } = await store.$functions[preset.badgeFunction!]<(payload: CountPayload<any>)=> Result.Either<EndpointError, number>>({
     filters: preset.filters,
   })
 
@@ -76,7 +76,7 @@ const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
         <aeria-badge v-if="preset.badgeFunction">
           <aeria-async
             initial-value="0"
-            :promise="count(preset, store)"
+            :promise="async () => String(count(preset, store!))"
           />
         </aeria-badge>
       </div>

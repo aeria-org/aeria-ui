@@ -19,10 +19,6 @@ const isDateTuple = (value: unknown): value is DateTuple => {
 }
 
 const dateTupleToString = (tuple: DateTuple) => {
-  if( !tuple.$gte || !tuple.$lte ) {
-    return
-  }
-
   return `${tuple.$gte}|${tuple.$lte}`
 }
 
@@ -34,12 +30,12 @@ const extractValue = (value: unknown, property: Property) => {
       }
 
       return value && typeof value === 'object' && '$regex' in value
-        ? value.$regex
+        ? String(value.$regex)
         : undefined
     }
   }
 
-  return value
+  return String(value)
 }
 
 const buildValue = (value: unknown, property: Property) => {
@@ -67,7 +63,7 @@ const buildValue = (value: unknown, property: Property) => {
 }
 
 export const convertToSearchQuery = (store: CollectionStore) => {
-  const entries: [string, string][] = []
+  const entries: [string, string | string[] | undefined][] = []
   for( const [key, value] of Object.entries(store.activeFilters) ) {
     const property = key in store.properties
       ? store.properties[key]
@@ -77,14 +73,13 @@ export const convertToSearchQuery = (store: CollectionStore) => {
       continue
     }
 
-    const queryKey = 'items' in property
-      ? `${store.$id}.${key}[]`
-      : `${store.$id}.${key}`
+    if( 'items' in property ) {
+      if( typeof value !== 'object' || !('$in' in value) || !Array.isArray(value.$in) ) {
+        continue
+      }
 
-    const queryValue = 'items' in property
-      ? value.$in.reduce((a: unknown[], elem: unknown) => {
+      const queryValue = value.$in.reduce((a: string[], elem: unknown) => {
         const val = extractValue(elem, property.items)
-
         if( !val ) {
           return a
         }
@@ -94,16 +89,21 @@ export const convertToSearchQuery = (store: CollectionStore) => {
           val,
         ]
       }, [])
-      : extractValue(value, property)
 
-    if( !queryValue ) {
+      entries.push([
+        `${store.$id}.${key}[]`,
+        queryValue,
+      ])
       continue
     }
 
-    entries.push([
-      queryKey,
-      queryValue,
-    ])
+    const queryValue = extractValue(value, property)
+    if( queryValue ) {
+      entries.push([
+        `${store.$id}.${key}`,
+        queryValue,
+      ])
+    }
   }
 
   return Object.fromEntries(entries)
