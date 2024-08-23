@@ -11,6 +11,7 @@ import AeriaPicture from '../../../../components/aeria-picture/aeria-picture.vue
 import AeriaIcon from '../../../../components/aeria-icon/aeria-icon.vue'
 import AeriaMenu from '../../../../components/aeria-menu/aeria-menu.vue'
 
+const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
 
@@ -40,7 +41,6 @@ const insert = async () => {
 
 const signout = async () => {
   await userStore.$actions.signout()
-  const router = useRouter()
   router.push('/user/signin')
 }
 </script>
@@ -90,7 +90,7 @@ const signout = async () => {
       <aeria-icon
         v-clickable
         icon="key"
-        @click="$router.push('/dashboard/user/changepass')"
+        @click="router.push('/dashboard/user/changepass')"
       >
         {{ t('change_password', { capitalize: true }) }}
       </aeria-icon>

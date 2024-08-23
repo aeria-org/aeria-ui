@@ -12,9 +12,10 @@ import loadYaml from './plugins/load-yaml.js'
 
 export default defineConfig(async () => {
   const instanceConfig = await getInstanceConfig()
-  const viteConfig = instanceConfig.vite || {}
-
-  const { icons: iconsConfig = {} } = instanceConfig
+  const {
+    vite: viteConfig = {},
+    icons: iconsConfig = {},
+  } = instanceConfig
 
   const config = deepMerge(viteConfig, {
     publicDir: 'static',
