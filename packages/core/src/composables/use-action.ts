@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router'
 import type { CollectionAction, Result } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
-import type { CollectionStore } from '@aeria-ui/core'
+import type { CollectionStore } from '../state/collection.js'
 import { useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
 import { deepClone } from '@aeriajs/common'
