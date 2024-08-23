@@ -125,9 +125,14 @@ onMounted(() => {
 
 const getDatetimeString = (value: InputType) => {
   try {
-    const date = value instanceof Date
-      ? value
-      : new Date(value)
+    let date: Date
+    if( value instanceof Date ) {
+      date = value
+    } else if ( typeof value === 'string' ) {
+      date = new Date(value)
+    } else {
+      throw new Error
+    }
 
     switch( inputBind.type ) {
       case 'date': return date.toISOString().slice(0, 10)
