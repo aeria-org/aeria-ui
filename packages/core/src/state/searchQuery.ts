@@ -2,8 +2,23 @@ import type { Property } from '@aeriajs/types'
 import type { RouteRecordNormalized } from 'vue-router'
 import type { CollectionStore } from './collection.js'
 
-const dateTupleToString = (tuple: { $gte?: string,
-  $lte?: string }) => {
+export type DateTuple = {
+  $gte?: string
+  $lte?: string
+}
+
+const isDateTuple = (value: unknown): value is DateTuple => {
+  return !!(
+    value
+    && typeof value === 'object'
+    && '$gte' in value
+    && '$lte' in value
+    && typeof value.$gte === 'string'
+    && typeof value.$lte === 'string'
+  )
+}
+
+const dateTupleToString = (tuple: DateTuple) => {
   if( !tuple.$gte || !tuple.$lte ) {
     return
   }
@@ -11,21 +26,23 @@ const dateTupleToString = (tuple: { $gte?: string,
   return `${tuple.$gte}|${tuple.$lte}`
 }
 
-const extractValue = (value: any, property: Property) => {
+const extractValue = (value: unknown, property: Property) => {
   if( 'type' in property ) {
     if( property.type === 'string' ) {
-      if( property.format === 'date' || property.format === 'date-time' ) {
+      if( (property.format === 'date' || property.format === 'date-time') && isDateTuple(value) ) {
         return dateTupleToString(value)
       }
 
-      return value.$regex
+      return value && typeof value === 'object' && '$regex' in value
+        ? value.$regex
+        : undefined
     }
   }
 
   return value
 }
 
-const buildValue = (value: any, property: Property) => {
+const buildValue = (value: unknown, property: Property) => {
   if( 'items' in property ) {
     return {
       $in: Array.isArray(value)
@@ -35,7 +52,7 @@ const buildValue = (value: any, property: Property) => {
   }
 
   if( 'type' in property ) {
-    if( property.type === 'string' ) {
+    if( property.type === 'string' && typeof value === 'string' ) {
       if( property.format === 'date' || property.format === 'date-time' ) {
         const [d1, d2] = value.split('|')
         return {
@@ -65,7 +82,7 @@ export const convertToSearchQuery = (store: CollectionStore) => {
       : `${store.$id}.${key}`
 
     const queryValue = 'items' in property
-      ? value.$in.reduce((a: any[], elem: any) => {
+      ? value.$in.reduce((a: unknown[], elem: unknown) => {
         const val = extractValue(elem, property.items)
 
         if( !val ) {
@@ -93,12 +110,12 @@ export const convertToSearchQuery = (store: CollectionStore) => {
 }
 
 export const convertFromSearchQuery = (store: CollectionStore, route: RouteRecordNormalized) => {
-  const entries: [string, any][] = []
+  const entries: [string, unknown][] = []
   if( !('query' in route) ) {
     return {}
   }
 
-  for( const [key, value] of Object.entries(route.query as Record<string, any>) ) {
+  for( const [key, value] of Object.entries(route.query as Record<string, unknown>) ) {
     const prefix = `${store.$id}.`
     if( !key.startsWith(prefix) ) {
       continue

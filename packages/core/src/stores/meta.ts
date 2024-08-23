@@ -68,9 +68,9 @@ export const meta = registerStore((context) => {
     actions: {
       async describe(props?: Parameters<typeof builtinFunctions.describe>[0]) {
         state.isLoading = true
-        const { data: response } = await request(`${API_URL}/describe`, props)
+        const { data: response } = await request<Result.Error<unknown> | string>(`${API_URL}/describe`, props)
 
-        if( response._tag === 'Error' ) {
+        if( typeof response !== 'string' ) {
           return Result.error(response)
         }
 
@@ -121,8 +121,8 @@ export const meta = registerStore((context) => {
       },
 
       async ask(props: {
-        action: (params: any)=> unknown,
-        params?: any
+        action: (params: unknown)=> unknown,
+        params?: unknown
         title?: string
         body?: string
       }) {

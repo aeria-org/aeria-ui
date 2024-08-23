@@ -11,12 +11,12 @@ import {
   type Plugin,
 } from 'vue'
 
-export type StoreState = Record<string, any>
+export type StoreState = Record<string, unknown>
 
 export type Store = StoreState & {
   $id: string
-  $actions: Record<string, (...args: any[])=> any>
-  $functions: Record<string, (...args: any[])=> any>
+  $actions: Record<string, (...args: unknown[])=> unknown>
+  $functions: Record<string, (...args: unknown[])=> unknown>
 }
 
 export type GlobalState = Record<string, Store>
@@ -24,7 +24,7 @@ export type GlobalStateManager = {
   __globalState: GlobalState
 }
 
-export type UnwrapGetters<TGetters extends Record<string, (()=> any) | ComputedRef<any>>> = {
+export type UnwrapGetters<TGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>>> = {
   [P in keyof TGetters]: TGetters[P] extends ()=> infer Value
     ? Value
     : UnwrapRef<TGetters[P]>
@@ -97,8 +97,8 @@ export const hasStore = (storeId: string, manager?: GlobalStateManager) => {
 export const internalRegisterStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
-  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>>,
-  TStoreActions extends Record<string, (...args: any[])=> any>,
+  TStoreGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>>,
+  TStoreActions extends Record<string, (...args: unknown[])=> unknown>,
 >(
   context: StoreContext,
   fn: (context: StoreContext)=> {
@@ -139,7 +139,7 @@ export const internalRegisterStore = <
   if( actions ) {
     const functions = new Proxy({}, {
       get: (_target, verb: string) => {
-        return (...args: any[]) => actions.custom(verb, ...args)
+        return (...args: unknown[]) => actions.custom(verb, ...args)
       },
     })
 
@@ -173,12 +173,12 @@ export const internalRegisterStore = <
 export const registerStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
-  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>> | undefined,
-  TStoreActions extends Record<string, (...args: any[])=> any>,
+  TStoreGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>> | undefined,
+  TStoreActions extends Record<string, (...args: any[])=> unknown>,
   Return = TStoreState & (keyof TStoreGetters extends never ? {} : UnwrapGetters<NonNullable<TStoreGetters>>) & {
     $id: TStoreId,
     $actions: TStoreActions
-    $functions: Record<string, (...args: any[])=> any>
+    $functions: Record<string, (...args: unknown[])=> unknown>
   },
 
 >(

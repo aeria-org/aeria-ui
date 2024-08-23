@@ -4,7 +4,7 @@ import { Result } from '@aeriajs/types'
 import { getReferenceProperty } from '@aeriajs/common'
 import { useCollectionStore } from './collection.js'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, Record<string, any>>> => {
+export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, Record<string, unknown> | unknown[]>> => {
   if( !property ) {
     return Result.result(obj)
   }

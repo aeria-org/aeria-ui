@@ -1,6 +1,7 @@
 import type { Router } from 'vue-router'
 import type { CollectionAction, Result } from '@aeriajs/types'
-import type { Store, GlobalStateManager } from '@aeria-ui/state-management'
+import type { GlobalStateManager } from '@aeria-ui/state-management'
+import type { CollectionStore } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
 import { deepClone } from '@aeriajs/common'
@@ -19,13 +20,13 @@ export type ActionEvent = {
   params: any
 }
 
-const getEffect = (store: any, effectName: keyof typeof STORE_EFFECTS) => {
+const getEffect = (store: CollectionStore, effectName: keyof typeof STORE_EFFECTS) => {
   const effect = STORE_EFFECTS[effectName]
   return store.$actions[effect]
 }
 
 export const useAction = <Filters extends { _id: string | string[] }>(
-  store: Store,
+  store: CollectionStore,
   router: Router,
   manager: GlobalStateManager,
 ) => {
@@ -60,10 +61,8 @@ export const useAction = <Filters extends { _id: string | string[] }>(
         if( filters ) {
           params.id = filters._id
         }
-        if( store.description && typeof store.description === 'object' ) {
-          params.collection = store.description.$id
-        }
 
+        params.collection = store.description.$id
         router.push({
           name: actionProps.route.name,
           query: actionProps.route.query || {},
@@ -87,7 +86,7 @@ export const useAction = <Filters extends { _id: string | string[] }>(
 
     const prepareFilters = (filters?: Filters) => {
       return actionProps.requires
-        ? store.$actions.select(actionProps.requires, filters)
+        ? store.$actions.select(actionProps.requires.filter((propName) => typeof propName === 'string'), filters)
         : store.$actions.select(['_id'], filters)
     }
 
@@ -97,19 +96,21 @@ export const useAction = <Filters extends { _id: string | string[] }>(
         : actionName
 
       if( functionName in store.$actions ) {
-        return store.$actions[functionName]
+        return Object.getOwnPropertyDescriptor(store.$actions, functionName)!.value
       }
 
       return 'effect' in actionProps && actionProps.effect
-        ? (payload: any) => store.$actions.customEffect(actionName, payload, ({ error, result }: Result.Either<unknown, unknown>) => {
+        ? async (payload: unknown) => {
+          const { error, result } = await store.$actions.custom<Result.Either<unknown, unknown>>(actionName, payload)
           const effect = getEffect(store, actionProps.effect as keyof typeof STORE_EFFECTS)
           if( error ) {
             return
           }
 
           return effect(result)
-        })
-        : (payload: any) => store.$actions.custom(actionName, payload)
+
+        }
+        : (payload: unknown) => store.$actions.custom(actionName, payload)
     })()
 
     if( actionProps.ask ) {

@@ -3,7 +3,7 @@ import type { InstanceConfig } from 'aeria-sdk'
 import { request as originalRequest } from 'aeria-sdk/http'
 import { API_URL, STORAGE_NAMESPACE } from './constants.js'
 
-export const request = <ResponseType = any>(url: string, payload?: any, requestConfig?: RequestConfig) => {
+export const request = <ResponseType = unknown>(url: string, payload?: unknown, requestConfig?: RequestConfig) => {
   const config: InstanceConfig = {
     publicUrl: API_URL,
     storage: {

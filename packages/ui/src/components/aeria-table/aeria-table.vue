@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Property, CollectionAction, TableLayout } from '@aeriajs/types'
+import type { Property, CollectionAction, TableLayout, TableLayoutAction } from '@aeriajs/types'
 import { computed, type Ref } from 'vue'
 import { evaluateCondition, getReferenceProperty, arraysIntersect } from '@aeriajs/common'
 import { useBreakpoints } from '@aeria-ui/core'
@@ -14,18 +14,18 @@ import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 
 type Props = {
   columns?: Record<string, Property>
-  rows?: any
+  rows?: any[]
   collection?: string | Ref<string>
   checkbox?: boolean
   actions?: (CollectionAction<any> & {
     action: string
-    click: (...args: any[])=> void
+    click: (...args: unknown[])=> void
   })[]
-  layout?: any
+  layout?: TableLayout<any>
 }
 
 type Emits = {
-  (e: 'itemClick', value: any): void
+  (e: 'itemClick', value: unknown): void
 }
 
 const props = defineProps<Props>()
@@ -41,7 +41,7 @@ const store = collectionName
 
 const selected = computed({
   get: () => store?.selected,
-  set: (items: any[]) => store?.$actions.selectManyItems(items, true),
+  set: (items: unknown[]) => store?.$actions.selectManyItems(items, true),
 })
 
 const columnsCount = computed(() => {
@@ -52,8 +52,8 @@ const columnsCount = computed(() => {
   return Object.keys(props.columns).length + Number(props.checkbox)
 })
 
-const isActionButton = (layout: TableLayout<any>['actions'][string], subject: any) => {
-  if( !layout?.button ) {
+const isActionButton = (layout: TableLayoutAction<any>, subject: unknown) => {
+  if( !layout.button ) {
     return false
   }
 
@@ -65,28 +65,30 @@ const isActionButton = (layout: TableLayout<any>['actions'][string], subject: an
   return layout.button
 }
 
-const buttonActions = (subject: any) => {
-  if( !breakpoints.value.xl || !props.layout?.actions || !props.actions ) {
+const buttonActions = (subject: unknown) => {
+  const layoutActions = props.layout?.actions
+  if( !breakpoints.value.xl || !layoutActions || !props.actions ) {
     return []
   }
 
   return props.actions.filter((action) => {
-    const layout = props.layout.actions[action.action]
-    return isActionButton(layout, subject)
+    const layout = layoutActions[action.action]
+    return layout && isActionButton(layout, subject)
   })
 }
 
-const dropdownActions = (subject: any) => {
+const dropdownActions = (subject: unknown) => {
   if( !props.actions ) {
     return []
   }
 
-  if( !breakpoints.value.xl || !props.layout?.actions ) {
+  const layoutActions = props.layout?.actions
+  if( !breakpoints.value.xl || !layoutActions ) {
     return props.actions
   }
 
   return props.actions.filter((action) => {
-    const layout = props.layout.actions[action.action]
+    const layout = layoutActions[action.action]
     if( action.roles ) {
       const userStore = useStore('user')
       const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
@@ -96,11 +98,11 @@ const dropdownActions = (subject: any) => {
       }
     }
 
-    return !isActionButton(layout, subject)
+    return !layout || !isActionButton(layout, subject)
   })
 }
 
-const buttonStyle = (subject: any, action: any) => {
+const buttonStyle = (subject: unknown, action: { action: string }) => {
   const style = []
   const layout = props.layout?.actions?.[action.action]
 

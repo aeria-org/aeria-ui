@@ -10,7 +10,7 @@ import { condenseItem } from './helpers.js'
 import { recurseInsertCandidate } from './recurseInsertCandidate.js'
 
 export type CrudParameters = {
-  filters: Record<string, any>
+  filters: Record<string, unknown>
   limit: number
   offset: number
   project?: string[]
@@ -106,7 +106,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return store.items.splice(0)
     },
 
-    async custom<ResponseType = any>(verb: string | null, payload?: any, options?: CustomOptions): Promise<ResponseType> {
+    async custom<ResponseType = unknown>(verb: string | null, payload?: any, options?: CustomOptions): Promise<ResponseType> {
       store.validationErrors = {}
       if( !options?.skipLoading ) {
         store.loading[verb || ''] = true
@@ -116,7 +116,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         ? `${store.$id}/${verb}`
         : store.$id
 
-      const promise = request(`${API_URL}/${route}`, payload).finally(() => {
+      const promise = request<any>(`${API_URL}/${route}`, payload).finally(() => {
         if( !options?.skipLoading ) {
           store.loading[verb || ''] = false
         }
@@ -130,22 +130,11 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return data
     },
 
-    async customEffect(verb: string | null, payload: any, fn: (payload: any)=> any, options?: CustomOptions) {
-      const result = await actions.custom(verb, payload, options)
-      if( options?.skipEffect ) {
-        return result
-      }
-
-      return result
-        ? fn(result)
-        : {}
-    },
-
     count(payload: Pick<CrudParameters, 'filters'>) {
       return actions.custom('count', payload)
     },
 
-    get(payloadSource: ActionFilter | string, options?: CustomOptions): Promise<Result.Either<EndpointError, typeof store['item']>> {
+    async get(payloadSource: ActionFilter | string, options?: CustomOptions): Promise<Result.Either<EndpointError, typeof store['item']>> {
       const payload = typeof payloadSource === 'string'
         ? {
           filters: {
@@ -154,18 +143,13 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         }
         : payloadSource
 
-      return actions.customEffect(
-        'get', payload,
-        ({ error, result }) => {
-          if( error ) {
-            return Result.error(error)
-          }
+      const { error, result } = await actions.custom<Result.Either<EndpointError, unknown>>('get', payload, options)
+      if( error ) {
+        return Result.error(error)
+      }
 
-          actions.setItem(result)
-          return Result.result(result)
-        },
-        options,
-      )
+      actions.setItem(result)
+      return Result.result(result)
     },
 
     retrieveItems(payload?: ActionFilter) {
@@ -194,28 +178,27 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return Result.result(result.data)
     },
 
-    insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
-      return actions.customEffect(
-        'insert', {
-          ...payload,
-          what: payload?.what || store.item,
-        },
-        ({ error, result }) => {
-          if( error ) {
-            if( [
-              'INVALID_PROPERTIES',
-              'MISSING_PROPERTIES',
-            ].includes(error.code) ) {
-              store.validationErrors = error.details
+    async insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
+
+      const { error, result } = await actions.custom<Result.Either<EndpointError, unknown>>('insert', {
+        ...payload,
+        what: payload?.what || store.item,
+      }, options)
+
+      if( error ) {
+        switch( error.code ) {
+          case 'INVALID_PROPERTIES':
+          case 'MISSING_PROPERTIES': {
+            if( 'details' in error ) {
+              store.validationErrors = error.details as any
             }
-
-            return Result.error(error)
           }
+        }
 
-          return Result.result(actions.insertItem(result))
-        },
-        options,
-      )
+        return Result.error(error)
+      }
+
+      return Result.result(actions.insertItem(result))
     },
 
     async deepInsert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
@@ -231,27 +214,29 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     async remove(payload: ActionFilter['filters'], options?: CustomOptions) {
-      return actions.customEffect(
+      const result = await actions.custom<Result.Either<EndpointError, unknown>>(
         'remove', {
           filters: {
             _id: payload?._id,
           },
         },
-        actions.removeItem,
         options,
       )
+
+      return actions.removeItem(result)
     },
 
     async removeAll(payload: ActionFilter['filters'], options?: CustomOptions) {
-      return actions.customEffect(
+      const result = await actions.custom<Result.Either<EndpointError, unknown>>(
         'removeAll', {
           filters: {
             _id: payload?._id,
           },
         },
-        actions.removeItem,
         options,
       )
+
+      return actions.removeItem(result)
     },
 
     filter(props?: ActionFilter) {
@@ -306,7 +291,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       form?: boolean,
       property: Property,
       index?: string
-    }): any {
+    }): unknown {
       const value = args.property.translate && typeof args.value === 'string'
         ? t(args.value, {
           capitalize: true,
@@ -345,7 +330,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       )
     },
 
-    select(properties: (keyof typeof store['properties'])[], item?: typeof store['items']) {
+    select(properties: (keyof typeof store['properties'])[], item?: typeof store['item']) {
       return Object.entries(item || store.item).reduce((a, [key, value]) => {
         if( !properties.includes(key) ) {
           return a

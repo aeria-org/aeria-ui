@@ -4,7 +4,7 @@ export type DiffOptions = {
 export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, options?: DiffOptions) => {
   const { preserveIds } = options || {}
 
-  const equals = (left: any, right: any) => {
+  const equals = (left: unknown, right: unknown) => {
     const toStr = (obj: any) => {
       const sortedObj = obj && obj.constructor === Object
         ? Object.fromEntries(Object.keys(obj).sort().map((key) => [

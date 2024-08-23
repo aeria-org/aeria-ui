@@ -11,7 +11,7 @@ import AeriaFile from '../../aeria-file/aeria-file.vue'
 import AeriaSearch from '../../aeria-search/aeria-search.vue'
 import AeriaForm from '../../aeria-form/aeria-form.vue'
 
-export const getComponent = (property: Property, customComponents: Record<string, any>) => {
+export const getComponent = (property: Property, customComponents: Record<string, unknown>) => {
   const nestedProp = 'items' in property
     ? property.items
     : property
@@ -78,7 +78,7 @@ export const getComponent = (property: Property, customComponents: Record<string
   return defaultComponents[mappedComponentType]
 }
 
-export const pushToArray = (modelValue: any[] | undefined, property: Property, manager: GlobalStateManager) => {
+export const pushToArray = (modelValue: unknown[] | undefined, property: Property, manager: GlobalStateManager) => {
   modelValue ??= []
   const nestedProp = 'items' in property
     ? property.items
@@ -101,6 +101,6 @@ export const pushToArray = (modelValue: any[] | undefined, property: Property, m
   return modelValue.push(null)
 }
 
-export const spliceFromArray = (modelValue: any[], index: number) => {
+export const spliceFromArray = (modelValue: unknown[], index: number) => {
   modelValue.splice(index, 1)
 }

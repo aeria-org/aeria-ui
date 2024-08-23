@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { LayoutOptions } from '@aeriajs/types'
 import { computed } from 'vue'
-import { useParentStore, getStoreId } from '@aeria-ui/state-management'
+import { getStoreId } from '@aeria-ui/state-management'
+import { useParentCollectionStore } from '@aeria-ui/core'
 import AeriaTable from '../../../../aeria-table/aeria-table.vue'
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
 }
 
 const props = defineProps<Props>()
-const store = useParentStore()
+const store = useParentCollectionStore()
 
 const storeId = getStoreId()
 const componentProps = computed(() => {

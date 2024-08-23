@@ -16,7 +16,7 @@ import {
 
 } from './helpers.js'
 
-export type CollectionStoreItem = Record<string, any> & {
+export type CollectionStoreItem = Record<string, unknown> & {
   _id?: any
 }
 
@@ -66,7 +66,7 @@ export type InitialState<TItem extends CollectionStoreItem> = {
 }
 
 const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
-  const item = () => ({} as TItem)
+  const item = <T>() => ({} as T)
   const initialState = reactive<InitialState<TItem>>({
     rawDescription: {} as Description,
     item: item(),
@@ -389,7 +389,7 @@ export const useCollectionStore = (storeId: string, manager?: GlobalStateManager
   return useStore(storeId, manager)
 }
 
-export const useParentCollectionStore = (storeId: string, manager?: GlobalStateManager): CollectionStore => {
+export const useParentCollectionStore = (storeId?: string, manager?: GlobalStateManager): CollectionStore => {
   return useParentStore(storeId, manager) as CollectionStore
 }
 

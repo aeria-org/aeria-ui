@@ -6,7 +6,7 @@ import type { RouteRecordNormalized } from 'vue-router'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { getReferenceProperty, deepClone, deepMerge } from '@aeriajs/common'
-import { useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/core'
+import { useCollectionStore, useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
@@ -38,7 +38,7 @@ type Props = {
   noLayoutToggle?: boolean
   layout?: Layout
   action?: Ref<ReturnType<typeof useAction>> | ReturnType<typeof useAction>
-  componentProps?: Record<string, any>
+  componentProps?: Record<string, unknown>
   scrollPagination?: boolean
   noQueryPersistence?: boolean
 }
@@ -73,7 +73,7 @@ if( scrollPagination ) {
   })
 }
 
-const store = useStore(props.collection) as CollectionStore
+const store = useCollectionStore(props.collection) as CollectionStore
 watchStore(store, {
   persistInQuery: !props.noQueryPersistence,
 })

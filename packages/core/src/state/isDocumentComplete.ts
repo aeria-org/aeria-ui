@@ -2,7 +2,7 @@ import type { Property, RequiredProperties, Description } from '@aeriajs/types'
 import { getMissingProperties, getReferenceProperty, checkForUndefined } from '@aeriajs/common'
 
 export const isDocumentComplete = <
-  TItem extends Record<string, any>,
+  TItem extends Record<string, unknown>,
   TProperties extends Record<string, Property>,
 >(
   item: TItem,
@@ -23,7 +23,7 @@ export const isDocumentComplete = <
   const missingProps = description
     ? getMissingProperties(item, description, requiredKeys)
     : Array.isArray(requiredKeys)
-      ? requiredKeys.filter((key: any) => checkForUndefined(properties[key], key, item))
+      ? requiredKeys.filter((key) => checkForUndefined(properties[key], key, item))
       : []
 
   return missingProps.every((key) => {

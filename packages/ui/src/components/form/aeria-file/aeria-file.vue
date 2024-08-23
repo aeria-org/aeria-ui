@@ -9,9 +9,9 @@ import AeriaPicture from '../../aeria-picture/aeria-picture.vue'
 import AeriaButton from '../../aeria-button/aeria-button.vue'
 
 type Props = FormFieldProps<any, Property & FileProperty> & {
-  meta?: Record<string, any>
-  modelValue?: any
-  content?: any
+  meta?: Record<string, unknown>
+  modelValue?: unknown
+  content?: unknown
 }
 
 type TempFile = {

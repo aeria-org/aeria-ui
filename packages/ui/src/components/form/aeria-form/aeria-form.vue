@@ -36,12 +36,12 @@ type Props = FormFieldProps<any> & {
   },
   formLayout?: Description['formLayout']
   required?: string[]
-  formComponents?: Record<string, any>
-  propertyComponents?: Record<string, any>
+  formComponents?: Record<string, unknown>
+  propertyComponents?: Record<string, unknown>
   omitFormHeader?: boolean
   omitInputLabels?: boolean
   innerInputLabel?: boolean
-  validationErrors?: Record<string, any> | null
+  validationErrors?: Record<string, unknown> | null
   highlightRequired?: boolean
   focus?: boolean
   includeId?: boolean
@@ -207,7 +207,7 @@ const properties = filterProperties(([propertyName, property]) => {
 const breakpoints = useBreakpoints()
 const conditionMemo: Record<string, boolean> = {}
 
-const fieldStyle = (key: string, property: any) => {
+const fieldStyle = (key: string, property: unknown) => {
   const style = []
   const layout = computedLayout.value?.fields?.[key] || computedLayout.value?.fields?.$default
 
@@ -275,7 +275,7 @@ const fieldStyle = (key: string, property: any) => {
   return style.join('')
 }
 
-const unfilled = (value: any) => {
+const unfilled = (value: unknown) => {
   return value === null
     || (value instanceof Object && !Object.keys(value).length)
 }

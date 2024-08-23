@@ -13,12 +13,12 @@ let manager: GlobalStateManager | undefined = undefined
 
 export const breakpoints = useBreakpoints()
 
-export const badgeMemo: Record<string, any> = {}
+export const badgeMemo: Record<string, unknown> = {}
 
 export const navbarRefs = reactive<NavbarRefs>({
   routes: [],
   router: {} as any,
-  isCurrent: (..._args: any[]) => false,
+  isCurrent: (..._args: unknown[]) => false,
 })
 
 export const {
@@ -26,7 +26,7 @@ export const {
   isCurrent,
 } = toRefs(navbarRefs)
 
-export const memoizeBadge = (promise: ()=> Promise<any> | any, key: string) => {
+export const memoizeBadge = (promise: ()=> Promise<unknown> | unknown, key: string) => {
   if( key in badgeMemo ) {
     return badgeMemo[key]
   }

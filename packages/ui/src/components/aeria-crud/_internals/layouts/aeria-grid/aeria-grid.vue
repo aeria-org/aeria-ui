@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LayoutOptions } from '@aeriajs/types'
-import { useParentStore } from '@aeria-ui/state-management'
+import { useParentCollectionStore } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
 
 import AeriaContextMenu from '../../../../aeria-context-menu/aeria-context-menu.vue'
@@ -20,7 +20,7 @@ type Props = {
 const props = defineProps<Props>()
 const layoutOptions = props.layoutOptions
 
-const store = useParentStore()
+const store = useParentCollectionStore()
 
 const firstIfArray = (what: any) => {
   return Array.isArray(what)

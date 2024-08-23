@@ -5,7 +5,7 @@ import { computed, provide } from 'vue'
 import AeriaForm from '../../form/aeria-form/aeria-form.vue'
 
 type Props = {
-  modelValue: Record<string, any> & {
+  modelValue: Record<string, unknown> & {
     password: string
     confirmation: string
   }

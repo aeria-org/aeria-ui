@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CollectionStoreItem } from '@aeria-ui/core'
 import type { SearchProperty } from '../../../../types.js'
 import { getReferenceProperty } from '@aeriajs/common'
 import { computed } from 'vue'
@@ -7,15 +8,15 @@ import { useParentStore } from '@aeria-ui/state-management'
 import AeriaIcon from '../../../../../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  item: Record<string, any>
+  item: Record<string, unknown>
   indexes: readonly string[]
-  modelValue?: any
+  modelValue?: CollectionStoreItem | CollectionStoreItem[]
   property: SearchProperty
   readOnly?: boolean
 }
 
 type Emits = {
-  (e: 'update:modelValue', value: Props['modelValue']): void
+  (e: 'update:modelValue', value: Props['modelValue'] | null): void
   (e: 'change', value: Props['item']): void
 }
 
@@ -70,7 +71,10 @@ const deselect = async (options?: { purge?: true }) => {
   }
 
   const deleteFirst = () => {
-    const modelValue = [ ...props.modelValue ]
+    const modelValue = Array.isArray(props.modelValue)
+      ? Array.from(props.modelValue)
+      : []
+
     const idx = modelValue.findIndex((option: any) => option._id === props.item._id)
 
     modelValue.splice(idx, 1)
