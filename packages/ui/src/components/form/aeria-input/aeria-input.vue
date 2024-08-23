@@ -125,9 +125,6 @@ onMounted(() => {
 
 const getDatetimeString = (value: InputType) => {
   try {
-    if( !(value instanceof Date) ) {
-      return value
-    }
     const date = value instanceof Date
       ? value
       : new Date(value)
