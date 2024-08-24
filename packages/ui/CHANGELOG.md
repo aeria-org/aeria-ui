@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.95
+
+### Patch Changes
+
+- b77e575: Fix date inputs
+
 ## 0.0.94
 
 ### Patch Changes
