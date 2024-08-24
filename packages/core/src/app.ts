@@ -123,7 +123,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
       if( error ) {
         hasError = true
       }
-    } catch( err: any ) {
+    } catch( err ) {
       hasError = true
       console.error(err)
     }

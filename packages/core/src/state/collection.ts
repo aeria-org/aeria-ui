@@ -337,8 +337,8 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
 export const createCollectionStore = <
   const TStoreId extends keyof Collections,
   TStoreState,
-  TStoreGetters extends Record<string, (()=> any) | ComputedRef<any>> | {},
-  TStoreActions extends Record<string, (...args: any[])=> any> | {},
+  TStoreGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>> | {},
+  TStoreActions extends Record<string, (...args: unknown[])=> unknown> | {},
 >(
   newer: {
     $id: TStoreId

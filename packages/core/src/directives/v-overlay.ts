@@ -3,7 +3,7 @@ import type { Directive } from 'vue'
 type OverlayOptions = {
   condition: boolean
   layer?: number
-  click?: (...args: any[])=> any
+  click?: (...args: unknown[])=> unknown
 }
 
 const overlay: Directive = {

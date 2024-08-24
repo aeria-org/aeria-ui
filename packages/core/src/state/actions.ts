@@ -106,7 +106,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return store.items.splice(0)
     },
 
-    async custom<ResponseType = unknown>(verb: string | null, payload?: any, options?: CustomOptions): Promise<ResponseType> {
+    async custom<TResponseType = unknown>(verb: string | null, payload?: unknown, options?: CustomOptions): Promise<TResponseType> {
       store.validationErrors = {}
       if( !options?.skipLoading ) {
         store.loading[verb || ''] = true
@@ -116,7 +116,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         ? `${store.$id}/${verb}`
         : store.$id
 
-      const promise = request<any>(`${API_URL}/${route}`, payload).finally(() => {
+      const promise = request<TResponseType>(`${API_URL}/${route}`, payload).finally(() => {
         if( !options?.skipLoading ) {
           store.loading[verb || ''] = false
         }
@@ -124,6 +124,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       const data = (await promise).data
       if( options?.insert ) {
+        if( !data || typeof data !== 'object' || !('result' in data) ) {
+          throw new Error
+        }
         actions.insertItem(data.result)
       }
 
@@ -286,7 +289,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     formatValue(args: {
-      value: string | object | (string | object)[],
+      value: string | Record<string, unknown> | (string | Record<string, unknown>)[],
       key: string,
       form?: boolean,
       property: Property,
@@ -311,13 +314,24 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           : undefined
 
         if( property && isReference(property) ) {
+          let refVal: typeof value
+          if( Array.isArray(args.value) ) {
+            refVal = args.value.map((value) => {
+              return typeof value === 'string'
+                ? value
+                : String(value[index!])
+            })
+          } else if( typeof args.value === 'string' ) {
+            refVal = value
+          } else {
+            refVal = String(args.value[index!])
+          }
+
           return helperStore.$actions.formatValue({
             property,
-            key: args.key,
             index,
-            value: Array.isArray(args.value)
-              ? args.value.map((value) => value[index!])
-              : (args.value as Record<string, any>)[index!],
+            key: args.key,
+            value: refVal,
           })
         }
       }

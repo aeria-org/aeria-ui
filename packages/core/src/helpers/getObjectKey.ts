@@ -1,4 +1,4 @@
-export const getObjectKey = (obj: any, index: number) => {
+export const getObjectKey = (obj: unknown, index: number) => {
   if( obj && typeof obj === 'object' ) {
     if( '_id' in obj ) {
       return obj._id
