@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.8
+
+### Patch Changes
+
+- a86c19b: Accept only lowercase strings
+
 ## 0.0.7
 
 ### Patch Changes
