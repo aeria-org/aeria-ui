@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.59
+
+### Patch Changes
+
+- 701d05d: Fix boolean inputs not being inserted by default
+- Updated dependencies [a86c19b]
+  - @aeria-ui/i18n@0.0.8
+
 ## 0.0.58
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @aeria-ui/ui
 
+## 0.0.96
+
+### Patch Changes
+
+- 23a5de8: Use `<dialog />` for panels and revert scrollbar hide
+- Updated dependencies [a86c19b]
+- Updated dependencies [701d05d]
+  - @aeria-ui/i18n@0.0.8
+  - @aeria-ui/core@0.0.59
+
 ## 0.0.95
 
 ### Patch Changes
