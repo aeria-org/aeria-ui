@@ -42,10 +42,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         store.item[key] = value
       })
 
-      store.referenceItem = deepClone({
-        ...store.freshItem,
-        ...item,
-      })
+      store.referenceItem = deepClone(item)
 
       return item
     },

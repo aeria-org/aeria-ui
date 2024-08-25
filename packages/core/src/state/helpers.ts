@@ -25,8 +25,7 @@ export const condenseItem = (item?: Record<string, any>): any => {
     }
 
     if(
-      value instanceof Object
-        && !(value instanceof Date)
+      value.constructor === Object
         && !Object.keys(value).length
     ) {
       return a
