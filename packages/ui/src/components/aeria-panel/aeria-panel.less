@@ -18,7 +18,6 @@
   &__content {
     display: flex;
     overflow: hidden;
-    overflow: hidden;
     flex-direction: column;
     padding: 0;
 
@@ -43,7 +42,7 @@
       border: 1px solid var(--theme-border-color);
     }
 
-    &--floating, &--fixed-right {
+    &--float, &--fixed-right {
       .panel__header {
         min-height: var(--theme-panel-header-height);
         padding: .6rem 1.4rem;
@@ -57,11 +56,7 @@
       }
     } 
 
-    &--fixed-right {
-      animation: var(--theme-animation-fixed-right);
-    }
-
-    &--floating {
+    &--float {
       position: fixed;
       top: 50%;
       min-width: 90vw;
@@ -69,8 +64,9 @@
       max-height: 80vh;
       border-radius: var(--theme-radius-large);
 
-      animation: var(--theme-animation-floating);
+      animation: var(--theme-animation-float);
       transform: translateY(-50%);
+
       @media screen and (width >= 768px) {
         min-width: var(--min-width);
         max-width: var(--max-width);
@@ -80,12 +76,12 @@
     &--fixed-right {
       position: fixed;
       top: 0;
-      right: 0;
       width: 100vw;
       height: 100vh;
       border: 0;
       border-radius: 0;
-      overscroll-behavior: contain;
+      margin-right: 0;
+      animation: var(--theme-animation-fixed-right);
 
       @media screen and (width >= 768px) {
         width: var(--fixed-width);
@@ -134,7 +130,6 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    overscroll-behavior: contain;
     row-gap: 1.8rem;
 
     &--padded {

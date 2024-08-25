@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useScrollObserver } from '@aeria-ui/core'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
@@ -10,7 +10,6 @@ type Props = {
   title?: string
   float?: boolean
   fixedRight?: boolean
-  floating?: boolean
   loading?: boolean
   bordered?: boolean
   overlay?: boolean
@@ -43,9 +42,7 @@ const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-const isFloating = computed(() => props.floating || props.float)
 const isCollapsed = ref(props.collapsed)
-
 const body = ref<HTMLElement | null>(null)
 const { reachedEnd } = useScrollObserver(body)
 
@@ -68,10 +65,10 @@ const toggleCollapsed = (value: boolean) => {
   <div
     v-if="modelValue"
     v-overlay="{
-      condition: overlay || fixedRight || isFloating,
+      condition: overlay || fixedRight || float,
       invisible: invisibleOverlay,
       click: overlayClick,
-      layer: overlayLayer || (isFloating
+      layer: overlayLayer || (float
         ? 60
         : fixedRight
           ? 50
@@ -84,9 +81,9 @@ const toggleCollapsed = (value: boolean) => {
       ${fixedRight && 'panel--fixed'}
   `"
   >
-    <component
+    <Component
       :is="
-        isFloating
+        float || fixedRight
           ? 'dialog'
           : 'div'
       "
@@ -95,7 +92,7 @@ const toggleCollapsed = (value: boolean) => {
       :class="`
         aeria-surface
         panel__content
-        ${isFloating && 'panel__content--floating'}
+        ${float && 'panel__content--float'}
         ${bordered && 'panel__content--bordered'}
         ${fixedRight && 'panel__content--fixed-right'}
         ${transparent && 'panel__content--transparent'}
@@ -155,6 +152,7 @@ const toggleCollapsed = (value: boolean) => {
         v-if="!isCollapsed"
         ref="body"
         v-loading="loading"
+        tabindex="0"
         :class="`
           panel__body
           ${fill || 'panel__body--padded'}
