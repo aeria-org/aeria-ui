@@ -1,8 +1,8 @@
 import type { Description } from '@aeriajs/types'
 import type { user as originalUser } from '@aeriajs/builtins'
-import { registerStore } from '@aeria-ui/state-management'
+import { registerStore, useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
-import { createCollectionStore, type CollectionStore } from '../state/collection.js'
+import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
 import { Result } from 'aeria-sdk'
@@ -94,7 +94,7 @@ export const user = registerStore((context) => {
       setCurrentUser,
       signout,
       async authenticate(payload: Credentials | { revalidate: true }) {
-        const store = this as unknown as CollectionStore
+        const store = useStore('user', context.manager)
         const metaStore = meta(context)
 
         try {
@@ -128,7 +128,7 @@ export const user = registerStore((context) => {
         }
       },
       async copyActivationLink(payload: { _id: string }) {
-        const store = this as unknown as CollectionStore
+        const store = useStore('user', context.manager)
         const metaStore = meta(context)
 
         const { error, result } = await <ReturnType<typeof originalUser.functions.getActivationLink>>store.$functions.getActivationLink({
