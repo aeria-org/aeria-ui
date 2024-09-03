@@ -46,9 +46,10 @@ import type { Icon } from '@aeriajs/types'
 
 declare global {
   const definePage: (page: Partial<RouteRecordRaw> & {
-    meta: {
+    meta: Record<string, unknown> & {
       title: string
       icon?: Icon
+      collection?: string
     }
   }) => void
 }

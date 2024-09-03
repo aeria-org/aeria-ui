@@ -17,6 +17,13 @@ export const condenseItem = (item?: Record<string, any>): any => {
   }
 
   return Object.entries(item).reduce((a, [key, value]) => {
+    if( !value ) {
+      return {
+        ...a,
+        [key]: value,
+      }
+    }
+
     if( Array.isArray(value) ) {
       return {
         ...a,
