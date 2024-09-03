@@ -11,8 +11,6 @@ const animalStore = useStore('animal')
 watch(() => animalStore.specie, (value, oldValue) => {
   console.log('modelValue:', value)
 })
-
-console.log(condenseItem({ name: null }))
 </script>
 
 <template>
