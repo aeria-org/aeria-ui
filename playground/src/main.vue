@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStore } from 'aeria-ui'
+import { condenseItem, useStore } from 'aeria-ui'
 import {watch, reactive} from 'vue'
 
 const state = reactive({
@@ -11,6 +11,8 @@ const animalStore = useStore('animal')
 watch(() => animalStore.specie, (value, oldValue) => {
   console.log('modelValue:', value)
 })
+
+console.log(condenseItem({ name: null }))
 </script>
 
 <template>
