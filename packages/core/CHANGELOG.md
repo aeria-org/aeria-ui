@@ -1,5 +1,18 @@
 # @aeria-ui/core
 
+## 0.0.61
+
+### Patch Changes
+
+- 603f209: reverted core package.json from last patch
+
+## 0.0.60
+
+### Patch Changes
+
+- e0ad054: fixed condenseItem not checking null props from item
+- ab4d112: Fix user store
+
 ## 0.0.59
 
 ### Patch Changes
