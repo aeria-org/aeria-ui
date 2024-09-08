@@ -32,27 +32,15 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
-
       - name: Build packages
-        run: |
-          pnpm --filter='./packages/aeria-icons' build \
-            && pnpm --filter='./packages/cli' build \
-            && pnpm --filter='./packages/i18n' build \
-            && pnpm --filter='./packages/state-management' build \
-            && pnpm --filter='./packages/core' build \
-            && pnpm --filter='./packages/ui' build \
-            && pnpm --filter='./packages/create-aeria-app' build \
-            && pnpm --filter='./packages/aeria-ui' build
-
+        run: pnpm build
       - name: Patch .npmrc
         run: sed -i "1s/^/\/\/registry.npmjs.org\/:_authToken=${NPM_TOKEN}\n/" .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Build playground
         run: |
           pnpm --filter=playground build
-
       - name: Create release PR
         uses: changesets/action@v1
         with:
@@ -61,7 +49,6 @@ jobs:
           BRANCH_NAME: ${{ github.ref_name  }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Build icons site
         run: |
           cd packages/aeria-icons/app

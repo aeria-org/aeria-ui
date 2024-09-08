@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { ArrayProperty, EnumProperty } from '@aeriajs/types'
+import type { PropertyBase, ArrayProperty, EnumProperty } from '@aeriajs/types'
 import type { FormFieldProps } from '../types.js'
 import { onBeforeMount } from 'vue'
 import AeriaCheckbox from '../aeria-checkbox/aeria-checkbox.vue'
 
 type Props = Omit<FormFieldProps<any>, 'property'> & {
-  property: (EnumProperty | (ArrayProperty & { items: EnumProperty })) & {
-    readOnly?: boolean
-  }
+  property: PropertyBase & (EnumProperty | (ArrayProperty & { items: EnumProperty }))
   columns?: number
 }
 
