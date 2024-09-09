@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.99
+
+### Patch Changes
+
+- 7155f5a: Add `@aeria-ui/utils` package
+- Updated dependencies [7155f5a]
+  - @aeria-ui/core@0.0.62
+  - @aeria-ui/utils@0.0.1
+
 ## 0.0.98
 
 ### Patch Changes
