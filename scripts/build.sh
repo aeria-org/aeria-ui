@@ -3,6 +3,7 @@
 rm -rf packages/*/dist
 
 pnpm --filter='./packages/aeria-icons' build \
+  && pnpm --filter='./packages/utils' build \
   && pnpm --filter='./packages/cli' build \
   && pnpm --filter='./packages/i18n' build \
   && pnpm --filter='./packages/state-management' build \
