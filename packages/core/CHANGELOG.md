@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.64
+
+### Patch Changes
+
+- 224bc9e: Fix `localStorage()` calls crashing SSR
+
 ## 0.0.63
 
 ### Patch Changes
