@@ -50,9 +50,11 @@ export const user = registerStore((context) => {
     },
   })
 
-  const auth = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
-  if( auth ) {
-    setCurrentUser(JSON.parse(auth))
+  if( typeof localStorage !== 'undefined' ) {
+    const auth = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
+    if( auth ) {
+      setCurrentUser(JSON.parse(auth))
+    }
   }
 
   function setCurrentUser(auth: SuccessfulAuthentication | {}) {
@@ -69,11 +71,15 @@ export const user = registerStore((context) => {
       Object.assign(state.currentUser, auth.user)
     }
 
-    localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(auth))
+    if( typeof localStorage !== 'undefined' ) {
+      localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(auth))
+    }
   }
 
   function signout() {
-    localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
+    if( typeof localStorage !== 'undefined' ) {
+      localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
+    }
     setCurrentUser({})
   }
 

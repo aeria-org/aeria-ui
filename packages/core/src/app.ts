@@ -134,7 +134,10 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
 
       if( !router.currentRoute.value.path.startsWith('/user/signin') ) {
         const next = `${location.pathname}${location.search}`
-        localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
+        if( typeof localStorage !== 'undefined' ) {
+          localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
+        }
+
         router.push({
           name: '/user/signin',
           query: {

@@ -21,14 +21,16 @@ userStore.$actions.setItem(userStore.currentUser)
 
 const insert = async () => {
   await userStore.$actions.insert({
- what: userStore.item,
-})
+    what: userStore.item,
+  })
 
-  const auth = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
-  if( auth ) {
-    const authObj = JSON.parse(auth)
-    authObj.user = userStore.item
-    localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(authObj))
+  if( typeof localStorage !== 'undefined' ) {
+    const auth = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
+    if( auth ) {
+      const authObj = JSON.parse(auth)
+      authObj.user = userStore.item
+      localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(authObj))
+    }
   }
 
   await metaStore.$actions.spawnModal({

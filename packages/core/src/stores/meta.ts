@@ -34,7 +34,9 @@ export const meta = registerStore((context) => {
     roles: [] as string[],
     isLoading: false,
     globalIsLoading: false,
-    theme: localStorage.getItem(`${STORAGE_NAMESPACE}:meta:theme`) || DEFAULT_THEME,
+    theme: typeof localStorage !== 'undefined'
+      ? localStorage.getItem(`${STORAGE_NAMESPACE}:meta:theme`) || DEFAULT_THEME
+      : DEFAULT_THEME,
     themeOverride: '',
     view: {
       title: '',
@@ -216,7 +218,9 @@ export const meta = registerStore((context) => {
           state.theme = theme
         }
 
-        localStorage.setItem(`${STORAGE_NAMESPACE}:meta:theme`, state.theme)
+        if( typeof localStorage !== 'undefined' ) {
+          localStorage.setItem(`${STORAGE_NAMESPACE}:meta:theme`, state.theme)
+        }
       },
     },
   }

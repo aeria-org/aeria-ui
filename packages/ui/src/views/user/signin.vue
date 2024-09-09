@@ -10,9 +10,11 @@ const userStore = useStore('user')
 const metaStore = useStore('meta')
 
 const goToTarget = () => {
-  const { next } = router.currentRoute.value.query
-  if( typeof next === 'string' && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
-    return router.push(next)
+  if( typeof localStorage !== 'undefined' ) {
+    const { next } = router.currentRoute.value.query
+    if( typeof next === 'string' && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
+      return router.push(next)
+    }
   }
 
   return router.push('/dashboard/')
