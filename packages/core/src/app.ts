@@ -2,6 +2,7 @@ import type { defineOptions } from './options.js'
 import { createApp, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { createI18n, t } from '@aeria-ui/i18n'
+import { isError } from '@aeriajs/common'
 import { createGlobalStateManager, type StoreContext } from '@aeria-ui/state-management'
 import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
@@ -115,12 +116,12 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     let hasError = false
 
     try {
-      const { error } = await metaStore.$actions.describe({
+      const result = await metaStore.$actions.describe({
         roles: true,
         revalidate: true,
       })
 
-      if( error ) {
+      if( isError(result) ) {
         hasError = true
       }
     } catch( err ) {
@@ -129,20 +130,16 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     }
 
     if( hasError ) {
-      const next = `${location.pathname}${location.search}`
-      localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
+      userStore.$actions.signout()
 
-      if( router.currentRoute.value.path.startsWith('/user/signin') ) {
+      if( !router.currentRoute.value.path.startsWith('/user/signin') ) {
+        const next = `${location.pathname}${location.search}`
         localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
         router.push({
           name: '/user/signin',
           query: {
             next,
           },
-        })
-      } else {
-        router.push({
-          name: '/user/signin',
         })
       }
     }
