@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.63
+
+### Patch Changes
+
+- 5786eaa: Fix duplicate sign in bug
+
 ## 0.0.62
 
 ### Patch Changes
