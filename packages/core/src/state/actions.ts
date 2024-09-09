@@ -1,6 +1,7 @@
 import type { EndpointError, Property, PaginatedGetAllReturnType } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
-import { formatValue, getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
+import { getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
+import { formatValue } from '@aeria-ui/utils'
 import { Result } from '@aeriajs/types'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'

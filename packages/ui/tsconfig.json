@@ -15,6 +15,9 @@
       "@aeria-ui/state-management": [
         "../state-management/dist"
       ],
+      "@aeria-ui/utils": [
+        "../utils/dist"
+      ],
       "aeria-icons/core": [
         "../aeria-icons/core/dist"
       ]

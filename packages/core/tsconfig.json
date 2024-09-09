@@ -20,6 +20,9 @@
       "@aeria-ui/i18n": [
         "../i18n/dist"
       ],
+      "@aeria-ui/utils": [
+        "../utils/dist"
+      ],
       "aeria-sdk/http": [
         "../../node_modules/aeria-sdk/dist"
       ]
