@@ -36,11 +36,10 @@ const expand = ref(false)
 <template>
   <figure class="picture">
     <teleport
-      v-if="url"
+      v-if="url && expand"
       to="main"
     >
       <div
-        v-if="expand"
         v-overlay="{
           click: () => {
             expand = false
@@ -68,7 +67,7 @@ const expand = ref(false)
           v-if="meta?.owner"
           class="picture__meta"
         >
-          Criado por {{ meta.owner.name }} em {{ formatDateTime(meta.created_at, { hours: true }) }}
+          {{ t('created_by') }} {{ meta.owner.name }} em {{ formatDateTime(meta.created_at, { hours: true }) }}
         </div>
       </div>
     </teleport>

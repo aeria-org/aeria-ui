@@ -50,8 +50,12 @@ export const createGlobalStateManager = (): GlobalStateManager & Plugin => {
 }
 
 export const getGlobalStateManager = () => {
+  const globalState = inject<GlobalState>(GLOBAL_STATE_KEY)
+  if( !globalState ) {
+    throw new Error
+  }
   return {
-    __globalState: inject(GLOBAL_STATE_KEY, {} as GlobalState),
+    __globalState: globalState,
   }
 }
 
