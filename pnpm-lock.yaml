@@ -23,6 +23,9 @@ importers:
       '@aeria-ui/ui':
         specifier: link:packages/ui
         version: link:packages/ui
+      '@aeria-ui/utils':
+        specifier: link:packages/utils
+        version: link:packages/utils
       '@aeriajs/builtins':
         specifier: '0.0'
         version: 0.0.163(@aeriajs/common@0.0.99(@aeriajs/types@0.0.85)(bson@6.8.0))(@aeriajs/core@0.0.163)(@aeriajs/entrypoint@0.0.101(@aeriajs/common@0.0.99(@aeriajs/types@0.0.85)(bson@6.8.0))(@aeriajs/types@0.0.85))(@aeriajs/types@0.0.85)(@aeriajs/validation@0.0.102(@aeriajs/common@0.0.99(@aeriajs/types@0.0.85)(bson@6.8.0))(@aeriajs/types@0.0.85))
