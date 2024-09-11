@@ -125,6 +125,16 @@ export const convertFromSearchQuery = (store: CollectionStore, route: RouteRecor
       ? key.slice(prefix.length, -2)
       : key.slice(prefix.length)
 
+    if( propName === '_id' ) {
+      entries.push([
+        propName,
+        buildValue(value, {
+          type: 'string',
+        })
+      ])
+      continue
+    }
+
     const property = propName in store.properties
       ? store.properties[propName]
       : null
