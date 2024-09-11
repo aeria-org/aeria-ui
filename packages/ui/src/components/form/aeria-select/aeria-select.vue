@@ -28,8 +28,8 @@ const emitUpdate = (value: unknown) => {
 }
 
 const update = (value: unknown) => {
-  if( value === '' || value === null ) {
-    emitUpdate(null)
+  if( value === '' || value === undefined ) {
+    emitUpdate(undefined)
   } else if( props.booleanRef ) {
     emitUpdate(value === 'true')
   } else {

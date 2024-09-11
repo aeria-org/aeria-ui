@@ -59,10 +59,10 @@ watch(() => animalStore.specie, (value, oldValue) => {
         v-model="state.color"
         boolean-ref
         :property="{
-              enum: [
-              'true',
-              'false',
-              ],
+          enum: [
+            'true',
+            'false',
+          ],
         }"
       >
     </aeria-select>
