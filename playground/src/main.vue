@@ -4,7 +4,8 @@ import {watch, reactive} from 'vue'
 
 const state = reactive({
   date: new Date(),
-  ceps: []
+  ceps: [],
+  color: null,
 })
 
 const animalStore = useStore('animal')
@@ -54,6 +55,17 @@ watch(() => animalStore.specie, (value, oldValue) => {
     </div>
 
     <pre>{{ state }}</pre>
+    <aeria-select
+        v-model="state.color"
+        boolean-ref
+        :property="{
+              enum: [
+              'true',
+              'false',
+              ],
+        }"
+      >
+    </aeria-select>
     <aeria-form
         v-model="state"
         :property="{
@@ -62,6 +74,13 @@ watch(() => animalStore.specie, (value, oldValue) => {
             date: {
               type: 'string',
               format: 'date-time',
+            },
+            color: {
+              enum: [
+                'blue',
+                'yellow',
+                'green',
+              ],
             },
             ceps: {
               type: 'array',

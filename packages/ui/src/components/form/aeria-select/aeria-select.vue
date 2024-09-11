@@ -22,37 +22,20 @@ const emit = defineEmits<Emits>()
 const select = ref<HTMLSelectElement | null>(null)
 const property = props.property
 
-const update = (value: any) => {
-  if( props.booleanRef ) {
-    modelValue.value = value
-  }
-
-  emit('update:modelValue', value?._id || value)
-  emit('change', value?._id || value)
+const emitUpdate = (value: unknown) => {
+  emit('update:modelValue', value)
+  emit('change', value)
 }
 
-const modelValue = !props.booleanRef
-  ? computed({
-    get: () => props.modelValue,
-    set: update,
-  })
-  : (() => {
-    const value = ref(props.modelValue)
-    const comp = computed({
-      get: () => {
-        switch( value.value ) {
-          case 'true': return true
-          case 'false': return false
-          default: return null
-        }
-      },
-      set: (newVal) => {
-        value.value = newVal
-      },
-    })
-
-    return comp
-  })()
+const update = (value: unknown) => {
+  if( value === '' || value === null ) {
+    emitUpdate(null)
+  } else if( props.booleanRef ) {
+    emitUpdate(value === 'true')
+  } else {
+    emitUpdate(value)
+  }
+}
 
 const isSelected = (option: any) => {
   return Array.isArray(props.modelValue)

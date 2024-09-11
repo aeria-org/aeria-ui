@@ -370,9 +370,9 @@ const buttonStyle = (subject: unknown, action: { action: string }) => {
               />
             </aeria-context-menu>
           </div>
-        </td>
 
-        <div :id="`dropdown-${row._id}`" />
+          <div :id="`dropdown-${row._id}`" />
+        </td>
       </tr>
     </tbody>
     <tfoot>
