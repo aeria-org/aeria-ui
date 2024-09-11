@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.102
+
+### Patch Changes
+
+- bf2c129: Fix `aeria-select` emitting empty string instead of `null`
+
 ## 0.0.101
 
 ### Patch Changes
