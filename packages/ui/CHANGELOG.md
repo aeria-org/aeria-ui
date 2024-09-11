@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.103
+
+### Patch Changes
+
+- 606dacb: Emit `undefined` instead of `null` in `aeria-select`
+
 ## 0.0.102
 
 ### Patch Changes
