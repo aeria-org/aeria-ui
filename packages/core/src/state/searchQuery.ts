@@ -130,7 +130,7 @@ export const convertFromSearchQuery = (store: CollectionStore, route: RouteRecor
         propName,
         buildValue(value, {
           type: 'string',
-        })
+        }),
       ])
       continue
     }
