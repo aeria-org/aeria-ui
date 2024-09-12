@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.104
+
+### Patch Changes
+
+- ff5ad97: Optimizations
+- Updated dependencies [ff5ad97]
+  - @aeria-ui/utils@0.0.2
+  - @aeria-ui/core@0.0.65
+
 ## 0.0.103
 
 ### Patch Changes
