@@ -18,7 +18,7 @@ export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, op
           }
         }
 
-        default: return JSON.stringify(obj) 
+        default: return JSON.stringify(obj)
       }
     }
 

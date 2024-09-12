@@ -25,7 +25,6 @@ const filter = () => {
   store.$actions.filter()
   emit('update:modelValue', false)
 
-
   if( 'query' in router.currentRoute && router.currentRoute.query && typeof router.currentRoute.query === 'object' ) {
     const query = router.currentRoute.query as Record<string, unknown>
     for( const param of Object.keys(query) ) {
