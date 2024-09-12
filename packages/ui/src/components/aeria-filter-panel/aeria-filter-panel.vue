@@ -25,18 +25,17 @@ const filter = () => {
   store.$actions.filter()
   emit('update:modelValue', false)
 
-  const currentRoute = Object.assign({
-    query: {},
-  }, router.currentRoute.value)
 
-  for( const param of Object.keys(currentRoute.query) ) {
-    if( param.startsWith(`${storeId}.`) ) {
-      delete currentRoute.query[param]
+  if( 'query' in router.currentRoute && router.currentRoute.query && typeof router.currentRoute.query === 'object' ) {
+    const query = router.currentRoute.query as Record<string, unknown>
+    for( const param of Object.keys(query) ) {
+      if( param.startsWith(`${storeId}.`) ) {
+        delete query[param]
+      }
     }
   }
 
-  router.currentRoute.value.query = {}
-  router.push(deepMerge(currentRoute, {
+  router.push(deepMerge(router.currentRoute, {
     query: convertToSearchQuery(store),
   }))
 }

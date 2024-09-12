@@ -1,23 +1,14 @@
 import type { Description, Layout, PackReferences, PropertyValidationError, Property } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager } from '@aeria-ui/state-management'
-import { deepClone, deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
+import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
+import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
-import { deepDiff } from './deepDiff.js'
-import { isDocumentComplete } from './isDocumentComplete.js'
 import { useStoreActions } from './actions.js'
-
-import {
-  condenseItem,
-  isNull,
-  removeEmpty,
-  normalizeFilters,
-  normalizeActions,
-
-} from './helpers.js'
+import { isNull, normalizeFilters, normalizeActions } from './helpers.js'
 
 export type CollectionStoreItem = Record<string, unknown> & {
-  _id?: any
+  _id?: string
 }
 
 export type CollectionStoreState<TItem extends CollectionStoreItem = any> =
@@ -122,8 +113,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     })
 
     const $filters = computed(() => {
-      const sanitizedFilters = removeEmpty(deepClone(state.filters))
-
       const expr = (key: string, value: unknown) => {
         const property = key in properties.value
           ? properties.value[key]
@@ -165,40 +154,44 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
         return getValue(value)
       }
 
-      const entries = Object.entries(sanitizedFilters).reduce((a: any[], [key, filter]) => {
+      const sanitizedFilters: Record<string, unknown> = {}
+      for( const [key, filter] of Object.entries(state.filters) ) {
         if (key.startsWith('$')) {
-          return [
-            ...a,
-            [
-              key,
-              filter,
-            ],
-          ]
+          sanitizedFilters[key] = filter
+          continue
         }
 
-        if (filter && typeof filter === 'object' && !Array.isArray(filter)) {
-          Object.keys(filter).forEach((key) => {
-            if (isNull(filter[key]) || Object.values(filter[key]).every((_) => isNull(_))) {
-              delete filter[key]
-            }
-          })
+        if( isNull(filter) ) {
+          continue
         }
 
-        if (isNull(filter) || (typeof filter === 'object' && Object.keys(filter).length === 0)) {
-          return a
+        if( Array.isArray(filter) ) {
+          if( filter.length > 0 ) {
+            sanitizedFilters[key] = expr(key, filter)
+          }
+          continue
         }
 
-        return [
-          ...a,
-          [
-            key,
-            expr(key, filter),
-          ],
-        ]
-      }, [])
+        if( !filter || typeof filter !== 'object' || filter.constructor !== Object ) {
+          sanitizedFilters[key] = expr(key, filter)
+          continue
+        }
 
-      return Object.fromEntries(entries)
+        const newFilter: Record<string, unknown> = {}
+        for( const [key, value] of Object.entries(filter) ) {
+          if( isNull(value) || Object.values(value).every((val) => isNull(val)) ) {
+            continue
+          }
 
+          newFilter[key] = value
+        }
+
+        if( Object.keys(newFilter).length > 0 ) {
+          sanitizedFilters[key] = expr(key, newFilter)
+        }
+      }
+
+      return sanitizedFilters
     })
 
     const properties = computed(() => description.value.properties)

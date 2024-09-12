@@ -1,13 +1,12 @@
 import type { EndpointError, Property, PaginatedGetAllReturnType } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
 import { getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
-import { formatValue } from '@aeria-ui/utils'
+import { formatValue, condenseItem } from '@aeria-ui/utils'
 import { Result } from '@aeriajs/types'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
 import { request } from '../http.js'
 import { useCollectionStore, type CollectionStore } from './collection.js'
-import { condenseItem } from './helpers.js'
 import { recurseInsertCandidate } from './recurseInsertCandidate.js'
 
 export type CrudParameters = {
@@ -64,6 +63,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       const found = store.items.find(({ _id }) => _id === item._id)
       if( found ) {
+        for( const key in found ) {
+          found[key] = undefined
+        }
         Object.assign(found, deepClone(store.freshItem))
         Object.assign(found, item)
         return item
@@ -180,7 +182,6 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     async insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
-
       const { error, result } = await actions.custom<Result.Either<EndpointError, unknown>>('insert', {
         ...payload,
         what: payload?.what || store.item,
@@ -210,7 +211,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       }
 
       return actions.insert({
-        what: condenseItem(newItem),
+        what: condenseItem(newItem) as Record<string, unknown>,
       }, options)
     },
 

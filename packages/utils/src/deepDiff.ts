@@ -1,23 +1,30 @@
 export type DiffOptions = {
   preserveIds?: boolean
 }
+
 export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, options?: DiffOptions) => {
   const { preserveIds } = options || {}
 
   const equals = (left: unknown, right: unknown) => {
-    const toStr = (obj: any) => {
-      const sortedObj = obj && obj.constructor === Object
-        ? Object.fromEntries(Object.keys(obj).sort().map((key) => [
-          key,
-          obj[key],
-        ]))
-        : obj
+    const toStr = (obj: unknown) => {
+      switch( typeof obj ) {
+        case 'undefined': return 'undefined'
+        case 'object': {
+          if( obj ) {
+            return JSON.stringify(Object.fromEntries(Object.entries(obj).sort().map(([key, value]) => [
+              key,
+              value,
+            ])))
+          }
+        }
 
-      return JSON.stringify(sortedObj)
+        default: return JSON.stringify(obj) 
+      }
     }
 
     return toStr(left) === toStr(right)
   }
+
   const changes = (target: T, origin: T): any => {
     const diff = Object.entries(target).reduce((a: any, [key, value]) => {
       const isUnequal = (() => {
@@ -81,3 +88,4 @@ export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, op
 
   return changes(target, origin)
 }
+

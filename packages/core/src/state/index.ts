@@ -1,6 +1,4 @@
 export * from './actions.js'
 export * from './collection.js'
 export * from './searchQuery.js'
-export * from './deepDiff.js'
 export * from './helpers.js'
-export * from './isDocumentComplete.js'
