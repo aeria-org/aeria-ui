@@ -1,10 +1,12 @@
 import type { Router } from 'vue-router'
-import type { CollectionAction, Result } from '@aeriajs/types'
+import type { CollectionAction } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import type { CollectionStore } from '../state/collection.js'
 import { useStore } from '@aeria-ui/state-management'
-import { reactive } from 'vue'
+import { useI18n } from '@aeria-ui/i18n'
+import { Result } from '@aeriajs/types'
 import { deepClone } from '@aeriajs/common'
+import { reactive } from 'vue'
 
 export const STORE_EFFECTS = <const>{
   'ITEM_SET': 'setItem',
@@ -37,6 +39,8 @@ export const useAction = <Filters extends { _id: string | string[] }>(
   })
 
   const fn = (actionProps: CollectionAction<any> & { action: string }): (filters?: Filters)=> void => {
+    const metaStore = useStore('meta', manager)
+    const { t } = useI18n()
     const { action: actionName } = actionProps
 
     if( 'route' in actionProps ) {
@@ -50,11 +54,19 @@ export const useAction = <Filters extends { _id: string | string[] }>(
         }
 
         if( actionProps.route.fetchItem && filters?._id ) {
-          await store.$actions.get({
+          const { error } = await store.$actions.get({
             filters: {
               _id: filters._id,
             },
           })
+
+          if( error ) {
+            metaStore.$actions.spawnToast({
+              icon: 'warning',
+              text: t('failed_to_fetch'),
+            })
+            return Result.error(error)
+          }
         }
 
         const params = actionProps.route.params || {}
@@ -114,7 +126,6 @@ export const useAction = <Filters extends { _id: string | string[] }>(
     })()
 
     if( actionProps.ask ) {
-      const metaStore = useStore('meta', manager)
       return (filters?: Filters) => metaStore.$actions.ask({
         action: storeAction,
         params: prepareFilters(filters),
