@@ -77,7 +77,7 @@ export const useAction = <Filters extends { _id: string | string[] }>(
         params.collection = store.description.$id
         router.push({
           name: actionProps.route.name,
-          query: actionProps.route.query as LocationQueryRaw || {},
+          query: actionProps.route.query as LocationQueryRaw | undefined || {},
           params: params as RouteParamsRawGeneric,
         })
       }
