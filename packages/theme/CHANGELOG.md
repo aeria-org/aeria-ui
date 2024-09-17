@@ -1,5 +1,11 @@
 # @aeria-ui/theme
 
+## 0.0.49
+
+### Patch Changes
+
+- @aeria-ui/core@0.0.67
+
 ## 0.0.48
 
 ### Patch Changes
