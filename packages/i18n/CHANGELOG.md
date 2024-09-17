@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.9
+
+### Patch Changes
+
+- 1109dce: Fix `condenseItem()` bug among other refactors
+
 ## 0.0.8
 
 ### Patch Changes
