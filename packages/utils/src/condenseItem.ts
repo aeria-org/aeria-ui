@@ -14,11 +14,11 @@ export const condenseItem = (item: unknown, depth = 0): unknown => {
       continue
     }
     if( Array.isArray(value) ) {
-      result[key] = value.map((elem) => condenseItem(elem, depth++))
+      result[key] = value.map((elem) => condenseItem(elem, depth + 1))
       continue
     }
 
-    result[key] = condenseItem(value, depth++)
+    result[key] = condenseItem(value, depth + 1)
   }
 
   return result

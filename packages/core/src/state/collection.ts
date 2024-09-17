@@ -8,7 +8,7 @@ import { useStoreActions } from './actions.js'
 import { isNull, normalizeFilters, normalizeActions } from './helpers.js'
 
 export type CollectionStoreItem = Record<string, unknown> & {
-  _id?: string
+  _id?: unknown
 }
 
 export type CollectionStoreState<TItem extends CollectionStoreItem = any> =

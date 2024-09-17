@@ -119,9 +119,15 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
     ? `${options.context}.${text}`
     : text
 
-  const result: string | object = Array.isArray(locale)
-    ? getValueFromPath(locale.find((candidate) => getValueFromPath(candidate, fullPath(text))), fullPath(text))
-    : getValueFromPath(locale, fullPath(text))
+  let result: string | object | undefined
+  if( Array.isArray(locale) ) {
+    const matchedLocale = locale.find((candidate) => getValueFromPath(candidate, fullPath(text)))
+    result = matchedLocale
+      ? getValueFromPath(matchedLocale, fullPath(text))
+      : undefined
+  } else {
+    result = getValueFromPath(locale, fullPath(text))
+  }
 
   if( !result ) {
     if( options.noFallback ) {

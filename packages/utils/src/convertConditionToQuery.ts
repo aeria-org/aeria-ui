@@ -1,18 +1,24 @@
-import type { Condition, TruthyCondition, FinalCondition, RegexCondition } from '@aeriajs/types'
+import type { Condition, JsonSchema, TruthyCondition, FinalCondition, RegexCondition } from '@aeriajs/types'
 import { getValueFromPath } from '@aeriajs/common'
 
-const convertExpression = (
+const convertExpression = <TJsonSchema extends JsonSchema>(
   condition:
-    | FinalCondition
-    | RegexCondition
-    | TruthyCondition,
-  subject?: unknown,
+    | FinalCondition<TJsonSchema>
+    | RegexCondition<TJsonSchema>
+    | TruthyCondition<TJsonSchema>,
+  subject?: Record<string, unknown>,
 ) => {
-  const term2 = 'term2' in condition
-    ? condition.fromState
-      ? getValueFromPath(subject, condition.term2)
-      : condition.term2
-    : null
+  let term2 = null
+
+  if( 'term2' in condition ) {
+    if( condition.fromState ) {
+      term2 = subject && typeof condition.term2 === 'string'
+        ? getValueFromPath(subject, condition.term2)
+        : null
+    } else {
+      term2 = condition.term2
+    }
+  }
 
   switch( condition.operator ) {
     case 'truthy': return {

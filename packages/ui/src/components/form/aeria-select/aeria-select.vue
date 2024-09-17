@@ -101,7 +101,7 @@ if( !!props.multiple ) {
       v-for="option in property && 'enum' in property
         ? property.enum
         : []"
-      :key="option"
+      :key="String(option)"
       :value="option"
       :data-selected="isSelected(option)"
     >
