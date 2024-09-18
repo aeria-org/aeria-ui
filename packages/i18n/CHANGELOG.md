@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.10
+
+### Patch Changes
+
+- dcf8a63: Fix type
+
 ## 0.0.9
 
 ### Patch Changes
