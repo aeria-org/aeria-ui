@@ -30,16 +30,12 @@ const computedIcon = computed(() => {
 
 <template>
   <a
-    :class="`
-      icon
-      ${reactive && 'icon--reactive'}
-      ${active && 'icon--active'}
-      ${
-      $slots.default
-        ? 'icon--centered'
-        : 'icon--standalone'
-    }
-  `"
+    :class="[
+      'icon',
+      { 'icon--reactive': reactive },
+      { 'icon--active': active },
+      $slots.default ? 'icon--centered' : 'icon--standalone'
+    ]"
   >
     <div
       :class="`

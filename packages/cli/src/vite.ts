@@ -111,6 +111,9 @@ export default defineConfig(async () => {
     build: {
       target: 'esnext',
     },
+    esbuild: {
+      legalComments: 'external',
+    },
   } satisfies InlineConfig)
 
   return config
