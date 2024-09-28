@@ -87,8 +87,7 @@ const store = collectionName
   : null
 
 if( !collectionName && process.env.NODE_ENV !== 'production' ) {
-  console.warn(`aeria-form was used without providing storeId or specifying
-    collection prop, some features may not work as intended`)
+  console.warn(`aeria-form was used without providing storeId or specifying collection prop, some features may not work as intended`)
 }
 
 const alreadyFocused = ref(false)
@@ -446,9 +445,7 @@ const focusOnRender = (property: Property) => {
 
             @change="emit('change', $event)"
             @update:model-value="(value) => {
-              modelValue[fieldPropertyName] = value == 'true'
-                ? true : value == 'false'
-                  ? false : null
+              modelValue[fieldPropertyName] = value
             }"
           >
             <option value="true">

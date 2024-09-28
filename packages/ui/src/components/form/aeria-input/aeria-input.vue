@@ -124,23 +124,18 @@ onMounted(() => {
 })
 
 const getDatetimeString = (value: InputType) => {
-  try {
-    let date: Date
-    if( value instanceof Date ) {
-      date = value
-    } else if ( typeof value === 'string' ) {
-      date = new Date(value)
-    } else {
-      throw new Error
-    }
+  if( typeof value === 'string' ) {
+    return value
+  }
 
-    switch( inputBind.type ) {
-      case 'date': return date.toISOString().slice(0, 10)
-      case 'datetime-local': return date.toISOString().slice(0, 19)
-      default: throw new Error()
-    }
-  } catch( err ) {
+  if( !(value instanceof Date) ) {
     return ''
+  }
+
+  switch( inputBind.type ) {
+    case 'date': return value.toISOString().slice(0, 10)
+    case 'datetime-local': return value.toISOString().slice(0, 19)
+    default: throw new Error()
   }
 }
 
@@ -201,11 +196,12 @@ const updateValue = (value: InputType) => {
         return Number(value)
       case 'date':
       case 'date-time':
-        return new Date(value)
+        return value
 
       default: return computeString(value)
     }
   })()
+
 
   emit('input', newVal)
   emit('update:modelValue', newVal)

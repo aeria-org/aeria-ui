@@ -4,6 +4,7 @@ import {watch, reactive} from 'vue'
 
 const state = reactive({
   date: new Date(),
+  datetime: new Date(),
   ceps: [],
   color: null,
 })
@@ -67,32 +68,38 @@ watch(() => animalStore.specie, (value, oldValue) => {
       >
     </aeria-select>
     <aeria-form
-        v-model="state"
-        :property="{
-          type: 'object',
-          properties: {
-            date: {
+      v-model="state"
+      :property="{
+        type: 'object',
+        properties: {
+          date: {
+            type: 'string',
+            format: 'date',
+          },
+          datetime: {
+            type: 'string',
+            format: 'date-time',
+          },
+          bool: {
+            type: 'boolean',
+          },
+          color: {
+            enum: [
+              'blue',
+              'yellow',
+              'green',
+            ],
+          },
+          ceps: {
+            type: 'array',
+            items: {
               type: 'string',
-              format: 'date-time',
-            },
-            color: {
-              enum: [
-                'blue',
-                'yellow',
-                'green',
-              ],
-            },
-            ceps: {
-              type: 'array',
-              items: {
-                type: 'string',
-                mask: '##-#'
-              }
+              mask: '##-#'
             }
           }
-        }"
-      >
-    </aeria-form>
+        }
+      }"
+    ></aeria-form>
     <aeria-button @click="state.date = new Date">Update date</aeria-button>
   </main>
 </template>
