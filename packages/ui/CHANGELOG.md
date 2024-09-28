@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.107
+
+### Patch Changes
+
+- abf88b3: Fix input bugs
+
 ## 0.0.106
 
 ### Patch Changes
