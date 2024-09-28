@@ -202,7 +202,6 @@ const updateValue = (value: InputType) => {
     }
   })()
 
-
   emit('input', newVal)
   emit('update:modelValue', newVal)
 }
