@@ -48,13 +48,21 @@ const buildValue = (value: unknown, property: Property) => {
   }
 
   if( 'type' in property ) {
-    if( property.type === 'string' && typeof value === 'string' ) {
-      if( property.format === 'date' || property.format === 'date-time' ) {
-        const [d1, d2] = value.split('|')
-        return {
-          $gte: new Date(d1),
-          $lte: new Date(d2),
+    switch( property.type ) {
+      case 'string': {
+        if( typeof value !== 'string' ) {
+          return value
         }
+        if( property.format === 'date' || property.format === 'date-time' ) {
+          const [d1, d2] = value.split('|')
+          return {
+            $gte: new Date(d1),
+            $lte: new Date(d2),
+          }
+        }
+      }
+      case 'boolean': {
+        return value === 'true'
       }
     }
   }
