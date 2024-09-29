@@ -37,7 +37,7 @@ type Props = FormFieldProps<InputType, Property & (NumberProperty | StringProper
 
 type Emits = {
   (e: 'update:modelValue' | 'input', value: InputType): void
-  (e: 'change', value: any): void
+  (e: 'change', value: unknown): void
   (e: 'clipboardCopy', value: string): void
 }
 

@@ -54,7 +54,7 @@ const filter = () => {
       v-bind="{
         searchOnly: true,
         form: store.availableFilters,
-        layout: store.description.formLayout as any || {}
+        layout: store.description.formLayout as any,
       }"
 
       focus

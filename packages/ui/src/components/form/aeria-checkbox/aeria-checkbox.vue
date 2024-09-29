@@ -5,7 +5,7 @@ import { t } from '@aeria-ui/i18n'
 import { computed } from 'vue'
 
 type Props = FormFieldProps<any, (ArrayProperty | EnumProperty | BooleanProperty) & Property> & {
-  value?: any
+  value?: unknown
   variant?: string
 }
 
@@ -56,7 +56,7 @@ const bindVal = computed({
       }
       if( 'items' in property ) {
         if( props.modelValue?.includes(value) ) {
-          emit('update:modelValue', props.modelValue.filter((v: any) => v !== value))
+          emit('update:modelValue', props.modelValue.filter((v: unknown) => v !== value))
           return
         }
 

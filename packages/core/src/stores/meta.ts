@@ -158,13 +158,13 @@ export const meta = registerStore((context) => {
         })
 
         return new Promise((resolve) => {
-          const event = ({ detail }: any) => {
-            window.removeEventListener('__prompt', event)
+          const event = ({ detail }: CustomEvent<{ option: PromptAnswer }>) => {
+            window.removeEventListener('__prompt', event as EventListener)
             state.prompt.visible = false
             resolve(detail.option)
           }
 
-          window.addEventListener('__prompt', event)
+          window.addEventListener('__prompt', event as EventListener)
         })
       },
 

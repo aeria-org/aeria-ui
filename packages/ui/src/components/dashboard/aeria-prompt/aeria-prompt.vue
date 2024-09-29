@@ -13,7 +13,7 @@ defineProps<Props>()
 
 const metaStore = useStore('meta')
 
-const onClick = (answer: string, option: PromptOption) => {
+const handleClick = (answer: string, option: PromptOption) => {
   metaStore.$actions.fulfillPrompt(answer, option)
 }
 </script>
@@ -51,7 +51,7 @@ const onClick = (answer: string, option: PromptOption) => {
           `"
           @click="option.click
             ? option.click(optionName, option)
-            : onClick(optionName, option)
+            : handleClick(optionName, option)
           "
         >
           {{ option.title }}

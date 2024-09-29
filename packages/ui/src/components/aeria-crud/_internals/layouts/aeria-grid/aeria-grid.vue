@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LayoutOptions } from '@aeriajs/types'
+import type { LayoutOptions, CollectionAction } from '@aeriajs/types'
 import { useParentCollectionStore } from '@aeria-ui/core'
 import { t } from '@aeria-ui/i18n'
 
@@ -11,7 +11,7 @@ import AeriaBadge from '../../../../aeria-badge/aeria-badge.vue'
 import AeriaPicture from '../../../../aeria-picture/aeria-picture.vue'
 
 type Props = {
-  individualActions: any
+  individualActions: (CollectionAction<any> & { click: () => void })[]
   hasSelectionActions?: boolean
   layoutOptions: LayoutOptions
   componentName: string
@@ -22,7 +22,7 @@ const layoutOptions = props.layoutOptions
 
 const store = useParentCollectionStore()
 
-const firstIfArray = (what: any) => {
+const firstIfArray = (what: unknown) => {
   return Array.isArray(what)
     ? what[0]
     : what

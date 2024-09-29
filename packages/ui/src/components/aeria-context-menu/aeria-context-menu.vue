@@ -10,21 +10,21 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
   actions?: (CollectionAction<any> & {
-    click: (...args: any[])=> void
+    click: ()=> void
   })[]
-  subject?: any
+  subject?: unknown
   overlayLayer?: number
 }
 
 type Action = {
-  click?: (subject: any)=> void
+  click?: (subject: unknown)=> void
 }
 
 type Emits = {
   (e: 'actionClick',
     event: {
       action: Action,
-      subject: any
+      subject: unknown
   }): void
 }
 
@@ -46,7 +46,7 @@ const filterActions = (actions: Props['actions']) => {
   })
 }
 
-const onClick = (action: Action, _subject: any) => {
+const handleClick = (action: Action, _subject: unknown) => {
   const subject = _subject
     ? deepClone(_subject)
     : _subject
@@ -154,7 +154,7 @@ const position = computed(() => {
               content__item
               content__item--reactive
             "
-            @click="onClick(action, subject)"
+            @click="handleClick(action, subject)"
           >
             <aeria-icon
               v-if="action.icon"

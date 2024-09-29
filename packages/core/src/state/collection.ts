@@ -1,4 +1,4 @@
-import type { Description, Layout, PackReferences, PropertyValidationError, Property } from '@aeriajs/types'
+import type { Description, Layout, PackReferences, PropertyValidationError, Property, LayoutName } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager } from '@aeria-ui/state-management'
 import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
@@ -40,7 +40,7 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   preferredTableProperties: string[]
   selected: TItem[] | string[]
 
-  currentLayout: string
+  currentLayout: LayoutName
   validationErrors: Record<string, PropertyValidationError>
   loading: Record<string, boolean>
   textQuery: string
@@ -74,7 +74,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     preferredTableProperties: [],
     selected: [],
 
-    currentLayout: '',
+    currentLayout: 'tabular',
     validationErrors: {},
     loading: {},
     textQuery: '',

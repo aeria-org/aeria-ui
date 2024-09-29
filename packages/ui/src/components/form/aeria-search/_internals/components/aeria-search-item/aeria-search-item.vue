@@ -10,7 +10,7 @@ import AeriaIcon from '../../../../../aeria-icon/aeria-icon.vue'
 type Props = {
   item: Record<string, unknown>
   indexes: readonly string[]
-  modelValue?: CollectionStoreItem | CollectionStoreItem[]
+  modelValue: CollectionStoreItem | CollectionStoreItem[]
   property: SearchProperty
   readOnly?: boolean
 }
@@ -44,12 +44,16 @@ const select = () => {
     return
   }
 
-  const filterEmpties = (array: any[]) => array.filter((e) => !!e?._id)
-  const modelValue = 'items' in property
-    ? filterEmpties(Array.isArray(props.modelValue)
+  const filterEmpties = (array: CollectionStoreItem[]) => array.filter((e) => !!e?._id)
+
+  let modelValue: typeof props.modelValue
+  if( 'items' in property ) {
+    modelValue = filterEmpties(Array.isArray(props.modelValue)
       ? props.modelValue
       : [props.modelValue])
-    : props.modelValue
+  } else {
+    modelValue = props.modelValue
+  }
 
   if( Array.isArray(modelValue) ) {
     emit('update:modelValue', modelValue.concat([props.item]))
@@ -75,7 +79,7 @@ const deselect = async (options?: { purge?: true }) => {
       ? Array.from(props.modelValue)
       : []
 
-    const idx = modelValue.findIndex((option: any) => option._id === props.item._id)
+    const idx = modelValue.findIndex((option) => option._id === props.item._id)
 
     modelValue.splice(idx, 1)
     return modelValue

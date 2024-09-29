@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import type { LayoutOptions } from '@aeriajs/types'
+import type { LayoutOptions, CollectionAction } from '@aeriajs/types'
 import { computed } from 'vue'
 import { getStoreId } from '@aeria-ui/state-management'
 import { useParentCollectionStore } from '@aeria-ui/core'
 import AeriaTable from '../../../../aeria-table/aeria-table.vue'
 
 type Props = {
-  individualActions: any
+  individualActions: (CollectionAction<any> & {
+    action: string
+    click: () => void
+  })[]
   layoutOptions: LayoutOptions
-  componentProps?: Record<string, any>
+  componentProps?: Record<string, unknown>
 }
 
 const props = defineProps<Props>()

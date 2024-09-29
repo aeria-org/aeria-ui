@@ -6,7 +6,9 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 // #region props
 type Props = {
   closeHint?: boolean
-  modelValue?: any
+  modelValue?:
+    | boolean
+    | object
   title?: string
   float?: boolean
   fixedRight?: boolean

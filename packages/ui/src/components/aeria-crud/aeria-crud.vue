@@ -209,7 +209,7 @@ watch(() => store.textQuery, (value) => {
   performLazySearch(value)
 })
 
-const toggleLayout = (store: any) => {
+const toggleLayout = (store: CollectionStore) => {
   store.currentLayout = store.currentLayout === 'tabular'
     ? store.description.layout!.name
     : 'tabular'
@@ -264,7 +264,7 @@ watch(() => actionEventBus.value, async (_event) => {
         return a
       }
 
-      const unbound = (value: any) => {
+      const unbound = (value: typeof store.item) => {
         const refProperty = getReferenceProperty(property)
         if( !refProperty ) {
           return value
@@ -482,7 +482,7 @@ provide('individualActions', individualActions)
       </aeria-button>
 
       <aeria-button
-        v-for="(actionProps, index) in store.actions.filter((action: any) => action.button)"
+        v-for="(actionProps, index) in store.actions.filter((action) => action.button)"
         :key="`action-${index}`"
 
         :icon="actionProps.icon"
@@ -551,7 +551,7 @@ provide('individualActions', individualActions)
         layoutOptions: layout?.options || store.layout.options!,
         componentProps
       }"
-      :is="getLayout(layout?.name || store.$currentLayout as any)"
+      :is="getLayout(layout?.name || store.$currentLayout)"
       v-else
       :component-name="layout?.name || store.$currentLayout"
     >

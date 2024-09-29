@@ -18,7 +18,7 @@ type Props = Omit<FormFieldProps<any>, 'property' | 'propertyName'> & {
   property: SearchProperty
   propertyName: string
   selectOnly?: boolean
-  panel?: any
+  panel?: unknown
 }
 
 const DEFAULT_LIMIT = 10
@@ -34,7 +34,7 @@ const panel = props.panel !== undefined
   : ref(false)
 
 const emit = defineEmits<{
-  (e: 'update:modelValue' | 'change', event: any): void
+  (e: 'update:modelValue' | 'change', event: unknown): void
   (e: 'update:panel', event: boolean): void
 }>()
 

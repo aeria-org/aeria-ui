@@ -13,7 +13,7 @@ type Props = FormFieldProps<any, Property & (EnumProperty | BooleanProperty)> & 
 }
 
 type Emits = {
-  (e: 'update:modelValue' | 'change', value: any): void
+  (e: 'update:modelValue' | 'change', value: unknown): void
 }
 
 const props = defineProps<Props>()
@@ -37,7 +37,7 @@ const update = (value: unknown) => {
   }
 }
 
-const isSelected = (option: any) => {
+const isSelected = (option: unknown) => {
   return Array.isArray(props.modelValue)
     ? props.modelValue.includes(option)
     : props.modelValue === option

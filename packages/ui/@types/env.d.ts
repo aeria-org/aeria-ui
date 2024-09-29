@@ -10,7 +10,7 @@ declare module '@vue/runtime-core' {
     viewIcon: string
     instanceVars: typeof import('@aeria-ui/cli').InstanceConfig['site']
     currentUser: (Collections['user']['item'] extends infer UserCollection
-      ? UserCollection extends (...args: any[]) => any
+      ? UserCollection extends (...args: unknown[]) => unknown
         ? ReturnType<UserCollection>
         : UserCollection
       : never

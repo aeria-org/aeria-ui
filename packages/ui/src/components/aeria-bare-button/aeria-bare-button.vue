@@ -6,10 +6,10 @@ type Props = {
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  (e: 'click', event: any): void
+  (e: 'click', event: Event): void
 }>()
 
-const onClick = (event: any) => {
+const handleClick = (event: Event) => {
   if( !props.disabled ) {
     emit('click', event)
   }
@@ -22,7 +22,7 @@ const onClick = (event: any) => {
       barebutton
       barebutton--${disabled ? 'disabled' : 'enabled'}
     `"
-    @click="onClick"
+    @click="handleClick"
   >
     <slot />
   </button>

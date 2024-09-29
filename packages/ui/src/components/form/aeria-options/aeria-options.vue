@@ -10,7 +10,7 @@ type Props = Omit<FormFieldProps<any>, 'property'> & {
 }
 
 type Emits = {
-  (e: 'update:modelValue', value: any): void
+  (e: 'update:modelValue', value: unknown): void
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -24,7 +24,7 @@ const options = 'items' in props.property
   ? props.property.items.enum
   : props.property.enum
 
-const updateValue = (value: any) => {
+const updateValue = (value: unknown) => {
   emit('update:modelValue', value)
 }
 

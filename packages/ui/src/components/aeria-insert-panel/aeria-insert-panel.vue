@@ -13,7 +13,7 @@ type Props = {
   collection?: string
   form?: string[]
   visible?: any
-  modelValue?: any
+  modelValue?: unknown
   readOnly?: boolean
   includeId?: boolean
   includeTimestamps?: boolean
@@ -21,7 +21,7 @@ type Props = {
 
 type Emits = {
   (e: 'update:visible', value: boolean): void
-  (e: 'update:modelValue' | 'insert', value: any): void
+  (e: 'update:modelValue' | 'insert', value: unknown): void
   (e: 'cancel'): void
 }
 

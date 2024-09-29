@@ -6,7 +6,7 @@ import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
 type Props = {
   idx: number
   itr: number
-  date: any
+  date: Date
   icon?: Icon
 }
 
