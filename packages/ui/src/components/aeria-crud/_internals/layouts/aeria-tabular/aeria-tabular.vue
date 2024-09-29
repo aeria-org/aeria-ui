@@ -8,7 +8,7 @@ import AeriaTable from '../../../../aeria-table/aeria-table.vue'
 type Props = {
   individualActions: (CollectionAction<any> & {
     action: string
-    click: () => void
+    click: ()=> void
   })[]
   layoutOptions: LayoutOptions
   componentProps?: Record<string, unknown>

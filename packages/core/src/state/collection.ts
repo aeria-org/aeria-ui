@@ -40,7 +40,7 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   preferredTableProperties: string[]
   selected: TItem[] | string[]
 
-  currentLayout: LayoutName
+  currentLayout?: LayoutName
   validationErrors: Record<string, PropertyValidationError>
   loading: Record<string, boolean>
   textQuery: string
@@ -74,7 +74,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     preferredTableProperties: [],
     selected: [],
 
-    currentLayout: 'tabular',
     validationErrors: {},
     loading: {},
     textQuery: '',

@@ -35,8 +35,7 @@ const isAlreadySelected = computed(() => {
       && Object.values(props.modelValue).some(({ _id: itemId }) => props.item._id === itemId)
   }
 
-  return props.modelValue
-    && props.modelValue._id === props.item._id
+  return props.modelValue._id === props.item._id
 })
 
 const select = () => {
@@ -44,7 +43,7 @@ const select = () => {
     return
   }
 
-  const filterEmpties = (array: CollectionStoreItem[]) => array.filter((e) => !!e?._id)
+  const filterEmpties = (array: CollectionStoreItem[]) => array.filter((e) => !!e._id)
 
   let modelValue: typeof props.modelValue
   if( 'items' in property ) {
