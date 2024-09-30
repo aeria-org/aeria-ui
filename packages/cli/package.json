@@ -31,7 +31,6 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@vitejs/plugin-vue": "^4.1.0",
-    "aeria-icons": "^0.0.5",
     "ejs": "^3.1.9",
     "js-yaml": "^4.1.0",
     "less": "^4.2.0",
@@ -53,6 +52,7 @@
     "@aeriajs/builtins-icons": "0.0",
     "@aeriajs/common": "0.0",
     "@aeriajs/types": "0.0",
+    "aeria-icons": "^0.0.5",
     "bson": "^6.6.0",
     "vue": "^3.4.26"
   }
