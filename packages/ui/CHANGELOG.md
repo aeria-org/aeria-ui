@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.109
+
+### Patch Changes
+
+- 26abb18: Add `instanceVars.base`
+
 ## 0.0.108
 
 ### Patch Changes
