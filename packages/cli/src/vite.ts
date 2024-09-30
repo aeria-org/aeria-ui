@@ -15,7 +15,7 @@ export default defineConfig(async () => {
   const {
     vite: viteConfig = {},
     icons: iconsConfig = {},
-    site: siteConfig  = {},
+    site: siteConfig = {},
   } = instanceConfig
 
   viteConfig.base ||= siteConfig.base
