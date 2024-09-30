@@ -17,6 +17,10 @@ Aeria Icons is a Vite/Webpack plugin that makes it possible to serve icons stati
 ```typescript
 export type Options = {
   /**
+   * Override Vite's base URI
+   */
+  base?: string
+  /**
    * HTML tag to be searched for.
    */
   tag?: string

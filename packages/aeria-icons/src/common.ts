@@ -5,6 +5,7 @@ import { readFile } from 'fs/promises'
 import { FALLBACK_STYLE } from './constants.js'
 
 export type Options = {
+  base?: string
   defaultStyle?: IconStyle
   safeList?: string[]
   libraries?: string[]
