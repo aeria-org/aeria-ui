@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.6
+
+### Patch Changes
+
+- 118a96b: Add `base` option
+
 ## 0.0.5
 
 ### Patch Changes

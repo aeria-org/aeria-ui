@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.68
+
+### Patch Changes
+
+- b457359: Fix search query `buildValue()`
+
 ## 0.0.67
 
 ### Patch Changes
