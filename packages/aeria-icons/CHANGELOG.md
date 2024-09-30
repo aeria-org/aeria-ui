@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.7
+
+### Patch Changes
+
+- 26abb18: Add `instanceVars.base`
+
 ## 0.0.6
 
 ### Patch Changes

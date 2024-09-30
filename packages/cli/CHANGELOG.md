@@ -1,5 +1,13 @@
 # aeria-ui-build
 
+## 0.0.11
+
+### Patch Changes
+
+- 26abb18: Add `instanceVars.base`
+- Updated dependencies [26abb18]
+  - aeria-icons@0.0.7
+
 ## 0.0.10
 
 ### Patch Changes
