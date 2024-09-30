@@ -110,9 +110,6 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
         version: 4.6.2(vite@5.4.8(@types/node@20.16.10)(less@4.2.0))(vue@3.5.10(typescript@5.6.2))
-      aeria-icons:
-        specifier: ^0.0.5
-        version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.4.8(@types/node@20.16.10)(less@4.2.0))(vue@3.5.10(typescript@5.6.2)))(glob@11.0.0)(vite@5.4.8(@types/node@20.16.10)(less@4.2.0))
       ejs:
         specifier: ^3.1.9
         version: 3.1.10
@@ -150,6 +147,9 @@ importers:
       '@types/node':
         specifier: ^20.8.6
         version: 20.16.10
+      aeria-icons:
+        specifier: link:../aeria-icons
+        version: link:../aeria-icons
       bson:
         specifier: ^6.6.0
         version: 6.8.0
@@ -1266,14 +1266,6 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-
-  aeria-icons@0.0.5:
-    resolution: {integrity: sha512-fYiJ8Sj+bKSVlvhQyIcQ5zkmQcgZv6Z0xhcSm7sxoKixpK6I+77sU+Ui3huwtycZuD4IvrcmeNWRhR0WbQmCzA==}
-    peerDependencies:
-      '@phosphor-icons/core': ^2.0.8
-      '@vitejs/plugin-vue': '*'
-      glob: '*'
-      vite: '*'
 
   aeria-sdk@0.0.134:
     resolution: {integrity: sha512-s+r9yFMBM31TfkgUv6rs4/ALnQCFjTlG4jJ3WkoLaJpcSoC+/t8UUJoPasXc7wodiIMpBNFwNM5sszWMOtSyPA==}
@@ -4486,13 +4478,6 @@ snapshots:
       acorn: 8.12.1
 
   acorn@8.12.1: {}
-
-  aeria-icons@0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@4.6.2(vite@5.4.8(@types/node@20.16.10)(less@4.2.0))(vue@3.5.10(typescript@5.6.2)))(glob@11.0.0)(vite@5.4.8(@types/node@20.16.10)(less@4.2.0)):
-    dependencies:
-      '@phosphor-icons/core': 2.1.1
-      '@vitejs/plugin-vue': 4.6.2(vite@5.4.8(@types/node@20.16.10)(less@4.2.0))(vue@3.5.10(typescript@5.6.2))
-      glob: 11.0.0
-      vite: 5.4.8(@types/node@20.16.10)(less@4.2.0)
 
   aeria-sdk@0.0.134(@aeriajs/common@0.0.103(@aeriajs/types@0.0.87)(bson@6.8.0))(@aeriajs/types@0.0.87):
     dependencies:

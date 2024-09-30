@@ -45,6 +45,7 @@
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^20.8.6",
+    "aeria-icons": "link:../aeria-icons",
     "bson": "^6.6.0",
     "vue": "^3.4.26"
   },
