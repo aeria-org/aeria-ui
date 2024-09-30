@@ -53,7 +53,7 @@ const computedIcon = computed(() => {
           ...(fill ? { fill } : {})
         }"
       >
-        <use :href="`/assets/icons.svg#${computedIcon}`" />
+        <use :href="`${instanceVars.base || '/'}assets/icons.svg#${computedIcon}`" />
       </svg>
     </div>
     <div

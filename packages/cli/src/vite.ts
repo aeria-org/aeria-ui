@@ -15,7 +15,10 @@ export default defineConfig(async () => {
   const {
     vite: viteConfig = {},
     icons: iconsConfig = {},
+    site: siteConfig  = {},
   } = instanceConfig
+
+  viteConfig.base ||= siteConfig.base
 
   const config = deepMerge(viteConfig, {
     publicDir: 'static',

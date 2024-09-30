@@ -4,6 +4,7 @@ import { dynamicImport } from '@aeriajs/common'
 
 export type InstanceConfig = {
   site: {
+    base?: string
     title?: string
     signinText?: string
     signupForm?: boolean
