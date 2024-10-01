@@ -23,7 +23,6 @@ import { watchStore } from './_internals/helpers.js'
 import { getLayout } from './_internals/layouts/index.js'
 
 const isInsertVisible = ref<boolean | string>(false)
-const isInsertReadonly = ref<boolean>(false)
 const isFilterVisible = ref<boolean>(false)
 
 const call = ref<ReturnType<typeof useAction>[0]>((..._args: unknown[]) => null as any)
