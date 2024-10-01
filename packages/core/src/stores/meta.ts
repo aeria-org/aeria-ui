@@ -41,7 +41,6 @@ export const meta = registerStore((context) => {
     view: {
       title: '',
       layout: 'tabular',
-      collection: '',
     },
     menu: {
       visible: false,

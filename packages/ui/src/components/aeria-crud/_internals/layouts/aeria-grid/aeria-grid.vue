@@ -11,7 +11,7 @@ import AeriaBadge from '../../../../aeria-badge/aeria-badge.vue'
 import AeriaPicture from '../../../../aeria-picture/aeria-picture.vue'
 
 type Props = {
-  individualActions: (CollectionAction<any> & { click: ()=> void })[]
+  individualActions?: (CollectionAction<any> & { click: ()=> void })[]
   hasSelectionActions?: boolean
   layoutOptions: LayoutOptions
   componentName: string
@@ -89,7 +89,7 @@ const firstIfArray = (what: unknown) => {
 
       <template #actions>
         <aeria-context-menu
-          v-if="individualActions.length > 0"
+          v-if="individualActions?.length"
           v-slot="{
             visible,
           }"

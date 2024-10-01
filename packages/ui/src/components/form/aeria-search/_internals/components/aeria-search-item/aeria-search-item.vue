@@ -10,7 +10,7 @@ import AeriaIcon from '../../../../../aeria-icon/aeria-icon.vue'
 type Props = {
   item: Record<string, unknown>
   indexes: readonly string[]
-  modelValue: CollectionStoreItem | CollectionStoreItem[]
+  modelValue?: CollectionStoreItem | CollectionStoreItem[]
   property: SearchProperty
   readOnly?: boolean
 }
@@ -30,6 +30,9 @@ const refProperty = getReferenceProperty(property)!
 const store = useParentStore()
 
 const isAlreadySelected = computed(() => {
+  if( !props.modelValue ) {
+    return false
+  }
   if( Array.isArray(props.modelValue) ) {
     return Array.isArray(props.modelValue)
       && Object.values(props.modelValue).some(({ _id: itemId }) => props.item._id === itemId)
@@ -47,9 +50,13 @@ const select = () => {
 
   let modelValue: typeof props.modelValue
   if( 'items' in property ) {
-    modelValue = filterEmpties(Array.isArray(props.modelValue)
-      ? props.modelValue
-      : [props.modelValue])
+    if( !props.modelValue ) {
+      modelValue = []
+    } else {
+      modelValue = filterEmpties(Array.isArray(props.modelValue)
+        ? props.modelValue
+        : [props.modelValue])
+    }
   } else {
     modelValue = props.modelValue
   }

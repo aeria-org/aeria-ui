@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, computed, watch, onMounted } from 'vue'
+import type { CollectionAction } from '@aeriajs/types'
+import { computed, watch, onMounted } from 'vue'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 
@@ -10,7 +11,11 @@ import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  collection?: string
+  individualActions?: (CollectionAction<any> & {
+    action: string
+    click: ()=> void
+  })[]
+  collection: string
   form?: string[]
   visible?: any
   modelValue?: unknown
@@ -32,10 +37,9 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emits>()
 
 const metaStore = useStore('meta')
-const collectionName = props.collection || metaStore.view.collection
+const collectionName = props.collection
 
 const store = useStore(collectionName)
-const individualActions = inject('individualActions', [])
 
 onMounted(() => {
   if( props.modelValue ) {
@@ -131,6 +135,7 @@ watch(() => store.item._id, (_id) => {
     </aeria-form>
     <template #extra>
       <aeria-context-menu
+        v-if="individualActions"
         v-slot="{
           visible: contextMenuVisible,
         }"

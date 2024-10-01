@@ -22,13 +22,12 @@ import AeriaInsertPanel from '../aeria-insert-panel/aeria-insert-panel.vue'
 import { watchStore } from './_internals/helpers.js'
 import { getLayout } from './_internals/layouts/index.js'
 
-import {
-  isInsertVisible,
-  isFilterVisible,
-  call,
-  actionEventBus,
+const isInsertVisible = ref<boolean | string>(false)
+const isInsertReadonly = ref<boolean>(false)
+const isFilterVisible = ref<boolean>(false)
 
-} from './_internals/store.js'
+const call = ref<ReturnType<typeof useAction>[0]>((..._args: unknown[]) => null as any)
+const actionEventBus = ref<ActionEvent>()
 
 type Props = {
   collection: string
@@ -73,7 +72,7 @@ if( scrollPagination ) {
   })
 }
 
-const store = useCollectionStore(props.collection) as CollectionStore
+const store = useCollectionStore(props.collection)
 watchStore(store, {
   persistInQuery: !props.noQueryPersistence,
 })
@@ -165,7 +164,6 @@ watch(() => [
 
   const route = router.currentRoute.value
   metaStore.view.title = props.collection
-  metaStore.view.collection = props.collection
 
   if( !props.noFetch && (!route.query._popstate || store.itemsCount === 0) ) {
     const filters = convertFromSearchQuery(store, route as unknown as RouteRecordNormalized)
@@ -306,12 +304,14 @@ watch(() => actionEventBus.value, async (_event) => {
 
 watch(() => isInsertVisible, ({ value: visible }) => {
   if( visible === false ) {
-    metaStore.view.collection = props.collection
     store.$actions.clearItem()
   }
 })
 
 const individualActions = computed(() => {
+  if( props.noActions ) {
+    return
+  }
   return store.individualActions.map((action) => ({
     click: call.value(action),
     ...action,
@@ -323,7 +323,6 @@ const actionButtons = computed(() => {
 })
 
 provide(STORE_ID, computed(() => props.collection))
-provide('individualActions', individualActions)
 </script>
 
 <template>
@@ -337,6 +336,8 @@ provide('individualActions', individualActions)
     v-if="isInsertVisible"
     v-model:visible="isInsertVisible"
     fixed-right
+    :collection
+    :individual-actions
     @cancel="isInsertVisible = false"
   >
     <template #header>
@@ -353,7 +354,7 @@ provide('individualActions', individualActions)
           }
         })() }}
       </span>
-      <span>&nbsp;{{ t(metaStore.view.collection) }}</span>
+      <span>&nbsp;{{ t(collection) }}</span>
     </template>
 
     <template
@@ -575,7 +576,7 @@ provide('individualActions', individualActions)
   </div>
 
   <div
-    v-if="!store.loading.getAll && store.itemsCount > 0"
+    v-if="!noControls && !store.loading.getAll && store.itemsCount > 0"
     class="crud__pagination"
   >
     <aeria-pagination
