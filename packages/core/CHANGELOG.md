@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.70
+
+### Patch Changes
+
+- 9c22733: Search query bug
+
 ## 0.0.69
 
 ### Patch Changes
