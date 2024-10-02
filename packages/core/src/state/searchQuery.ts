@@ -60,6 +60,7 @@ const buildValue = (value: unknown, property: Property) => {
             $lte: new Date(d2),
           }
         }
+        break
       }
       case 'boolean': {
         return value === 'true'
