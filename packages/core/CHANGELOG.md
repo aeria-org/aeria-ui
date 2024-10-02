@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.69
+
+### Patch Changes
+
+- 79d8f21: Bug fixes
+
 ## 0.0.68
 
 ### Patch Changes
