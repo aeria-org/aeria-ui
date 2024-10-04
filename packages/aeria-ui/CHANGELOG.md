@@ -1,5 +1,11 @@
 # aeria-ui
 
+## 0.0.116
+
+### Patch Changes
+
+- 5b2c041: Re-export `condenseItem()`
+
 ## 0.0.115
 
 ### Patch Changes
