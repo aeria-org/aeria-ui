@@ -4,15 +4,15 @@ import { Result } from '@aeriajs/types'
 import { getReferenceProperty } from '@aeriajs/common'
 import { useCollectionStore } from './collection.js'
 
-export const recurseInsertCandidate = async (obj: any, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, Record<string, unknown> | unknown[]>> => {
-  if( !property ) {
+export const recurseInsertCandidate = async (obj: unknown, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
+  if( !property || obj ) {
     return Result.result(obj)
   }
 
   if( 'properties' in property ) {
     const entries: [string, unknown][] = []
-    for( const key in obj ) {
-      const { error, result } = await recurseInsertCandidate(obj[key], property.properties[key], manager)
+    for( const key in obj as Record<string, unknown> ) {
+      const { error, result } = await recurseInsertCandidate((obj as Record<string, unknown>)[key], property.properties[key], manager)
       if( error ) {
         return Result.error(error)
       }
@@ -28,7 +28,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
 
   if( 'items' in property ) {
     const arr: unknown[] = []
-    for( const elem of obj ) {
+    for( const elem of obj as unknown[] ) {
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {
         return Result.error(error)
@@ -44,7 +44,7 @@ export const recurseInsertCandidate = async (obj: any, property: Property | unde
     const helperStore = useCollectionStore(collection, manager)
 
     const { error, result } = await helperStore.$actions.deepInsert({
-      what: obj,
+      what: obj as Record<string, unknown>,
     })
 
     return error
