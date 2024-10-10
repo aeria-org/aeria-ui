@@ -5,7 +5,7 @@ import { getReferenceProperty } from '@aeriajs/common'
 import { useCollectionStore } from './collection.js'
 
 export const recurseInsertCandidate = async (obj: unknown, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
-  if( !property || obj ) {
+  if( !property || !obj ) {
     return Result.result(obj)
   }
 
@@ -29,6 +29,11 @@ export const recurseInsertCandidate = async (obj: unknown, property: Property | 
   if( 'items' in property ) {
     const arr: unknown[] = []
     for( const elem of obj as unknown[] ) {
+      if( typeof elem === 'string' ) {
+        arr.push(elem)
+        continue
+      }
+
       const { error, result } = await recurseInsertCandidate(elem, property.items, manager)
       if( error ) {
         return Result.error(error)

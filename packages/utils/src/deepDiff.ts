@@ -2,7 +2,16 @@ export type DiffOptions = {
   preserveIds?: boolean
 }
 
-export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, options?: DiffOptions) => {
+const extractId = (target: unknown) => {
+  if( !target || typeof target !== 'object' || !('_id' in target) ) {
+    return target
+  }
+
+  return target._id
+}
+
+
+export const deepDiff = <T extends Record<string, unknown>>(origin: T, target: T, options?: DiffOptions) => {
   const { preserveIds } = options || {}
 
   const equals = (left: unknown, right: unknown) => {
@@ -25,12 +34,13 @@ export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, op
     return toStr(left) === toStr(right)
   }
 
-  const changes = (target: T, origin: T): any => {
-    const diff = Object.entries(target).reduce((a: any, [key, value]) => {
+  const changes = (target: Record<string, unknown>, origin: Record<string, unknown>): Record<string, unknown> => {
+    const diff = Object.entries(target).reduce((a, [key, value]) => {
       const isUnequal = (() => {
-        if( Array.isArray(value) && Array.isArray(origin[key]) ) {
-          return !value.every((v, i) => (v === null && i !== value.length - 1) || equals(origin[key][i], v))
-            || value.length < origin[key].length
+        const left = origin[key]
+        if( Array.isArray(value) && Array.isArray(left) ) {
+          return !value.every((v, i) => (v === null && i !== value.length - 1) || equals(left[i], v))
+            || value.length < left.length
         }
 
         return !equals(value, origin[key])
@@ -42,22 +52,22 @@ export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, op
       })()
 
       if( isUnequal ) {
-        if( value?.constructor === Object && origin[key]?.constructor === Object ) {
-          if( !value._id ) {
+        if( value && typeof value === 'object' && origin[key] ) {
+          const res = changes(value as Record<string, unknown>, origin[key] as Record<string, unknown>)
+
+          if( Array.isArray(value) && Array.isArray(origin[key]) ) {
+            a[key] = value.length < origin[key].length
+              ? value
+              : value.map((v, index) => res[+index] || extractId(v))
+
+            return a
+          }
+
+          if( !('_id' in value) || !value._id ) {
             return {
               ...a,
               [key]: value,
             }
-          }
-
-          const res = changes(value, origin[key])
-
-          if( Array.isArray(value) ) {
-            a[key] = value.length < origin[key].length
-              ? value
-              : value.map((v, index) => res[+index] || v)
-
-            return a
           }
 
           if( !Object.keys(res).length ) {
@@ -77,7 +87,7 @@ export const deepDiff = <T extends Record<string, any>>(origin: T, target: T, op
       }
 
       return a
-    }, {})
+    }, {} as Record<string, unknown>)
 
     if( preserveIds && target._id && Object.keys(diff).length > 0 ) {
       diff._id = target._id

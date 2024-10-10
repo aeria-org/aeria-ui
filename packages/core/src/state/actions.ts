@@ -205,6 +205,8 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
     async deepInsert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
       const candidate = Object.assign({}, payload?.what || store.diffedItem)
+      console.log(candidate)
+
       const { error, result: newItem } = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
       if( error ) {
         return Result.error(error)
