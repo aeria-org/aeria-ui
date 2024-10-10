@@ -10,7 +10,6 @@ const extractId = (target: unknown) => {
   return target._id
 }
 
-
 export const deepDiff = <T extends Record<string, unknown>>(origin: T, target: T, options?: DiffOptions) => {
   const { preserveIds } = options || {}
 
@@ -45,7 +44,7 @@ export const deepDiff = <T extends Record<string, unknown>>(origin: T, target: T
 
         return !equals(value, origin[key])
           && (
-            (typeof value !== 'number' && (value || origin[key]))
+            (typeof value !== 'number' && !!(value || origin[key]))
               || typeof value === 'number'
               || typeof value === 'boolean'
           )
