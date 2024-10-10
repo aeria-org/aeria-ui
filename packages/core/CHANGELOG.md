@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.73
+
+### Patch Changes
+
+- bc56580: Remove console.log
+
 ## 0.0.72
 
 ### Patch Changes
