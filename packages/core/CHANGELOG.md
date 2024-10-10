@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.71
+
+### Patch Changes
+
+- fca457b: Fix `recurseInsertCandidate()` bug when property with array type has `null` value'
+
 ## 0.0.70
 
 ### Patch Changes
