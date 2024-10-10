@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.4
+
+### Patch Changes
+
+- ef6e156: Optimize `deepDiff()` and `recurseInsertCandidate()`
+
 ## 0.0.3
 
 ### Patch Changes
