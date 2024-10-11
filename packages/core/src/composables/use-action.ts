@@ -112,7 +112,7 @@ export const useAction = (
         : actionName
 
       if( functionName in store.$actions ) {
-        return store.$actions[functionName as keyof typeof store.$actions] as (...args: unknown[]) => unknown
+        return store.$actions[functionName as keyof typeof store.$actions] as (...args: unknown[])=> unknown
       }
 
       return 'effect' in actionProps && actionProps.effect
