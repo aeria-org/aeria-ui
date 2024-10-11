@@ -2,7 +2,6 @@
 import type { ActionFilter, ActionEvent, Pagination, CollectionStore } from '@aeria-ui/core'
 import type { Layout } from '@aeriajs/types'
 import type { Component } from 'vue'
-import type { RouteRecordNormalized } from 'vue-router'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { getReferenceProperty, deepClone, deepMerge } from '@aeriajs/common'
