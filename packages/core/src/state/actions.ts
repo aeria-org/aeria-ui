@@ -39,7 +39,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       Object.assign(store.item, deepClone(store.freshItem))
       Object.entries(item).forEach(([key, value]) => {
-        if( value ) {
+        if( value !== null ) {
           store.item[key] = value
         }
       })

@@ -165,7 +165,7 @@ watch(() => [
   metaStore.view.title = props.collection
 
   if( !props.noFetch && (!route.query._popstate || store.itemsCount === 0) ) {
-    const filters = convertFromSearchQuery(store, route as unknown as RouteRecordNormalized)
+    const filters = convertFromSearchQuery(store, route.query)
     if( Object.keys(filters).length > 0 ) {
       Object.assign(store.filters, filters)
     }

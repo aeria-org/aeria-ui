@@ -1,5 +1,4 @@
 import type { Property } from '@aeriajs/types'
-import type { RouteRecordNormalized } from 'vue-router'
 import type { CollectionStore } from './collection.js'
 
 export type DateTuple = {
@@ -24,14 +23,16 @@ const dateTupleToString = (tuple: DateTuple) => {
 
 const extractValue = (value: unknown, property: Property) => {
   if( 'type' in property ) {
-    if( property.type === 'string' ) {
-      if( (property.format === 'date' || property.format === 'date-time') && isDateTuple(value) ) {
-        return dateTupleToString(value)
-      }
+    switch( property.type ) {
+      case 'string': {
+        if( (property.format === 'date' || property.format === 'date-time') && isDateTuple(value) ) {
+          return dateTupleToString(value)
+        }
 
-      return value && typeof value === 'object' && '$regex' in value
-        ? String(value.$regex)
-        : undefined
+        return value && typeof value === 'object' && '$regex' in value
+          ? String(value.$regex)
+          : undefined
+      }
     }
   }
 
@@ -118,13 +119,9 @@ export const convertToSearchQuery = (store: CollectionStore) => {
   return Object.fromEntries(entries)
 }
 
-export const convertFromSearchQuery = (store: CollectionStore, route: RouteRecordNormalized) => {
+export const convertFromSearchQuery = (store: CollectionStore, query: Record<string, unknown>) => {
   const entries: [string, unknown][] = []
-  if( !('query' in route) ) {
-    return {}
-  }
-
-  for( const [key, value] of Object.entries(route.query as Record<string, unknown>) ) {
+  for( const [key, value] of Object.entries(query) ) {
     const prefix = `${store.$id}.`
     if( !key.startsWith(prefix) ) {
       continue
