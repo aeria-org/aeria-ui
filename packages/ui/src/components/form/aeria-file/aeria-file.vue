@@ -2,13 +2,13 @@
 import type { Property, FileProperty, ArrayProperty, EndpointError, Result } from '@aeriajs/types'
 import type { File as AeriaFile } from '@aeriajs/builtins'
 import type { FormFieldProps, UploadedFile } from '../types.js'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { getReferenceProperty } from '@aeriajs/common'
 import { request, API_URL } from '@aeria-ui/core'
-import { t } from '@aeria-ui/i18n'
+// import { t } from '@aeria-ui/i18n'
 import { useParentStore, getStoreId } from '@aeria-ui/state-management'
-import AeriaPicture from '../../aeria-picture/aeria-picture.vue'
-import AeriaButton from '../../aeria-button/aeria-button.vue'
+// import AeriaPicture from '../../aeria-picture/aeria-picture.vue'
+// import AeriaButton from '../../aeria-button/aeria-button.vue'
 import AeriaFileItem from './_internals/components/aeria-file-item.vue'
 
 type Props = FormFieldProps<
@@ -61,7 +61,7 @@ const insert = async (event: Event) => {
 
   const uploadedFiles: (UploadedFile | AeriaFile)[] = []
 
-  for( const [index, file] of Array.from(files).entries() ) {
+  for( const [, file] of Array.from(files).entries() ) {
     const content = await readFile(file)
 
     if( store ) {
@@ -121,13 +121,13 @@ const insert = async (event: Event) => {
     >
       <aeria-file-item
         v-for="item in fileList"
-        :model-value="item"
         :key="
           '_id' in item
             ? String(item._id)
             : item.file.name
         "
-      ></aeria-file-item>
+        :model-value="item"
+      />
     </div>
   </div>
 </template>
