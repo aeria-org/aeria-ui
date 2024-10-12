@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.75
+
+### Patch Changes
+
+- 5830b9d: Fix `setItem()`
+
 ## 0.0.74
 
 ### Patch Changes
