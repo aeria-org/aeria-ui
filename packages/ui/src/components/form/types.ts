@@ -10,3 +10,9 @@ export type FormFieldProps<TModelValue, TProperty = Property> = {
 }
 
 export type SearchProperty = RefProperty | ArrayOfRefs
+
+export type UploadedFile = {
+  tempId?: string
+  file: File
+}
+

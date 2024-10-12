@@ -5,7 +5,7 @@ import { onBeforeMount } from 'vue'
 import AeriaCheckbox from '../aeria-checkbox/aeria-checkbox.vue'
 
 type Props = Omit<FormFieldProps<any>, 'property'> & {
-  property: PropertyBase & (EnumProperty | (ArrayProperty & { items: EnumProperty }))
+  property: PropertyBase & (EnumProperty | ArrayProperty<EnumProperty>)
   columns?: number
 }
 

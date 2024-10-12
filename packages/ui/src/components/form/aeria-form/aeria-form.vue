@@ -461,7 +461,7 @@ const focusOnRender = (property: Property) => {
           v-else-if="
             modelValue && 'items' in fieldProperty && !fieldProperty.uniqueItems && (
               !('$ref' in fieldProperty.items)
-              || (fieldProperty.items.inline || fieldProperty.items.$ref === 'file')
+              || fieldProperty.items.inline
             )
           "
           style="display: grid; row-gap: .4rem"
