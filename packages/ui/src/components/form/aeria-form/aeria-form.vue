@@ -341,7 +341,10 @@ const focusOnRender = (property: Property) => {
         v-for="([fieldPropertyName, fieldProperty]) in properties"
         :key="`field-${fieldPropertyName}`"
         :style="fieldStyle(fieldPropertyName, fieldProperty)"
-        class="form__field"
+        :class="{
+          'form__field': true,
+          'form__field--form': 'properties' in fieldProperty,
+        }"
       >
         <label
           v-if="
@@ -486,40 +489,44 @@ const focusOnRender = (property: Property) => {
             </aeria-button>
           </div>
 
-          <div class="form__array">
+          <div
+            v-if="modelValue[fieldPropertyName]?.length > 0"
+            class="form__array"
+          >
             <div
               v-for="(item, listIndex) in modelValue[fieldPropertyName]"
               :key="`rep-${fieldPropertyName}-${getObjectKey(item, listIndex)}`"
               class="form__array-item"
             >
-              <div style="flex-grow: 1">
-                <component
-                  :is="getComponent(fieldProperty, formComponents)"
-                  v-model="modelValue[fieldPropertyName][listIndex]"
-                  v-bind="{
-                    readOnly,
-                    property: fieldProperty.items,
-                    propertyName: fieldPropertyName,
-                    parentCollection: collectionName,
-                    parentPropertyName,
-                    columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
-                      || layout?.fields?.$default?.optionsColumns,
-                    validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
-                    ...(fieldProperty.componentProps || {})
-                  }"
-
-                  @input="emit('input', fieldPropertyName)"
-                  @change="emit('change', $event)"
-                />
-              </div>
-
               <aeria-icon
                 v-if="!readOnly"
                 v-clickable
-                reactive
                 icon="trash"
-                @click="spliceFromArray(modelValue[fieldPropertyName], listIndex)"
+                class="form__array-remove"
+                @click.prevent="spliceFromArray(modelValue[fieldPropertyName], listIndex)"
+              >
+                {{ t('action.remove', { capitalize: true }) }}
+              </aeria-icon>
+
+              <component
+                :is="getComponent(fieldProperty, formComponents)"
+                v-model="modelValue[fieldPropertyName][listIndex]"
+                v-bind="{
+                  readOnly,
+                  property: fieldProperty.items,
+                  propertyName: fieldPropertyName,
+                  parentCollection: collectionName,
+                  parentPropertyName,
+                  columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
+                    || layout?.fields?.$default?.optionsColumns,
+                  validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
+                  ...(fieldProperty.componentProps || {})
+                }"
+
+                @input="emit('input', fieldPropertyName)"
+                @change="emit('change', $event)"
               />
+
             </div>
           </div>
         </div>

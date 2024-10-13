@@ -8,7 +8,8 @@ import { request, API_URL } from '@aeria-ui/core'
 // import { t } from '@aeria-ui/i18n'
 import { useParentStore, getStoreId } from '@aeria-ui/state-management'
 // import AeriaPicture from '../../aeria-picture/aeria-picture.vue'
-// import AeriaButton from '../../aeria-button/aeria-button.vue'
+import AeriaButton from '../../aeria-button/aeria-button.vue'
+import AeriaIcon from '../../aeria-icon/aeria-icon.vue'
 import AeriaFileItem from './_internals/components/aeria-file-item.vue'
 
 type Props = FormFieldProps<
@@ -61,7 +62,7 @@ const insert = async (event: Event) => {
 
   const uploadedFiles: (UploadedFile | AeriaFile)[] = []
 
-  for( const [, file] of Array.from(files).entries() ) {
+  for( const file of files ) {
     const content = await readFile(file)
 
     if( store ) {
@@ -79,13 +80,13 @@ const insert = async (event: Event) => {
         return
       }
 
-      uploadedFiles.push({
+      uploadedFiles.unshift({
         tempId: result.tempId,
         file,
       })
 
     } else {
-      uploadedFiles.push({
+      uploadedFiles.unshift({
         file,
       })
     }
@@ -93,7 +94,7 @@ const insert = async (event: Event) => {
 
   if( multiple ) {
     emit('update:modelValue', Array.isArray(props.modelValue)
-      ? props.modelValue.concat(uploadedFiles)
+      ? uploadedFiles.concat(props.modelValue)
       : uploadedFiles)
   } else {
     emit('update:modelValue', uploadedFiles[0])
@@ -101,6 +102,25 @@ const insert = async (event: Event) => {
 
   emit('update:content', uploadedFiles)
   emit('change', uploadedFiles)
+}
+
+const remove = async (index: number) => {
+  if( !props.modelValue ) {
+    throw new Error
+  }
+
+  const files = Array.isArray(props.modelValue)
+    ? props.modelValue.filter((_, i) => i !== index)
+    : []
+
+  if( multiple ) {
+    emit('update:modelValue', files)
+  } else {
+    emit('update:modelValue', null)
+  }
+
+  emit('update:content', files)
+  emit('change', files)
 }
 </script>
 
@@ -116,18 +136,26 @@ const insert = async (event: Event) => {
     >
 
     <div
-      v-if="fileList"
+      v-if="fileList && fileList.length > 0"
       class="file__list"
     >
       <aeria-file-item
-        v-for="item in fileList"
+        v-for="(item, index) in fileList"
         :key="
           '_id' in item
             ? String(item._id)
             : item.file.name
         "
         :model-value="item"
-      />
+      >
+        <aeria-icon
+          v-if="!readOnly"
+          v-clickable
+          reactive
+          icon="trash"
+          @click="remove(index)"
+        />
+      </aeria-file-item>
     </div>
   </div>
 </template>

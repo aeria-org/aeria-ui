@@ -16,8 +16,25 @@
     padding: 0;
     border: none;
     margin: 0;
-    gap: 1rem;
     grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__field {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    &--form:not(:last-child):not(:first-child) {
+      padding: 1rem 0 1rem 0;
+      border: 1px solid var(--theme-border-color);
+      border-width: 1px 0 1px 0;
+
+      & ~ .form__field--form {
+        margin-top: 0;
+        border-width: 0 0 1px 0;
+      }
+    }
+
   }
 
   &__field-label {
@@ -54,13 +71,27 @@
   &__array {
     display: flex;
     flex-direction: column-reverse;
-    gap: .6rem;
+
+    border: 1px solid var(--theme-border-color);
+    border-radius: var(--theme-radius-large);
+
+    & > * {
+      padding: 1rem;
+    }
   }
 
   &__array-item {
     display: flex;
-    align-items: center;
-    gap: .6rem;
+    flex-direction: column;
+    gap: 1rem;
+
+    &:not(:last-child) {
+      border-top: 1px solid var(--theme-border-color);
+    }
+  }
+
+  &__array-remove {
+    font-size: .8rem;
   }
 }
 

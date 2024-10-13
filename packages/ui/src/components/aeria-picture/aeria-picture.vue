@@ -41,9 +41,10 @@ const expand = ref(false)
     >
       <div
         v-overlay="{
+          layer: 60,
           click: () => {
             expand = false
-          }
+          },
         }"
         style="
           position: fixed;

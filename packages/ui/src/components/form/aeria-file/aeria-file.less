@@ -1,26 +1,17 @@
-@image-size: 20rem;
-
 .file {
   display: flex;
-  width: min-content;
   flex-direction: column;
   row-gap: .8rem;
-
-  // &__image {
-  //   overflow: hidden;
-  //   width: @image-size;
-  //   height: @image-size;
-  //   border-radius: 5px;
-  //
-  //   &--unsent {
-  //     opacity: .6;
-  //   }
-  // }
-  //
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+
+    border: 1px solid var(--theme-border-color);
+    border-radius: var(--theme-radius-large);
+
+    & > *:not(:last-child) {
+      border-bottom: 1px solid var(--theme-border-color);
+    }
   }
 }

@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  padding: .6rem;
+
+  &__presentation {
+    margin-right: auto;
+  }
+
+  &__name {
+    font-size: .9rem;
+
+    &--link {
+      font-weight: 600;
+      color: var(--theme-blueish);
+    }
+  }
+
+  &__size {
+    font-size: .8rem;
+    opacity: .8;
+  }
+
+  &__picture {
+    width: 3rem;
+    height: 3rem;
+  }
+}
