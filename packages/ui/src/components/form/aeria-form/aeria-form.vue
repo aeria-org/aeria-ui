@@ -526,7 +526,6 @@ const focusOnRender = (property: Property) => {
                 @input="emit('input', fieldPropertyName)"
                 @change="emit('change', $event)"
               />
-
             </div>
           </div>
         </div>

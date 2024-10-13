@@ -31,22 +31,27 @@ const humanReadableSize = (size: number) => {
     : Math.floor(Math.log(size) / Math.log(1024))
 
   const numeric = (size / Math.pow(1024, i)).toFixed(2)
-  return `${numeric} ${['B', 'kB', 'MB', 'GB', 'TB'][i]}`
+  return `${numeric} ${[
+'B',
+'kB',
+'MB',
+'GB',
+'TB',
+][i]}`
 }
 </script>
 
 <template>
   <div class="item">
     <aeria-picture
+      v-if="'_id' in file && file.type.startsWith('image/')"
       bordered
       expandable
-      v-if="'_id' in file && file.type.startsWith('image/')"
       :url="file.link"
       class="item__picture"
-    ></aeria-picture>
+    />
 
     <div class="item__presentation">
-
       <aeria-icon
         v-if="'_id' in file"
         icon="arrow-square-out"
@@ -71,7 +76,7 @@ const humanReadableSize = (size: number) => {
     </div>
 
     <div>
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
