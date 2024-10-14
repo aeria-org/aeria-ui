@@ -1,4 +1,4 @@
-import type { Property, RefProperty, ArrayOfRefs } from '@aeriajs/types'
+import type { Property, RefProperty, ArrayProperty } from '@aeriajs/types'
 
 export type FormFieldProps<TModelValue, TProperty = Property> = {
   modelValue?: TModelValue
@@ -9,7 +9,7 @@ export type FormFieldProps<TModelValue, TProperty = Property> = {
   readOnly?: boolean
 }
 
-export type SearchProperty = RefProperty | ArrayOfRefs
+export type SearchProperty = RefProperty | ArrayProperty<RefProperty>
 
 export type UploadedFile = {
   tempId?: string

@@ -574,7 +574,7 @@ provide(STORE_ID, computed(() => props.collection))
   </div>
 
   <div
-    v-if="!noControls && !store.loading.getAll && store.itemsCount > 0"
+    v-if="!scrollPagination && !noControls && !store.loading.getAll && store.itemsCount > 0"
     class="crud__pagination"
   >
     <aeria-pagination
