@@ -34,6 +34,8 @@ jobs:
         run: pnpm install
       - name: Build packages
         run: pnpm build
+      - name: Run tests
+        run: pnpm -r test
       - name: Patch .npmrc
         run: sed -i "1s/^/\/\/registry.npmjs.org\/:_authToken=${NPM_TOKEN}\n/" .npmrc
         env:
