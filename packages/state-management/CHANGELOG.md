@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.14
+
+### Patch Changes
+
+- 96381d9: Release
+
 ## 0.0.13
 
 ### Patch Changes
