@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.8
+
+### Patch Changes
+
+- 96381d9: Release
+
 ## 0.0.7
 
 ### Patch Changes

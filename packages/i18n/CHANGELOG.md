@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.11
+
+### Patch Changes
+
+- 96381d9: Release
+
 ## 0.0.10
 
 ### Patch Changes

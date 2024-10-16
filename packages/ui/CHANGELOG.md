@@ -1,5 +1,17 @@
 # @aeria-ui/ui
 
+## 0.0.117
+
+### Patch Changes
+
+- 96381d9: Release
+- db688c8: UI improvements, upload of multiple files
+- Updated dependencies [96381d9]
+  - @aeria-ui/core@0.0.76
+  - @aeria-ui/i18n@0.0.11
+  - @aeria-ui/state-management@0.0.14
+  - @aeria-ui/utils@0.0.5
+
 ## 0.0.116
 
 ### Patch Changes
