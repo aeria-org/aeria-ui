@@ -12,4 +12,3 @@ test('renders aeria-badge correctly', () => {
   expect(wrapper.html()).toContain('Badge text')
 })
 
-

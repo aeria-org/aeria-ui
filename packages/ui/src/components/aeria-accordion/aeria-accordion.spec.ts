@@ -15,7 +15,7 @@ test('renders aeria-accordion correctly', () => {
     },
     slots: {
       slotA: 'slot A text',
-      slotB: 'slot B text'
+      slotB: 'slot B text',
     },
   })
 
