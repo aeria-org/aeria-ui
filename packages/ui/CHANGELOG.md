@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.119
+
+### Patch Changes
+
+- 75ed3ab: Fix aeria-file-item
+
 ## 0.0.118
 
 ### Patch Changes
