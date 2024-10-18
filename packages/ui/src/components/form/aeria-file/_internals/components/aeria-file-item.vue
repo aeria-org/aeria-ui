@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { File as AeriaFile } from '@aeriajs/builtins'
 import type { UploadedFile } from '../../../types.js'
+import AeriaPicture from '../../../../aeria-picture/aeria-picture.vue'
 
 type Props = {
   modelValue: AeriaFile | UploadedFile
@@ -47,6 +48,7 @@ const humanReadableSize = (size: number) => {
       v-if="'_id' in file && file.type.startsWith('image/')"
       bordered
       expandable
+      :alt="file.name"
       :url="file.link"
       class="item__picture"
     />
