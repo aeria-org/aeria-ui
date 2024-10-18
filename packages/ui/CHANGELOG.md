@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.120
+
+### Patch Changes
+
+- 2261ef5: Add missing imports in aeria-file-item
+
 ## 0.0.119
 
 ### Patch Changes
