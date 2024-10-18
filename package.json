@@ -1,5 +1,6 @@
 {
   "name": "aeria-ui-monorepo",
+  "type": "module",
   "private": true,
   "packageManager": "pnpm@9.1.0",
   "scripts": {
