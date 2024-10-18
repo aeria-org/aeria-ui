@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { File as AeriaFile } from '@aeriajs/builtins'
 import type { UploadedFile } from '../../../types.js'
+import AeriaIcon from '../../../../aeria-icon/aeria-icon.vue'
 import AeriaPicture from '../../../../aeria-picture/aeria-picture.vue'
 
 type Props = {
