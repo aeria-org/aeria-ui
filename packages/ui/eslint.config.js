@@ -1,2 +1,6 @@
-import aeriaUi from 'eslint-config-aeriaui'
-export default aeriaUi
+import aeriaUi from '@eslint-aeria/config-ui'
+import { testRules } from '@eslint-aeria/config'
+
+export default aeriaUi.concat([
+  testRules,
+])

@@ -299,10 +299,10 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
         })
       }),
 
-      layout: computed(() => description.value.layout || <Layout>({
+      layout: computed(() => description.value.layout || {
         name: 'tabular',
         options: {},
-      })),
+      } as Layout),
 
       $currentLayout: computed(() => state.currentLayout || (description.value.layout?.name || 'tabular')),
 

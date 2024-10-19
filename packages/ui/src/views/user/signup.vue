@@ -30,10 +30,10 @@ const password = ref({
 
 const insert = async () => {
   userStore.item.password = password.value.password
-  const { error } = await <ReturnType<typeof user.functions.createAccount>>userStore.$functions.createAccount({
+  const { error } = await (userStore.$functions.createAccount({
     ...newUser.value,
     password: password.value.password,
-  })
+  }) as ReturnType<typeof user.functions.createAccount>)
 
   if( error ) {
     metaStore.$actions.spawnModal({

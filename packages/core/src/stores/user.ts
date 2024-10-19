@@ -104,7 +104,7 @@ export const user = registerStore((context) => {
         const metaStore = meta(context)
 
         try {
-          const { error, result: authResult } = await <ReturnType<typeof originalUser.functions.authenticate>>store.$functions.authenticate(payload)
+          const { error, result: authResult } = await (store.$functions.authenticate(payload) as ReturnType<typeof originalUser.functions.authenticate>)
           if( error ) {
             const errorMessage = error.code
             metaStore.$actions.spawnModal({
@@ -137,9 +137,9 @@ export const user = registerStore((context) => {
         const store = useStore('user', context.manager)
         const metaStore = meta(context)
 
-        const { error, result } = await <ReturnType<typeof originalUser.functions.getActivationLink>>store.$functions.getActivationLink({
+        const { error, result } = await (store.$functions.getActivationLink({
           userId: payload._id,
-        })
+        }) as ReturnType<typeof originalUser.functions.getActivationLink>)
 
         if( error ) {
           return metaStore.$actions.spawnToast({

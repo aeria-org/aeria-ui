@@ -121,12 +121,12 @@ const form = computed(() => {
     }
   }
   if( props.includeTimestamps ) {
-    const timestamp = <const>{
+    const timestamp = {
       type: 'string',
       format: 'date-time',
       readOnly: true,
       isTimestamp: true,
-    }
+    } as const
     if( !fromProps.created_at ) {
       properties.created_at = timestamp
     }

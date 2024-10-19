@@ -14,16 +14,12 @@ test('convert condition to stateless query', () => {
         term1: 'age',
         term2: 18,
       },
-    ]
+    ],
   })
 
   assert(Array.isArray(query.$and))
-  expect(query.$and[0]).toStrictEqual({
-    name: 'terry',
-  })
-  expect(query.$and[1].age).toStrictEqual({
-    $gt: 18,
-  })
+  expect(query.$and[0]).toStrictEqual({ name: 'terry' })
+  expect(query.$and[1].age).toStrictEqual({ $gt: 18 })
 })
 
 test('convert condition to stateful query', () => {
@@ -32,12 +28,8 @@ test('convert condition to stateful query', () => {
     term1: 'name',
     term2: 'name2',
     fromState: true,
-  }, {
-    name2: 'terry',
-  })
+  }, { name2: 'terry' })
 
-  expect(query).toStrictEqual({
-    name: 'terry',
-  })
+  expect(query).toStrictEqual({ name: 'terry' })
 })
 

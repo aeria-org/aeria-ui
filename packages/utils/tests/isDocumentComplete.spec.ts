@@ -4,16 +4,10 @@ import { isDocumentComplete } from '../src/index.js'
 
 test('gets whether document is complete correctly', () => {
   const properties: Record<string, Property> = {
-    name: {
-      type: 'string',
-    },
+    name: { type: 'string' },
     nested: {
       type: 'object',
-      properties: {
-        job: {
-          type: 'string',
-        },
-      },
+      properties: { job: { type: 'string' } },
     },
   }
 

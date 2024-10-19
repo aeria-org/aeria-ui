@@ -8,13 +8,13 @@ import { Result } from '@aeriajs/types'
 import { deepClone } from '@aeriajs/common'
 import { reactive } from 'vue'
 
-export const STORE_EFFECTS = <const>{
+export const STORE_EFFECTS = {
   'ITEM_SET': 'setItem',
   'ITEM_INSERT': 'insertItem',
   'ITEMS_SET': 'setItems',
   'ITEMS_UPDATE': 'updateItems',
   'ITEM_REMOVE': 'removeItem',
-}
+} as const
 
 export type ActionEvent = {
   id: number
@@ -139,8 +139,8 @@ export const useAction = (
     return (filters?: ActionFilters) => storeAction(prepareFilters(filters))
   }
 
-  return <const>[
+  return [
     fn,
     eventBus,
-  ]
+  ] as const
 }

@@ -1,2 +1,7 @@
-import aeriaRules from 'eslint-config-aeria'
-export default aeriaRules
+import { srcRules, testRules } from '@eslint-aeria/config'
+
+export default [
+  srcRules,
+  testRules,
+]
+

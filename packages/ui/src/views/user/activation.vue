@@ -20,10 +20,10 @@ const step = router.currentRoute.value.query.step as Step | undefined || 'succes
 const userId = router.currentRoute.value.query.u
 const token = router.currentRoute.value.query.t
 
-const { error, result: userInfo } = await <ReturnType<typeof user.functions.getInfo>>userStore.$functions.getInfo({
+const { error, result: userInfo } = await (userStore.$functions.getInfo({
   userId,
   token,
-})
+}) as ReturnType<typeof user.functions.getInfo>)
 
 if( error ) {
   throw error

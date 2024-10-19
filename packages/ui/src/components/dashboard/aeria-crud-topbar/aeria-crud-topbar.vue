@@ -36,7 +36,7 @@ const store = computed((): CollectionStore | null => {
 })
 
 const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
-  const { error, result } = await store.$functions[preset.badgeFunction!]<(payload: CountPayload<any>)=> Result.Either<EndpointError, number>>({
+  const { error, result } = await store.$functions[preset.badgeFunction!]<(payload: CountPayload<any>)=> Promise<Result.Either<EndpointError, number>>>({
     filters: preset.filters,
   })
 

@@ -17,7 +17,7 @@ const findRoute = (path: string, router: Router) => {
   if( found.matched.length ) {
     return {
       ...found,
-      meta: <MenuNode['meta']>found.meta,
+      meta: found.meta as MenuNode['meta'],
       children: [],
     }
   }

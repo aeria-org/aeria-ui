@@ -15,8 +15,6 @@ test('diffs two objects deeply', () => {
   const diff = deepDiff(oldObj, newObj)
 
   expect(deepDiff(oldObj, oldObj)).toStrictEqual({})
-  expect(diff).toStrictEqual({
-    age: 45,
-  })
+  expect(diff).toStrictEqual({ age: 45 })
 })
 

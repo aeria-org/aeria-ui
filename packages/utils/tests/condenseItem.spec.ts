@@ -4,12 +4,16 @@ import { condenseItem } from '../src/index.js'
 test('condenses item properly', () => {
   const item = {
     _id: 'eeffb1da94a36f830381d17677e04d57',
-    picture: {
-      _id: 'eeffb1da94a36f830381d17677e04d58',
-    },
+    picture: { _id: 'eeffb1da94a36f830381d17677e04d58' },
     pictures: [
-      { _id: 'eeffb1da94a36f830381d17677e04d59', name: 'file1.jpg', },
-      { _id: 'eeffb1da94a36f830381d17677e04d60', name: 'file2.jpg', },
+      {
+        _id: 'eeffb1da94a36f830381d17677e04d59',
+        name: 'file1.jpg',
+      },
+      {
+        _id: 'eeffb1da94a36f830381d17677e04d60',
+        name: 'file2.jpg',
+      },
     ],
   }
 

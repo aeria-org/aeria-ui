@@ -24,7 +24,7 @@ const reactive = typeof props.reactive === 'boolean'
 const computedIcon = computed(() => {
   return props.icon?.includes(':')
     ? props.icon
-    : `regular:${<Icon>props.icon}`
+    : `regular:${props.icon as Icon}`
 })
 </script>
 

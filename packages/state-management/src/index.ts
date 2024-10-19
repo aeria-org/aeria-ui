@@ -121,8 +121,8 @@ export const internalRegisterStore = <
   }
 
   const store = isReactive(state)
-    ? <Store>state
-    : reactive(<Store>state)
+    ? state as Store
+    : reactive((state as Store))
 
   Object.assign(store, {
     $id,
