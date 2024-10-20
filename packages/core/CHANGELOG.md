@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.81
+
+### Patch Changes
+
+- f4e2091: Fix runtime errors
+
 ## 0.0.80
 
 ### Patch Changes
