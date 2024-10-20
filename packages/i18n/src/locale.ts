@@ -38,7 +38,9 @@ export const createI18n = () => {
         Object.assign(i18n, options)
       }
 
-      app.provide(I18N_KEY, i18n)
+      app.provide<GlobalI18n>(I18N_KEY, {
+        __globalI18n: i18n,
+      })
     },
   } satisfies GlobalI18n & Plugin
 }
