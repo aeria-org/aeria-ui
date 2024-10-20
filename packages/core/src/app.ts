@@ -20,7 +20,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   } = options
 
   const app = createApp(component)
-  const { context, metaStore, userStore } = bootstrapApp({
+  const { context, i18n, metaStore, userStore } = bootstrapApp({
     app,
     instanceVars: INSTANCE_VARS,
     i18n: options.i18n,
@@ -68,7 +68,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
             '%viewTitle%',
             t(currentRoute.params.collection, {
               plural: true,
-            }),
+            }, i18n.__globalI18n),
           )
         }
 

@@ -71,6 +71,7 @@ export const bootstrapApp = (config: BootstrapConfig) => {
 
   return {
     context,
+    i18n,
     metaStore,
     userStore,
   }
