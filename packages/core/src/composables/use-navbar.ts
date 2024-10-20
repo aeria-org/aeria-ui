@@ -1,4 +1,4 @@
-import type { Router, RouteRecordRaw } from 'vue-router'
+import type { Router } from 'vue-router'
 import type { Route, MenuSchema, MenuNode } from '../index.js'
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'

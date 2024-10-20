@@ -1,8 +1,8 @@
 import type { Ref } from 'vue'
 import type { Router } from 'vue-router'
-import type { meta, MenuNode, MenuSchema  } from '@aeria-ui/core'
+import type { MenuNode, MenuSchema } from '@aeria-ui/core'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
-import { useBreakpoints, useNavbar, MENU_SCHEMA_SYMBOL, } from '@aeria-ui/core'
+import { useBreakpoints, useNavbar, MENU_SCHEMA_SYMBOL } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager } from '@aeria-ui/state-management'
 import { reactive, inject, toRefs, unref, watch } from 'vue'
 
@@ -69,7 +69,7 @@ export const isCollapsibleRouteOpen = (node: MenuNode) => {
 
 export const pushRoute = (manager: GlobalStateManager, ...args: Parameters<Router['push']>) => {
   if( !breakpoints.value.md ) {
-    const metaStore = useStore('meta', manager) as ReturnType<typeof meta>
+    const metaStore = useStore('meta', manager)
     metaStore.menu.visible = false
   }
 
@@ -86,7 +86,7 @@ export const routeClick = (node: MenuNode, manager: GlobalStateManager) => {
   }
 
   pushRoute(manager, {
-    path: node.path!
+    path: node.path!,
   })
 }
 
