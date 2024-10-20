@@ -60,7 +60,7 @@ export const bootstrapApp = (config: BootstrapConfig) => {
   registerDirectives(app)
 
   const context: StoreContext = {
-    i18n: i18n.__globalI18n,
+    i18n,
     manager: globalStateManager,
   }
 

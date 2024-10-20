@@ -68,7 +68,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
             '%viewTitle%',
             t(currentRoute.params.collection, {
               plural: true,
-            }, i18n.__globalI18n),
+            }, i18n),
           )
         }
 

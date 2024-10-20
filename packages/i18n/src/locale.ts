@@ -44,36 +44,44 @@ export const createI18n = () => {
 }
 
 export const useI18n = () => {
-  const config = inject(I18N_KEY, {} as I18nConfig)
+  const instance = inject<GlobalI18n>(I18N_KEY)
   return {
-    config,
+    instance,
     t: (text: string, options: TextOptions = {}) => {
-      return t(text, options, config)
+      return t(text, options, instance)
     },
   }
 }
 
 export const getI18nConfig = (i18n: ReturnType<typeof useI18n>) => {
-  return i18n.config
+  return i18n.instance
 }
 
-export const setLocale = (current: string, config?: I18nConfig) => {
-  const i18n = config || getI18nConfig(useI18n())
-  i18n.current = current
+export const setLocale = (current: string, instance?: GlobalI18n) => {
+  const i18n = instance || getI18nConfig(useI18n())
+  if( i18n ) {
+    i18n.__globalI18n.current = current
+  }
 }
 
-export const getLocale = (config?: I18nConfig) => {
-  const i18n = config || getI18nConfig(useI18n())
-  return i18n.current
+export const getLocale = (instance?: GlobalI18n) => {
+  const i18n = instance || getI18nConfig(useI18n())
+  if( i18n ) {
+    return i18n.__globalI18n.current
+  }
 }
 
 const capitalize = (text: string) => {
   return text[0].toUpperCase() + text.slice(1)
 }
 
-export const internalTranslate = (originalText: string, _options: TextOptions = {}, config?: I18nConfig): string => {
-  const i18n = config || getI18nConfig(useI18n())
-  const localeMemo = i18n
+export const internalTranslate = (originalText: string, _options: TextOptions = {}, instance?: GlobalI18n): string => {
+  const i18n = instance || getI18nConfig(useI18n())
+  if( !i18n ) {
+    throw new Error()
+  }
+
+  const localeMemo = i18n.__globalI18n
   if( !originalText ) {
     return ''
   }
@@ -147,7 +155,7 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
     : translated
 }
 
-export const t = (text: string, options: TextOptions = {}, i18n?: I18nConfig) => {
+export const t = (text: string, options: TextOptions = {}, i18n?: GlobalI18n) => {
   if( !text ) {
     return ''
   }

@@ -1,4 +1,4 @@
-import type { I18nConfig } from '@aeria-ui/i18n'
+import type { GlobalI18n } from '@aeria-ui/i18n'
 import {
   inject,
   unref,
@@ -31,7 +31,7 @@ export type UnwrapGetters<TGetters extends Record<string, (()=> unknown) | Compu
 }
 
 export type StoreContext<T = {}> = T & {
-  i18n: I18nConfig
+  i18n: GlobalI18n
   manager: GlobalStateManager
 }
 
