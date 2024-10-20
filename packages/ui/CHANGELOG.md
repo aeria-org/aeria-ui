@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.122
+
+### Patch Changes
+
+- 076feba: Fix conditional exports
+- Updated dependencies [076feba]
+  - @aeria-ui/core@0.0.78
+
 ## 0.0.121
 
 ### Patch Changes
