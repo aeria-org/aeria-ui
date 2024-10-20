@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.79
+
+### Patch Changes
+
+- 4e373fb: Theming refactors
+
 ## 0.0.78
 
 ### Patch Changes
