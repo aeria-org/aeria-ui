@@ -22,7 +22,10 @@
     "access": "public"
   },
   "exports": {
-    ".": "./dist/ui.js",
+    ".": {
+      "import": "./dist/ui.js",
+      "types": "./dist/index.d.ts"
+    },
     "./themes/*": "./themes/*",
     "./*": "./dist/*"
   },

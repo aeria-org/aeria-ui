@@ -23,7 +23,10 @@
     "url": ""
   },
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
     "./stores": "./dist/stores/index.js",
     "./types": "./dist/types/index.js",
     "./vue": {
