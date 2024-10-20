@@ -107,14 +107,17 @@ export const useNavbar = async (props: Props) => {
     return Object.values(entries)
   }
 
-  const isCurrent = (subroute: RouteRecordRaw) => {
+  const isCurrent = (subroute: MenuNode) => {
     const route = router.currentRoute.value
 
-    const pathMatches = typeof subroute.redirect === 'string'
-      ? subroute.redirect === route.path
-      : subroute.path === (route.redirectedFrom?.path || route.path)
+    if( 'redirect' in subroute && typeof subroute.redirect === 'string' ) {
+      return subroute.redirect === route.path
+    }
+    if( 'path' in subroute ) {
+      return subroute.path === (route.redirectedFrom?.path || route.path)
+    }
 
-    return pathMatches
+    return false
   }
 
   const routes = ref(await getRoutes())

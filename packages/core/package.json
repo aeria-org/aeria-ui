@@ -28,10 +28,7 @@
       "types": "./dist/index.d.ts"
     },
     "./stores": "./dist/stores/index.js",
-    "./types": "./dist/types/index.js",
-    "./vue": {
-      "types": "./vue.d.ts"
-    }
+    "./types": "./dist/types/index.js"
   },
   "typesVersions": {
     "*": {

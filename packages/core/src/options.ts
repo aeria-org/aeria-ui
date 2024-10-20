@@ -19,7 +19,6 @@ export type MenuNodeNamed = MenuNodeBase & {
 export type MenuNodeCollapsible = MenuNodeBase & {
   collapsed: boolean | 'user'
   children: (string | MenuNode)[]
-  meta: RouteMeta
 }
 
 export type MenuNode =
