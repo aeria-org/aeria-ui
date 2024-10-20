@@ -9,11 +9,11 @@ defineProps<Props>()
 
 <template>
   <div
-    :class="`
-    card
-    ${inactive && 'card--inactive'}
-    ${horizontal && 'card--horizontal'}
-  `"
+    :class="[
+      'card',
+      { 'card--inactive': inactive },
+      { 'card--horizontal': horizontal },
+    ]"
   >
     <div class="card__picture">
       <slot />

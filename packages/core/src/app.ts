@@ -1,15 +1,13 @@
 import type { defineOptions } from './options.js'
 import { createApp, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { createI18n, t } from '@aeria-ui/i18n'
+import { t } from '@aeria-ui/i18n'
 import { isError } from '@aeriajs/common'
-import { createGlobalStateManager, type StoreContext } from '@aeria-ui/state-management'
 import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
-import { meta, user } from './stores/index.js'
 import { STORAGE_NAMESPACE } from './constants.js'
-import { bootstrapRoutes } from './bootstrap.js'
-import { registerDirectives } from './directives/index.js'
+import { bootstrapApp, bootstrapRoutes } from './bootstrap.js'
+import { MENU_SCHEMA_SYMBOL } from './types.js'
 
 export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const options = typeof optionsFn === 'function'
@@ -24,21 +22,11 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   } = options
 
   const app = createApp(component)
-  registerDirectives(app)
-
-  const globalStateManager = createGlobalStateManager()
-  app.use(globalStateManager)
-
-  const i18n = createI18n()
-  app.use(i18n, options.i18n)
-
-  const context: StoreContext = {
-    i18n: i18n.__globalI18n,
-    manager: globalStateManager,
-  }
-
-  const metaStore = meta(context)
-  const userStore = user(context)
+  const { context, metaStore, userStore } = bootstrapApp({
+    app,
+    instanceVars: INSTANCE_VARS,
+    i18n: options.i18n,
+  })
 
   const router = createRouter(routes || [], context)
   app.use(router)
@@ -46,9 +34,9 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const reactiveMenuSchema = ref(menuSchema)
 
   if( menuSchema ) {
-    bootstrapRoutes(router, globalStateManager)
+    bootstrapRoutes(router, context)
   } else {
-    bootstrapRoutes(router, globalStateManager, () => {
+    bootstrapRoutes(router, context, () => {
       reactiveMenuSchema.value = router.getRoutes().flatMap((route) => {
         return typeof route.name === 'string' && route.meta.collection
           ? route.name
@@ -64,11 +52,10 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     })
   }
 
-  app.provide('menuSchema', reactiveMenuSchema)
+  app.provide(MENU_SCHEMA_SYMBOL, reactiveMenuSchema)
 
   app.mixin({
     computed: {
-      instanceVars: () => INSTANCE_VARS,
       currentUser: () => userStore.currentUser,
       viewTitle: () => {
         const currentRoute = useRouter().currentRoute.value

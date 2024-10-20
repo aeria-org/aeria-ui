@@ -35,19 +35,19 @@ const toggle = () => {
         blocked: readOnly
       }"
 
-      :class="`
-        switch
-        ${modelValue && 'switch--active'}
-        ${readOnly && 'switch--readOnly'}
-      `"
+      :class="[
+        'switch',
+        { 'switch--active': modelValue },
+        { 'switch--readOnly': readOnly },
+      ]"
       @click.stop="toggle"
     >
       <div class="switch__slider" />
       <div
-        :class="`
-        switch__dummy
-        ${!modelValue && 'switch__dummy--flex'}
-      `"
+        :class="[
+          'switch__dummy',
+          { 'switch__dummy--flex': !modelValue },
+        ]"
       />
     </a>
 

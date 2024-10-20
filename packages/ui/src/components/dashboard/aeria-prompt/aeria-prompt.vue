@@ -45,10 +45,10 @@ const handleClick = (answer: string, option: PromptOption) => {
           v-for="([optionName, option], index) in Object.entries(options)"
           :key="`option-${index}`"
 
-          :class="`
-            prompt__option
-            prompt__option--${option.variant || 'primary'}
-          `"
+          :class="[
+            'prompt__option',
+            `prompt__option--${option.variant || 'primary'}`,
+          ]"
           @click="option.click
             ? option.click(optionName, option)
             : handleClick(optionName, option)

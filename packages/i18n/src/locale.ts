@@ -83,21 +83,6 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
   options.capitalize ??= originalText[0] === originalText[0].toUpperCase()
 
   if( !options.context ) {
-    if( text.endsWith('s') ) {
-      const offset = text.endsWith('ses')
-        ? -2
-        : -1
-
-      const result = internalTranslate(text.slice(0, offset), Object.assign({
-        plural: true,
-        noFallback: true,
-      }, options), i18n)
-
-      if( result ) {
-        return result
-      }
-    }
-
     if( ~text.indexOf('_') ) {
       const camelCased = text.replace(/_(\w)/, (r) => r[1].toUpperCase())
       const result = internalTranslate(camelCased, Object.assign({

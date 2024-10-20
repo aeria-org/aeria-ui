@@ -234,31 +234,31 @@ const onInput = (event: Event) => {
 
     <div
       v-if="'element' in property && property.element === 'textarea'"
-      :class="`
-        input__container
-        input__container--textarea
-        input__container--${variant}
-    `"
+      :class="[
+        'input__container',
+        'input__container--textarea',
+        `input__container--${variant}`,
+      ]"
     >
       <textarea
         v-focus="property.focus"
         :placeholder="inputBind.placeholder"
         :readonly="inputBind.readonly"
         :value="modelValue as string"
-        :class="`
-          input__textarea
-          input__input--${variant}
-        `"
+        :class="[
+          'input__textarea',
+          `input__input--${variant}`,
+        ]"
         @input="onInput"
       />
     </div>
 
     <div
       v-else
-      :class="`
-        input__container
-        input__container--${variant}
-    `"
+      :class="[
+        'input__container',
+        `input__container--${variant}`,
+      ]"
     >
       <input
         v-focus="property.focus"
@@ -266,12 +266,12 @@ const onInput = (event: Event) => {
         :value="inputValue"
         data-component="input"
 
-        :class="`
-          input__input
-          input__input--${variant}
-          ${hasIcon && 'input__input--icon'}
-          ${readOnly && 'input__input--readOnly'}
-        `"
+        :class="[
+          'input__input',
+          `input__input--${variant}`,
+          { 'input__input--icon': hasIcon },
+          { 'input__input--readOnly': readOnly },
+        ]"
 
         @input="onInput"
         @change="emit('change', $event)"
@@ -279,10 +279,10 @@ const onInput = (event: Event) => {
       <aeria-icon
         v-if="hasIcon"
         :icon="property.icon || 'magnifying-glass'"
-        :class="`
-            input__icon
-            input__icon--${variant}
-        `"
+        :class="[
+          'input__icon',
+          `input__icon--${variant}`,
+        ]"
       />
 
       <div

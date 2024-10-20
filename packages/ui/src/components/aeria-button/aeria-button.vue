@@ -41,12 +41,12 @@ const size = (() => {
 
 <template>
   <aeria-bare-button
-    :class="`
-      button
-      button--${variant}
-      button--${size}
-      ${loading && 'button--loading'}
-    `"
+    :class="[
+      'button',
+      `button--${variant}`,
+      `button--${size}`,
+      { 'button--loading': loading },
+    ]"
     :disabled="disabled"
   >
     <aeria-icon

@@ -1,9 +1,20 @@
 import type { GlobalStateManager } from '@aeria-ui/state-management'
+import type { InstanceConfig } from '@aeria-ui/cli'
 import type { Router } from 'vue-router'
-import { watch } from 'vue'
-import { useStore } from '@aeria-ui/state-management'
+import { watch, type App } from 'vue'
+import { useStore, createGlobalStateManager, StoreContext } from '@aeria-ui/state-management'
+import { createI18n, I18nConfig } from '@aeria-ui/i18n'
+import { meta, user } from './stores/index.js'
+import { registerDirectives } from './directives/index.js'
+import { INSTANCE_VARS_SYMBOL } from './types.js'
 
-export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?: ()=> void) => {
+export type BootstrapConfig = {
+  app: App
+  instanceVars: InstanceConfig['site']
+  i18n?: I18nConfig
+}
+
+export const bootstrapRoutes = (router: Router, { manager }: StoreContext, cb?: ()=> void) => {
   const metaStore = useStore('meta', manager)
 
   watch(() => metaStore.descriptions, (descriptions) => {
@@ -39,3 +50,30 @@ export const bootstrapRoutes = (router: Router, manager: GlobalStateManager, cb?
     immediate: true,
   })
 }
+
+export const bootstrapApp = (config: BootstrapConfig) => {
+  const { app } = config
+  const globalStateManager = createGlobalStateManager()
+  const i18n = createI18n()
+
+  app.use(globalStateManager)
+  app.use(i18n, config.i18n)
+  registerDirectives(app)
+
+  const context: StoreContext = {
+    i18n: i18n.__globalI18n,
+    manager: globalStateManager,
+  }
+
+  const metaStore = meta(context)
+  const userStore = user(context)
+
+  app.provide(INSTANCE_VARS_SYMBOL, config.instanceVars)
+
+  return {
+    context,
+    metaStore,
+    userStore,
+  }
+}
+

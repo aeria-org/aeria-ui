@@ -9,11 +9,11 @@ defineProps<Props>()
 
 <template>
   <div
-    :class="`
-    badge
-    ${large && 'badge--large'}
-    ${alt && 'badge--alt'}
-  `"
+    :class="[
+      'badge',
+      { 'badge--large': large },
+      { 'badge--alt': alt },
+    ]"
   >
     <slot />
   </div>

@@ -1,5 +1,5 @@
 import type { Router, RouteRecordRaw } from 'vue-router'
-import { useBreakpoints, useNavbar, type MenuNode, type Route, type MenuSchema } from '@aeria-ui/core'
+import { useBreakpoints, useNavbar, MENU_SCHEMA_SYMBOL, type MenuNode, type Route, type MenuSchema } from '@aeria-ui/core'
 import { useStore, getGlobalStateManager, type GlobalStateManager } from '@aeria-ui/state-management'
 import { reactive, inject, toRefs, onMounted } from 'vue'
 
@@ -90,7 +90,7 @@ export const routeClick = (node: MenuNode) => {
 }
 
 export const initTheme = () => {
-  const menuSchema = inject<MenuSchema>('menuSchema', [])
+  const menuSchema = inject<MenuSchema>(MENU_SCHEMA_SYMBOL, [])
   manager = getGlobalStateManager()
 
   onMounted(async () => {

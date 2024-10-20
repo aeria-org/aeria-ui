@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { InstanceConfig } from '@aeria-ui/cli'
 import type { IconStyle } from '@phosphor-icons/core'
 import type { Icon } from '@aeriajs/types'
+import { INSTANCE_VARS_SYMBOL } from '@aeria-ui/core'
 import { inject, computed } from 'vue'
 
 type Props = {
@@ -16,6 +18,7 @@ type Props = {
 }
 
 const props = defineProps<Props>()
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
 
 const reactive = typeof props.reactive === 'boolean'
   ? props.reactive
@@ -38,11 +41,11 @@ const computedIcon = computed(() => {
     ]"
   >
     <div
-      :class="`
-      icon__icon
-      ${ size && `icon__icon--${size}` }
-      ${ iconRight && 'icon__icon--right' }
-    `"
+      :class="[
+        'icon__icon',
+        { 'icon__icon--${size}': !!size },
+        { 'icon__icon--right': iconRight },
+      ]"
     >
       <svg
         width="24"

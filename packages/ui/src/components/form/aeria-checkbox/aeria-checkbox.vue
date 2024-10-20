@@ -79,10 +79,10 @@ const handleClick = (e: Event) => {
 <template>
   <label
     v-clickable
-    :class="`
-      checkbox
-      ${readOnly && 'checkbox--readOnly'}
-  `"
+    :class="[
+      'checkbox',
+      { 'checkbox--readOnly': readOnly },
+    ]"
   >
     <input
       v-model="bindVal"

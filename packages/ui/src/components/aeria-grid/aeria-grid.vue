@@ -8,10 +8,10 @@ defineProps<Props>()
 
 <template>
   <div
-    :class="`
-    grid
-    ${list && 'grid--list'}
-  `"
+    :class="[
+      'grid',
+      { 'grid--list': list },
+    ]"
   >
     <slot />
   </div>

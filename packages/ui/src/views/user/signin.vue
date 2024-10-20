@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { STORAGE_NAMESPACE } from '@aeria-ui/core'
+import type { InstanceConfig } from '@aeria-ui/cli'
+import { STORAGE_NAMESPACE, INSTANCE_VARS_SYMBOL } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
+import { inject } from 'vue'
 import { useRouter } from 'vue-router'
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
@@ -8,6 +10,8 @@ import AeriaButton from '../../components/aeria-button/aeria-button.vue'
 const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
+
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
 
 const goToTarget = () => {
   if( typeof localStorage !== 'undefined' ) {

@@ -13,11 +13,11 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
 <template>
   <main
     id="main"
-    :class="`
-      main
-      main--${theme}
-      ${theme === 'dark' && 'tw-dark'}
-  `"
+    :class="[
+      'main',
+      `main--${theme}`,
+      { 'tw-dark': theme === 'dark' },
+    ]"
   >
     <Suspense>
       <router-view v-slot="{ Component }">

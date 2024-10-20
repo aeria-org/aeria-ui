@@ -76,11 +76,11 @@ const expand = ref(false)
     <img
       v-if="url"
       :src="url"
-      :class="`
-        picture__image
-        ${bordered && 'picture__image--bordered'}
-        ${expandable && 'picture__image--expandable'}
-      `"
+      :class="[
+        'picture__image',
+        { 'picture__image--bordered': bordered },
+        { 'picture__image--expandable': expandable },
+      ]"
       :style="`
         object-fit: ${objectFit || 'cover'};
         width: ${width || '100%'};
@@ -110,9 +110,9 @@ const expand = ref(false)
         width: ${width || '100%'};
         height: ${height || '100%'};
       `"
-      :class="`
-        ${bordered && 'picture__image--bordered'}
-      `"
+      :class="[
+        { 'picture__image--bordered': bordered },
+      ]"
     >
       <line
         x1="0"

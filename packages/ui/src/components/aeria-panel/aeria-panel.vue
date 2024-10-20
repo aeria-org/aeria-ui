@@ -78,10 +78,10 @@ const toggleCollapsed = (value: boolean) => {
       )
     }"
 
-    :class="`
-      panel
-      ${fixedRight && 'panel--fixed'}
-  `"
+    :class="[
+      'panel',
+      { 'panel--fixed': fixedRight },
+    ]"
   >
     <Component
       :is="
@@ -91,25 +91,25 @@ const toggleCollapsed = (value: boolean) => {
       "
 
       data-component="panel"
-      :class="`
-        aeria-surface
-        panel__content
-        ${float && 'panel__content--float'}
-        ${bordered && 'panel__content--bordered'}
-        ${fixedRight && 'panel__content--fixed-right'}
-        ${transparent && 'panel__content--transparent'}
-        ${transparentMobile && 'panel__content--transparent-mobile'}
-        ${outerHeader && 'panel__content--outer-header'}
-      `"
+      :class="[
+        'aeria-surface',
+        'panel__content',
+        { 'panel__content--float': float },
+        { 'panel__content--bordered': bordered },
+        { 'panel__content--fixed-right': fixedRight },
+        { 'panel__content--transparent': transparent },
+        { 'panel__content--transparent-mobile': transparentMobile },
+        { 'panel__content--outer-header': outerHeader },
+      ]"
       @click="$event.stopPropagation()"
     >
       <div
         v-if="$slots.header || title"
-        :class="`
-          panel__header
-          ${isCollapsed && 'panel__header--collapsed'}
-          ${outerHeader && 'panel__header--outer'}
-      `"
+        :class="[
+          'panel__header',
+          { 'panel__header--collapsed': isCollapsed },
+          { 'panel__header--outer': outerHeader },
+        ]"
       >
         <div class="panel__header-left">
           <slot
@@ -155,21 +155,21 @@ const toggleCollapsed = (value: boolean) => {
         ref="body"
         v-loading="loading"
         tabindex="0"
-        :class="`
-          panel__body
-          ${fill || 'panel__body--padded'}
-      `"
+        :class="[
+          'panel__body',
+          { 'panel__body--padded': fill },
+        ]"
       >
         <slot />
       </div>
 
       <div
         v-if="$slots.footer"
-        :class="`
-          panel__footer
-          ${fillFooter || 'panel__footer--padded'}
-          ${reachedEnd || 'panel__footer--shadowed'}
-        `"
+        :class="[
+          'panel__footer',
+          { 'panel__footer--padded': fillFooter },
+          { 'panel__footer--shadowed': reachedEnd },
+        ]"
       >
         <slot name="footer" />
       </div>

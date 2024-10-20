@@ -27,10 +27,10 @@ const visible = ref(false)
   >
     <div
       v-if="visible"
-      :class="`
-        info__bubble
-        info__bubble--${where}
-    `"
+      :class="[
+        'info__bubble',
+        `info__bubble--${where}`
+      ]"
     >
       <div class="info__content">
         <slot name="text" />

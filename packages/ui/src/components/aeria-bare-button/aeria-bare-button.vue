@@ -18,10 +18,10 @@ const handleClick = (event: Event) => {
 
 <template>
   <button
-    :class="`
-      barebutton
-      barebutton--${disabled ? 'disabled' : 'enabled'}
-    `"
+    :class="[
+      'barebutton',
+      `barebutton--${disabled ? 'disabled' : 'enabled'}`,
+    ]"
     @click.prevent="handleClick"
   >
     <slot />
