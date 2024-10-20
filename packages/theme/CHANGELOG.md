@@ -1,5 +1,13 @@
 # @aeria-ui/theme
 
+## 0.0.59
+
+### Patch Changes
+
+- 24ef095: Refactor
+- Updated dependencies [24ef095]
+  - @aeria-ui/core@0.0.77
+
 ## 0.0.58
 
 ### Patch Changes
