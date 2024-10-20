@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.12
+
+### Patch Changes
+
+- 24ef095: Refactor
+
 ## 0.0.11
 
 ### Patch Changes

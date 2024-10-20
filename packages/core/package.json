@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/core",
   "type": "module",
-  "version": "0.0.76",
+  "version": "0.0.77",
   "scripts": {
     "test": "echo skipping",
     "lint": "eslint .",
@@ -56,7 +56,7 @@
     "vite": "^4.4.8"
   },
   "peerDependencies": {
-    "@aeria-ui/i18n": "^0.0.11",
+    "@aeria-ui/i18n": "^0.0.12",
     "@aeria-ui/state-management": "^0.0.14",
     "@aeria-ui/utils": "^0.0.5",
     "aeria-sdk": "0.0"
