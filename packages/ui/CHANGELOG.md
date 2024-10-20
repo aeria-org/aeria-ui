@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.124
+
+### Patch Changes
+
+- 601fa29: Fix runtime errors
+- Updated dependencies [601fa29]
+  - @aeria-ui/core@0.0.80
+
 ## 0.0.123
 
 ### Patch Changes
