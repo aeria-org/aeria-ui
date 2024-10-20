@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.15
+
+### Patch Changes
+
+- ee8292f: Refactor i18n API
+
 ## 0.0.14
 
 ### Patch Changes
