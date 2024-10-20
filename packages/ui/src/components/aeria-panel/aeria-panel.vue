@@ -157,7 +157,7 @@ const toggleCollapsed = (value: boolean) => {
         tabindex="0"
         :class="[
           'panel__body',
-          { 'panel__body--padded': fill },
+          { 'panel__body--padded': !fill },
         ]"
       >
         <slot />
@@ -167,8 +167,8 @@ const toggleCollapsed = (value: boolean) => {
         v-if="$slots.footer"
         :class="[
           'panel__footer',
-          { 'panel__footer--padded': fillFooter },
-          { 'panel__footer--shadowed': reachedEnd },
+          { 'panel__footer--padded': !fillFooter },
+          { 'panel__footer--shadowed': !reachedEnd },
         ]"
       >
         <slot name="footer" />

@@ -1,6 +1,5 @@
 import type { defineOptions } from './options.js'
 import { createApp, ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { t } from '@aeria-ui/i18n'
 import { isError } from '@aeriajs/common'
 import { routerInstance as createRouter } from './router.js'
@@ -17,8 +16,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const {
     component,
     menuSchema,
-    routes,
-
+    routes = [],
   } = options
 
   const app = createApp(component)
@@ -28,7 +26,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     i18n: options.i18n,
   })
 
-  const router = createRouter(routes || [], context)
+  const router = createRouter(routes, context)
   app.use(router)
 
   const reactiveMenuSchema = ref(menuSchema)
@@ -58,7 +56,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     computed: {
       currentUser: () => userStore.currentUser,
       viewTitle: () => {
-        const currentRoute = useRouter().currentRoute.value
+        const currentRoute = router.currentRoute.value
         const title = currentRoute.meta.title
 
         if( typeof title !== 'string' ) {
