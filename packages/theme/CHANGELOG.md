@@ -1,5 +1,13 @@
 # @aeria-ui/theme
 
+## 0.0.61
+
+### Patch Changes
+
+- 4e373fb: Theming refactors
+- Updated dependencies [4e373fb]
+  - @aeria-ui/core@0.0.79
+
 ## 0.0.60
 
 ### Patch Changes
