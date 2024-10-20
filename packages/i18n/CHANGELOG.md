@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.13
+
+### Patch Changes
+
+- ee8292f: Refactor i18n API
+
 ## 0.0.12
 
 ### Patch Changes
