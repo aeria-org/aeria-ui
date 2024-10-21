@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.14
+
+### Patch Changes
+
+- 7c3e132: Fix runtime bug
+
 ## 0.0.13
 
 ### Patch Changes
