@@ -33,7 +33,7 @@ const insert = async () => {
     }
   }
 
-  await metaStore.$actions.spawnModal({
+  metaStore.$actions.spawnModal({
     title: 'Feito!',
     body: 'Suas informações foram salvas',
   })
@@ -42,7 +42,7 @@ const insert = async () => {
 }
 
 const signout = async () => {
-  await userStore.$actions.signout()
+  userStore.$actions.signout()
   router.push('/user/signin')
 }
 </script>

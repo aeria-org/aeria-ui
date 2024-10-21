@@ -27,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   panel: undefined,
 })
 
+const metaStore = useStore('meta')
 const refProperty = getReferenceProperty(props.property)!
 
 const panel = props.panel !== undefined
@@ -113,7 +114,6 @@ const search = async () => {
 
   const { error, result } = await getSearchResults()
   if( error ) {
-    const metaStore = useStore('meta')
     metaStore.$actions.spawnToast({
       text: 'Request failed',
       icon: 'warning',

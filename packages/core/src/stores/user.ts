@@ -1,16 +1,21 @@
 import type { Description } from '@aeriajs/types'
-import type { user as originalUser } from '@aeriajs/builtins'
+import type { user as originalUser, file } from '@aeriajs/builtins'
+import { Result } from '@aeriajs/types'
+import { deepClone } from '@aeriajs/common'
 import { registerStore, useStore } from '@aeria-ui/state-management'
 import { reactive } from 'vue'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
-import { Result } from 'aeria-sdk'
 
 type User = {
   _id: string
   name: string
   roles: string[]
+  password?: string
+  picture_file?: typeof file.item & {
+    _id: string
+  }
 }
 
 type SuccessfulAuthentication = {
@@ -34,6 +39,7 @@ const freshUser = {
 
 export const user = registerStore((context) => {
   const state = reactive({
+    item: deepClone<User>(freshUser),
     currentUser: freshUser as User,
     credentials: {
       email: '',
