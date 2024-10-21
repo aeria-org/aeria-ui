@@ -27,7 +27,7 @@ const insert = async () => {
     },
   })
 
-  await metaStore.$actions.spawnModal({
+  metaStore.$actions.spawnModal({
     title: `${t('done', {
  capitalize: true,
 })}!`,

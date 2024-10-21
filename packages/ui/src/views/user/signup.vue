@@ -43,7 +43,7 @@ const insert = async () => {
     return
   }
 
-  await metaStore.$actions.spawnModal({
+  metaStore.$actions.spawnModal({
     title: 'Conta registrada',
     body: 'Verifique o link de confirmação no seu email',
   })

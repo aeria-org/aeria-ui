@@ -43,7 +43,7 @@ const confirm = async () => {
 
   userStore.credentials.email = password.value.email
 
-  await metaStore.$actions.spawnModal({
+  metaStore.$actions.spawnModal({
     title: 'Sucesso!',
     body: 'Sua conta foi ativada com sucesso. Experimente fazer login com o seu email e senha.',
   })
