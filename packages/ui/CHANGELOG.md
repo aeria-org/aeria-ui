@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.129
+
+### Patch Changes
+
+- 3421e7f: Pass `required` property to form components
+
 ## 0.0.128
 
 ### Patch Changes
