@@ -394,6 +394,7 @@ const focusOnRender = (property: Property) => {
             readOnly,
             property: fieldProperty,
             propertyName: fieldPropertyName,
+            required: !searchOnly && (!required || isRequired(fieldPropertyName, required, modelValue)),
             ...layout.fields[fieldPropertyName].component!.props||{},
           }"
 

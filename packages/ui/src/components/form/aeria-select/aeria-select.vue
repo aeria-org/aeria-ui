@@ -91,7 +91,7 @@ if( !!props.multiple ) {
     />
 
     <option
-      v-if="!props.multiple"
+      v-if="!props.multiple && !required"
       value=""
     >
       {{ t('none') }}
