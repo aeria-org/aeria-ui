@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.128
+
+### Patch Changes
+
+- 9191c8d: Refactor types
+- Updated dependencies [9191c8d]
+  - @aeria-ui/core@0.0.84
+
 ## 0.0.127
 
 ### Patch Changes
