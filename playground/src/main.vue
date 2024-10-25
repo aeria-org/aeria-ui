@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { condenseItem, useStore } from 'aeria-ui'
-import {watch, reactive} from 'vue'
+import { useStore } from 'aeria-ui'
+import { watch, reactive } from 'vue'
 
 const state = reactive({
   date: new Date(),

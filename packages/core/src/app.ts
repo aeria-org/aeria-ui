@@ -22,7 +22,9 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const app = createApp(component)
   const { context, i18n, metaStore, userStore } = bootstrapApp({
     app,
-    instanceVars: INSTANCE_VARS,
+    instanceVars: typeof INSTANCE_VARS === 'undefined'
+      ? {}
+      : INSTANCE_VARS,
     i18n: options.i18n,
   })
 
