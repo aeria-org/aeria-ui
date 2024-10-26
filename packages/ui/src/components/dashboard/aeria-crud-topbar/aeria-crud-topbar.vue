@@ -76,7 +76,7 @@ const count = async (preset: FiltersPreset<any>, store: CollectionStore) => {
         <aeria-badge v-if="preset.badgeFunction">
           <aeria-async
             initial-value="0"
-            :promise="async () => String(count(preset, store!))"
+            :promise="(async () => String(count(preset, store!)))()"
           />
         </aeria-badge>
       </div>
