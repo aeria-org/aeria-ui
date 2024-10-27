@@ -1,62 +1,51 @@
 import type { Property } from '@aeriajs/types'
-import { getReferenceProperty } from '@aeriajs/common'
 import { formatDateTime } from './date.js'
 
-export const formatValue = (value: any, key: string, property?: Property, index?: string): string => {
-  if( Array.isArray(value) ) {
-    return value.map((v) => formatValue(v, key, property, index)).join(', ')
+export const formatValue = (value: unknown, property: Property, index?: string): string => {
+  if( value === null || value === undefined ) {
+    return '-'
   }
 
-  const firstValue = (() => {
-    if( !property ) {
-      return value
+  if( 'items' in property ) {
+    if( !Array.isArray(value) ) {
+      return String(value)
     }
+    return value.map((v) => formatValue(v, property.items, index)).join(', ')
+  }
 
-    const refProperty = getReferenceProperty(property)
-    if( refProperty ) {
-      const firstIndex = index || refProperty.indexes?.[0]
-      return firstIndex && value?.[firstIndex]
-    }
-
-    if( value instanceof Object ) {
+  if( 'properties' in property ) {
+    if( Object.values(property.properties).length === 0 ) {
       return Object.values(value)[0]
     }
 
-    return value
-  })()
+    const firstProperty = Object.values(property.properties)[0]
+    return formatValue(Object.values(value)[0], firstProperty)
+  }
 
-  const formatted = (() => {
-    if( !property ) {
-      return firstValue
+  if( '$ref' in property ) {
+    const firstIndex = index || property.indexes?.[0]
+    if( firstIndex ) {
+      return String((value as Record<string, unknown>)[firstIndex])
     }
 
-    if( 'type' in property ) {
-      if( property.type === 'boolean' ) {
-        return firstValue
-          ? 'true'
-          : false
+    return Object.values(value)[0]
+  }
+
+  if( 'type' in property ) {
+    switch( property.type ) {
+      case 'string': {
+        switch( property.format ) {
+          case 'date': return formatDateTime(value as string)
+          case 'date-time': return formatDateTime(value as string, {
+            hours: true,
+          })
+          default:
+            return String(value)
+        }
       }
     }
-    if( 'format' in property && property.format ) {
-      if( [
-        'date',
-        'date-time',
-      ].includes(property.format) ) {
-        return formatDateTime(String(value), {
-          hours: property.format === 'date-time',
-        })
-      }
-    }
+  }
 
-    if( [
-      undefined,
-      null,
-    ].includes(firstValue) ) {
-      return '-'
-    }
-
-    return firstValue
-  })()
-
-  return String(formatted)
+  return String(value)
 }
+

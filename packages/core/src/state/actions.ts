@@ -340,7 +340,6 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       return formatValue(
         value,
-        args.key,
         args.property,
         args.index,
       )
