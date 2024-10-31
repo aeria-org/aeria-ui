@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.130
+
+### Patch Changes
+
+- c351ea6: Fix `formatValue()`
+- Updated dependencies [c351ea6]
+  - @aeria-ui/utils@0.0.6
+  - @aeria-ui/core@0.0.85
+
 ## 0.0.129
 
 ### Patch Changes
