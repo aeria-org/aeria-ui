@@ -21,7 +21,7 @@ userStore.$actions.setItem(userStore.currentUser)
 
 const insert = async () => {
   await userStore.$actions.insert({
-    what: userStore.item,
+    what: userStore.condensedItem,
   })
 
   if( typeof localStorage !== 'undefined' ) {
