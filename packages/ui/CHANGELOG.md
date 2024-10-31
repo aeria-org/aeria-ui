@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.131
+
+### Patch Changes
+
+- 517500f: Fix user insert
+
 ## 0.0.130
 
 ### Patch Changes
