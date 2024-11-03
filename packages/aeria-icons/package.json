@@ -18,8 +18,7 @@
     "test": "echo skipping",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "tsc && node dist/__scripts__/bundleAllIcons.js",
-    "prepublishOnly": "pnpm lint && pnpm build"
+    "build": "tsc && node dist/__scripts__/bundleAllIcons.js"
   },
   "exports": {
     ".": "./dist/index.js",

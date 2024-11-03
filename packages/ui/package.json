@@ -10,8 +10,7 @@
     "lint:fix": "eslint src --fix && pnpm lint-css:fix",
     "lint-css": "stylelint '**/*.less'",
     "lint-css:fix": "stylelint --fix '**/*.less'",
-    "build": "vue-tsc --noEmit && vite build",
-    "prepublishOnly": "pnpm lint && pnpm build"
+    "build": "vue-tsc --noEmit && vite build"
   },
   "keywords": [],
   "author": "",
