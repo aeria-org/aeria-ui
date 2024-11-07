@@ -111,7 +111,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     async custom<TResponseType = unknown>(verb: string | null, payload?: unknown, options?: CustomOptions): Promise<TResponseType> {
       store.validationErrors = {}
       if( !options?.skipLoading ) {
-        store.loading[verb || ''] = true
+        if( verb ) {
+          store.loading[verb] = true
+        }
       }
 
       const route = verb
@@ -120,7 +122,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
       const promise = request<TResponseType>(`${API_URL}/${route}`, payload).finally(() => {
         if( !options?.skipLoading ) {
-          store.loading[verb || ''] = false
+          if( verb ) {
+            store.loading[verb] = false
+          }
         }
       })
 

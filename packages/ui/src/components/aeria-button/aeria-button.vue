@@ -47,7 +47,7 @@ const size = (() => {
       `button--${size}`,
       { 'button--loading': loading },
     ]"
-    :disabled="disabled"
+    :disabled="disabled || loading"
   >
     <aeria-icon
       v-if="icon"
