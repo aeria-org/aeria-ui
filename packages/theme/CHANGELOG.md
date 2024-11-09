@@ -1,5 +1,11 @@
 # @aeria-ui/theme
 
+## 0.0.69
+
+### Patch Changes
+
+- 9fcfce9: Publish dist folder
+
 ## 0.0.68
 
 ### Patch Changes
