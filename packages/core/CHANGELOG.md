@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.86
+
+### Patch Changes
+
+- 7e8e4eb: Fix loading state not preventing button being clicked
+
 ## 0.0.85
 
 ### Patch Changes
