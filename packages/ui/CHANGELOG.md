@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.133
+
+### Patch Changes
+
+- de4855c: Get rid of unecessary cancel button
+
 ## 0.0.132
 
 ### Patch Changes
