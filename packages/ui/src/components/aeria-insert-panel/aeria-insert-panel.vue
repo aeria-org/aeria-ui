@@ -17,6 +17,7 @@ type Props = {
   })[]
   collection: string
   form?: string[]
+  float?: boolean
   visible?: any
   modelValue?: unknown
   readOnly?: boolean
@@ -97,8 +98,11 @@ watch(() => store.item._id, (_id) => {
 
 <template>
   <aeria-panel
-    :model-value="visible"
-    :loading="store.loading.get"
+    v-bind="{
+      modelValue: visible,
+      loading: store.loading.get,
+      float,
+    }"
     @overlay-click="askToCancel"
   >
     <template
@@ -161,6 +165,7 @@ watch(() => store.item._id, (_id) => {
       #footer
     >
       <aeria-button
+        v-if="float"
         variant="transparent"
         @click="askToCancel"
       >
