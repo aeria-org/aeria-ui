@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.87
+
+### Patch Changes
+
+- 4550b4a: Remove hardcoded messages
+
 ## 0.0.86
 
 ### Patch Changes

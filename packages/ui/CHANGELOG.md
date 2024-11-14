@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.134
+
+### Patch Changes
+
+- 4550b4a: Remove hardcoded messages
+- Updated dependencies [4550b4a]
+  - @aeria-ui/core@0.0.87
+
 ## 0.0.133
 
 ### Patch Changes
