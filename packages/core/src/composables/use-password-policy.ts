@@ -18,6 +18,6 @@ export const usePasswordPolicy = (options: Options = {
     case options.includeCapital && !/[A-Z]/.test(password):
       return 'Password must contain at least one capital letter'
     case password !== confirmation:
-      return "Confirmation doesn't match"
+      return 'Confirmation doesn\'t match'
   }
 }
