@@ -23,7 +23,7 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
       name: '/user/signin',
       component: () => import('./views/user/signin.vue'),
       meta: {
-        title: 'Autenticação',
+        title: 'Sign in',
       },
     },
     {
@@ -31,7 +31,7 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
       name: '/user/signup',
       component: () => import('./views/user/signup.vue'),
       meta: {
-        title: 'Registro',
+        title: 'Sign up',
       },
     },
     {
@@ -39,7 +39,7 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
       name: '/user/activation',
       component: () => import('./views/user/activation.vue'),
       meta: {
-        title: 'Ativação',
+        title: 'Activate user',
       },
     },
   ]),
@@ -93,7 +93,7 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
           path: 'profile',
           component: () => import('./views/dashboard/user/profile/index.vue'),
           meta: {
-            title: 'Meu perfil',
+            title: 'User profile',
             icon: 'user-square',
           },
         },
@@ -102,7 +102,7 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
           name: '/dashboard/user/changepass',
           component: () => import('./views/dashboard/user/password-change/index.vue'),
           meta: {
-            title: 'Mudar senha',
+            title: 'Change password',
             icon: 'lock',
           },
         },

@@ -7,22 +7,17 @@ type Options = {
 
 export const usePasswordPolicy = (options: Options = {
   minimumLength: 8,
-}) => (
-  password: string,
-  confirmation: string,
-) => {
+}) => (password: string, confirmation: string) => {
   switch( true ) {
     case password.length < options.minimumLength:
-      return `Senha deve ter no mínimo ${options.minimumLength} dígitos`
-
+      return `Password must contain at least ${options.minimumLength} digits`
     case options.includeNumber && !/[0-9]/.test(password):
-      return 'Senha deve conter pelo menos um número'
+      return 'Password must contain at least one number'
     case options.includeSymbol && !/[^\w]/.test(password):
-      return 'Senha deve conter pelo menos um símbolo'
+      return 'Password must contain at least one symbol'
     case options.includeCapital && !/[A-Z]/.test(password):
-      return 'Senha deve conter pelo menos uma letra maiúscula'
-
+      return 'Password must contain at least one capital letter'
     case password !== confirmation:
-      return 'Confirmação não procede'
+      return "Confirmation doesn't match"
   }
 }

@@ -334,8 +334,10 @@ provide(STORE_ID, computed(() => props.collection))
     v-if="isInsertVisible"
     v-model:visible="isInsertVisible"
     fixed-right
-    :collection
-    :individual-actions
+    v-bind="{
+      collection,
+      individualActions,
+    }"
     @cancel="isInsertVisible = false"
   >
     <template #header>
