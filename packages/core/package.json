@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/core",
   "type": "module",
-  "version": "0.0.88",
+  "version": "0.0.89",
   "scripts": {
     "test": "echo skipping",
     "lint": "eslint .",
