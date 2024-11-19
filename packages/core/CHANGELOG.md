@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.88
+
+### Patch Changes
+
+- cf95efb: Pass router in `options.setup()` callback
+
 ## 0.0.87
 
 ### Patch Changes
