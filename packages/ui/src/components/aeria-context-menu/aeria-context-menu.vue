@@ -156,10 +156,7 @@ const position = computed(() => {
             "
             @click="handleClick(action, subject)"
           >
-            <aeria-icon
-              v-if="action.icon"
-              :icon="action.icon"
-            >
+            <aeria-icon :icon="action.icon || 'gear'">
               {{
                 action.translate
                   ? t(action.label, { capitalize: true })
