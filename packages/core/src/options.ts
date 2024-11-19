@@ -1,5 +1,5 @@
 import type { App, Component } from 'vue'
-import type { RouteRecordRaw } from 'vue-router'
+import type { Router, RouteRecordRaw } from 'vue-router'
 import type { GlobalI18n, I18nConfig } from '@aeria-ui/i18n'
 import type { StoreContext } from '@aeria-ui/state-management'
 import type { RouteMeta } from './router.js'
@@ -41,6 +41,7 @@ export type AppOptions = {
     context: StoreContext<{
       i18n: GlobalI18n
     }>
+    router: Router
   })=> void | Promise<void>
 }
 

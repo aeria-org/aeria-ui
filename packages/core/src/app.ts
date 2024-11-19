@@ -49,6 +49,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     await options.setup({
       app,
       context,
+      router,
     })
   }
 
