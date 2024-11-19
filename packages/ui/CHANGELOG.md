@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.136
+
+### Patch Changes
+
+- 41128e0: Fix context menu not rendering actions if icon wasn't specified
+- Updated dependencies [cbc8082]
+  - @aeria-ui/core@0.0.89
+
 ## 0.0.135
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.89
+
+### Patch Changes
+
+- cbc8082: Fix pagination bug
+
 ## 0.0.88
 
 ### Patch Changes
