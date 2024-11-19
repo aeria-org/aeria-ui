@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ActionFilter, ActionEvent, Pagination, CollectionStore } from '@aeria-ui/core'
+import type { ActionFilter, ActionEvent, Pagination, CollectionStore, CollectionStoreItem } from '@aeria-ui/core'
 import type { Layout } from '@aeriajs/types'
 import type { Component } from 'vue'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
@@ -260,26 +260,26 @@ watch(() => actionEventBus.value, async (_event) => {
         return a
       }
 
-      const unbound = (value: typeof store.item) => {
+      const unbound = (reference: typeof store.item | undefined | null) => {
         const refProperty = getReferenceProperty(property)
         if( !refProperty ) {
-          return value
+          return reference
         }
 
         if( refProperty.$ref === 'file' ) {
           return {}
         }
 
-        if( refProperty.inline && value ) {
-          const { _id: itemId, ...rest } = value
+        if( refProperty.inline && reference ) {
+          const { _id: itemId, ...rest } = reference
           return rest
         }
-        return value
+        return reference
       }
 
       value = Array.isArray(value)
         ? value.map(unbound)
-        : unbound(value)
+        : unbound(value as CollectionStoreItem)
 
       return {
         ...a,
@@ -463,7 +463,7 @@ provide(STORE_ID, computed(() => props.collection))
             :icon="actionProps.icon || 'gear'"
             :disabled="store.selected.length === 0 && 'selection' in actionProps && actionProps.selection"
 
-            @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
+            @click="call(actionProps)({ _id: store.selected.map((item) => typeof item === 'string' || item._id) })"
           >
             {{ t(actionProps.label, { capitalize: true }) }}
           </aeria-icon>
@@ -489,7 +489,7 @@ provide(STORE_ID, computed(() => props.collection))
         :icon="actionProps.icon"
         :disabled="store.selected.length === 0 && 'selection' in actionProps && actionProps.selection"
 
-        @click="call(actionProps)({ _id: store.selected.map((item) => item._id) })"
+        @click="call(actionProps)({ _id: store.selected.map((item) => typeof item === 'string' || item._id) })"
       >
         {{ t(actionProps.label, { capitalize: true }) }}
       </aeria-button>

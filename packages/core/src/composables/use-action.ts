@@ -1,7 +1,7 @@
 import type { Router, LocationQueryRaw, RouteParamsRawGeneric } from 'vue-router'
 import type { CollectionAction } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
-import type { CollectionStore } from '../state/collection.js'
+import type { CollectionStore, CollectionStoreItem } from '../state/collection.js'
 import { useStore } from '@aeria-ui/state-management'
 import { useI18n } from '@aeria-ui/i18n'
 import { Result } from '@aeriajs/types'
@@ -22,13 +22,9 @@ export type ActionEvent = {
   params: any
 }
 
-type ActionFilters = Record<string, unknown> & {
-  _id: string | string[]
-}
-
 const getEffect = (store: Pick<CollectionStore, '$actions'>, effectName: keyof typeof STORE_EFFECTS) => {
   const effect = STORE_EFFECTS[effectName]
-  return store.$actions[effect]
+  return store.$actions[effect] as (payload: unknown)=> unknown
 }
 
 export const useAction = (
@@ -42,14 +38,14 @@ export const useAction = (
     params: {},
   })
 
-  const fn = (actionProps: CollectionAction<any> & { action: string }): (filters?: ActionFilters)=> void => {
+  const fn = (actionProps: CollectionAction<any> & { action: string }): (filters?: CollectionStoreItem)=> void => {
     const metaStore = useStore('meta', manager)
     const { t } = useI18n()
     const { action: actionName } = actionProps
 
     if( 'route' in actionProps ) {
-      return async (filters?: ActionFilters) => {
-        if( actionProps.route.setItem ) {
+      return async (filters?: CollectionStoreItem) => {
+        if( filters && actionProps.route.setItem ) {
           store.$actions.setItem(filters)
         }
 
@@ -88,7 +84,7 @@ export const useAction = (
     }
 
     if( 'event' in actionProps ) {
-      return (_filters?: ActionFilters) => {
+      return (_filters?: CollectionStoreItem) => {
         const filters = _filters
           ? deepClone(_filters)
           : {}
@@ -100,7 +96,7 @@ export const useAction = (
       }
     }
 
-    const prepareFilters = (filters?: ActionFilters) => {
+    const prepareFilters = (filters?: CollectionStoreItem) => {
       return actionProps.requires
         ? store.$actions.select(actionProps.requires.filter((propName) => typeof propName === 'string'), filters)
         : store.$actions.select(['_id'], filters)
@@ -130,13 +126,13 @@ export const useAction = (
     })()
 
     if( actionProps.ask ) {
-      return (filters?: ActionFilters) => metaStore.$actions.ask({
+      return (filters?: CollectionStoreItem) => metaStore.$actions.ask({
         action: storeAction,
         params: prepareFilters(filters),
       })
     }
 
-    return (filters?: ActionFilters) => storeAction(prepareFilters(filters))
+    return (filters?: CollectionStoreItem) => storeAction(prepareFilters(filters))
   }
 
   return [

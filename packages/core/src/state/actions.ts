@@ -6,7 +6,7 @@ import { Result } from '@aeriajs/types'
 import { t } from '@aeria-ui/i18n'
 import { API_URL } from '../constants.js'
 import { request } from '../http.js'
-import { useCollectionStore, type CollectionStore } from './collection.js'
+import { useCollectionStore, type CollectionStore, type CollectionStoreItem } from './collection.js'
 import { recurseInsertCandidate } from './recurseInsertCandidate.js'
 
 export type CrudParameters = {
@@ -63,14 +63,18 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       const item = Object.assign(old, _item)
       actions.setItem(item)
 
-      const found = store.items.find(({ _id }) => _id === item._id)
-      if( found ) {
-        for( const key in found ) {
-          found[key] = undefined
+      if( item._id ) {
+        const found = store.items.find(({ _id }) => _id === item._id)
+        if( found ) {
+          for( const key in found ) {
+            found[key] = undefined
+          }
+          Object.assign(found, deepClone(store.freshItem))
+          Object.assign(found, item)
+          return item
         }
-        Object.assign(found, deepClone(store.freshItem))
-        Object.assign(found, item)
-        return item
+      } else {
+        store.pagination.recordsCount++
       }
 
       store.items.unshift(item)
@@ -133,7 +137,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         if( !data || typeof data !== 'object' || !('result' in data) ) {
           throw new Error
         }
-        actions.insertItem(data.result)
+        actions.insertItem(data.result as CollectionStoreItem)
       }
 
       return data
@@ -152,7 +156,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         }
         : payloadSource
 
-      const { error, result } = await actions.custom<Result.Either<EndpointError, unknown>>('get', payload, options)
+      const { error, result } = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>('get', payload, options)
       if( error ) {
         return Result.error(error)
       }
@@ -188,7 +192,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     async insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
-      const { error, result } = await actions.custom<Result.Either<EndpointError, unknown>>('insert', {
+      const { error, result } = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>('insert', {
         ...payload,
         what: payload?.what || store.item,
       }, options)
@@ -223,7 +227,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     async remove(payload: ActionFilter['filters'], options?: CustomOptions) {
-      const result = await actions.custom<Result.Either<EndpointError, unknown>>(
+      const result = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>(
         'remove', {
           filters: {
             _id: payload?._id,
@@ -235,8 +239,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return actions.removeItem(result)
     },
 
+    // @TODO: implement effect
     async removeAll(payload: ActionFilter['filters'], options?: CustomOptions) {
-      const result = await actions.custom<Result.Either<EndpointError, unknown>>(
+      return actions.custom<Result.Either<EndpointError, unknown>>(
         'removeAll', {
           filters: {
             _id: payload?._id,
@@ -245,7 +250,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         options,
       )
 
-      return actions.removeItem(result)
+      // return actions.removeItem(result)
     },
 
     filter(props?: ActionFilter) {
@@ -372,7 +377,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
     selectAllItems(state?: boolean) {
       store.selected = state
-        ? store.items.map((item) => item._id!)
+        ? store.items.map((item) => item._id as string)
         : []
 
       return store.items

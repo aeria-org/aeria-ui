@@ -33,7 +33,7 @@ const firstIfArray = (what: unknown) => {
   <aeria-grid :list="componentName === 'list'">
     <aeria-card
       v-for="item in store.items"
-      :key="item"
+      :key="item._id as string"
       :inactive="!!(layoutOptions.active && !item[layoutOptions.active])"
       :horizontal="componentName === 'list'"
     >

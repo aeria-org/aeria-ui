@@ -15,7 +15,7 @@ export type CollectionStoreState<TItem extends CollectionStoreItem = any> =
   ReturnType<typeof internalCreateCollectionStore<TItem>>['state']
   & UnwrapGetters<ReturnType<ReturnType<typeof internalCreateCollectionStore>['getters']>>
 
-export type CollectionStore<TItem extends CollectionStoreItem = any> = CollectionStoreState<TItem> & {
+export type CollectionStore<TItem extends CollectionStoreItem = CollectionStoreItem> = CollectionStoreState<TItem> & {
   $id: string
   $functions: Record<
     string,
@@ -50,7 +50,6 @@ export type InitialState<TItem extends CollectionStoreItem> = {
     limit: number
     recordsCount: number
     recordsTotal: number
-    currentPage: number
   }
 
   transformers: Record<string, (value: unknown)=> unknown>
@@ -83,7 +82,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       limit: PAGINATION_PER_PAGE_DEFAULT,
       recordsCount: 0,
       recordsTotal: 0,
-      currentPage: 0,
     },
 
     transformers: {},
