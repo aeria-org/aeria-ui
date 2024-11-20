@@ -16,14 +16,11 @@
     padding: 0;
     border: none;
     margin: 0;
+    gap: 1rem;
     grid-template-columns: repeat(6, 1fr);
   }
 
   &__field {
-    &:not(:first-child) {
-      margin-top: 1rem;
-    }
-
     &--form:not(:last-child):not(:first-child) {
       padding: 1rem 0 1rem 0;
       border: 1px solid var(--theme-border-color);
