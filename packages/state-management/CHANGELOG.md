@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.16
+
+### Patch Changes
+
+- 1b0f74c: Add `registerStores()` and refactor `createStore()`
+
 ## 0.0.15
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.90
+
+### Patch Changes
+
+- 1b0f74c: Add `registerStores()` and refactor `createStore()`
+- Updated dependencies [1b0f74c]
+  - @aeria-ui/state-management@0.0.16
+
 ## 0.0.89
 
 ### Patch Changes
