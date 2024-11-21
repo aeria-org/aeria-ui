@@ -177,7 +177,7 @@ export const internalRegisterStore = <
   return store
 }
 
-type RegisterStoreFunction<TConfigObject, TReturn = unknown> = (context: StoreContext, config?: TConfigObject) => TReturn
+type RegisterStoreFunction<TConfigObject, TReturn = unknown> = (context: StoreContext, config?: TConfigObject)=> TReturn
 
 export const createStore = <
   const TStoreId extends string,
