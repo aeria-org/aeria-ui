@@ -34,7 +34,7 @@ const filter = () => {
     }
   }
 
-  router.push(deepMerge(router.currentRoute, {
+  router.push(deepMerge(router.currentRoute.value, {
     query: convertToSearchQuery(store),
   }))
 }
