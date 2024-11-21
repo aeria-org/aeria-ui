@@ -104,28 +104,31 @@ export const internalRegisterStore = <
   TStoreGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>>,
   TStoreActions extends Record<string, (...args: unknown[])=> unknown>,
 >(
-  context: StoreContext,
-  fn: (context: StoreContext)=> {
+  fn: (context: StoreContext, config: unknown)=> {
     $id: TStoreId
     state: TStoreState
     getters?: TStoreGetters,
     actions?: TStoreActions
   },
+  context: StoreContext,
+  config: unknown,
 ) => {
   const { manager } = context
-  const { $id, state, getters, actions } = fn(context)
+  const { $id, state, getters, actions } = fn(context, config)
   const globalState = manager.__globalState
 
   if( hasStore($id, manager) ) {
     return globalState[$id]
   }
 
-  const store = isReactive(state)
-    ? state as Store
-    : reactive((state as Store))
+  const reactiveState = isReactive(state)
+    ? state
+    : reactive(state)
 
-  Object.assign(store, {
+  const store: Store = Object.assign(reactiveState, {
     $id,
+    $functions: {},
+    $actions: {},
   })
 
   if( getters ) {
@@ -174,7 +177,9 @@ export const internalRegisterStore = <
   return store
 }
 
-export const registerStore = <
+type RegisterStoreFunction<TConfigObject, TReturn = unknown> = (context: StoreContext, config?: TConfigObject) => TReturn
+
+export const createStore = <
   const TStoreId extends string,
   TStoreState extends StoreState,
   TStoreGetters extends Record<string, (()=> unknown) | ComputedRef<unknown>> | undefined,
@@ -186,15 +191,25 @@ export const registerStore = <
   },
 
 >(
-  fn: (context: StoreContext)=> {
+  fn: (context: StoreContext, config: unknown)=> {
     $id: TStoreId
     state: TStoreState
     getters?: TStoreGetters,
     actions?: TStoreActions
   },
+): RegisterStoreFunction<unknown, Return> => {
+  return (context, config) => {
+    return internalRegisterStore(fn, context, config) as Return
+  }
+}
+
+export const registerStores = <TConfigObject>(
+  stores: RegisterStoreFunction<TConfigObject>[] | Record<string, RegisterStoreFunction<TConfigObject>>,
+  context: StoreContext,
+  config = {} as TConfigObject,
 ) => {
-  return (context: StoreContext) => {
-    return internalRegisterStore(context, fn) as Return
+  for( const fn of Object.values(stores) ) {
+    fn(context, config)
   }
 }
 

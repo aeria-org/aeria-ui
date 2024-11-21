@@ -5,7 +5,7 @@ import type { ExtractResult } from '@aeriajs/types/dist/result.js'
 import { Result } from '@aeriajs/types'
 import { deepClone, deserialize } from '@aeriajs/common'
 import { reactive } from 'vue'
-import { useStore, hasStore, registerStore } from '@aeria-ui/state-management'
+import { useStore, hasStore, createStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { createCollectionStore } from '../state/collection.js'
 import { freshItem, freshFilters } from '../state/helpers.js'
@@ -28,7 +28,7 @@ export type Toast = {
   date: Date
 }
 
-export const meta = registerStore((context) => {
+export const meta = createStore((context) => {
   const freshState = {
     descriptions: {} as Record<string, Description>,
     roles: [] as string[],
@@ -104,7 +104,7 @@ export const meta = registerStore((context) => {
             continue
           }
 
-          registerStore(() => createCollectionStore({
+          createStore(() => createCollectionStore({
             $id: collectionName,
             state: {
               item,
