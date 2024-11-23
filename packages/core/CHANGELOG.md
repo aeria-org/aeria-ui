@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.91
+
+### Patch Changes
+
+- 6dc98be: Replace `PWD` with `OLDPWD` in postinstall script
+
 ## 0.0.90
 
 ### Patch Changes
