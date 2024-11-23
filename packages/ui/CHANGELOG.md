@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.139
+
+### Patch Changes
+
+- 6617ee6: Fix `aeria-insert-panel` route bug
+
 ## 0.0.138
 
 ### Patch Changes
