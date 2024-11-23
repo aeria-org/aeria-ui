@@ -1,9 +1,4 @@
-import fs from 'fs'
-import path from 'path'
-
-const DTS_FILENAME = 'aeria-ui.d.ts'
-
-const dts = `// WARNING: this file will be overriden
+// WARNING: this file will be overriden
 declare module 'aeria-ui' {
   export * from 'aeria-ui/dist'
 
@@ -60,27 +55,4 @@ declare global {
 }
 
 export {}
-//`
-
-const install = async () => {
-  const base = process.env.OLDPWD || process.cwd()
-
-  const { name } = JSON.parse(await fs.promises.readFile(path.join(base, 'package.json'), {
-    encoding: 'utf-8',
-  }))
-
-  if( name.startsWith('@aeria-ui/') ) {
-    return
-  }
-
-  const aeriaDir = path.join(base, '.aeria-ui')
-
-  if( !fs.existsSync(aeriaDir) ) {
-    await fs.promises.mkdir(aeriaDir)
-  }
-
-  await fs.promises.writeFile(path.join(aeriaDir, DTS_FILENAME), dts)
-}
-
-install()
-
+//
