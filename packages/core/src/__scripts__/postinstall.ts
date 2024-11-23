@@ -63,7 +63,7 @@ export {}
 //`
 
 const install = async () => {
-  const base = process.env.INIT_CWD || process.cwd()
+  const base = process.env.PWD || process.cwd()
 
   const { name } = JSON.parse(await fs.promises.readFile(path.join(base, 'package.json'), {
     encoding: 'utf-8',
