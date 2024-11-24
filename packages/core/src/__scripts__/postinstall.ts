@@ -64,6 +64,7 @@ export {}
 
 const install = async () => {
   const base = process.env.INIT_CWD || process.cwd()
+  const aeriaDir = path.join(base, '.aeria-ui')
 
   const { name } = JSON.parse(await fs.promises.readFile(path.join(base, 'package.json'), {
     encoding: 'utf-8',
@@ -72,8 +73,6 @@ const install = async () => {
   if( name.startsWith('@aeria-ui/') ) {
     return
   }
-
-  const aeriaDir = path.join(base, '.aeria-ui')
 
   if( !fs.existsSync(aeriaDir) ) {
     await fs.promises.mkdir(aeriaDir)
