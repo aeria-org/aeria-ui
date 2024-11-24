@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 
 const DTS_FILENAME = 'aeria-ui.d.ts'
 
@@ -63,7 +63,9 @@ export {}
 //`
 
 const install = async () => {
-  const base = process.env.OLDPWD || process.cwd()
+  const base = process.env.npm_package_json
+    ? path.dirname(process.env.npm_package_json)
+    : process.cwd()
 
   const { name } = JSON.parse(await fs.promises.readFile(path.join(base, 'package.json'), {
     encoding: 'utf-8',
