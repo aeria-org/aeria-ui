@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.92
+
+### Patch Changes
+
+- 9b178dd: Fix postinstall base
+
 ## 0.0.91
 
 ### Patch Changes
