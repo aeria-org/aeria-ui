@@ -2,7 +2,7 @@
 
 <img
   align="left"
-  src="/assets/aeria-ui-logo.png"
+  src="/.github/assets/aeria-ui-logo.png"
   alt="Aeria Logo" 
   width="190px"
   height="190px"
