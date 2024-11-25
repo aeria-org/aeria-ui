@@ -1,6 +1,6 @@
 import type { Description, Layout, PackReferences, PropertyValidationError, Property, LayoutName } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
-import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager } from '@aeria-ui/state-management'
+import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager, type StorePrototype } from '@aeria-ui/state-management'
 import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
@@ -374,7 +374,7 @@ export const createCollectionStore = <
     actions: actions as keyof TStoreActions extends never
       ? typeof actions
       : typeof actions & TStoreActions,
-  }
+  } satisfies StorePrototype
 }
 
 export const useCollectionStore = (storeId: string, manager?: GlobalStateManager): CollectionStore => {

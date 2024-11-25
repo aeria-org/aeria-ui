@@ -35,6 +35,13 @@ export type StoreContext<T = {}> = T & {
   manager: GlobalStateManager
 }
 
+export type StorePrototype = {
+  $id: string
+  state: Record<string, unknown>
+  getters?: Record<string, unknown>
+  actions?: Record<string, unknown>
+}
+
 export const GLOBAL_STATE_KEY = Symbol('globalState')
 export const STORE_ID = Symbol('storeId')
 
