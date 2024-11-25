@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.93
+
+### Patch Changes
+
+- b27d1f0: Revert postinstall script
+
 ## 0.0.92
 
 ### Patch Changes
