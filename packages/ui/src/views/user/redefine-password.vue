@@ -24,14 +24,13 @@ const token = router.currentRoute.value.query.t ? router.currentRoute.value.quer
 const password = ref({
   name: '',
   email: '',
-  active: false,
   password: '',
   confirmation: '',
 })
 
 onMounted(async () => {
-  userStore.$actions.signout()
-  await getUserInfo()
+    userStore.$actions.signout()
+    await getUserInfo()
 })
 
 const getUserInfo = async () => {
@@ -48,10 +47,10 @@ const getUserInfo = async () => {
     return
   }
 
-  if(userInfo.active){
+  if(!userInfo.active){
     metaStore.$actions.spawnModal({
       title: `Atenção!`,
-      body: 'usuário já ativo',
+      body: 'usuário não está ativo',
     })
     return
   }
@@ -60,12 +59,13 @@ const getUserInfo = async () => {
 }
 
 const confirm = async () => {
-  const {error} = await userStore.$actions.custom<Result.Either<EndpointError, {userId:string}>>("activate", {
+  const {error} = await userStore.$actions.custom<Result.Either<EndpointError, {userId:string}>>("redefinePassword", {
     password: password.value.password,
     userId,
     token
   })
   if(error){
+    console.log(error)
     metaStore.$actions.spawnModal({
       title: `Erro! ${error.httpStatus}`,
       body: error.code,
@@ -76,7 +76,7 @@ const confirm = async () => {
 
   metaStore.$actions.spawnModal({
     title: 'Sucesso!',
-    body: 'Sua conta foi ativada com sucesso. Experimente fazer login com o seu email e senha.',
+    body: 'Sua senha foi redefinida com sucesso. Experimente fazer login com o seu email e senha.',
   })
 
   router.push('/user/signin')
@@ -86,10 +86,10 @@ const confirm = async () => {
 <template>
   <div v-if="password.email !== ''">
     <div
-      v-if="step === 'password' "
+      v-if="step === 'password'"
       style="display: grid; gap: 1rem;"
     >
-      <h1>Cadastre uma senha</h1>
+      <h1>Redefina sua senha</h1>
       <aeria-form
         v-model="password"
         :form="{
@@ -121,7 +121,7 @@ const confirm = async () => {
       v-else
       style="display: grid; gap: 1rem;"
     >
-      <h1>Conta ativada com sucesso!</h1>
+      <h1>Senha Redefinida com sucesso!</h1>
 
       <aeria-button @click="router.push('/user/signin')">
         Ir para a página de login

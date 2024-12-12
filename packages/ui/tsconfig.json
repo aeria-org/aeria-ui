@@ -18,6 +18,9 @@
       "@aeria-ui/utils": [
         "../utils/dist"
       ],
+      "@aeriajs/types":[
+        "../../node_modules/@aeriajs/types"
+      ],
       "aeria-icons/core": [
         "../aeria-icons/core/dist"
       ]

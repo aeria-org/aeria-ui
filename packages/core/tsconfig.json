@@ -23,9 +23,13 @@
       "@aeria-ui/utils": [
         "../utils/dist"
       ],
+      "@aeriajs/types":[
+        "../../node_modules/@aeriajs/types"
+      ],
       "aeria-sdk/http": [
         "../../node_modules/aeria-sdk/dist"
-      ]
+      ],
+      
     }
   },
   "include": [
