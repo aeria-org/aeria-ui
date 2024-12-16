@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
 import AeriaPasswordForm from '../../components/dashboard/aeria-password-form/aeria-password-form.vue'
-import { EndpointError, Result } from '@aeriajs/types';
+import { type EndpointError, type Result } from '@aeriajs/types'
 
 type Step =
   | 'success'
@@ -18,8 +18,12 @@ const userStore = useStore('user')
 const metaStore = useStore('meta')
 
 const step = router.currentRoute.value.query.step as Step | undefined || 'success'
-const userId = router.currentRoute.value.query.u ? router.currentRoute.value.query.u : ''
-const token = router.currentRoute.value.query.t ? router.currentRoute.value.query.t : ''
+const userId = router.currentRoute.value.query.u
+? router.currentRoute.value.query.u
+: ''
+const token = router.currentRoute.value.query.t
+? router.currentRoute.value.query.t
+: ''
 
 const password = ref({
   name: '',
@@ -34,7 +38,7 @@ onMounted(async () => {
 })
 
 const getUserInfo = async () => {
-  const { error, result:userInfo } = await (userStore.$functions.getInfo({
+  const { error, result: userInfo } = await (userStore.$functions.getInfo({
     userId,
     token,
   }) as ReturnType<typeof user.functions.getInfo>)
@@ -49,7 +53,7 @@ const getUserInfo = async () => {
 
   if(!userInfo.active){
     metaStore.$actions.spawnModal({
-      title: `Atenção!`,
+      title: 'Atenção!',
       body: 'usuário não está ativo',
     })
     return
@@ -59,10 +63,10 @@ const getUserInfo = async () => {
 }
 
 const confirm = async () => {
-  const {error} = await userStore.$actions.custom<Result.Either<EndpointError, {userId:string}>>("redefinePassword", {
+  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, { userId: string }>>('redefinePassword', {
     password: password.value.password,
     userId,
-    token
+    token,
   })
   if(error){
     console.log(error)
@@ -128,7 +132,7 @@ const confirm = async () => {
       </aeria-button>
     </div>
   </div>
-  <div 
+  <div
     v-else
     style="display: grid; gap: 1rem;"
   >
