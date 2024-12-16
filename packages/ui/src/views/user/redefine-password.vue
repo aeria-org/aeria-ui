@@ -19,11 +19,7 @@ const metaStore = useStore('meta')
 
 const step = router.currentRoute.value.query.step as Step | undefined || 'success'
 const userId = router.currentRoute.value.query.u
-? router.currentRoute.value.query.u
-: ''
 const token = router.currentRoute.value.query.t
-? router.currentRoute.value.query.t
-: ''
 
 const password = ref({
   name: '',
