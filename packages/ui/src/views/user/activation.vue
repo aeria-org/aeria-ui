@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
 import AeriaPasswordForm from '../../components/dashboard/aeria-password-form/aeria-password-form.vue'
-import { type EndpointError, type Result } from '@aeriajs/types'
+import type { EndpointError, Result } from '@aeriajs/types'
 
 type Step =
   | 'success'
