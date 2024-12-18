@@ -25,14 +25,13 @@ const token = router.currentRoute.value.query.t
 const password = ref({
   name: '',
   email: '',
-  active: false,
   password: '',
   confirmation: '',
 })
 
 onMounted(async () => {
-  userStore.$actions.signout()
-  await getUserInfo()
+    userStore.$actions.signout()
+    await getUserInfo()
 })
 
 const getUserInfo = async () => {
@@ -49,10 +48,10 @@ const getUserInfo = async () => {
     return
   }
 
-  if(userInfo.active){
+  if(!userInfo.active){
     metaStore.$actions.spawnModal({
       title: 'Attention!',
-      body: 'User Already Activated',
+      body: 'User is not active',
     })
     return
   }
@@ -61,12 +60,13 @@ const getUserInfo = async () => {
 }
 
 const confirm = async () => {
-  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, { userId: string }>>('activate', {
+  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, { userId: string }>>('redefinePassword', {
     password: password.value.password,
     userId,
     token,
   })
   if(error){
+    console.log(error)
     metaStore.$actions.spawnModal({
       title: `Error! ${error.httpStatus}`,
       body: error.code,
@@ -77,7 +77,7 @@ const confirm = async () => {
 
   metaStore.$actions.spawnModal({
     title: 'Success!',
-    body: 'Your account was successfully activated! Try loggin with your email and password.',
+    body: 'Your password was sucessfully redefined! Try loggin with your email and password.',
   })
 
   router.push('/user/signin')
@@ -87,10 +87,10 @@ const confirm = async () => {
 <template>
   <div v-if="password.email !== ''">
     <div
-      v-if="step === 'password' "
+      v-if="step === 'password'"
       style="display: grid; gap: 1rem;"
     >
-      <h1>{{t('register_password')}}</h1>
+      <h1>{{t('redefine_password')}}</h1>
       <aeria-form
         v-model="password"
         :form="{
@@ -113,7 +113,7 @@ const confirm = async () => {
           :disabled="!!passwordError"
           @click.prevent="confirm"
         >
-          {{t('register_password')}}
+        {{t('redefine_password')}}
         </aeria-button>
       </aeria-password-form>
     </div>
@@ -122,7 +122,7 @@ const confirm = async () => {
       v-else
       style="display: grid; gap: 1rem;"
     >
-      <h1>{{t('successfully_activated_account')}}</h1>
+      <h1>{{t('sucessfully_redefined_password')}}</h1>
 
       <aeria-button @click="router.push('/user/signin')">
         {{t('go_to_login_page')}}

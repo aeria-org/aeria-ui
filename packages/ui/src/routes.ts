@@ -35,6 +35,14 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
       },
     },
     {
+      path: 'redefine-password',
+      name: '/user/redefine-password',
+      component: () => import('./views/user/redefine-password.vue'),
+      meta: {
+        title: 'Redefine password',
+      },
+    },
+    {
       path: 'activation',
       name: '/user/activation',
       component: () => import('./views/user/activation.vue'),

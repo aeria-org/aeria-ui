@@ -139,6 +139,27 @@ export const user = createStore((context) => {
           throw err
         }
       },
+      async copyRedefinePasswordLink(payload: { _id: string }) {
+        const store = useStore('user', context.manager)
+        const metaStore = meta(context)
+
+        const { error, result } = await (store.$functions.getRedefinePasswordLink({
+          userId: payload._id,
+        }) as ReturnType<typeof originalUser.functions.getRedefinePasswordLink>)
+
+        if( error ) {
+          return metaStore.$actions.spawnToast({
+            text: `Request failed: ${error.httpStatus}\n code: ${error.code}`,
+            icon: 'warning',
+          })
+        }
+
+        await navigator.clipboard.writeText(result.url)
+        return metaStore.$actions.spawnToast({
+          text: 'Link copiado',
+          icon: 'info',
+        })
+      },
       async copyActivationLink(payload: { _id: string }) {
         const store = useStore('user', context.manager)
         const metaStore = meta(context)
@@ -149,7 +170,7 @@ export const user = createStore((context) => {
 
         if( error ) {
           return metaStore.$actions.spawnToast({
-            text: 'Request failed',
+            text: `Request failed: ${error.httpStatus}\n code: ${error.code}`,
             icon: 'warning',
           })
         }
