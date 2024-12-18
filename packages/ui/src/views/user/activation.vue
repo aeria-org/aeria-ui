@@ -90,7 +90,7 @@ const confirm = async () => {
       v-if="step === 'password' "
       style="display: grid; gap: 1rem;"
     >
-      <h1>{{t('register_password')}}</h1>
+      <h1>{{ t('register_password') }}</h1>
       <aeria-form
         v-model="password"
         :form="{
@@ -113,7 +113,7 @@ const confirm = async () => {
           :disabled="!!passwordError"
           @click.prevent="confirm"
         >
-          {{t('register_password')}}
+          {{ t('register_password') }}
         </aeria-button>
       </aeria-password-form>
     </div>
@@ -122,10 +122,10 @@ const confirm = async () => {
       v-else
       style="display: grid; gap: 1rem;"
     >
-      <h1>{{t('successfully_activated_account')}}</h1>
+      <h1>{{ t('successfully_activated_account') }}</h1>
 
       <aeria-button @click="router.push('/user/signin')">
-        {{t('go_to_login_page')}}
+        {{ t('go_to_login_page') }}
       </aeria-button>
     </div>
   </div>
@@ -133,10 +133,10 @@ const confirm = async () => {
     v-else
     style="display: grid; gap: 1rem;"
   >
-    <h1>{{t('invalid_link')}}</h1>
+    <h1>{{ t('invalid_link') }}</h1>
 
     <aeria-button @click="router.push('/user/signin')">
-      {{t('go_to_login_page')}}
+      {{ t('go_to_login_page') }}
     </aeria-button>
   </div>
 </template>
