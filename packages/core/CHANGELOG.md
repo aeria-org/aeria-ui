@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.94
+
+### Patch Changes
+
+- 75fcddb: add page to refefine user password
+
 ## 0.0.93
 
 ### Patch Changes
