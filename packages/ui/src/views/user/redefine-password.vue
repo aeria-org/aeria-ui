@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { user } from '@aeriajs/builtins'
+import type { EndpointError, Result } from '@aeriajs/types'
 import { useStore } from '@aeria-ui/state-management'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { t } from '@aeria-ui/i18n'
 
 import AeriaForm from '../../components/form/aeria-form/aeria-form.vue'
 import AeriaButton from '../../components/aeria-button/aeria-button.vue'
 import AeriaPasswordForm from '../../components/dashboard/aeria-password-form/aeria-password-form.vue'
-import type { EndpointError, Result } from '@aeriajs/types'
 
 type Step =
   | 'success'
@@ -89,7 +90,7 @@ const confirm = async () => {
       v-if="step === 'password'"
       style="display: grid; gap: 1rem;"
     >
-      <h1>Redefine password</h1>
+      <h1>{{t('redefine_password')}}</h1>
       <aeria-form
         v-model="password"
         :form="{
@@ -112,7 +113,7 @@ const confirm = async () => {
           :disabled="!!passwordError"
           @click.prevent="confirm"
         >
-          Redefine password
+        {{t('redefine_password')}}
         </aeria-button>
       </aeria-password-form>
     </div>
@@ -121,10 +122,10 @@ const confirm = async () => {
       v-else
       style="display: grid; gap: 1rem;"
     >
-      <h1>Sucessfully redefined password!</h1>
+      <h1>{{t('sucessfully_redefined_password')}}</h1>
 
       <aeria-button @click="router.push('/user/signin')">
-        Go to login page
+        {{t('go_to_login_page')}}
       </aeria-button>
     </div>
   </div>
@@ -132,10 +133,10 @@ const confirm = async () => {
     v-else
     style="display: grid; gap: 1rem;"
   >
-    <h1>Invalid link</h1>
+    <h1>{{t('invalid_link')}}</h1>
 
     <aeria-button @click="router.push('/user/signin')">
-      Go to login page
+      {{t('go_to_login_page')}}
     </aeria-button>
   </div>
 </template>
