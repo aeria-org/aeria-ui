@@ -16,7 +16,10 @@ export type StoreState = Record<string, unknown>
 export type Store = StoreState & {
   $id: string
   $actions: Record<string, (...args: unknown[])=> unknown>
-  $functions: Record<string, (...args: unknown[])=> unknown>
+  $functions: Record<
+    string,
+    <TFunction extends (...args: any[])=> unknown>(...args: Parameters<TFunction>)=> ReturnType<TFunction>
+  >
 }
 
 export type GlobalState = Record<string, Store>

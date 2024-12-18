@@ -24,7 +24,7 @@
   "devDependencies": {
     "@aeria-ui/core": "link:../core",
     "@aeria-ui/state-management": "link:../state-management",
-    "@aeriajs/common": "0.0",
+    "@aeriajs/common": "~0.0.126",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
   },
