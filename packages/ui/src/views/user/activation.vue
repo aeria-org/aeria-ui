@@ -42,7 +42,7 @@ const getUserInfo = async () => {
 
   if( error ) {
     metaStore.$actions.spawnModal({
-      title: `Erro! ${error.httpStatus}`,
+      title: `Error! ${error.httpStatus}`,
       body: error.code,
     })
     return
@@ -50,8 +50,8 @@ const getUserInfo = async () => {
 
   if(userInfo.active){
     metaStore.$actions.spawnModal({
-      title: 'Atenção!',
-      body: 'usuário já ativo',
+      title: 'Attention!',
+      body: 'User Already Activated',
     })
     return
   }
@@ -67,7 +67,7 @@ const confirm = async () => {
   })
   if(error){
     metaStore.$actions.spawnModal({
-      title: `Erro! ${error.httpStatus}`,
+      title: `Error! ${error.httpStatus}`,
       body: error.code,
     })
     return
@@ -75,8 +75,8 @@ const confirm = async () => {
   userStore.credentials.email = password.value.email
 
   metaStore.$actions.spawnModal({
-    title: 'Sucesso!',
-    body: 'Sua conta foi ativada com sucesso. Experimente fazer login com o seu email e senha.',
+    title: 'Success!',
+    body: 'Your account was successfully activated! Try loggin with your email and password.',
   })
 
   router.push('/user/signin')
@@ -89,7 +89,7 @@ const confirm = async () => {
       v-if="step === 'password' "
       style="display: grid; gap: 1rem;"
     >
-      <h1>Cadastre uma senha</h1>
+      <h1>Register a password</h1>
       <aeria-form
         v-model="password"
         :form="{
@@ -112,7 +112,7 @@ const confirm = async () => {
           :disabled="!!passwordError"
           @click.prevent="confirm"
         >
-          Cadastrar senha
+          Register password
         </aeria-button>
       </aeria-password-form>
     </div>
@@ -121,10 +121,10 @@ const confirm = async () => {
       v-else
       style="display: grid; gap: 1rem;"
     >
-      <h1>Conta ativada com sucesso!</h1>
+      <h1>Successfully activated account!</h1>
 
       <aeria-button @click="router.push('/user/signin')">
-        Ir para a página de login
+        Go to Login page
       </aeria-button>
     </div>
   </div>
@@ -132,10 +132,10 @@ const confirm = async () => {
     v-else
     style="display: grid; gap: 1rem;"
   >
-    <h1>Link inválido</h1>
+    <h1>Invalid link</h1>
 
     <aeria-button @click="router.push('/user/signin')">
-      Ir para a página de login
+      Go to Login page
     </aeria-button>
   </div>
 </template>
