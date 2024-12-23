@@ -8,6 +8,7 @@ export type InstanceConfig = {
     title?: string
     signinText?: string
     signupForm?: boolean
+    allowedRedirectionUris?: string[]
   }
   icons?: {
     defaultStyle?: IconStyle
