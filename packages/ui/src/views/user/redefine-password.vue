@@ -36,17 +36,19 @@ onMounted(async () => {
     userStore.$actions.signout()
     await getUserInfo()
 })
-
 const goToTarget = () => {
   if( typeof instanceVars !== 'undefined' ) {
     const { next } = router.currentRoute.value.query
     if( typeof next === 'string' && instanceVars.allowedRedirectionUris) {
       if(instanceVars.allowedRedirectionUris.includes(next)){
-        return router.push(next)
+        if(next.startsWith('/')) {
+          router.push(next)
+        }else {
+          location.href = next
+        } 
       }
     }
   }
-
   router.push('/user/signin')
 }
 
