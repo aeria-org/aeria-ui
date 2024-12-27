@@ -43,11 +43,12 @@ declare module '@vue/runtime-core' {
 
 import type { RouteRecordRaw } from 'vue-router'
 import type { Icon } from '@aeriajs/types'
+import type { RouteTitleConfig } from '@aeria-ui/core'
 
 declare global {
   const definePage: (page: Partial<RouteRecordRaw> & {
     meta: Record<string, unknown> & {
-      title: string
+      title: RouteTitleConfig
       icon?: Icon
       collection?: string
     }
