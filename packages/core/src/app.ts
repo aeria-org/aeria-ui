@@ -6,7 +6,7 @@ import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
 import { STORAGE_NAMESPACE } from './constants.js'
 import { bootstrapApp, bootstrapRoutes } from './bootstrap.js'
-import { MENU_SCHEMA_SYMBOL } from './types.js'
+import { MENU_SCHEMA_SYMBOL, type RouteTitleConfig } from './types.js'
 
 export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const options = typeof optionsFn === 'function'
@@ -60,22 +60,18 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
       currentUser: () => userStore.currentUser,
       viewTitle: () => {
         const currentRoute = router.currentRoute.value
-        const title = currentRoute.meta.title
+        const titleConfig = currentRoute.meta.title as RouteTitleConfig
 
-        if( typeof title !== 'string' ) {
-          return
+        if( typeof titleConfig === 'string' ) {
+          return titleConfig
         }
 
-        if( typeof currentRoute.params.collection === 'string' ) {
-          return title.replace(
-            '%viewTitle%',
-            t(currentRoute.params.collection, {
-              plural: true,
-            }, i18n),
-          )
-        }
-
-        return title
+        return titleConfig({
+          collectionName: currentRoute.params.collection as string,
+          t: (text, options, _i18n) => {
+            return t(text, options, _i18n || i18n)
+          },
+        })
       },
       viewIcon: () => {
         const currentRoute = router.currentRoute.value

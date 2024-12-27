@@ -1,7 +1,15 @@
 import type { Component } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
+import type { RouteTitleConfig } from '@aeria-ui/core'
 
-export const userRoutes = (component: Component | (()=> Promise<Component>), children: RouteRecordRaw[] = []): RouteRecordRaw => ({
+type RouteConfig = {
+  meta?: {
+    title: RouteTitleConfig
+  }
+  children?: RouteConfig[]
+}
+
+export const userRoutes = (component: Component | (()=> Promise<Component>), children: (RouteRecordRaw & RouteConfig)[] = []): RouteRecordRaw & RouteConfig => ({
   path: '/user',
   name: '/builtin:user',
   component,
@@ -53,7 +61,7 @@ export const userRoutes = (component: Component | (()=> Promise<Component>), chi
   ]),
 })
 
-export const dashboardRoutes = (component: Component | (()=> Promise<Component>), children: RouteRecordRaw[] = []): RouteRecordRaw => ({
+export const dashboardRoutes = (component: Component | (()=> Promise<Component>), children: (RouteRecordRaw & RouteConfig)[] = []): RouteRecordRaw & RouteConfig => ({
   path: '/dashboard',
   name: '/builtin:dashboard',
   component,
@@ -73,7 +81,11 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
         topbar: () => import('./components/dashboard/aeria-crud-topbar/aeria-crud-topbar.vue'),
       },
       meta: {
-        title: '%viewTitle%',
+        title: ({ collectionName, t }) => {
+          return t(collectionName, {
+            plural: true,
+          })
+        },
       },
     },
     {
@@ -84,7 +96,11 @@ export const dashboardRoutes = (component: Component | (()=> Promise<Component>)
         default: () => import('./views/dashboard/[collection]/[id].vue'),
       },
       meta: {
-        title: '%viewTitle%',
+        title: ({ collectionName, t }) => {
+          return t(collectionName, {
+            plural: true,
+          })
+        },
       },
     },
     {
