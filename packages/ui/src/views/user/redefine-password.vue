@@ -42,12 +42,13 @@ const goToTarget = () => {
     if( typeof next === 'string' && instanceVars.allowedRedirectionUris) {
       if(instanceVars.allowedRedirectionUris.includes(next)){
         if(next.startsWith('/')) {
-          return router.push(next)
+          router.push(next)
         }else {
-          return location.href = next
+          location.href = next
         } 
       }
     }
+    return
   }
   router.push('/user/signin')
 }
