@@ -42,9 +42,9 @@ const goToTarget = () => {
     if( typeof next === 'string' && instanceVars.allowedRedirectionUris) {
       if(instanceVars.allowedRedirectionUris.includes(next)){
         if(next.startsWith('/')) {
-          router.push(next)
+          return router.push(next)
         }else {
-          location.href = next
+          return location.href = next
         } 
       }
     }
