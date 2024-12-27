@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.145
+
+### Patch Changes
+
+- c12208f: feat: add redirect feature for activation and redefine password views with verification for allowed uris
+
 ## 0.0.144
 
 ### Patch Changes
