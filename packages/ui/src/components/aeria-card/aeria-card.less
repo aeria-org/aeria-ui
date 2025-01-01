@@ -1,8 +1,8 @@
 .card {
-  display: flex;
-  flex-direction: column;
   position: relative;
+  display: flex;
   overflow: hidden;
+  flex-direction: column;
   border: var(--theme-frame-border);
   border-radius: var(--theme-radius-extra-large);
   background: var(--theme-background-color-shade-2);
@@ -25,7 +25,7 @@
       margin-top: auto;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       .card__footer-upper {
         flex-direction: column;
       }
@@ -42,8 +42,8 @@
   }
 
   &__footer {
-    flex: 1;
     height: 100%;
+    flex: 1;
     padding: 1rem;
     border-top: var(--theme-frame-border);
     background: var(--theme-background-color-shade-3);
@@ -52,10 +52,10 @@
 
   &__footer-upper {
     display: flex;
+    height: 100%;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    height: 100%;
   }
 
   &__actions {
