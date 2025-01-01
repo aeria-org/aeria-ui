@@ -11,7 +11,7 @@ const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
 
-const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL, {})
 
 const goToTarget = () => {
   if( typeof localStorage !== 'undefined' ) {
@@ -28,6 +28,16 @@ const authenticate = async () => {
   const { error } = await userStore.$actions.authenticate(userStore.credentials)
   if( !error ) {
     goToTarget()
+  }
+}
+
+const handleEnter = (event: KeyboardEvent) => {
+  if( event.key === 'Enter' ) {
+    if( userStore.credentials.email ) {
+      if( userStore.credentials.password ) {
+        return authenticate()
+      }
+    }
   }
 }
 </script>
@@ -64,6 +74,7 @@ const authenticate = async () => {
         inputType: 'password'
       }
     }"
+    @keypress="handleEnter"
   />
 
   <div

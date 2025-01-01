@@ -18,7 +18,7 @@ type Props = {
 }
 
 const props = defineProps<Props>()
-const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL, {})
 
 const reactive = typeof props.reactive === 'boolean'
   ? props.reactive

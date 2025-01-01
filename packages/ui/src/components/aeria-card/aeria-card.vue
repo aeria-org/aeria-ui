@@ -24,10 +24,12 @@ defineProps<Props>()
         <div>
           <slot name="footer" />
         </div>
-        <slot
-          v-if="$slots.actions"
-          name="actions"
-        />
+        <div class="card__actions">
+          <slot
+            v-if="$slots.actions"
+            name="actions"
+          />
+        </div>
       </div>
 
       <div class="card__badge">
