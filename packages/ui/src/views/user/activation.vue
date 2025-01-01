@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { user } from '@aeriajs/builtins'
 import type { EndpointError, Result } from '@aeriajs/types'
+import type { InstanceConfig } from '@aeria-ui/cli'
+import { INSTANCE_VARS_SYMBOL } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { t } from '@aeria-ui/i18n'
 
@@ -17,7 +19,7 @@ type Step =
 const router = useRouter()
 const userStore = useStore('user')
 const metaStore = useStore('meta')
-
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
 const step = router.currentRoute.value.query.step as Step | undefined || 'success'
 const userId = router.currentRoute.value.query.u
 const token = router.currentRoute.value.query.t
@@ -34,6 +36,23 @@ onMounted(async () => {
   userStore.$actions.signout()
   await getUserInfo()
 })
+
+const goToTarget = () => {
+  if( typeof instanceVars !== 'undefined' ) {
+    const { next } = router.currentRoute.value.query
+    if( typeof next === 'string' && instanceVars.allowedRedirectionUris) {
+      if(instanceVars.allowedRedirectionUris.includes(next)){
+        if(next.startsWith('/')) {
+          router.push(next)
+        }else {
+          location.href = next
+        } 
+        return
+      }
+    } 
+  }
+  router.push('/user/signin')
+}
 
 const getUserInfo = async () => {
   const { error, result: userInfo } = await (userStore.$functions.getInfo({
@@ -80,7 +99,7 @@ const confirm = async () => {
     body: 'Your account was successfully activated! Try loggin with your email and password.',
   })
 
-  router.push('/user/signin')
+  goToTarget()
 }
 </script>
 
