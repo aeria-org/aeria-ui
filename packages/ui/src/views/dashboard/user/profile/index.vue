@@ -21,7 +21,7 @@ userStore.$actions.setItem(userStore.currentUser)
 
 const insert = async () => {
   await userStore.$actions.insert({
-    what: userStore.condensedItem,
+    what: userStore.diffedItem,
   })
 
   if( typeof localStorage !== 'undefined' ) {
@@ -131,8 +131,10 @@ const signout = async () => {
     />
 
     <template #footer>
+      
       <aeria-button
         large
+        :disabled="!userStore.diffedItem._id"
         :loading="userStore.loading.insert"
         @click="insert"
       >
