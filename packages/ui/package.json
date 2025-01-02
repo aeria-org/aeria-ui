@@ -22,7 +22,7 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/ui.js",
+      "import": "./src/index.ts",
       "types": "./dist/index.d.ts"
     },
     "./style.css": "./dist/ui.css",

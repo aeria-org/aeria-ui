@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "preinstall": "unlink node_modules/@aeria-ui || true",
-    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui; rm -rf .aeria"
+    "postinstall": "husky; rm -rf packages/*/node_modules/@aeria-ui .aeria .aeria-ui"
   },
   "devDependencies": {
     "@aeria-ui/cli": "link:packages/cli",
