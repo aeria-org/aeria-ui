@@ -154,7 +154,7 @@ export const user = createStore((context) => {
           })
         }
 
-        await navigator.clipboard.writeText(result.url)
+        await navigator.clipboard.writeText(result.url.toString())
         return metaStore.$actions.spawnToast({
           text: 'Link copiado',
           icon: 'info',
@@ -175,7 +175,7 @@ export const user = createStore((context) => {
           })
         }
 
-        await navigator.clipboard.writeText(result.url)
+        await navigator.clipboard.writeText(result.url.toString())
         return metaStore.$actions.spawnToast({
           text: 'Link copiado',
           icon: 'info',
