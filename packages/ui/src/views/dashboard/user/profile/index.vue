@@ -131,7 +131,6 @@ const signout = async () => {
     />
 
     <template #footer>
-      
       <aeria-button
         large
         :disabled="!userStore.diffedItem._id"
