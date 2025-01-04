@@ -46,10 +46,10 @@ const goToTarget = () => {
           router.push(next)
         }else {
           location.href = next
-        } 
+        }
         return
       }
-    } 
+    }
   }
   router.push('/user/signin')
 }

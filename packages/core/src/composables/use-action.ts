@@ -1,4 +1,4 @@
-import type { Router, LocationQueryRaw, RouteParamsRawGeneric } from 'vue-router'
+import type { Router, LocationQueryRaw, RouteParamsRaw } from 'vue-router'
 import type { CollectionAction } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import type { CollectionStore, CollectionStoreItem } from '../state/collection.js'
@@ -78,7 +78,7 @@ export const useAction = (
         router.push({
           name: actionProps.route.name,
           query: actionProps.route.query as LocationQueryRaw | undefined || {},
-          params: params as RouteParamsRawGeneric,
+          params: params as RouteParamsRaw,
         })
       }
     }

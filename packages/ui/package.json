@@ -22,7 +22,7 @@
   },
   "exports": {
     ".": {
-      "import": "./src/index.ts",
+      "import": "./dist/ui.js",
       "types": "./dist/index.d.ts"
     },
     "./style.css": "./dist/ui.css",
@@ -52,7 +52,7 @@
     "vite-plugin-dts": "^3.3.0",
     "vite-plugin-static-copy": "^0.17.0",
     "vue-router": "^4.3.2",
-    "vue-tsc": "^2.0.22"
+    "vue-tsc": "2.1.10"
   },
   "peerDependencies": {
     "@aeria-ui/core": "^0.0.94",
