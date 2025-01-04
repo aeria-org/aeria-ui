@@ -2,7 +2,7 @@ import { useApp, defineOptions, registerStores } from 'aeria-ui'
 import * as stores from './stores/index.js'
 import Main from './main.vue'
 
-import '../../packages/ui/dist/ui.css'
+import '../../packages/ui/dist/style.css'
 import './style/main.css'
 import './style/main.less'
 
