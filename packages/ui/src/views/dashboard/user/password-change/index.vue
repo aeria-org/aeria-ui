@@ -7,7 +7,7 @@ import { useStore } from '@aeria-ui/state-management'
 import AeriaButton from '../../../../components/aeria-button/aeria-button.vue'
 import AeriaPanel from '../../../../components/aeria-panel/aeria-panel.vue'
 import AeriaPasswordForm from '../../../../components/dashboard/aeria-password-form/aeria-password-form.vue'
-import { CollectionItemWithId, EndpointError, Result } from '@aeriajs/types';
+import { type CollectionItemWithId, type EndpointError, type Result } from '@aeriajs/types'
 
 const router = useRouter()
 const userStore = useStore('user')
@@ -23,7 +23,7 @@ const password = ref({
 const insert = async () => {
   const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>('editProfile',{
     _id: userStore.item._id,
-    password: password.value.password
+    password: password.value.password,
   })
 
   if(error){

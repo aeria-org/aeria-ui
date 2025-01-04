@@ -10,7 +10,7 @@ import AeriaButton from '../../../../components/aeria-button/aeria-button.vue'
 import AeriaPicture from '../../../../components/aeria-picture/aeria-picture.vue'
 import AeriaIcon from '../../../../components/aeria-icon/aeria-icon.vue'
 import AeriaMenu from '../../../../components/aeria-menu/aeria-menu.vue'
-import { EndpointError, Result, CollectionItemWithId } from '@aeriajs/types';
+import { type EndpointError, type Result, type CollectionItemWithId } from '@aeriajs/types'
 
 const router = useRouter()
 const userStore = useStore('user')
@@ -21,8 +21,9 @@ const editPanel = ref(false)
 userStore.$actions.setItem(userStore.currentUser)
 
 const insert = async () => {
-  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>('editProfile', 
-    userStore.diffedItem
+  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>(
+'editProfile',
+    userStore.diffedItem,
   )
   if(error){
     metaStore.$actions.spawnModal({
