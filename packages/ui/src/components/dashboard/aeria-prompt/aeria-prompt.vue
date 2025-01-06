@@ -23,18 +23,12 @@ const handleClick = (answer: string, option: PromptOption) => {
     float
     fill-footer
     :close-hint="false"
+    :title
     style="--panel-min-width: 32rem;"
   >
     <div class="prompt">
       <slot />
     </div>
-
-    <template
-      v-if="title"
-      #title
-    >
-      {{ title }}
-    </template>
 
     <template #footer>
       <div
