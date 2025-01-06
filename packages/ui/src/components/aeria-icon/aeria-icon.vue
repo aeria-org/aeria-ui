@@ -9,7 +9,6 @@ type Props = {
   icon?:
     | Icon
     | `${IconStyle}:${Icon}`
-  size?: string
   fill?: string
   medium?: boolean
   reactive?: boolean
@@ -43,7 +42,6 @@ const computedIcon = computed(() => {
     <div
       :class="[
         'icon__icon',
-        { 'icon__icon--${size}': !!size },
         { 'icon__icon--right': iconRight },
       ]"
     >
