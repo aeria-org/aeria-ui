@@ -7,6 +7,7 @@ import { useStore } from '@aeria-ui/state-management'
 import AeriaButton from '../../../../components/aeria-button/aeria-button.vue'
 import AeriaPanel from '../../../../components/aeria-panel/aeria-panel.vue'
 import AeriaPasswordForm from '../../../../components/dashboard/aeria-password-form/aeria-password-form.vue'
+import { type CollectionItemWithId, type EndpointError, type Result } from '@aeriajs/types'
 
 const router = useRouter()
 const userStore = useStore('user')
@@ -20,20 +21,26 @@ const password = ref({
 })
 
 const insert = async () => {
-  await userStore.$actions.insert({
-    what: {
-      _id: userStore.item._id,
-      password: password.value.password,
-    },
+  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>('editProfile',{
+    _id: userStore.item._id,
+    password: password.value.password,
   })
 
+  if(error){
+    metaStore.$actions.spawnModal({
+      title: `Error! ${error.httpStatus}`,
+      body: error.code,
+    })
+    return
+  }
+
   metaStore.$actions.spawnModal({
-    title: `${t('done', {
- capitalize: true,
-})}!`,
-    body: t('password_has_been_changed', {
- capitalize: true,
-}),
+      title: `${t('done', {
+  capitalize: true,
+  })}!`,
+      body: t('password_has_been_changed', {
+  capitalize: true,
+  }),
   })
 
   router.back()
