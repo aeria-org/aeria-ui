@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.147
+
+### Patch Changes
+
+- c1e7d03: change functions for user self editing
+
 ## 0.0.146
 
 ### Patch Changes
