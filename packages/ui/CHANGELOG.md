@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.149
+
+### Patch Changes
+
+- e10ae8b: add condition to allowed insert user roles to edit other user passwords
+
 ## 0.0.148
 
 ### Patch Changes
