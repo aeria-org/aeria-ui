@@ -22,11 +22,11 @@ const password = ref({
 
 const insert = async () => {
   if(userStore.currentUser._id !== userStore.item._id){
-    const {error} = await userStore.$actions.insert({
-      what:{
+    const { error } = await userStore.$actions.insert({
+      what: {
         _id: userStore.item._id,
         password: password.value.password,
-      }
+      },
     })
     if(error){
       metaStore.$actions.spawnModal({
