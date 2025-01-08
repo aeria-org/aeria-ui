@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.149",
+  "version": "0.0.150",
   "description": "",
   "scripts": {
     "test": "vitest run",
@@ -55,7 +55,7 @@
     "vue-tsc": "2.1.10"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.94",
+    "@aeria-ui/core": "^0.0.95",
     "@aeria-ui/i18n": "^0.0.14",
     "@aeria-ui/state-management": "^0.0.16",
     "@aeria-ui/utils": "^0.0.6",
