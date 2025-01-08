@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.95
+
+### Patch Changes
+
+- 86c63bb: Add role hierarchy system
+
 ## 0.0.94
 
 ### Patch Changes
