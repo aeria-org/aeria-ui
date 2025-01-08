@@ -1,4 +1,4 @@
-import type { Description } from '@aeriajs/types'
+import type { Description, RolesHierarchy } from '@aeriajs/types'
 import type { user as originalUser, file } from '@aeriajs/builtins'
 import { Result } from '@aeriajs/types'
 import { deepClone } from '@aeriajs/common'
@@ -97,7 +97,28 @@ export const user = createStore((context) => {
         const metaStore = meta(context)
         const properties = state.description.properties
 
-        properties.roles.items.enum = metaStore.roles
+        if( metaStore.rolesHierarchy ) {
+          properties.roles.items.enum = metaStore.roles.filter((role) => {
+            for( const userRole of state.currentUser.roles ) {
+              if( state.item.roles.includes(role) ) {
+                return true
+              }
+
+              const hierarchy = metaStore.rolesHierarchy![userRole as keyof typeof metaStore.rolesHierarchy] as RolesHierarchy[keyof RolesHierarchy]
+              if( hierarchy ) {
+                if( hierarchy === true ) {
+                  return true
+                }
+
+                return hierarchy.includes(role)
+              }
+            }
+            return false
+          })
+
+        } else {
+          properties.roles.items.enum = metaStore.roles
+        }
         return properties
       },
       signedIn: () => !!state.currentUser.roles.length,

@@ -1,4 +1,4 @@
-import type { Description, Icon } from '@aeriajs/types'
+import type { Description, Icon, RolesHierarchy, UserRole } from '@aeriajs/types'
 import type { PromptOption } from '../behavior/index.js'
 import type { builtinFunctions } from '@aeriajs/builtins'
 import type { ExtractResult } from '@aeriajs/types/dist/result.js'
@@ -31,7 +31,8 @@ export type Toast = {
 export const meta = createStore((context) => {
   const freshState = {
     descriptions: {} as Record<string, Description>,
-    roles: [] as string[],
+    roles: [] as UserRole[],
+    rolesHierarchy: {} as RolesHierarchy | undefined,
     isLoading: false,
     globalIsLoading: false,
     theme: typeof localStorage !== 'undefined'
@@ -80,6 +81,7 @@ export const meta = createStore((context) => {
 
         if( deserialized.roles ) {
           state.roles = deserialized.roles
+          state.rolesHierarchy = deserialized.rolesHierarchy
         }
 
         if( deserialized.auth ) {
