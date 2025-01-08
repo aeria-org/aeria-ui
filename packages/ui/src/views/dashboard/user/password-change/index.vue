@@ -21,19 +21,34 @@ const password = ref({
 })
 
 const insert = async () => {
-  const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>('editProfile',{
-    _id: userStore.item._id,
-    password: password.value.password,
-  })
-
-  if(error){
-    metaStore.$actions.spawnModal({
-      title: `Error! ${error.httpStatus}`,
-      body: error.code,
+  if(userStore.currentUser._id !== userStore.item._id){
+    const { error } = await userStore.$actions.insert({
+      what: {
+        _id: userStore.item._id,
+        password: password.value.password,
+      },
     })
-    return
-  }
+    if(error){
+      metaStore.$actions.spawnModal({
+        title: `Error! ${error.httpStatus}`,
+        body: error.code,
+      })
+      return
+    }
+  }else{
+    const { error } = await userStore.$actions.custom<Result.Either<EndpointError, CollectionItemWithId<'user'>>>('editProfile',{
+      _id: userStore.item._id,
+      password: password.value.password,
+    })
 
+    if(error){
+      metaStore.$actions.spawnModal({
+        title: `Error! ${error.httpStatus}`,
+        body: error.code,
+      })
+      return
+    }
+  }
   metaStore.$actions.spawnModal({
       title: `${t('done', {
   capitalize: true,
