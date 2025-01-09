@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.151
+
+### Patch Changes
+
+- 7dba3d1: Fix UI bugs
+
 ## 0.0.150
 
 ### Patch Changes
