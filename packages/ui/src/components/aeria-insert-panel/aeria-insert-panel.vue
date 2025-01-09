@@ -62,12 +62,29 @@ const form = computed(() => {
 const insert = async () => {
   const { error, result } = await store.$actions.deepInsert()
   if( error ) {
-    metaStore.$actions.spawnToast({
-      text: `${t('error', {
- capitalize: true,
-})}: ${error.code}`,
-      icon: 'warning',
-    })
+    if( 'code' in error ) {
+      switch( error.code ) {
+        case 'INVALID_PROPERTIES':
+        case 'MISSING_PROPERTIES': {
+          return
+        }
+        default: {
+          let text = t('error', {
+            capitalize: true,
+          })
+
+          if( error.message ) {
+            text += `: ${t(error.message)}`
+          }
+          text += ` (${t(error.code)})`
+
+          metaStore.$actions.spawnToast({
+            text,
+            icon: 'warning',
+          })
+        }
+      }
+    }
     return
   }
 

@@ -1,4 +1,4 @@
-import type { EndpointError, Property, PaginatedGetAllReturnType } from '@aeriajs/types'
+import type { EndpointError, Property, PaginatedGetAllReturnType, PropertyValidationError } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
 import { getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { formatValue, condenseItem } from '@aeria-ui/utils'
@@ -202,7 +202,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           case 'INVALID_PROPERTIES':
           case 'MISSING_PROPERTIES': {
             if( 'details' in error ) {
-              store.validationErrors = error.details as any
+              store.validationErrors = error.details as Record<string, PropertyValidationError>
             }
           }
         }
