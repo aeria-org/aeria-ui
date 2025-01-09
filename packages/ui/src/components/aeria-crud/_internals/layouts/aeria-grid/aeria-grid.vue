@@ -38,10 +38,15 @@ const firstIfArray = (what: unknown) => {
       :horizontal="componentName === 'list'"
     >
       <aeria-picture
-        alt="Item picture"
         expandable
-        :url="firstIfArray(item[layoutOptions.picture!])?.link"
-        :meta="firstIfArray(item[layoutOptions.picture!])"
+        v-bind="{
+          url: firstIfArray(item[layoutOptions.picture!])?.link,
+          meta: firstIfArray(item[layoutOptions.picture!]),
+          height: '16rem',
+          alt: layoutOptions.title
+            ? firstIfArray(item[layoutOptions.title])?.link
+            : 'Item picture'
+        }"
       />
 
       <template

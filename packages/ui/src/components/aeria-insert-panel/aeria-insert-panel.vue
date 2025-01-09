@@ -61,13 +61,18 @@ const form = computed(() => {
 
 const insert = async () => {
   const { error, result } = await store.$actions.deepInsert()
-
-  if( !error ) {
-    emit('update:visible', false)
-    emit('update:modelValue', result)
-    emit('insert', result)
-    store.$actions.clearItem()
+  if( error ) {
+    metaStore.$actions.spawnToast({
+      text: `${t('error', { capitalize: true })}: ${error.code}`,
+      icon: 'warning',
+    })
+    return
   }
+
+  emit('update:visible', false)
+  emit('update:modelValue', result)
+  emit('insert', result)
+  store.$actions.clearItem()
 }
 
 const { t } = useI18n()
