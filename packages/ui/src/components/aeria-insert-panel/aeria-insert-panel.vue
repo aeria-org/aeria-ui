@@ -63,7 +63,9 @@ const insert = async () => {
   const { error, result } = await store.$actions.deepInsert()
   if( error ) {
     metaStore.$actions.spawnToast({
-      text: `${t('error', { capitalize: true })}: ${error.code}`,
+      text: `${t('error', {
+ capitalize: true,
+})}: ${error.code}`,
       icon: 'warning',
     })
     return
