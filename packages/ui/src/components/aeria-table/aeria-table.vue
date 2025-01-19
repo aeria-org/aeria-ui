@@ -83,12 +83,14 @@ const dropdownActions = (subject: unknown) => {
   }
 
   const layoutActions = props.layout?.actions
+  
   if( !breakpoints.value.xl || !layoutActions ) {
     return props.actions
   }
 
   return props.actions.filter((action) => {
     const layout = layoutActions[action.action]
+
     if( action.roles ) {
       const userStore = useStore('user')
       const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
@@ -97,8 +99,16 @@ const dropdownActions = (subject: unknown) => {
         return false
       }
     }
-
-    return !layout || !isActionButton(layout, subject)
+    if(layout){
+      if(layout.if){
+        return evaluateCondition(
+          subject,
+          layout.if,
+        ).satisfied
+      }
+      return !isActionButton(layout, subject)
+    }
+    return true
   })
 }
 
@@ -113,7 +123,7 @@ const buttonStyle = (subject: unknown, action: { action: string }) => {
     )
 
     if( !result.satisfied ) {
-      style.push('display: none;')
+      style.push('display: none !important;')
     }
   }
 

@@ -10,7 +10,8 @@ import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
   actions?: (CollectionAction<any> & {
-    click: ()=> void
+    click: ()=> void,
+    if?:boolean
   })[]
   subject?: unknown
   overlayLayer?: number
@@ -41,7 +42,9 @@ const filterActions = (actions: Props['actions']) => {
       const userStore = useStore('user')
       return arraysIntersect(action.roles, userStore.currentUser.roles)
     }
-
+    if(action.if){
+      action.if ? action.if : true
+    }
     return true
   })
 }
@@ -147,6 +150,7 @@ const position = computed(() => {
           class="content__section"
           @click="contextmenuVisible = false"
         >
+          
           <aeria-bare-button
             v-for="(action, aindex) in filterActions(actions)"
             :key="`action-${aindex}`"
@@ -156,6 +160,7 @@ const position = computed(() => {
             "
             @click="handleClick(action, subject)"
           >
+          {{ action }}
             <aeria-icon :icon="action.icon || 'gear'">
               {{
                 action.translate
