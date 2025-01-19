@@ -19,8 +19,8 @@ export const useDebounce = (config: DebounceConfig) => <T>(fn: (...args: T[])=> 
     timer = setTimeout(() => fn(...args), config.delay)
   }
 
-  return <const>[
+  return [
     call,
     cancel,
-  ]
+  ] as const
 }
