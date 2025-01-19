@@ -123,7 +123,7 @@ const buttonStyle = (subject: unknown, action: { action: string }) => {
     )
 
     if( !result.satisfied ) {
-      style.push('display: none !important;')
+      style.push('display: none;')
     }
   }
 
