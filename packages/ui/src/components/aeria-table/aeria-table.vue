@@ -83,7 +83,7 @@ const dropdownActions = (subject: unknown) => {
   }
 
   const layoutActions = props.layout?.actions
-  
+
   if( !breakpoints.value.xl || !layoutActions ) {
     return props.actions
   }

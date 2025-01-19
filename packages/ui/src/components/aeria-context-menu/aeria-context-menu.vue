@@ -146,7 +146,6 @@ const position = computed(() => {
           class="content__section"
           @click="contextmenuVisible = false"
         >
-          
           <aeria-bare-button
             v-for="(action, aindex) in filterActions(actions)"
             :key="`action-${aindex}`"
@@ -156,7 +155,6 @@ const position = computed(() => {
             "
             @click="handleClick(action, subject)"
           >
-          {{ action }}
             <aeria-icon :icon="action.icon || 'gear'">
               {{
                 action.translate
