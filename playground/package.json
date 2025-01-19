@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo skipping",
     "patch-aeriasdk": "echo 'export {}' > ../node_modules/aeria-sdk/dist/runtime.mjs",
-    "postinstall": "cat ../packages/core/src/__scripts__/postinstall.ts | ts-node --skip-project; pnpm patch-aeriasdk",
+    "postinstall": "node ../packages/core/src/__scripts__/postinstall.ts; pnpm patch-aeriasdk",
     "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },
