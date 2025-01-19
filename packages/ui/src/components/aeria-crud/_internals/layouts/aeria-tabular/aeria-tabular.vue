@@ -6,7 +6,7 @@ import { useParentCollectionStore } from '@aeria-ui/core'
 import AeriaTable from '../../../../aeria-table/aeria-table.vue'
 
 type Props = {
-  individualActions?: (CollectionAction<any> & {
+  individualActions?: (CollectionAction & {
     action: string
     click: ()=> void
   })[]

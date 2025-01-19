@@ -22,5 +22,5 @@ export const useDebounce = (config: DebounceConfig) => <T>(fn: (...args: T[])=> 
   return [
     call,
     cancel,
-  ]
+  ] as const
 }
