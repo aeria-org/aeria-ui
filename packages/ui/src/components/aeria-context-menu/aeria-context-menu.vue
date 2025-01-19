@@ -9,8 +9,8 @@ import AeriaPanel from '../aeria-panel/aeria-panel.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  actions?: (CollectionAction & {
-    click: ()=> void
+  actions?: (CollectionAction<any> & {
+    click: ()=> void,
   })[]
   subject?: unknown
   overlayLayer?: number
@@ -41,7 +41,6 @@ const filterActions = (actions: Props['actions']) => {
       const userStore = useStore('user')
       return arraysIntersect(action.roles, userStore.currentUser.roles)
     }
-
     return true
   })
 }
