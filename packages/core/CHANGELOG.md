@@ -1,5 +1,14 @@
 # @aeria-ui/core
 
+## 0.0.96
+
+### Patch Changes
+
+- 3585a0b: Avoid symbol-related bugs when deps are duplicated
+- Updated dependencies [3585a0b]
+  - @aeria-ui/state-management@0.0.17
+  - @aeria-ui/i18n@0.0.15
+
 ## 0.0.95
 
 ### Patch Changes
