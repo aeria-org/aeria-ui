@@ -45,8 +45,8 @@ export type StorePrototype = {
   actions?: Record<string, unknown>
 }
 
-export const GLOBAL_STATE_KEY = Symbol('globalState')
-export const STORE_ID = Symbol('storeId')
+export const GLOBAL_STATE_KEY = Symbol.for('globalState')
+export const STORE_ID = Symbol.for('storeId')
 
 export const createGlobalStateManager = (): GlobalStateManager & Plugin => {
   const globalState: GlobalState = {}

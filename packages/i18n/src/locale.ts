@@ -23,7 +23,7 @@ export type GlobalI18n = {
   __globalI18n: I18nConfig
 }
 
-export const I18N_KEY = Symbol('i18n')
+export const I18N_KEY = Symbol.for('i18n')
 
 export const createI18n = () => {
   const i18n = reactive<I18nConfig>({
