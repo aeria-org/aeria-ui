@@ -38,7 +38,7 @@ export const useAction = (
     params: {},
   })
 
-  const fn = (actionProps: CollectionAction & { action: string }): (filters?: CollectionStoreItem)=> void => {
+  const fn = (actionProps: CollectionAction<any> & { action: string }): (filters?: CollectionStoreItem)=> void => {
     const metaStore = useStore('meta', manager)
     const { t } = useI18n()
     const { action: actionName } = actionProps

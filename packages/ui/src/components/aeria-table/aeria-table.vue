@@ -17,7 +17,7 @@ type Props = {
   rows?: any[]
   collection?: string | Ref<string>
   checkbox?: boolean
-  actions?: (CollectionAction & {
+  actions?: (CollectionAction<any> & {
     action: string
     click: (...args: unknown[])=> void
   })[]
@@ -38,6 +38,8 @@ const store = collectionName
 ? collectionName
 : collectionName.value)
   : null
+
+const userStore = useStore('user')
 
 const selected = computed({
   get: () => store?.selected,
@@ -72,6 +74,14 @@ const buttonActions = (subject: unknown) => {
   }
 
   return props.actions.filter((action) => {
+    if( action.roles ) {
+      const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
+
+      if( !intersects ) {
+        return false
+      }
+    }
+
     const layout = layoutActions[action.action]
     return layout && isActionButton(layout, subject)
   })
@@ -92,7 +102,6 @@ const dropdownActions = (subject: unknown) => {
     const layout = layoutActions[action.action]
 
     if( action.roles ) {
-      const userStore = useStore('user')
       const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
 
       if( !intersects ) {

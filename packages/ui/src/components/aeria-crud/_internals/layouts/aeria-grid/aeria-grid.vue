@@ -11,7 +11,7 @@ import AeriaBadge from '../../../../aeria-badge/aeria-badge.vue'
 import AeriaPicture from '../../../../aeria-picture/aeria-picture.vue'
 
 type Props = {
-  individualActions?: (CollectionAction & { click: ()=> void })[]
+  individualActions?: (CollectionAction<any> & { click: ()=> void })[]
   hasSelectionActions?: boolean
   layoutOptions: LayoutOptions
   componentName: string

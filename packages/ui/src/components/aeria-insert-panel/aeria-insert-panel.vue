@@ -11,7 +11,7 @@ import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  individualActions?: (CollectionAction & {
+  individualActions?: (CollectionAction<any> & {
     action: string
     click: ()=> void
   })[]
