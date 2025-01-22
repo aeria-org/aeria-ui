@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.17
+
+### Patch Changes
+
+- 3585a0b: Avoid symbol-related bugs when deps are duplicated
+
 ## 0.0.16
 
 ### Patch Changes
