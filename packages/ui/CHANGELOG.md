@@ -1,5 +1,15 @@
 # @aeria-ui/ui
 
+## 0.0.152
+
+### Patch Changes
+
+- aae3933: add condition to filter actions based on table layout if prop
+- Updated dependencies [3585a0b]
+  - @aeria-ui/state-management@0.0.17
+  - @aeria-ui/core@0.0.96
+  - @aeria-ui/i18n@0.0.15
+
 ## 0.0.151
 
 ### Patch Changes
