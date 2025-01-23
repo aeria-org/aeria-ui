@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.153
+
+### Patch Changes
+
+- 762dfb3: fix: add role condition to table exposed button
+
 ## 0.0.152
 
 ### Patch Changes
