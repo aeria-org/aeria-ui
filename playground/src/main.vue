@@ -4,13 +4,14 @@ import { watch, reactive } from 'vue'
 
 const state = reactive({
   date: new Date(),
+  date2: '2025-01-15T00:00:00.000Z',
   datetime: new Date(),
   ceps: [],
   color: null,
 })
 
 const animalStore = useStore('animal')
-watch(() => animalStore.specie, (value, oldValue) => {
+watch(() => animalStore.specie, (value) => {
   console.log('modelValue:', value)
 })
 </script>
@@ -29,7 +30,7 @@ watch(() => animalStore.specie, (value, oldValue) => {
       tw-gap-1
     ">
       <aeria-button small @click="animalStore.$actions.inc">Inc</aeria-button>
-      <aeria-button small @click="animalStore.$actions.bobby">Thor Bobby</aeria-button>
+      <aeria-button small @click="animalStore.$actions.reassign">Re-assign</aeria-button>
     </div>
 
     <component-a></component-a>
@@ -73,6 +74,10 @@ watch(() => animalStore.specie, (value, oldValue) => {
         type: 'object',
         properties: {
           date: {
+            type: 'string',
+            format: 'date',
+          },
+          date2: {
             type: 'string',
             format: 'date',
           },

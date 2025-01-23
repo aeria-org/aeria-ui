@@ -124,17 +124,18 @@ onMounted(() => {
 })
 
 const getDatetimeString = (value: InputType) => {
+  let isoString: string
   if( typeof value === 'string' ) {
-    return value
-  }
-
-  if( !(value instanceof Date) ) {
+    isoString = value
+  } else if( value instanceof Date ) {
+    isoString = value.toISOString()
+  } else {
     return ''
   }
 
   switch( inputBind.type ) {
-    case 'date': return value.toISOString().slice(0, 10)
-    case 'datetime-local': return value.toISOString().slice(0, 19)
+    case 'date': return isoString.slice(0, 10)
+    case 'datetime-local': return isoString.slice(0, 19)
     default: throw new Error()
   }
 }
@@ -196,7 +197,9 @@ const updateValue = (value: InputType) => {
         return Number(value)
       case 'date':
       case 'date-time':
-        return value
+        return typeof value === 'string'
+          ? new Date(value)
+          : value
 
       default: return computeString(value)
     }

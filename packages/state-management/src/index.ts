@@ -156,7 +156,9 @@ export const internalRegisterStore = <
   if( actions ) {
     const functions = new Proxy({}, {
       get: (_target, verb: string) => {
-        return (...args: unknown[]) => actions.custom(verb, ...args)
+        if( typeof actions.custom === 'function' ) {
+          return (...args: unknown[]) => actions.custom(verb, ...args)
+        }
       },
     })
 

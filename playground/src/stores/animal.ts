@@ -21,8 +21,10 @@ export const animal = createStore(() => {
       inc: () => {
         state.num += 1
       },
-      bobby: () => {
-        state.deep.dog.name = 'thor bobby'
+      reassign: () => {
+        state.deep.dog.name = state.deep.dog.name === 'thor'
+          ? 'thor bobby'
+          : 'thor'
       },
     }
   }

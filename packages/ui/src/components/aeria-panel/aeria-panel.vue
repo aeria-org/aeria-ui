@@ -8,6 +8,7 @@ type Props = {
   closeHint?: boolean
   modelValue?:
     | boolean
+    | string
     | object
   title?: string
   float?: boolean
