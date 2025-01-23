@@ -39,8 +39,6 @@ const store = collectionName
 : collectionName.value)
   : null
 
-const userStore = useStore('user')
-
 const selected = computed({
   get: () => store?.selected,
   set: (items: unknown[]) => store?.$actions.selectManyItems(items, true),
@@ -75,6 +73,7 @@ const buttonActions = (subject: unknown) => {
 
   return props.actions.filter((action) => {
     if( action.roles ) {
+      const userStore = useStore('user')
       const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
 
       if( !intersects ) {
@@ -102,6 +101,7 @@ const dropdownActions = (subject: unknown) => {
     const layout = layoutActions[action.action]
 
     if( action.roles ) {
+      const userStore = useStore('user')
       const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
 
       if( !intersects ) {
