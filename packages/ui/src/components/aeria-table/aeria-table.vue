@@ -17,7 +17,7 @@ type Props = {
   rows?: any[]
   collection?: string | Ref<string>
   checkbox?: boolean
-  actions?: (CollectionAction<any> & {
+  actions?: (CollectionAction & {
     action: string
     click: (...args: unknown[])=> void
   })[]

@@ -1,7 +1,7 @@
 import type { CollectionActions, Description, Property, RefProperty, ObjectProperty } from '@aeriajs/types'
 import { freshItem as _freshItem } from '@aeriajs/common'
 
-type NormalizedActions<TActions extends CollectionActions<any>> = (TActions[keyof TActions] & {
+type NormalizedActions<TActions extends CollectionActions> = (TActions[keyof TActions] & {
   action: string
 })[]
 
@@ -19,7 +19,7 @@ export const isNull = (value: unknown): value is undefined => {
     || value === '')
 }
 
-export const normalizeActions = <const TActions extends CollectionActions<any>>(actions?: CollectionActions<any>): NormalizedActions<TActions> => {
+export const normalizeActions = <const TActions extends CollectionActions>(actions?: CollectionActions): NormalizedActions<TActions> => {
   if( !actions ) {
     return []
   }
