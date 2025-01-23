@@ -9,7 +9,7 @@ import AeriaPanel from '../aeria-panel/aeria-panel.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  actions?: (CollectionAction<any> & {
+  actions?: (CollectionAction & {
     click: ()=> void,
   })[]
   subject?: unknown

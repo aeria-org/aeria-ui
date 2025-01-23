@@ -72,6 +72,15 @@ const buttonActions = (subject: unknown) => {
   }
 
   return props.actions.filter((action) => {
+    if( action.roles ) {
+      const userStore = useStore('user')
+      const intersects = arraysIntersect(action.roles, userStore.currentUser.roles)
+
+      if( !intersects ) {
+        return false
+      }
+    }
+
     const layout = layoutActions[action.action]
     return layout && isActionButton(layout, subject)
   })
