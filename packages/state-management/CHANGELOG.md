@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.18
+
+### Patch Changes
+
+- 84414ee: Fix date input and store bug
+
 ## 0.0.17
 
 ### Patch Changes

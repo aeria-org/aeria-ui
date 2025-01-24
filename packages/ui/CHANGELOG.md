@@ -1,5 +1,15 @@
 # @aeria-ui/ui
 
+## 0.0.154
+
+### Patch Changes
+
+- 84414ee: Fix date input and store bug
+- Updated dependencies [70a8c07]
+- Updated dependencies [84414ee]
+  - @aeria-ui/core@0.0.97
+  - @aeria-ui/state-management@0.0.18
+
 ## 0.0.153
 
 ### Patch Changes

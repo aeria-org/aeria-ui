@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.97
+
+### Patch Changes
+
+- 70a8c07: Fix `createCollectionStore()` type
+- Updated dependencies [84414ee]
+  - @aeria-ui/state-management@0.0.18
+
 ## 0.0.96
 
 ### Patch Changes
