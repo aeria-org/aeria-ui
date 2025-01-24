@@ -1,19 +1,17 @@
-import type { Description, Layout, PackReferences, PropertyValidationError, Property, LayoutName } from '@aeriajs/types'
+import type { Description, Layout, PackReferences, PropertyValidationError, Property, LayoutName, TableLayout } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager, type StorePrototype } from '@aeria-ui/state-management'
 import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { useStoreActions } from './actions.js'
-import { isNull, normalizeFilters, normalizeActions } from './helpers.js'
+import { isNull, normalizeFilters, normalizeActions, type NormalizedActions } from './helpers.js'
 
 export type CollectionStoreItem = Record<string, unknown> & {
   _id?: unknown
 }
 
-export type CollectionStoreState<TItem extends CollectionStoreItem = any> =
-  ReturnType<typeof internalCreateCollectionStore<TItem>>['state']
-  & UnwrapGetters<ReturnType<ReturnType<typeof internalCreateCollectionStore>['getters']>>
+export type CollectionStoreState<TItem extends CollectionStoreItem = CollectionStoreItem> = InitialState<TItem> & UnwrapGetters<Getters<TItem>>
 
 export type CollectionStore<TItem extends CollectionStoreItem = CollectionStoreItem> = CollectionStoreState<TItem> & {
   $id: string
@@ -28,10 +26,8 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   rawDescription: Description
   item: TItem
   referenceItem: TItem
-  condensedItem: PackReferences<TItem>
   freshItem: TItem
   diffedItem: Partial<TItem>
-
   items: TItem[]
   filters: Record<string, unknown>
   freshFilters: Record<string, unknown>
@@ -39,12 +35,10 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   filtersPreset: Record<string, unknown>
   preferredTableProperties: string[]
   selected: TItem[] | string[]
-
   currentLayout?: LayoutName
   validationErrors: Record<string, PropertyValidationError>
   loading: Record<string, boolean>
   textQuery: string
-
   pagination: {
     offset: number
     limit: number
@@ -55,13 +49,38 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   transformers: Record<string, (value: unknown)=> unknown>
 }
 
+export type Getters<TItem extends CollectionStoreItem> = {
+  $currentLayout: LayoutName
+  $filters: Record<string, unknown>
+  $freshItem: TItem
+  actions: NormalizedActions
+  availableFilters: Record<string, Property>
+  condensedItem: unknown
+  description: Description
+  diffedItem: Partial<TItem>
+  filtersCount: number
+  hasActiveFilters: boolean
+  hasSelectionActions: boolean
+  individualActions: NormalizedActions
+  isInsertReady: boolean
+  itemsCount: number
+  layout: Layout
+  properties: Description['properties']
+  references: [string, Property][]
+  tableLayout: TableLayout<any>
+  tableProperties: Record<string, Property>
+} extends infer InferredGetters
+  ? {
+    [P in keyof InferredGetters]: ComputedRef<InferredGetters[P]>
+  }
+  : never
+
 const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
   const item = <T>() => ({} as T)
   const initialState = reactive<InitialState<TItem>>({
     rawDescription: {} as Description,
     item: item(),
     referenceItem: item(),
-    condensedItem: item(),
     freshItem: item(),
     diffedItem: {},
 
@@ -87,7 +106,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     transformers: {},
   })
 
-  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> unknown>) => {
+  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> unknown>): Getters<TItem> => {
     const description = computed((): Description => {
       if (state.rawDescription.preferred) {
         const userStore = useStore('user')
@@ -211,7 +230,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
         {
           preserveIds: true,
         },
-      )
+      ) as Partial<TItem>
     })
 
     return {
@@ -222,37 +241,29 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       individualActions: computed(() => normalizeActions(description.value.individualActions)),
       hasSelectionActions: computed(() => actions.value.some((action) => 'selection' in action && !!action.selection)),
       condensedItem: computed(() => condenseItem(state.item)),
-
       $freshItem: computed(() => {
         const recurse = (store: any, parent?: string, grandParent?: string): TItem => {
-          return Object.entries(properties.value).reduce((a, [key, property]) => {
-            if ('items' in property) {
-              return {
-                ...a,
-                [key]: [],
-              }
-            }
+          const item: Record<string, unknown> = {}
+          for( const key in properties.value ) {
+            const property = properties.value[key]
+            if( 'items' in property ) {
+              item[key] = []
 
-            if (isReference(property) && property.inline && store.$id !== grandParent) {
+            } else if (isReference(property) && property.inline && store.$id !== grandParent) {
               const subject = getReferenceProperty(property)!.$ref
               const helperStore = useStore(subject)
+              item[key] = recurse(helperStore, store.$id, parent)
 
-              return {
-                ...a,
-                [key]: recurse(helperStore, store.$id, parent),
-              }
+            } else {
+              item[key] = store.freshItem[key]
             }
+          }
 
-            return {
-              ...a,
-              [key]: store.freshItem[key],
-            }
-          }, {} as TItem)
+          return item as TItem
         }
 
         return recurse(state)
       }),
-
       itemsCount: computed(() => state.items.length),
       diffedItem,
       isInsertReady: computed(() => {
@@ -267,7 +278,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           ? isComplete && Object.keys(diffedItem.value).length > 0
           : isComplete
       }),
-
       filtersCount: computed(() => Object.values($filters.value).filter((_) => !!_).length),
       hasActiveFilters: computed(() => Object.values(state.filters).some((_) => !!_)),
       availableFilters: computed(() => {
@@ -275,35 +285,25 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           return {}
         }
 
-        return Object.keys(normalizeFilters(description.value.filters)).reduce((a, k) => {
-          const property = k in properties.value
-            ? properties.value[k]
-            : null
-
-          return {
-            ...a,
-            ...(property
-              ? {
-                [k]: property,
-              }
-              : {}),
+        const filters: Record<string, Property> = {}
+        for( const key in normalizeFilters(description.value.filters) ) {
+          if( key in properties.value ) {
+            filters[key] = properties.value[key]
           }
-        }, {})
-      }),
+        }
 
+        return filters
+      }),
       references: computed(() => {
         return Object.entries(description.value.properties).filter(([, property]) => {
           return isReference(property) && property.inline
         })
       }),
-
       layout: computed(() => description.value.layout || {
         name: 'tabular',
         options: {},
-      } as Layout),
-
+      } satisfies Layout),
       $currentLayout: computed(() => state.currentLayout || (description.value.layout?.name || 'tabular')),
-
       tableProperties: computed(() => {
         const preferredProperties = state.preferredTableProperties.length > 0
           ? state.preferredTableProperties
@@ -313,12 +313,13 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           ? storeActions.useProperties(preferredProperties) as Record<string, Property>
           : properties.value
       }),
-
       tableLayout: computed(() => description.value.tableLayout || {}),
     }
   }
 
   return {
+    cu: {} as InitialState<TItem>,
+    cu2: {} as TItem,
     state: initialState,
     getters,
   }
@@ -351,19 +352,15 @@ export const createCollectionStore = <
   if (newer.actions) {
     Object.assign(actions, newer.actions(state, actions))
   }
-
   if (newer.state) {
     Object.assign(state, newer.state)
   }
 
-  Object.assign(
-    state,
-    initial.getters(state, actions),
-  )
+  Object.assign(state, initial.getters(state, actions))
 
   return {
     $id: newer.$id,
-    state: state as typeof initial['state'] & (
+    state: state as InitialState<Collections[TStoreId]['item']> & (
       keyof TStoreState extends never
         ? {}
         : TStoreState
