@@ -1,4 +1,4 @@
-import type { Description, Layout, PackReferences, PropertyValidationError, Property, LayoutName, TableLayout } from '@aeriajs/types'
+import type { Description, Layout, PropertyValidationError, Property, LayoutName, TableLayout } from '@aeriajs/types'
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager, type StorePrototype } from '@aeria-ui/state-management'
 import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
