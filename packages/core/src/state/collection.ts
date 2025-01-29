@@ -11,7 +11,7 @@ export type CollectionStoreItem = Record<string, unknown> & {
   _id?: unknown
 }
 
-export type CollectionStoreState<TItem extends CollectionStoreItem = CollectionStoreItem> = InitialState<TItem> & UnwrapGetters<Getters<TItem>>
+export type CollectionStoreState<TItem extends CollectionStoreItem = CollectionStoreItem> = InitialState<TItem> & UnwrapGetters<CollectionGetters<TItem>>
 
 export type CollectionStore<TItem extends CollectionStoreItem = CollectionStoreItem> = CollectionStoreState<TItem> & {
   $id: string
@@ -49,7 +49,7 @@ export type InitialState<TItem extends CollectionStoreItem> = {
   transformers: Record<string, (value: unknown)=> unknown>
 }
 
-export type Getters<TItem extends CollectionStoreItem> = {
+export type CollectionGetters<TItem extends CollectionStoreItem> = {
   $currentLayout: LayoutName
   $filters: Record<string, unknown>
   $freshItem: TItem
@@ -106,7 +106,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
     transformers: {},
   })
 
-  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> unknown>): Getters<TItem> => {
+  const getters = (state: InitialState<TItem>, storeActions: Record<string, (...args: any[])=> unknown>): CollectionGetters<TItem> => {
     const description = computed((): Description => {
       if (state.rawDescription.preferred) {
         const userStore = useStore('user')
@@ -318,8 +318,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
   }
 
   return {
-    cu: {} as InitialState<TItem>,
-    cu2: {} as TItem,
     state: initialState,
     getters,
   }
