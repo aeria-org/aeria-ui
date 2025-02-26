@@ -5,7 +5,7 @@ import { getReferenceProperty } from '@aeriajs/common'
 import { useCollectionStore } from './collection.js'
 
 export const recurseInsertCandidate = async (obj: unknown, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
-  if( !property || !obj ) {
+  if( !property || !obj || (obj.constructor === Object && Object.keys(obj).length === 0) ) {
     return Result.result(obj)
   }
 
@@ -49,7 +49,7 @@ export const recurseInsertCandidate = async (obj: unknown, property: Property | 
     const helperStore = useCollectionStore(collection, manager)
 
     const { error, result } = await helperStore.$actions.deepInsert({
-      what: obj as Record<string, unknown>,
+      what: obj,
     })
 
     return error

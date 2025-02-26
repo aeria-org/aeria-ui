@@ -2,23 +2,21 @@ import type { Property } from '@aeriajs/types'
 import type { CollectionStore } from './collection.js'
 
 export type DateTuple = {
-  $gte?: string
-  $lte?: string
+  $gte?: Date
+  $lte?: Date
 }
 
 const isDateTuple = (value: unknown): value is DateTuple => {
   return !!(
     value
     && typeof value === 'object'
-    && '$gte' in value
-    && '$lte' in value
-    && typeof value.$gte === 'string'
-    && typeof value.$lte === 'string'
+    && (!('$gte' in value) || (typeof value.$gte === 'object' && value.$gte instanceof Date))
+    && (!('$lte' in value) || (typeof value.$lte === 'object' && value.$lte instanceof Date))
   )
 }
 
 const dateTupleToString = (tuple: DateTuple) => {
-  return `${tuple.$gte}|${tuple.$lte}`
+  return `${tuple.$gte?.toISOString() || ''}|${tuple.$lte?.toISOString() || ''}`
 }
 
 const extractValue = (value: unknown, property: Property) => {
@@ -56,10 +54,16 @@ const buildValue = (value: unknown, property: Property) => {
         }
         if( property.format === 'date' || property.format === 'date-time' ) {
           const [d1, d2] = value.split('|')
-          return {
-            $gte: new Date(d1),
-            $lte: new Date(d2),
+          const obj: DateTuple = {}
+
+          if( d1 ) {
+            obj.$gte = new Date(d1)
           }
+          if( d2 ) {
+            obj.$lte = new Date(d2)
+          }
+
+          return obj
         }
         break
       }
@@ -79,11 +83,15 @@ export const convertToSearchQuery = (store: CollectionStore) => {
       ? store.properties[key]
       : null
 
-    if( !property || !value ) {
+    if( !property || value === undefined ) {
       continue
     }
 
     if( 'items' in property ) {
+      if( !value ) {
+        continue
+      }
+
       if( typeof value !== 'object' || !('$in' in value) || !Array.isArray(value.$in) ) {
         continue
       }

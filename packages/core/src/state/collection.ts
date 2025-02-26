@@ -5,7 +5,7 @@ import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { useStoreActions } from './actions.js'
-import { isNull, normalizeFilters, normalizeActions, type NormalizedActions } from './helpers.js'
+import { isEmpty, normalizeFilters, normalizeActions, type NormalizedActions } from './helpers.js'
 
 export type CollectionStoreItem = Record<string, unknown> & {
   _id?: unknown
@@ -177,7 +177,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           continue
         }
 
-        if( isNull(filter) ) {
+        if( isEmpty(filter) ) {
           continue
         }
 
@@ -195,7 +195,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
 
         const newFilter: Record<string, unknown> = {}
         for( const [key, value] of Object.entries(filter) ) {
-          if( isNull(value) || Object.values(value).every((val) => isNull(val)) ) {
+          if( isEmpty(value) || (value.constructor === Object && Object.values(value).every((val) => isEmpty(val))) ) {
             continue
           }
 

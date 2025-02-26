@@ -13,81 +13,77 @@ const isObject = (property: Property): property is RefProperty | ObjectProperty 
   return '$ref' in property || ('type' in property && property.type === 'object')
 }
 
-export const isNull = (value: unknown): value is undefined => {
+export const isEmpty = (value: unknown): value is undefined | null | '' => {
   return !!(value === undefined
     || value === null
     || value === '')
 }
 
-export const normalizeActions = (actions?: CollectionActions) => {
-  if( !actions ) {
-    return []
-  }
-
-  return Object.entries(actions).reduce((a: NormalizedActions, [key, value]) => {
-    if( !value || key.startsWith('_') ) {
-      return a
+export const normalizeActions = (actions: CollectionActions = {}) => {
+  const normalizedActions: NormalizedActions = []
+  for( const actionName in actions ) {
+    const action = actions[actionName]
+    if( !action ) {
+      continue
     }
 
-    return [
-      ...a,
-      {
-        action: key,
-        ...value,
-      },
-    ]
-  }, [])
+    normalizedActions.push({
+      action: actionName,
+      ...action,
+    })
+  }
+
+  return normalizedActions
 }
+
 export const normalizeFilters = (filters: Description['filters']) => {
   if( !filters ) {
     return {}
   }
 
-  return filters.reduce((a, b) => {
-    const filter = typeof b === 'object'
-      ? {
-        [b.property]: b.default || '',
+  const normalizedFilters: Record<string, unknown> = {}
+  for( const filter of filters ) {
+    switch( typeof filter ) {
+      case 'object': {
+        normalizedFilters[filter.property] = filter.default
+        break
       }
-      : {
-        [b]: '',
+      default: {
+        normalizedFilters[filter] = ''
       }
-
-    return {
-      ...a,
-      ...filter,
     }
-  }, {})
+  }
+
+  return normalizedFilters
 }
 
 export const freshItem = (description: Description) => _freshItem(description)
 
 export const freshFilters = (description: Description) => {
-  return Object.entries(description.properties).reduce((a, [key, property]) => {
+  const filters: Record<string, unknown> = {}
+
+  for( const [key, property] of Object.entries(description.properties) ) {
     if( isObject(property) ) {
-      return {
-        ...a,
-        [key]: 'items' in property
-          ? []
-          : {},
-      }
+      filters[key] = 'items' in property
+        ? []
+        : {}
+      continue
     }
 
-    if( 'format' in property && property.format ) {
-      if( [
-        'date',
-        'date-time',
-      ].includes(property.format) ) {
-        return {
-          ...a,
-          [key]: {
+    if( 'format' in property ) {
+      switch( property.format ) {
+        case 'date':
+        case 'date-time': {
+          filters[key] = {
             $gte: '',
             $lte: '',
-          },
+          }
+          continue
         }
       }
     }
+  }
 
-    return a
-  }, {})
+  return filters
 }
 
