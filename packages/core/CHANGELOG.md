@@ -1,5 +1,12 @@
 # @aeria-ui/core
 
+## 0.0.98
+
+### Patch Changes
+
+- 16cd5f3: Fix recursive inserts and date filtering
+- 16cd5f3: Fix date filter query string
+
 ## 0.0.97
 
 ### Patch Changes
