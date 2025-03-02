@@ -188,7 +188,7 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
           continue
         }
 
-        if( !filter || typeof filter !== 'object' || filter.constructor !== Object ) {
+        if( filter.constructor !== Object ) {
           sanitizedFilters[key] = expr(key, filter)
           continue
         }
