@@ -1,0 +1,30 @@
+.auth {
+  display: flex;
+  height: 100vh;
+
+  &__background {
+    min-width: 30rem;
+    background: var(--theme-brand-color-shade-3);
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    padding: 1.8rem;
+    width: 100vw;
+
+    @media screen and (min-width: 600px) {
+      padding: 0;
+      width: 30rem;
+    }
+  }
+}

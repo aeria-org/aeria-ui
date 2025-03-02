@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "preserveSymlinks": true,
+    "types": [
+      "vite/client",
+      "@aeria-ui/ui/vue"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "aeria-app-layout",
+  "type": "module",
+  "version": "0.0.47",
+  "description": "",
+  "main": "dist/aeria-app-layout.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "exports": {
+    ".": "./dist/aeria-app-layout.js",
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "3"
+  },
+  "dependencies": {
+    "@aeria-ui/theme": "~0.0.80",
+    "aeria-ui": "~0.0.160",
+    "less": "^4.2.2"
+  }
+}

@@ -1,0 +1,26 @@
+.navbar {
+  &__route {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-weight: 300;
+    padding: .8rem 1rem;
+
+    &>:first-child {
+      margin-right: auto;
+    }
+
+    &:hover {
+      background: var(--theme-background-color-shade-5);
+    }
+
+    &--current {
+      background: var(--theme-background-color-shade-4);
+    }
+
+    &--sub {
+      padding-left: calc(1rem + var(--level-padding) * .8rem) !important;
+      font-size: .85rem;
+    }
+  }
+}
