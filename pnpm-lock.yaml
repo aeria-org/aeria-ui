@@ -74,18 +74,19 @@ importers:
 
   layouts/aeria-app-layout:
     dependencies:
-      '@aeria-ui/theme':
-        specifier: ~0.0.80
-        version: 0.0.80(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
-      aeria-ui:
-        specifier: ~0.0.160
-        version: 0.0.160(@aeria-ui/cli@0.0.13(@aeriajs/builtins-icons@0.0.9)(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(@babel/parser@7.26.9)(@types/node@22.13.8)(aeria-icons@0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2)))(bson@6.10.3)(rollup@4.34.9)(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/ui@0.0.155(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2))))
       less:
         specifier: ^4.2.2
         version: 4.2.2
       vue:
         specifier: '3'
         version: 3.5.13(typescript@5.8.2)
+    devDependencies:
+      '@aeria-ui/theme':
+        specifier: link:../../packages/theme
+        version: link:../../packages/theme
+      aeria-ui:
+        specifier: link:../../packages/aeria-ui
+        version: link:../../packages/aeria-ui
 
   packages/aeria-icons:
     devDependencies:
@@ -306,59 +307,6 @@ importers:
         version: 0.8.8(rollup@4.34.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
 
 packages:
-
-  '@aeria-ui/cli@0.0.13':
-    resolution: {integrity: sha512-jgRrRIW7988P5K7Ie0uPo4uLbLfjvLVf9BHjeCP/ps0KpLNP1b6J8yrx50ijaLc19I1btGiKBMt0E4t40FWvDA==}
-    hasBin: true
-    peerDependencies:
-      '@aeriajs/builtins-icons': '0.0'
-      '@aeriajs/common': '0.0'
-      '@aeriajs/types': '0.0'
-      aeria-icons: ^0.0.8
-      bson: ^6.6.0
-      vue: ^3.4.26
-
-  '@aeria-ui/core@0.0.98':
-    resolution: {integrity: sha512-pa+RkXzMhUNo4Uk+XiFuT0ttduL7CCBMZlxu/vq+NJW1+jr43BaKRrZQKzIpX+valX83CIc3hS9QAb+ZUfCr7A==}
-    peerDependencies:
-      '@aeria-ui/i18n': ^0.0.15
-      '@aeria-ui/state-management': ^0.0.18
-      '@aeria-ui/utils': ^0.0.6
-      aeria-sdk: '0.0'
-
-  '@aeria-ui/i18n@0.0.15':
-    resolution: {integrity: sha512-UjdNr3jW+S35tkZb+tGwzdO2LcwTn/AL1w8jmNMprCgnMBaoxTmX/VTUjDZIKHJ0YEEJpzyG+eWOk4AsECmvCw==}
-    peerDependencies:
-      '@aeriajs/common': '0.0'
-
-  '@aeria-ui/state-management@0.0.18':
-    resolution: {integrity: sha512-9imKR5spKRjhA5CWN0CzjW+IjNjvZx8EKDfyQh+/5Ge8giYGB9RiWsbtbDAgLMzhRrlnQrs3RAEJ1IqPGWTIhQ==}
-    peerDependencies:
-      vue: ^3.4.26
-
-  '@aeria-ui/theme@0.0.80':
-    resolution: {integrity: sha512-4c4/vaSh9rQuD9MmMtCBuVN5US/BMWPE85iH0z3kMuQxcdSfOEqMcKJ1B7SQVGUmU21iv76xDKotNJOZwiVEFA==}
-    peerDependencies:
-      '@aeria-ui/core': ^0.0.97
-      '@aeria-ui/state-management': ^0.0.18
-      '@aeriajs/common': '0.0'
-      vue: ^3.4.26
-      vue-router: ^4.3.2
-
-  '@aeria-ui/ui@0.0.155':
-    resolution: {integrity: sha512-92R85O/PqvqQiNMml9yUw3O7YSk/hXtSvhgSR2i6GX4vkeITLa/4j2U3ajKeejlBGB3BmdSBEvuuh+n2geDpaw==}
-    peerDependencies:
-      '@aeria-ui/core': ^0.0.98
-      '@aeria-ui/i18n': ^0.0.15
-      '@aeria-ui/state-management': ^0.0.18
-      '@aeria-ui/utils': ^0.0.6
-      '@aeriajs/common': '0.0'
-      vue-router: ^4.3.2
-
-  '@aeria-ui/utils@0.0.6':
-    resolution: {integrity: sha512-syfZsMhsodPv24xLUJLC37Bm45XZFFAkAw8lWiah+6KnNgL/znqBvCvMpOggKm4g6QZxzpnWtuBE3qHOdszCFg==}
-    peerDependencies:
-      '@aeriajs/common': '0.0'
 
   '@aeriajs/builtins-icons@0.0.9':
     resolution: {integrity: sha512-VF8fnJqX63OjfommqCzKABRm6r9sHXiIy25hsxjIr0xNB4tQCkEEKvpurU0SPcat2SzoFC0SP4IwXUFbcfAjPw==}
@@ -1656,29 +1604,12 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aeria-icons@0.0.8:
-    resolution: {integrity: sha512-jwOJawSB6oa+D9jCk2tJK0iFzhtRvXknHkKxdd3yMmD8Qe0yMf+oocjNcH50F6IXxHfeGndP+KakMzMCYXOArQ==}
-    peerDependencies:
-      '@phosphor-icons/core': ^2.0.8
-      '@vitejs/plugin-vue': '*'
-      glob: '*'
-      vite: '*'
-
   aeria-sdk@0.0.176:
     resolution: {integrity: sha512-SDZGMM5vUKQw/A0I/PJIDqWUM6W3XLAj7hUY41T2jWTgjaHeSZyJQ2K6UR60NggFqqaJR/4DnISRa+bj8EAISw==}
     hasBin: true
     peerDependencies:
       '@aeriajs/common': ^0.0.136
       '@aeriajs/types': ^0.0.118
-
-  aeria-ui@0.0.160:
-    resolution: {integrity: sha512-jw9sa+mZ8qGALKru6TCDgbW1xBz2R53M3xXOsK2Tjwo3akSXlwkxcjYRhhnhgbk9unwktAYUoJmVet83Uf2X3Q==}
-    peerDependencies:
-      '@aeria-ui/cli': ^0.0.13
-      '@aeria-ui/core': ^0.0.98
-      '@aeria-ui/i18n': ^0.0.15
-      '@aeria-ui/state-management': ^0.0.18
-      '@aeria-ui/ui': ^0.0.155
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -4094,82 +4025,6 @@ packages:
 
 snapshots:
 
-  '@aeria-ui/cli@0.0.13(@aeriajs/builtins-icons@0.0.9)(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(@babel/parser@7.26.9)(@types/node@22.13.8)(aeria-icons@0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2)))(bson@6.10.3)(rollup@4.34.9)(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      '@aeriajs/builtins-icons': 0.0.9
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      '@aeriajs/types': 0.0.118(@phosphor-icons/core@2.1.1)
-      '@rollup/plugin-node-resolve': 15.3.1(rollup@4.34.9)
-      '@vitejs/plugin-vue': 4.6.2(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2))
-      aeria-icons: 0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))
-      bson: 6.10.3
-      ejs: 3.1.10
-      js-yaml: 4.1.0
-      less: 4.2.2
-      unplugin-auto-import: 0.15.3(rollup@4.34.9)
-      unplugin-vue-components: 0.24.1(@babel/parser@7.26.9)(rollup@4.34.9)(vue@3.5.13(typescript@5.8.2))
-      vite: 5.4.14(@types/node@22.13.8)(less@4.2.2)
-      vue: 3.5.13(typescript@5.8.2)
-    transitivePeerDependencies:
-      - '@babel/parser'
-      - '@nuxt/kit'
-      - '@types/node'
-      - '@vueuse/core'
-      - lightningcss
-      - rollup
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-
-  '@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2)':
-    dependencies:
-      '@aeria-ui/i18n': 0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))
-      '@aeria-ui/state-management': 0.0.18(vue@3.5.13(typescript@5.8.2))
-      '@aeria-ui/utils': 0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      '@aeriajs/types': 0.0.118(@phosphor-icons/core@2.1.1)
-      aeria-sdk: 0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))
-      vue: 3.5.13(typescript@5.8.2)
-      vue-demi: 0.13.11(vue@3.5.13(typescript@5.8.2))
-      vue-router: 4.5.0(vue@3.5.13(typescript@5.8.2))
-    transitivePeerDependencies:
-      - '@phosphor-icons/core'
-      - '@vue/composition-api'
-      - bson
-      - typescript
-
-  '@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))':
-    dependencies:
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-
-  '@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      vue: 3.5.13(typescript@5.8.2)
-
-  '@aeria-ui/theme@0.0.80(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      '@aeria-ui/core': 0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2)
-      '@aeria-ui/state-management': 0.0.18(vue@3.5.13(typescript@5.8.2))
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      vue: 3.5.13(typescript@5.8.2)
-      vue-router: 4.5.0(vue@3.5.13(typescript@5.8.2))
-
-  '@aeria-ui/ui@0.0.155(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))':
-    dependencies:
-      '@aeria-ui/core': 0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2)
-      '@aeria-ui/i18n': 0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))
-      '@aeria-ui/state-management': 0.0.18(vue@3.5.13(typescript@5.8.2))
-      '@aeria-ui/utils': 0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      vue-router: 4.5.0(vue@3.5.13(typescript@5.8.2))
-
-  '@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))':
-    dependencies:
-      '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-
   '@aeriajs/builtins-icons@0.0.9': {}
 
   '@aeriajs/builtins@0.0.243(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.243)(@aeriajs/entrypoint@0.0.140(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.152(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.140(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(mongodb@6.14.0(socks@2.8.4)))':
@@ -5258,16 +5113,6 @@ snapshots:
       vite: 5.4.14(@types/node@20.17.22)(less@4.2.2)
       vue: 3.5.13(typescript@5.8.2)
 
-  '@vitejs/plugin-vue@4.6.2(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      vite: 5.4.14(@types/node@22.13.8)(less@4.2.2)
-      vue: 3.5.13(typescript@5.8.2)
-
-  '@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      vite: 5.4.14(@types/node@22.13.8)(less@4.2.2)
-      vue: 3.5.13(typescript@5.8.2)
-
   '@vitejs/plugin-vue@5.2.1(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(less@4.2.2)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))':
     dependencies:
       vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(less@4.2.2)(yaml@2.7.0)
@@ -5457,25 +5302,10 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  aeria-icons@0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2)):
-    dependencies:
-      '@phosphor-icons/core': 2.1.1
-      '@vitejs/plugin-vue': 5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2))
-      glob: 11.0.1
-      vite: 5.4.14(@types/node@22.13.8)(less@4.2.2)
-
   aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)):
     dependencies:
       '@aeriajs/common': 0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/types': 0.0.118(@phosphor-icons/core@2.1.1)
-
-  ? aeria-ui@0.0.160(@aeria-ui/cli@0.0.13(@aeriajs/builtins-icons@0.0.9)(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(@babel/parser@7.26.9)(@types/node@22.13.8)(aeria-icons@0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2)))(bson@6.10.3)(rollup@4.34.9)(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/ui@0.0.155(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2))))
-  : dependencies:
-      '@aeria-ui/cli': 0.0.13(@aeriajs/builtins-icons@0.0.9)(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(@babel/parser@7.26.9)(@types/node@22.13.8)(aeria-icons@0.0.8(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.13.8)(less@4.2.2))(vue@3.5.13(typescript@5.8.2)))(glob@11.0.1)(vite@5.4.14(@types/node@22.13.8)(less@4.2.2)))(bson@6.10.3)(rollup@4.34.9)(vue@3.5.13(typescript@5.8.2))
-      '@aeria-ui/core': 0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2)
-      '@aeria-ui/i18n': 0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))
-      '@aeria-ui/state-management': 0.0.18(vue@3.5.13(typescript@5.8.2))
-      '@aeria-ui/ui': 0.0.155(@aeria-ui/core@0.0.98(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@phosphor-icons/core@2.1.1)(aeria-sdk@0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)))(bson@6.10.3)(typescript@5.8.2))(@aeria-ui/i18n@0.0.15(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeria-ui/state-management@0.0.18(vue@3.5.13(typescript@5.8.2)))(@aeria-ui/utils@0.0.6(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)))(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))
 
   agent-base@6.0.2:
     dependencies:
