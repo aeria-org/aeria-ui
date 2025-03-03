@@ -22,6 +22,10 @@
   "peerDependencies": {
     "vue": "3"
   },
+  "devDependencies": {
+    "@aeria-ui/theme": "link:../../packages/theme",
+    "aeria-ui": "link:../../packages/aeria-ui"
+  },
   "dependencies": {
     "@aeria-ui/theme": "~0.0.80",
     "aeria-ui": "~0.0.160",
