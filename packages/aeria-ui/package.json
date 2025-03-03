@@ -1,7 +1,7 @@
 {
   "name": "aeria-ui",
   "type": "module",
-  "version": "0.0.160",
+  "version": "0.0.161",
   "description": "",
   "scripts": {
     "test": "echo skipping",
@@ -28,10 +28,10 @@
     "@aeria-ui/ui": "link:../ui"
   },
   "peerDependencies": {
-    "@aeria-ui/cli": "^0.0.13",
-    "@aeria-ui/core": "^0.0.98",
-    "@aeria-ui/i18n": "^0.0.15",
-    "@aeria-ui/state-management": "^0.0.18",
-    "@aeria-ui/ui": "^0.0.155"
+    "@aeria-ui/cli": "^0.0.14",
+    "@aeria-ui/core": "^0.0.99",
+    "@aeria-ui/i18n": "^0.0.16",
+    "@aeria-ui/state-management": "^0.0.19",
+    "@aeria-ui/ui": "^0.0.156"
   }
 }
