@@ -247,6 +247,10 @@ importers:
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
 
   packages/ui:
+    dependencies:
+      vue-router:
+        specifier: ^4.3.2
+        version: 4.5.0(vue@3.5.13(typescript@5.8.2))
     devDependencies:
       '@aeria-ui/cli':
         specifier: link:../cli
@@ -287,9 +291,6 @@ importers:
       vite-plugin-static-copy:
         specifier: ^0.17.0
         version: 0.17.1(vite@4.5.9(@types/node@22.13.8)(less@4.2.2))
-      vue-router:
-        specifier: ^4.3.2
-        version: 4.5.0(vue@3.5.13(typescript@5.8.2))
 
   packages/utils:
     devDependencies:

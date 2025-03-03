@@ -50,15 +50,16 @@
     "jsdom": "^25.0.1",
     "vite": "^4.4.8",
     "vite-plugin-dts": "^3.3.0",
-    "vite-plugin-static-copy": "^0.17.0",
-    "vue-router": "^4.3.2"
+    "vite-plugin-static-copy": "^0.17.0"
   },
   "peerDependencies": {
     "@aeria-ui/core": "^0.0.99",
     "@aeria-ui/i18n": "^0.0.16",
     "@aeria-ui/state-management": "^0.0.19",
     "@aeria-ui/utils": "^0.0.7",
-    "@aeriajs/common": "0.0",
+    "@aeriajs/common": "0.0"
+  },
+  "dependencies": {
     "vue-router": "^4.3.2"
   }
 }
