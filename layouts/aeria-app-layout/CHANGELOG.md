@@ -1,5 +1,14 @@
 # aeria-app-layout
 
+## 0.0.48
+
+### Patch Changes
+
+- 0525a2c: Test release
+- Updated dependencies [0525a2c]
+  - aeria-ui@0.0.161
+  - @aeria-ui/theme@0.0.81
+
 ## 0.0.47
 
 ### Patch Changes
