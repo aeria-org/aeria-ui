@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.19
+
+### Patch Changes
+
+- 0525a2c: Test release
+
 ## 0.0.18
 
 ### Patch Changes

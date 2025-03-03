@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.16
+
+### Patch Changes
+
+- 0525a2c: Test release
+
 ## 0.0.15
 
 ### Patch Changes

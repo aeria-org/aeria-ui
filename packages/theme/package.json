@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/theme",
   "type": "module",
-  "version": "0.0.80",
+  "version": "0.0.81",
   "description": "",
   "scripts": {
     "test": "echo skipping",
@@ -29,8 +29,8 @@
     "vue-router": "^4.3.2"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.97",
-    "@aeria-ui/state-management": "^0.0.18",
+    "@aeria-ui/core": "^0.0.99",
+    "@aeria-ui/state-management": "^0.0.19",
     "@aeriajs/common": "0.0",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
