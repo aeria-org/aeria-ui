@@ -46,8 +46,8 @@ const handleEnter = (event: KeyboardEvent) => {
   <div class="signin">
     <h1
       v-if="instanceVars.signinText"
-      v-html="instanceVars.signinText"
       class="signin__header"
+      v-html="instanceVars.signinText"
     />
     <div v-if="instanceVars.signupForm">
       <span>{{ t('signin.no_account') }}&nbsp;</span>
