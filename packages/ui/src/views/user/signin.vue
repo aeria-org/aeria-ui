@@ -43,21 +43,17 @@ const handleEnter = (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <div style="text-align: center">
+  <div class="signin">
     <h1
       v-if="instanceVars.signinText"
-      style="font-size: 2.4rem; margin-bottom: .8rem"
       v-html="instanceVars.signinText"
+      class="signin__header"
     />
     <div v-if="instanceVars.signupForm">
       <span>{{ t('signin.no_account') }}&nbsp;</span>
-      <span
-        v-clickable
-        style="color: #2d96fa"
-        @click="router.push('/user/signup')"
-      >
+      <router-link to="/user/signup">
         {{ t('signin.create_account') }}
-      </span>
+      </router-link>
     </div>
   </div>
 
@@ -77,14 +73,7 @@ const handleEnter = (event: KeyboardEvent) => {
     @keypress="handleEnter"
   />
 
-  <div
-    style="
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  "
-  >
+  <div class="signin__buttons">
     <aeria-button
       :loading="userStore.loading.authenticate"
 
@@ -105,4 +94,6 @@ const handleEnter = (event: KeyboardEvent) => {
     </aeria-button>
   </div>
 </template>
+
+<style scoped src="./signin.less"></style>
 

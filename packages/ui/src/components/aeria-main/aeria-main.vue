@@ -16,14 +16,14 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
     :class="[
       'main',
       `main--${theme}`,
-      { 'tw-dark': theme === 'dark' },
+      { 'dark': theme === 'dark' },
     ]"
   >
     <Suspense>
       <router-view v-slot="{ Component }">
         <component :is="Component">
           <template
-            v-for="slotName in Object.keys($slots)"
+            v-for="slotName of Object.keys($slots)"
             #[slotName]
           >
             <slot :name="slotName" />
