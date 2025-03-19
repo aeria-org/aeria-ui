@@ -1,5 +1,12 @@
 # @aeria-ui/ui
 
+## 0.0.158
+
+### Patch Changes
+
+- b4dad21: Add tailwindcss compatibility
+- 6005fc7: Style refactor
+
 ## 0.0.157
 
 ### Patch Changes
