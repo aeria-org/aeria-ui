@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.159
+
+### Patch Changes
+
+- 4ade484: Fix pagination icons coloring in dark mode
+
 ## 0.0.158
 
 ### Patch Changes
