@@ -1,13 +1,13 @@
 .pagination {
-  display: inline-flex;
-  height: 2.6rem;
-  align-items: stretch;
-  gap: 1rem;
-
   --input-width: 4rem;
   --input-height: 100%;
   --input-padding: 0 .4rem;
   --input-border: 1px solid var(--theme-border-color);
+
+  display: inline-flex;
+  height: 2.6rem;
+  align-items: stretch;
+  gap: 1rem;
 
   &__arrows {
     display: flex;
@@ -20,6 +20,7 @@
     }
     & > button > a {
       padding: .6rem;
+      color: var(--theme-foreground-color);
 
       &:hover {
         background: var(--theme-background-color-shade-2);
