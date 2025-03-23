@@ -22,8 +22,8 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/ui.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ui.js"
     },
     "./style.css": "./dist/style.css",
     "./themes/*": "./themes/*",
