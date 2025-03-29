@@ -52,7 +52,7 @@ import type { RouteTitleConfig } from '@aeria-ui/core'
 
 declare global {
   const definePage: (page: Partial<RouteRecordRaw> & {
-    meta: Record<string, unknown> & {
+    meta?: Record<string, unknown> & {
       title: RouteTitleConfig
       icon?: Icon
       collection?: string
