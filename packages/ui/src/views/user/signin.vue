@@ -86,7 +86,7 @@ const handleEnter = (event: KeyboardEvent) => {
     </aeria-button>
 
     <aeria-button
-      v-if="userStore.currentUser._id && !metaStore.isLoading"
+      v-if="userStore.signedIn && !metaStore.isLoading"
       :disabled="userStore.loading.authenticate || metaStore.isLoading"
       @click="goToTarget"
     >
