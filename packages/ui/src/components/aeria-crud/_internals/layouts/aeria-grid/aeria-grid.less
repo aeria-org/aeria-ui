@@ -5,8 +5,16 @@
   }
 
   &__information {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
     margin-top: .5rem;
     font-size: 9.5pt;
     opacity: .6;
+
+    div:not(:first-child) {
+      padding-left: .4rem;
+      border-left: 1px solid var(--theme-border-color);
+    }
   }
 }

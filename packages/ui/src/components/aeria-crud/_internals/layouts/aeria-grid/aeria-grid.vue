@@ -85,7 +85,18 @@ const firstIfArray = (what: unknown) => {
         </div>
 
         <div
-          v-if="layoutOptions.information"
+          v-if="Array.isArray(layoutOptions.information)"
+          class="card__information"
+        >
+          <div
+            v-for="propName of layoutOptions.information"
+            :key="`info-${propName}`"
+          >
+            {{ item[propName] }}
+          </div>
+        </div>
+        <div
+          v-else-if="layoutOptions.information"
           class="card__information"
         >
           {{ item[layoutOptions.information] }}
