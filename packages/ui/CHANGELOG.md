@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.160
+
+### Patch Changes
+
+- 3374cb6: Multiple card items on grid
+
 ## 0.0.159
 
 ### Patch Changes
