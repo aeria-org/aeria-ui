@@ -153,6 +153,7 @@ export const meta = createStore((context) => {
         body?: string
         options: Record<string, PromptOption>
       }): Promise<PromptAnswer> {
+        Object.assign(state.prompt, freshState.prompt)
         Object.assign(state.prompt, {
           ...props,
           visible: true,
