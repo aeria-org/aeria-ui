@@ -181,7 +181,7 @@ const buttonStyle = (subject: unknown, action: { action: string }) => {
 
     <tbody v-else>
       <tr
-        v-for="row in rows"
+        v-for="(row, rowIndex) in rows"
         :key="row._id"
         @click="emit('itemClick', row)"
       >
@@ -209,7 +209,8 @@ const buttonStyle = (subject: unknown, action: { action: string }) => {
                 store,
                 column,
                 property,
-                row
+                row,
+                rowIndex,
               }"
 
               :name="`row-${column}`"
