@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.161
+
+### Patch Changes
+
+- 340e748: Add `rowIndex` template parameter to `aeria-table`
+
 ## 0.0.160
 
 ### Patch Changes
