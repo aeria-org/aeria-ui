@@ -52,9 +52,12 @@ export const recurseInsertCandidate = async (obj: unknown, property: Property | 
       what: obj,
     })
 
-    return error
-      ? Result.error(error)
-      : Result.result(result._id)
+    if( error ) {
+      return Result.error(error)
+    }
+
+    Object.assign(obj, result)
+    return Result.result(result._id)
   }
 
   return Result.result(obj)
