@@ -187,8 +187,12 @@ const computeString = (value: string) => {
 
 const updateValue = (value: InputType) => {
   const newVal = (() => {
-    if( !value || typeof value !== 'string' ) {
+    if( typeof value !== 'string' ) {
       return value
+    }
+
+    if( inputBind.type !== 'text' && value === '' ) {
+      return null
     }
 
     switch( inputBind.type ) {
