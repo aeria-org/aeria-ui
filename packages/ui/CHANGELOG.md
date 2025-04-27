@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.162
+
+### Patch Changes
+
+- 7d6c93a: Fix empty input values being send as empty strings
+- Updated dependencies [462ea6c]
+- Updated dependencies [75ce6c1]
+  - @aeria-ui/core@0.0.100
+
 ## 0.0.161
 
 ### Patch Changes

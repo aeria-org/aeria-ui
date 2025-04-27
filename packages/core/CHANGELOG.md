@@ -1,5 +1,12 @@
 # @aeria-ui/core
 
+## 0.0.100
+
+### Patch Changes
+
+- 462ea6c: Fix meta store state not being cleaned up properly
+- 75ce6c1: Fix `recurseInsertCandidate()` duplicating inline inserts
+
 ## 0.0.99
 
 ### Patch Changes
