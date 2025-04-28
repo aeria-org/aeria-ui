@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.101
+
+### Patch Changes
+
+- 0c923eb: Fix insertion of empty inline refs
+
 ## 0.0.100
 
 ### Patch Changes
