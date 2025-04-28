@@ -1,5 +1,12 @@
 # aeria-ui-build
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [6c94e1e]
+  - aeria-icons@0.0.9
+
 ## 0.0.14
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.9
+
+### Patch Changes
+
+- 6c94e1e: Remove unused dependency
+
 ## 0.0.8
 
 ### Patch Changes
