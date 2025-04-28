@@ -5,8 +5,12 @@ import { getReferenceProperty } from '@aeriajs/common'
 import { useCollectionStore } from './collection.js'
 
 export const recurseInsertCandidate = async (obj: unknown, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
-  if( !property || !obj || (obj.constructor === Object && Object.keys(obj).length === 0) ) {
+  if( !property || !obj  ) {
     return Result.result(obj)
+  }
+
+  if( 'inline' in property && property.inline && obj.constructor === Object && Object.keys(obj).length === 0 ) {
+    return Result.result(undefined)
   }
 
   if( 'properties' in property ) {

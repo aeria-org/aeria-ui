@@ -27,13 +27,9 @@ export const useMask = (mask: string | readonly string[]) => {
 
   let defaultMask = maskInfos[0]
 
-  const enmask = (
-    text: string,
-    newMask?: typeof defaultMask,
-    options = {
-      defaultValue: false,
-    },
-  ): string => {
+  const enmask = (text: string, newMask?: typeof defaultMask, options = {
+    defaultValue: false,
+  }): string => {
     if (text.length < 1 || maskInfos.length < 1) {
       return text
     }
