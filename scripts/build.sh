@@ -11,5 +11,6 @@ pnpm --filter='./packages/aeria-icons' build \
   && pnpm --filter='./packages/theme' build \
   && pnpm --filter='./packages/ui' build \
   && pnpm --filter='./packages/create-aeria-app' build \
-  && pnpm --filter='./packages/aeria-ui' build
+  && pnpm --filter='./packages/aeria-ui' build \
+  && pnpm --filter='./layouts/*' build
 

@@ -39,7 +39,7 @@ onMounted(() => {
     :style="`--level-padding: ${level};`"
   >
     <aeria-icon
-      :icon="item.meta!.icon!"
+      :icon="item.meta!.icon || 'file'"
       style="
         --icon-size: 1.2rem;
         --icon-color: var(--theme-brand-color-shade-2);
