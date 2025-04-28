@@ -1,5 +1,11 @@
 # aeria-ui
 
+## 0.0.168
+
+### Patch Changes
+
+- @aeria-ui/cli@0.0.15
+
 ## 0.0.167
 
 ### Patch Changes

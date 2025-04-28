@@ -1,5 +1,12 @@
 # aeria-app-layout
 
+## 0.0.49
+
+### Patch Changes
+
+- 997df10: Use default icon when none is available
+  - aeria-ui@0.0.168
+
 ## 0.0.48
 
 ### Patch Changes
