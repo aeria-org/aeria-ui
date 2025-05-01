@@ -191,14 +191,14 @@ const updateValue = (value: InputType) => {
       return value
     }
 
-    if( inputBind.type !== 'text' && value === '' ) {
-      return null
-    }
-
     switch( inputBind.type ) {
       case 'number':
-      case 'integer':
+      case 'integer': {
+        if( value === '' ) {
+          return null
+        }
         return Number(value)
+      }
       case 'date':
       case 'date-time':
         return typeof value === 'string'
