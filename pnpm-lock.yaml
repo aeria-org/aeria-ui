@@ -188,8 +188,8 @@ importers:
         specifier: ^3.4.15
         version: 3.5.13(typescript@5.8.3)
       vue-demi:
-        specifier: ^0.13.6
-        version: 0.13.11(vue@3.5.13(typescript@5.8.3))
+        specifier: ^0.14.10
+        version: 0.14.10(vue@3.5.13(typescript@5.8.3))
       vue-router:
         specifier: ^4.3.2
         version: 4.5.0(vue@3.5.13(typescript@5.8.3))
@@ -208,7 +208,7 @@ importers:
         version: 20.17.22
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.176(@aeriajs/common@0.0.141(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))
+        version: 0.0.181(@aeriajs/common@0.0.141(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))
       vite:
         specifier: ^4.4.8
         version: 4.5.9(@types/node@20.17.22)(less@4.2.2)
@@ -1655,12 +1655,12 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aeria-sdk@0.0.176:
-    resolution: {integrity: sha512-SDZGMM5vUKQw/A0I/PJIDqWUM6W3XLAj7hUY41T2jWTgjaHeSZyJQ2K6UR60NggFqqaJR/4DnISRa+bj8EAISw==}
+  aeria-sdk@0.0.181:
+    resolution: {integrity: sha512-iBjnl58/5CSu3E5VYxIbL+AjmSHAPlN+r8ghM406B/wARnyqVFSsrc5IIUpYglg8otoPusnbxLnWpMxu/EgImw==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.136
-      '@aeriajs/types': ^0.0.118
+      '@aeriajs/common': ^0.0.141
+      '@aeriajs/types': ^0.0.123
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -3908,8 +3908,8 @@ packages:
   vue-component-type-helpers@2.2.4:
     resolution: {integrity: sha512-F66p0XLbAu92BRz6kakHyAcaUSF7HWpWX/THCqL0TxySSj7z/nok5UUMohfNkkCm1pZtawsdzoJ4p1cjNqCx0Q==}
 
-  vue-demi@0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+  vue-demi@0.14.10:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
     hasBin: true
     peerDependencies:
@@ -5113,7 +5113,7 @@ snapshots:
 
   '@types/whatwg-url@8.2.2':
     dependencies:
-      '@types/node': 20.17.22
+      '@types/node': 22.13.8
       '@types/webidl-conversions': 7.0.3
     optional: true
 
@@ -5436,7 +5436,7 @@ snapshots:
 
   acorn@8.14.1: {}
 
-  aeria-sdk@0.0.176(@aeriajs/common@0.0.141(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)):
+  aeria-sdk@0.0.181(@aeriajs/common@0.0.141(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1)):
     dependencies:
       '@aeriajs/common': 0.0.141(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/types': 0.0.118(@phosphor-icons/core@2.1.1)
@@ -7792,7 +7792,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.4: {}
 
-  vue-demi@0.13.11(vue@3.5.13(typescript@5.8.3)):
+  vue-demi@0.14.10(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
 
