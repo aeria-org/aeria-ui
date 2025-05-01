@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.164
+
+### Patch Changes
+
+- 82a3eb4: Fix aeria-input emitting null value for empty strings
+
 ## 0.0.163
 
 ### Patch Changes
