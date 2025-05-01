@@ -188,8 +188,8 @@ importers:
         specifier: ^3.4.15
         version: 3.5.13(typescript@5.8.3)
       vue-demi:
-        specifier: ^0.13.6
-        version: 0.13.11(vue@3.5.13(typescript@5.8.3))
+        specifier: ^0.14.10
+        version: 0.14.10(vue@3.5.13(typescript@5.8.3))
       vue-router:
         specifier: ^4.3.2
         version: 4.5.0(vue@3.5.13(typescript@5.8.3))
@@ -3908,8 +3908,8 @@ packages:
   vue-component-type-helpers@2.2.4:
     resolution: {integrity: sha512-F66p0XLbAu92BRz6kakHyAcaUSF7HWpWX/THCqL0TxySSj7z/nok5UUMohfNkkCm1pZtawsdzoJ4p1cjNqCx0Q==}
 
-  vue-demi@0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+  vue-demi@0.14.10:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
     hasBin: true
     peerDependencies:
@@ -7792,7 +7792,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.4: {}
 
-  vue-demi@0.13.11(vue@3.5.13(typescript@5.8.3)):
+  vue-demi@0.14.10(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
 
