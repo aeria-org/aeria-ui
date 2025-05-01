@@ -1,4 +1,4 @@
-name: Continuos Integration
+name: Approve Dependabot PR
 on: pull_request
 
 permissions:
