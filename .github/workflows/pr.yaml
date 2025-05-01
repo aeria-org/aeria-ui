@@ -26,11 +26,3 @@ jobs:
         run: pnpm -r lint
       - name: Build playground
         run: pnpm --filter=playground build
-      - name: Create release PR
-        uses: changesets/action@v1
-        with:
-          publish: ./.github/scripts/publish.sh
-        env:
-          BRANCH_NAME: ${{ github.ref_name  }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
