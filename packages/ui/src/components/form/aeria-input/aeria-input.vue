@@ -201,6 +201,9 @@ const updateValue = (value: InputType) => {
       }
       case 'date':
       case 'date-time':
+        if( value === '' ) {
+          return null
+        }
         return typeof value === 'string'
           ? new Date(value)
           : value
