@@ -48,7 +48,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^25.0.1",
-    "vite": "^4.4.8",
+    "vite": "^6.3.4",
     "vite-plugin-dts": "^3.3.0",
     "vite-plugin-static-copy": "^0.17.0"
   },
