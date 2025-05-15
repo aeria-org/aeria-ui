@@ -44,7 +44,7 @@
     "@aeriajs/types": "~0.0.109",
     "vue": "^3.4.15",
     "vue-demi": "^0.14.10",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@aeria-ui/i18n": "link:../i18n",
