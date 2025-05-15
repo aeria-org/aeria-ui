@@ -191,8 +191,8 @@ importers:
         specifier: ^0.14.10
         version: 0.14.10(vue@3.5.13(typescript@5.8.3))
       vue-router:
-        specifier: ^4.3.2
-        version: 4.5.0(vue@3.5.13(typescript@5.8.3))
+        specifier: ^4.5.1
+        version: 4.5.1(vue@3.5.13(typescript@5.8.3))
     devDependencies:
       '@aeria-ui/i18n':
         specifier: link:../i18n
@@ -240,14 +240,14 @@ importers:
         specifier: ^3.4.26
         version: 3.5.13(typescript@5.8.3)
       vue-router:
-        specifier: ^4.3.2
-        version: 4.5.0(vue@3.5.13(typescript@5.8.3))
+        specifier: ^4.5.1
+        version: 4.5.1(vue@3.5.13(typescript@5.8.3))
 
   packages/ui:
     dependencies:
       vue-router:
-        specifier: ^4.3.2
-        version: 4.5.0(vue@3.5.13(typescript@5.8.3))
+        specifier: ^4.5.1
+        version: 4.5.1(vue@3.5.13(typescript@5.8.3))
     devDependencies:
       '@aeria-ui/cli':
         specifier: link:../cli
@@ -302,7 +302,7 @@ importers:
         version: 4.1.7
       unplugin-vue-router:
         specifier: ^0.8.6
-        version: 0.8.8(rollup@4.34.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
+        version: 0.8.8(rollup@4.34.9)(vue-router@4.5.1(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
 
 packages:
 
@@ -3827,8 +3827,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  vue-router@4.5.0:
-    resolution: {integrity: sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w==}
+  vue-router@4.5.1:
+    resolution: {integrity: sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -7425,7 +7425,7 @@ snapshots:
       - rollup
       - supports-color
 
-  unplugin-vue-router@0.8.8(rollup@4.34.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3)):
+  unplugin-vue-router@0.8.8(rollup@4.34.9)(vue-router@4.5.1(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       '@babel/types': 7.26.9
       '@rollup/pluginutils': 5.1.4(rollup@4.34.9)
@@ -7441,7 +7441,7 @@ snapshots:
       unplugin: 1.16.1
       yaml: 2.7.0
     optionalDependencies:
-      vue-router: 4.5.0(vue@3.5.13(typescript@5.8.3))
+      vue-router: 4.5.1(vue@3.5.13(typescript@5.8.3))
     transitivePeerDependencies:
       - rollup
       - vue
@@ -7611,7 +7611,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-router@4.5.0(vue@3.5.13(typescript@5.8.3)):
+  vue-router@4.5.1(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.13(typescript@5.8.3)
