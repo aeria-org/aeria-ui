@@ -49,6 +49,10 @@ export const recurseInsertCandidate = async (obj: unknown, property: Property | 
   }
 
   if( 'inline' in property && property.inline ) {
+    if( !Object.values(obj).some((value) => value !== undefined && value !== '') ) {
+      return Result.result(null)
+    }
+
     const collection = getReferenceProperty(property)!.$ref
     const helperStore = useCollectionStore(collection, manager)
 
