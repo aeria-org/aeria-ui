@@ -40,7 +40,7 @@
   "devDependencies": {
     "@aeriajs/builtins-icons": "~0.0.9",
     "@aeriajs/common": "~0.0.141",
-    "@aeriajs/types": "~0.0.109",
+    "@aeriajs/types": "~0.0.125",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^22.15.18",
