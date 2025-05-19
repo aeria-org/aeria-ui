@@ -18,7 +18,7 @@
     "@aeria-ui/state-management": "link:packages/state-management",
     "@aeria-ui/ui": "link:packages/ui",
     "@aeria-ui/utils": "link:packages/utils",
-    "@aeriajs/builtins": "~0.0.219",
+    "@aeriajs/builtins": "~0.0.256",
     "@changesets/cli": "^2.29.4",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
