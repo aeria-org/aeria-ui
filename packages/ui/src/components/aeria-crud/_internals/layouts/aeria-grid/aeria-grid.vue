@@ -99,7 +99,7 @@ const firstIfArray = (what: unknown) => {
           v-else-if="layoutOptions.information"
           class="card__information"
         >
-          {{ item[layoutOptions.information] }}
+          {{ item[layoutOptions.information as string] }}
         </div>
       </template>
 

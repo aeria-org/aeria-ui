@@ -1,4 +1,4 @@
-import type { EndpointError, Property, PaginatedGetAllReturnType, PropertyValidationError } from '@aeriajs/types'
+import type { EndpointError, Property, GetAllReturnType, PropertyValidationError } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
 import { getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { formatValue, condenseItem } from '@aeria-ui/utils'
@@ -166,7 +166,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     retrieveItems(payload?: ActionFilter) {
-      return actions.custom<PaginatedGetAllReturnType<{}>>('getAll', payload)
+      return actions.custom<GetAllReturnType<{}>>('getAll', payload)
     },
 
     async getAll(_payload?: ActionFilter): Promise<Result.Either<EndpointError, typeof store['item'][]>> {
