@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.102
+
+### Patch Changes
+
+- 354139e: Fix inline inserts being triggered without input
+
 ## 0.0.101
 
 ### Patch Changes
