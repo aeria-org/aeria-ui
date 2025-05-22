@@ -25,7 +25,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/ui.js"
     },
-    "./style.css": "./dist/style.css",
+    "./ui.css": "./dist/ui.css",
     "./themes/*": "./themes/*",
     "./*": "./dist/*",
     "./vue": {
