@@ -57,9 +57,8 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
     <aeria-prompt
       v-if="metaStore.prompt.visible"
       v-bind="metaStore.prompt"
-    >
-      {{ metaStore.prompt.body }}
-    </aeria-prompt>
+      v-html="metaStore.prompt.body"
+    ></aeria-prompt>
 
     <div class="main__toasts">
       <aeria-toast
