@@ -124,8 +124,8 @@ importers:
   packages/cli:
     dependencies:
       '@rollup/plugin-node-resolve':
-        specifier: ^15.0.1
-        version: 15.3.1(rollup@4.41.0)
+        specifier: ^16.0.1
+        version: 16.0.1(rollup@4.41.0)
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
         version: 4.6.2(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0))(vue@3.5.14(typescript@5.8.3))
@@ -846,8 +846,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@rollup/plugin-node-resolve@15.3.1':
-    resolution: {integrity: sha512-tgg6b91pAybXHJQMAAwW9VuWBO6Thi+q7BCNARLwSqlmsHz0XYURtGvh/AuwSADXSI4h/2uHbs7s4FzlZDGSGA==}
+  '@rollup/plugin-node-resolve@16.0.1':
+    resolution: {integrity: sha512-tk5YCxJWIG81umIvNkSod2qK5KyQW19qcBF/B78n1bjtOON6gzKoVeSzAE8yHCZEDmqkHKkxplExA8KzdJLJpA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.78.0||^3.0.0||^4.0.0
@@ -3981,7 +3981,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@rollup/plugin-node-resolve@15.3.1(rollup@4.41.0)':
+  '@rollup/plugin-node-resolve@16.0.1(rollup@4.41.0)':
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.41.0)
       '@types/resolve': 1.20.2
