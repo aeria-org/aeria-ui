@@ -45,7 +45,7 @@
     "@aeria-ui/utils": "link:../utils",
     "@aeriajs/common": "~0.0.141",
     "@aeriajs/types": "~0.0.109",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^25.0.1",
     "vite": "^6.3.5",
