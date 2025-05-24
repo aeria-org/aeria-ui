@@ -28,7 +28,7 @@ importers:
         version: link:packages/utils
       '@aeriajs/builtins':
         specifier: ~0.0.219
-        version: 0.0.257(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.257)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))
+        version: 0.0.259(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.259)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))
       '@changesets/cli':
         specifier: ^2.29.4
         version: 2.29.4
@@ -125,7 +125,7 @@ importers:
     dependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.0.1
-        version: 15.3.1(rollup@4.41.0)
+        version: 15.3.1(rollup@4.41.1)
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
         version: 4.6.2(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0))(vue@3.5.14(typescript@5.8.3))
@@ -143,7 +143,7 @@ importers:
         version: 19.2.0
       unplugin-vue-components:
         specifier: ^0.24.1
-        version: 0.24.1(@babel/parser@7.27.2)(rollup@4.41.0)(vue@3.5.14(typescript@5.8.3))
+        version: 0.24.1(@babel/parser@7.27.2)(rollup@4.41.1)(vue@3.5.14(typescript@5.8.3))
       vite:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)
@@ -284,7 +284,7 @@ importers:
         version: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)
       vite-plugin-dts:
         specifier: ^3.3.0
-        version: 3.9.1(@types/node@22.15.21)(rollup@4.41.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0))
+        version: 3.9.1(@types/node@22.15.21)(rollup@4.41.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0))
       vite-plugin-static-copy:
         specifier: ^3.0.0
         version: 3.0.0(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0))
@@ -309,14 +309,14 @@ packages:
   '@aeriajs/builtins-icons@0.0.9':
     resolution: {integrity: sha512-VF8fnJqX63OjfommqCzKABRm6r9sHXiIy25hsxjIr0xNB4tQCkEEKvpurU0SPcat2SzoFC0SP4IwXUFbcfAjPw==}
 
-  '@aeriajs/builtins@0.0.257':
-    resolution: {integrity: sha512-vSkOdBqXQKQUs0Cm40gQZd8rE31ksD1JaIpjL2DSRIUpLCxNdnkOen6aj/AjCj9+hVOTDhsr+ggoWuGBoU90kA==}
+  '@aeriajs/builtins@0.0.259':
+    resolution: {integrity: sha512-G8LuFRyde2qMb48nyTxiF9M567kHOfQ4bVcNXJcAqW9uz77zuQ7Fv1nOYL/TZ+YsAUHL/Vv33k4whM6j1fXLBg==}
     peerDependencies:
       '@aeriajs/common': ^0.0.144
-      '@aeriajs/core': ^0.0.257
+      '@aeriajs/core': ^0.0.259
       '@aeriajs/entrypoint': ^0.0.149
       '@aeriajs/types': ^0.0.126
-      '@aeriajs/validation': ^0.0.161
+      '@aeriajs/validation': ^0.0.162
 
   '@aeriajs/common@0.0.144':
     resolution: {integrity: sha512-EhQIEkRcBKAqzi04idd1MClKO7SnOHpmJxFN5SJ0FScWJnb9omtcGc9c8KwlZVCx1gqxH7ko+yfcsTkH2Nbtmg==}
@@ -324,16 +324,16 @@ packages:
       '@aeriajs/types': ^0.0.126
       bson: ^6.5.0
 
-  '@aeriajs/core@0.0.257':
-    resolution: {integrity: sha512-ipgJjwI+SUXTStnqvWlfvehkH0f++SLWwDb/uGv/xUamce1eFV/dqCQuq70fsVVbggJrORoix6vDjZsMmYMyRA==}
+  '@aeriajs/core@0.0.259':
+    resolution: {integrity: sha512-2y0d38/Q7M5UyFQJdGj3nxHySx4tsmHz5mg5FIo4q52Le6ip1/cW716aXn9nysDWFMwLYP4yIBvFt3y7Tnpelw==}
     peerDependencies:
-      '@aeriajs/builtins': ^0.0.257
+      '@aeriajs/builtins': ^0.0.259
       '@aeriajs/common': ^0.0.144
       '@aeriajs/entrypoint': ^0.0.149
-      '@aeriajs/http': ^0.0.174
-      '@aeriajs/security': ^0.0.257
+      '@aeriajs/http': ^0.0.175
+      '@aeriajs/security': ^0.0.259
       '@aeriajs/types': ^0.0.126
-      '@aeriajs/validation': ^0.0.161
+      '@aeriajs/validation': ^0.0.162
 
   '@aeriajs/entrypoint@0.0.149':
     resolution: {integrity: sha512-FX8pgLB4zUYL/YW6T5zwwRH8kHeGE39DCevd+ekvi/EkO7krnEKILXlC33Xs7e8t667ziMmXlVOnMYXpesBSbA==}
@@ -341,19 +341,19 @@ packages:
       '@aeriajs/common': ^0.0.144
       '@aeriajs/types': ^0.0.126
 
-  '@aeriajs/http@0.0.174':
-    resolution: {integrity: sha512-W/ogI3+h8jc1eM8psABabc+fbb6aZY5n8lNvG21QGnaR8OCSlUOgPvvYS4AtZQIT3dgnA7Ct+tgBD10e9wYmqA==}
+  '@aeriajs/http@0.0.175':
+    resolution: {integrity: sha512-Ye+Upi7AM1xP+F4rL1GRshYPO4dtqMPwrkW86cCigY/DohIELcvGSqJ246oteniXJM/lD3qLNQeiF1Y6IzAsXA==}
     peerDependencies:
       '@aeriajs/common': ^0.0.144
       '@aeriajs/entrypoint': ^0.0.149
       '@aeriajs/types': ^0.0.126
-      '@aeriajs/validation': ^0.0.161
+      '@aeriajs/validation': ^0.0.162
 
-  '@aeriajs/security@0.0.257':
-    resolution: {integrity: sha512-cYHAitw0QIEMkKpUywTEl0Gek47CzMbijIpf/vzY81/sxmTBERuNkETQdgg59Kcce5sDq/6W/FN/m+FsX+bL3A==}
+  '@aeriajs/security@0.0.259':
+    resolution: {integrity: sha512-IcQBVkoN/241IEBlDq8GrlF1D6T0oJZpKh9A5+Vn4i8uEtmRjZh5gSuair8QQNlaakdIF8qodyZrEPj/uqnqCw==}
     peerDependencies:
       '@aeriajs/common': ^0.0.144
-      '@aeriajs/core': ^0.0.257
+      '@aeriajs/core': ^0.0.259
       '@aeriajs/types': ^0.0.126
       mongodb: ^6.16.0
 
@@ -362,8 +362,8 @@ packages:
     peerDependencies:
       '@phosphor-icons/core': ^2.1.1
 
-  '@aeriajs/validation@0.0.161':
-    resolution: {integrity: sha512-UdaDtpswb6BbKEv59OGKZ+c78S+sS5NAJ1ITgfkQF0n8GTwhZ1n5ZROEiR+Ljpv9Jr6paSHJo14a2MiLhaiHRA==}
+  '@aeriajs/validation@0.0.162':
+    resolution: {integrity: sha512-24A8u04ecEYDACD2tRIwsVOwA9rsNV1Yw4rrD7TYzlwBVxMhQRorv/owXOyEZq33gVsSSxOKFi1/u+sxk6UdeA==}
     peerDependencies:
       '@aeriajs/common': ^0.0.144
       '@aeriajs/entrypoint': ^0.0.149
@@ -1002,103 +1002,103 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/rollup-android-arm-eabi@4.41.0':
-    resolution: {integrity: sha512-KxN+zCjOYHGwCl4UCtSfZ6jrq/qi88JDUtiEFk8LELEHq2Egfc/FgW+jItZiOLRuQfb/3xJSgFuNPC9jzggX+A==}
+  '@rollup/rollup-android-arm-eabi@4.41.1':
+    resolution: {integrity: sha512-NELNvyEWZ6R9QMkiytB4/L4zSEaBC03KIXEghptLGLZWJ6VPrL63ooZQCOnlx36aQPGhzuOMwDerC1Eb2VmrLw==}
     cpu: [arm]
     os: [android]
 
-  '@rollup/rollup-android-arm64@4.41.0':
-    resolution: {integrity: sha512-yDvqx3lWlcugozax3DItKJI5j05B0d4Kvnjx+5mwiUpWramVvmAByYigMplaoAQ3pvdprGCTCE03eduqE/8mPQ==}
+  '@rollup/rollup-android-arm64@4.41.1':
+    resolution: {integrity: sha512-DXdQe1BJ6TK47ukAoZLehRHhfKnKg9BjnQYUu9gzhI8Mwa1d2fzxA1aw2JixHVl403bwp1+/o/NhhHtxWJBgEA==}
     cpu: [arm64]
     os: [android]
 
-  '@rollup/rollup-darwin-arm64@4.41.0':
-    resolution: {integrity: sha512-2KOU574vD3gzcPSjxO0eyR5iWlnxxtmW1F5CkNOHmMlueKNCQkxR6+ekgWyVnz6zaZihpUNkGxjsYrkTJKhkaw==}
+  '@rollup/rollup-darwin-arm64@4.41.1':
+    resolution: {integrity: sha512-5afxvwszzdulsU2w8JKWwY8/sJOLPzf0e1bFuvcW5h9zsEg+RQAojdW0ux2zyYAz7R8HvvzKCjLNJhVq965U7w==}
     cpu: [arm64]
     os: [darwin]
 
-  '@rollup/rollup-darwin-x64@4.41.0':
-    resolution: {integrity: sha512-gE5ACNSxHcEZyP2BA9TuTakfZvULEW4YAOtxl/A/YDbIir/wPKukde0BNPlnBiP88ecaN4BJI2TtAd+HKuZPQQ==}
+  '@rollup/rollup-darwin-x64@4.41.1':
+    resolution: {integrity: sha512-egpJACny8QOdHNNMZKf8xY0Is6gIMz+tuqXlusxquWu3F833DcMwmGM7WlvCO9sB3OsPjdC4U0wHw5FabzCGZg==}
     cpu: [x64]
     os: [darwin]
 
-  '@rollup/rollup-freebsd-arm64@4.41.0':
-    resolution: {integrity: sha512-GSxU6r5HnWij7FoSo7cZg3l5GPg4HFLkzsFFh0N/b16q5buW1NAWuCJ+HMtIdUEi6XF0qH+hN0TEd78laRp7Dg==}
+  '@rollup/rollup-freebsd-arm64@4.41.1':
+    resolution: {integrity: sha512-DBVMZH5vbjgRk3r0OzgjS38z+atlupJ7xfKIDJdZZL6sM6wjfDNo64aowcLPKIx7LMQi8vybB56uh1Ftck/Atg==}
     cpu: [arm64]
     os: [freebsd]
 
-  '@rollup/rollup-freebsd-x64@4.41.0':
-    resolution: {integrity: sha512-KGiGKGDg8qLRyOWmk6IeiHJzsN/OYxO6nSbT0Vj4MwjS2XQy/5emsmtoqLAabqrohbgLWJ5GV3s/ljdrIr8Qjg==}
+  '@rollup/rollup-freebsd-x64@4.41.1':
+    resolution: {integrity: sha512-3FkydeohozEskBxNWEIbPfOE0aqQgB6ttTkJ159uWOFn42VLyfAiyD9UK5mhu+ItWzft60DycIN1Xdgiy8o/SA==}
     cpu: [x64]
     os: [freebsd]
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.41.0':
-    resolution: {integrity: sha512-46OzWeqEVQyX3N2/QdiU/CMXYDH/lSHpgfBkuhl3igpZiaB3ZIfSjKuOnybFVBQzjsLwkus2mjaESy8H41SzvA==}
+  '@rollup/rollup-linux-arm-gnueabihf@4.41.1':
+    resolution: {integrity: sha512-wC53ZNDgt0pqx5xCAgNunkTzFE8GTgdZ9EwYGVcg+jEjJdZGtq9xPjDnFgfFozQI/Xm1mh+D9YlYtl+ueswNEg==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm-musleabihf@4.41.0':
-    resolution: {integrity: sha512-lfgW3KtQP4YauqdPpcUZHPcqQXmTmH4nYU0cplNeW583CMkAGjtImw4PKli09NFi2iQgChk4e9erkwlfYem6Lg==}
+  '@rollup/rollup-linux-arm-musleabihf@4.41.1':
+    resolution: {integrity: sha512-jwKCca1gbZkZLhLRtsrka5N8sFAaxrGz/7wRJ8Wwvq3jug7toO21vWlViihG85ei7uJTpzbXZRcORotE+xyrLA==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-gnu@4.41.0':
-    resolution: {integrity: sha512-nn8mEyzMbdEJzT7cwxgObuwviMx6kPRxzYiOl6o/o+ChQq23gfdlZcUNnt89lPhhz3BYsZ72rp0rxNqBSfqlqw==}
+  '@rollup/rollup-linux-arm64-gnu@4.41.1':
+    resolution: {integrity: sha512-g0UBcNknsmmNQ8V2d/zD2P7WWfJKU0F1nu0k5pW4rvdb+BIqMm8ToluW/eeRmxCared5dD76lS04uL4UaNgpNA==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-musl@4.41.0':
-    resolution: {integrity: sha512-l+QK99je2zUKGd31Gh+45c4pGDAqZSuWQiuRFCdHYC2CSiO47qUWsCcenrI6p22hvHZrDje9QjwSMAFL3iwXwQ==}
+  '@rollup/rollup-linux-arm64-musl@4.41.1':
+    resolution: {integrity: sha512-XZpeGB5TKEZWzIrj7sXr+BEaSgo/ma/kCgrZgL0oo5qdB1JlTzIYQKel/RmhT6vMAvOdM2teYlAaOGJpJ9lahg==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.41.0':
-    resolution: {integrity: sha512-WbnJaxPv1gPIm6S8O/Wg+wfE/OzGSXlBMbOe4ie+zMyykMOeqmgD1BhPxZQuDqwUN+0T/xOFtL2RUWBspnZj3w==}
+  '@rollup/rollup-linux-loongarch64-gnu@4.41.1':
+    resolution: {integrity: sha512-bkCfDJ4qzWfFRCNt5RVV4DOw6KEgFTUZi2r2RuYhGWC8WhCA8lCAJhDeAmrM/fdiAH54m0mA0Vk2FGRPyzI+tw==}
     cpu: [loong64]
     os: [linux]
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.41.0':
-    resolution: {integrity: sha512-eRDWR5t67/b2g8Q/S8XPi0YdbKcCs4WQ8vklNnUYLaSWF+Cbv2axZsp4jni6/j7eKvMLYCYdcsv8dcU+a6QNFg==}
+  '@rollup/rollup-linux-powerpc64le-gnu@4.41.1':
+    resolution: {integrity: sha512-3mr3Xm+gvMX+/8EKogIZSIEF0WUu0HL9di+YWlJpO8CQBnoLAEL/roTCxuLncEdgcfJcvA4UMOf+2dnjl4Ut1A==}
     cpu: [ppc64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-gnu@4.41.0':
-    resolution: {integrity: sha512-TWrZb6GF5jsEKG7T1IHwlLMDRy2f3DPqYldmIhnA2DVqvvhY2Ai184vZGgahRrg8k9UBWoSlHv+suRfTN7Ua4A==}
+  '@rollup/rollup-linux-riscv64-gnu@4.41.1':
+    resolution: {integrity: sha512-3rwCIh6MQ1LGrvKJitQjZFuQnT2wxfU+ivhNBzmxXTXPllewOF7JR1s2vMX/tWtUYFgphygxjqMl76q4aMotGw==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-musl@4.41.0':
-    resolution: {integrity: sha512-ieQljaZKuJpmWvd8gW87ZmSFwid6AxMDk5bhONJ57U8zT77zpZ/TPKkU9HpnnFrM4zsgr4kiGuzbIbZTGi7u9A==}
+  '@rollup/rollup-linux-riscv64-musl@4.41.1':
+    resolution: {integrity: sha512-LdIUOb3gvfmpkgFZuccNa2uYiqtgZAz3PTzjuM5bH3nvuy9ty6RGc/Q0+HDFrHrizJGVpjnTZ1yS5TNNjFlklw==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-s390x-gnu@4.41.0':
-    resolution: {integrity: sha512-/L3pW48SxrWAlVsKCN0dGLB2bi8Nv8pr5S5ocSM+S0XCn5RCVCXqi8GVtHFsOBBCSeR+u9brV2zno5+mg3S4Aw==}
+  '@rollup/rollup-linux-s390x-gnu@4.41.1':
+    resolution: {integrity: sha512-oIE6M8WC9ma6xYqjvPhzZYk6NbobIURvP/lEbh7FWplcMO6gn7MM2yHKA1eC/GvYwzNKK/1LYgqzdkZ8YFxR8g==}
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.41.0':
-    resolution: {integrity: sha512-XMLeKjyH8NsEDCRptf6LO8lJk23o9wvB+dJwcXMaH6ZQbbkHu2dbGIUindbMtRN6ux1xKi16iXWu6q9mu7gDhQ==}
+  '@rollup/rollup-linux-x64-gnu@4.41.1':
+    resolution: {integrity: sha512-cWBOvayNvA+SyeQMp79BHPK8ws6sHSsYnK5zDcsC3Hsxr1dgTABKjMnMslPq1DvZIp6uO7kIWhiGwaTdR4Og9A==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-musl@4.41.0':
-    resolution: {integrity: sha512-m/P7LycHZTvSQeXhFmgmdqEiTqSV80zn6xHaQ1JSqwCtD1YGtwEK515Qmy9DcB2HK4dOUVypQxvhVSy06cJPEg==}
+  '@rollup/rollup-linux-x64-musl@4.41.1':
+    resolution: {integrity: sha512-y5CbN44M+pUCdGDlZFzGGBSKCA4A/J2ZH4edTYSSxFg7ce1Xt3GtydbVKWLlzL+INfFIZAEg1ZV6hh9+QQf9YQ==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-win32-arm64-msvc@4.41.0':
-    resolution: {integrity: sha512-4yodtcOrFHpbomJGVEqZ8fzD4kfBeCbpsUy5Pqk4RluXOdsWdjLnjhiKy2w3qzcASWd04fp52Xz7JKarVJ5BTg==}
+  '@rollup/rollup-win32-arm64-msvc@4.41.1':
+    resolution: {integrity: sha512-lZkCxIrjlJlMt1dLO/FbpZbzt6J/A8p4DnqzSa4PWqPEUUUnzXLeki/iyPLfV0BmHItlYgHUqJe+3KiyydmiNQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@rollup/rollup-win32-ia32-msvc@4.41.0':
-    resolution: {integrity: sha512-tmazCrAsKzdkXssEc65zIE1oC6xPHwfy9d5Ta25SRCDOZS+I6RypVVShWALNuU9bxIfGA0aqrmzlzoM5wO5SPQ==}
+  '@rollup/rollup-win32-ia32-msvc@4.41.1':
+    resolution: {integrity: sha512-+psFT9+pIh2iuGsxFYYa/LhS5MFKmuivRsx9iPJWNSGbh2XVEjk90fmpUEjCnILPEPJnikAU6SFDiEUyOv90Pg==}
     cpu: [ia32]
     os: [win32]
 
-  '@rollup/rollup-win32-x64-msvc@4.41.0':
-    resolution: {integrity: sha512-h1J+Yzjo/X+0EAvR2kIXJDuTuyT7drc+t2ALY0nIcGPbTatNOf0VWdhEA2Z4AAjv6X1NJV7SYo5oCTYRJhSlVA==}
+  '@rollup/rollup-win32-x64-msvc@4.41.1':
+    resolution: {integrity: sha512-Wq2zpapRYLfi4aKxf2Xff0tN+7slj2d4R87WEzqw7ZLsVvO5zwYCIuEGSZYiK41+GlwUo1HiR+GdkLEJnCKTCw==}
     cpu: [x64]
     os: [win32]
 
@@ -1162,9 +1162,6 @@ packages:
 
   '@types/whatwg-url@11.0.5':
     resolution: {integrity: sha512-coYR071JRaHa+xoEvvYqvnIHaVqaYrLPbsufM9BF63HkwI5Lgmy2QR8Q5K/lYDYo5AK82wOvSOS0UsLTpTG7uQ==}
-
-  '@types/whatwg-url@8.2.2':
-    resolution: {integrity: sha512-FtQu10RWgn3D9U4aazdwIE2yzphmTJREDqNdODHrbrZmmMqI0vMheC/6NE/J1Yveaj8H+ela+YwWTjq5PGmuhA==}
 
   '@typescript-eslint/eslint-plugin@7.18.0':
     resolution: {integrity: sha512-94EQTWZ40mzBc42ATNIBimBEDltSJ9RQHCC8vc/PDbxi4k8dVwUAv4o98dk50M1zB+JGFxp43FP7f8+FP8R6Sw==}
@@ -1457,8 +1454,8 @@ packages:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
     engines: {node: '>=8'}
 
-  async-mutex@0.4.1:
-    resolution: {integrity: sha512-WfoBo4E/TbCX1G95XTjbWTE3X2XLG0m1Xbv2cwOtuPdyH9CZvnaA5nCt1ucjaKEgW2A5IF71hxrRhr83Je5xjA==}
+  async-mutex@0.5.0:
+    resolution: {integrity: sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==}
 
   async@3.2.6:
     resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
@@ -1505,10 +1502,6 @@ packages:
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
-
-  bson@5.5.1:
-    resolution: {integrity: sha512-ix0EwukN2EpC0SRWIj/7B5+A6uQMQy6KMREI9qQqvgpkV2frH63T0UDVd1SYedL6dNCmDBYB3QtXi4ISk9YT+g==}
-    engines: {node: '>=14.20.1'}
 
   bson@6.10.3:
     resolution: {integrity: sha512-MTxGsqgYTwfshYWTRdmZRC+M7FnG1b4y7RO7p2k3X24Wq0yv1m77Wsj0BzlPzd/IowgESfsruQCUToa7vbOpPQ==}
@@ -2176,10 +2169,6 @@ packages:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  ip-address@9.0.5:
-    resolution: {integrity: sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==}
-    engines: {node: '>= 12'}
-
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
 
@@ -2276,9 +2265,6 @@ packages:
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
-
-  jsbn@1.1.0:
-    resolution: {integrity: sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==}
 
   jsdom@25.0.1:
     resolution: {integrity: sha512-8i7LzZj7BF8uplX+ZyOlIz86V6TAsSs+np6m1kpW9u0JWi4z/1t+FzcK1aek+ybTnAC4KhBL4uXCNT0wcUIeCw==}
@@ -2535,40 +2521,16 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
-  mongodb-connection-string-url@2.6.0:
-    resolution: {integrity: sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==}
-
   mongodb-connection-string-url@3.0.2:
     resolution: {integrity: sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA==}
 
-  mongodb-memory-server-core@9.5.0:
-    resolution: {integrity: sha512-Jb/V80JeYAKWaF4bPFme7SmTR6ew1PWgkpPUepLDfRraeN49i1cruxICeA4zz4T33W/o31N+zazP8wI8ebf7yw==}
-    engines: {node: '>=14.20.1'}
+  mongodb-memory-server-core@10.1.4:
+    resolution: {integrity: sha512-o8fgY7ZalEd8pGps43fFPr/hkQu1L8i6HFEGbsTfA2zDOW0TopgpswaBCqDr0qD7ptibyPfB5DmC+UlIxbThzA==}
+    engines: {node: '>=16.20.1'}
 
-  mongodb-memory-server@9.5.0:
-    resolution: {integrity: sha512-In3zRT40cLlVtpy7FK6b96Lby6JBAdXj8Kf9YrH4p1Aa2X4ptojq7SmiRR3x47Lo0/UCXXIwhJpkdbYY8kRZAw==}
-    engines: {node: '>=14.20.1'}
-
-  mongodb@5.9.2:
-    resolution: {integrity: sha512-H60HecKO4Bc+7dhOv4sJlgvenK4fQNqqUIlXxZYQNbfEWSALGAwGoyJd/0Qwk4TttFXUOHJ2ZJQe/52ScaUwtQ==}
-    engines: {node: '>=14.20.1'}
-    peerDependencies:
-      '@aws-sdk/credential-providers': ^3.188.0
-      '@mongodb-js/zstd': ^1.0.0
-      kerberos: ^1.0.0 || ^2.0.0
-      mongodb-client-encryption: '>=2.3.0 <3'
-      snappy: ^7.2.2
-    peerDependenciesMeta:
-      '@aws-sdk/credential-providers':
-        optional: true
-      '@mongodb-js/zstd':
-        optional: true
-      kerberos:
-        optional: true
-      mongodb-client-encryption:
-        optional: true
-      snappy:
-        optional: true
+  mongodb-memory-server@10.1.4:
+    resolution: {integrity: sha512-+oKQ/kc3CX+816oPFRtaF0CN4vNcGKNjpOQe4bHo/21A3pMD+lC7Xz1EX5HP7siCX4iCpVchDMmCOFXVQSGkUg==}
+    engines: {node: '>=16.20.1'}
 
   mongodb@6.16.0:
     resolution: {integrity: sha512-D1PNcdT0y4Grhou5Zi/qgipZOYeWrhLEpk33n3nm6LGtz61jvO88WlrWCK/bigMjpnOdAUKKQwsGIl0NtWMyYw==}
@@ -2878,8 +2840,8 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  rollup@4.41.0:
-    resolution: {integrity: sha512-HqMFpUbWlf/tvcxBFNKnJyzc7Lk+XO3FGc3pbNBLqEbOz0gPLRgcrlS3UF4MfUrVlstOaP/q0kM6GVvi+LrLRg==}
+  rollup@4.41.1:
+    resolution: {integrity: sha512-cPmwD3FnFv8rKMBc1MxWCwVQFxwf1JEmSX3iQXrRVVG15zerAIXRjMFVWnd5Q5QvgKF7Aj+5ykXFhUl+QGnyOw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
@@ -2949,14 +2911,6 @@ packages:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
 
-  smart-buffer@4.2.0:
-    resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
-    engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
-
-  socks@2.8.4:
-    resolution: {integrity: sha512-D3YaD0aRxR3mEcqnidIs7ReYJFVzWdd6fXJYUM8ixcQcJRGTka/b3saV0KflYhyVJXKhb947GndU35SxYNResQ==}
-    engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -2977,9 +2931,6 @@ packages:
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
-
-  sprintf-js@1.1.3:
-    resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==}
 
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
@@ -3132,10 +3083,6 @@ packages:
   tough-cookie@5.1.2:
     resolution: {integrity: sha512-FVDYdxtnj0G6Qm/DhNPSb8Ju59ULcup3tuJxkFb5K8Bv2pUXILbf0xZWU8PX8Ov19OXljbUyveOFwRMwkXzO+A==}
     engines: {node: '>=16'}
-
-  tr46@3.0.0:
-    resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
-    engines: {node: '>=12'}
 
   tr46@5.1.1:
     resolution: {integrity: sha512-hdF5ZgjTqgAntKkklYw0R03MG2x/bSzTtkxmIRw/sTNV8YXsCJ1tfLAX23lhxhHJlEf3CRCOCGGWw3vI3GaSPw==}
@@ -3438,10 +3385,6 @@ packages:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
     engines: {node: '>=18'}
 
-  whatwg-url@11.0.0:
-    resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
-    engines: {node: '>=12'}
-
   whatwg-url@14.2.0:
     resolution: {integrity: sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw==}
     engines: {node: '>=18'}
@@ -3540,13 +3483,13 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.9': {}
 
-  '@aeriajs/builtins@0.0.257(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.257)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))':
+  '@aeriajs/builtins@0.0.259(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.259)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))':
     dependencies:
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      '@aeriajs/core': 0.0.257(@aeriajs/builtins@0.0.257)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.174(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))))(@aeriajs/security@0.0.257)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))(socks@2.8.4)
+      '@aeriajs/core': 0.0.259(@aeriajs/builtins@0.0.259)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.175(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)))(@aeriajs/security@0.0.259)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))
       '@aeriajs/entrypoint': 0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))
+      '@aeriajs/validation': 0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)
       bcryptjs: 3.0.2
 
   '@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)':
@@ -3554,19 +3497,19 @@ snapshots:
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
       bson: 6.10.3
 
-  ? '@aeriajs/core@0.0.257(@aeriajs/builtins@0.0.257)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.174(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))))(@aeriajs/security@0.0.257)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))(socks@2.8.4)'
+  ? '@aeriajs/core@0.0.259(@aeriajs/builtins@0.0.259)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.175(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)))(@aeriajs/security@0.0.259)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))'
   : dependencies:
-      '@aeriajs/builtins': 0.0.257(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.257)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))
+      '@aeriajs/builtins': 0.0.259(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.259)(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/entrypoint': 0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))
-      '@aeriajs/http': 0.0.174(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))
-      '@aeriajs/security': 0.0.257(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.257)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))
+      '@aeriajs/http': 0.0.175(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))
+      '@aeriajs/security': 0.0.259(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.259)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))
+      '@aeriajs/validation': 0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)
       jsonwebtoken: 9.0.2
-      mongodb: 6.16.0(socks@2.8.4)
+      mongodb: 6.16.0
     optionalDependencies:
-      mongodb-memory-server: 9.5.0
+      mongodb-memory-server: 10.1.4
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
@@ -3582,30 +3525,30 @@ snapshots:
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
 
-  '@aeriajs/http@0.0.174(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))':
+  '@aeriajs/http@0.0.175(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))':
     dependencies:
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/entrypoint': 0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))
+      '@aeriajs/validation': 0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)
 
-  '@aeriajs/security@0.0.257(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.257)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))':
+  '@aeriajs/security@0.0.259(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/core@0.0.259)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)':
     dependencies:
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      '@aeriajs/core': 0.0.257(@aeriajs/builtins@0.0.257)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.174(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))))(@aeriajs/security@0.0.257)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4)))(socks@2.8.4)
+      '@aeriajs/core': 0.0.259(@aeriajs/builtins@0.0.259)(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.175(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)))(@aeriajs/security@0.0.259)(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0))
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
-      mongodb: 6.16.0(socks@2.8.4)
+      mongodb: 6.16.0
 
   '@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)':
     dependencies:
       '@phosphor-icons/core': 2.1.1
 
-  '@aeriajs/validation@0.0.161(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0(socks@2.8.4))':
+  '@aeriajs/validation@0.0.162(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/entrypoint@0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(mongodb@6.16.0)':
     dependencies:
       '@aeriajs/common': 0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/entrypoint': 0.0.149(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.126(@phosphor-icons/core@2.1.1)
-      mongodb: 6.16.0(socks@2.8.4)
+      mongodb: 6.16.0
 
   '@antfu/utils@0.7.10': {}
 
@@ -4224,82 +4167,82 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@rollup/plugin-node-resolve@15.3.1(rollup@4.41.0)':
+  '@rollup/plugin-node-resolve@15.3.1(rollup@4.41.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.41.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.41.1)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-module: 1.0.0
       resolve: 1.22.10
     optionalDependencies:
-      rollup: 4.41.0
+      rollup: 4.41.1
 
-  '@rollup/pluginutils@5.1.4(rollup@4.41.0)':
+  '@rollup/pluginutils@5.1.4(rollup@4.41.1)':
     dependencies:
       '@types/estree': 1.0.7
       estree-walker: 2.0.2
       picomatch: 4.0.2
     optionalDependencies:
-      rollup: 4.41.0
+      rollup: 4.41.1
 
-  '@rollup/rollup-android-arm-eabi@4.41.0':
+  '@rollup/rollup-android-arm-eabi@4.41.1':
     optional: true
 
-  '@rollup/rollup-android-arm64@4.41.0':
+  '@rollup/rollup-android-arm64@4.41.1':
     optional: true
 
-  '@rollup/rollup-darwin-arm64@4.41.0':
+  '@rollup/rollup-darwin-arm64@4.41.1':
     optional: true
 
-  '@rollup/rollup-darwin-x64@4.41.0':
+  '@rollup/rollup-darwin-x64@4.41.1':
     optional: true
 
-  '@rollup/rollup-freebsd-arm64@4.41.0':
+  '@rollup/rollup-freebsd-arm64@4.41.1':
     optional: true
 
-  '@rollup/rollup-freebsd-x64@4.41.0':
+  '@rollup/rollup-freebsd-x64@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.41.0':
+  '@rollup/rollup-linux-arm-gnueabihf@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-arm-musleabihf@4.41.0':
+  '@rollup/rollup-linux-arm-musleabihf@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-arm64-gnu@4.41.0':
+  '@rollup/rollup-linux-arm64-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-arm64-musl@4.41.0':
+  '@rollup/rollup-linux-arm64-musl@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.41.0':
+  '@rollup/rollup-linux-loongarch64-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.41.0':
+  '@rollup/rollup-linux-powerpc64le-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-gnu@4.41.0':
+  '@rollup/rollup-linux-riscv64-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-musl@4.41.0':
+  '@rollup/rollup-linux-riscv64-musl@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-s390x-gnu@4.41.0':
+  '@rollup/rollup-linux-s390x-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.41.0':
+  '@rollup/rollup-linux-x64-gnu@4.41.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-musl@4.41.0':
+  '@rollup/rollup-linux-x64-musl@4.41.1':
     optional: true
 
-  '@rollup/rollup-win32-arm64-msvc@4.41.0':
+  '@rollup/rollup-win32-arm64-msvc@4.41.1':
     optional: true
 
-  '@rollup/rollup-win32-ia32-msvc@4.41.0':
+  '@rollup/rollup-win32-ia32-msvc@4.41.1':
     optional: true
 
-  '@rollup/rollup-win32-x64-msvc@4.41.0':
+  '@rollup/rollup-win32-x64-msvc@4.41.1':
     optional: true
 
   '@rushstack/node-core-library@4.0.2(@types/node@22.15.21)':
@@ -4373,12 +4316,6 @@ snapshots:
   '@types/whatwg-url@11.0.5':
     dependencies:
       '@types/webidl-conversions': 7.0.3
-
-  '@types/whatwg-url@8.2.2':
-    dependencies:
-      '@types/node': 22.15.21
-      '@types/webidl-conversions': 7.0.3
-    optional: true
 
   '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
@@ -4749,7 +4686,7 @@ snapshots:
 
   astral-regex@2.0.0: {}
 
-  async-mutex@0.4.1:
+  async-mutex@0.5.0:
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -4792,9 +4729,6 @@ snapshots:
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
-
-  bson@5.5.1:
-    optional: true
 
   bson@6.10.3: {}
 
@@ -5513,12 +5447,6 @@ snapshots:
 
   ini@4.1.1: {}
 
-  ip-address@9.0.5:
-    dependencies:
-      jsbn: 1.1.0
-      sprintf-js: 1.1.3
-    optional: true
-
   is-arrayish@0.2.1: {}
 
   is-binary-path@2.1.0:
@@ -5600,9 +5528,6 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
-
-  jsbn@1.1.0:
-    optional: true
 
   jsdom@25.0.1:
     dependencies:
@@ -5863,26 +5788,20 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
-  mongodb-connection-string-url@2.6.0:
-    dependencies:
-      '@types/whatwg-url': 8.2.2
-      whatwg-url: 11.0.0
-    optional: true
-
   mongodb-connection-string-url@3.0.2:
     dependencies:
       '@types/whatwg-url': 11.0.5
       whatwg-url: 14.2.0
 
-  mongodb-memory-server-core@9.5.0:
+  mongodb-memory-server-core@10.1.4:
     dependencies:
-      async-mutex: 0.4.1
+      async-mutex: 0.5.0
       camelcase: 6.3.0
       debug: 4.4.1
       find-cache-dir: 3.3.2
       follow-redirects: 1.15.9(debug@4.4.1)
       https-proxy-agent: 7.0.6
-      mongodb: 5.9.2
+      mongodb: 6.16.0
       new-find-package-json: 2.0.0
       semver: 7.7.2
       tar-stream: 3.1.7
@@ -5891,41 +5810,34 @@ snapshots:
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
+      - gcp-metadata
       - kerberos
       - mongodb-client-encryption
       - snappy
+      - socks
       - supports-color
     optional: true
 
-  mongodb-memory-server@9.5.0:
+  mongodb-memory-server@10.1.4:
     dependencies:
-      mongodb-memory-server-core: 9.5.0
+      mongodb-memory-server-core: 10.1.4
       tslib: 2.8.1
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
+      - gcp-metadata
       - kerberos
       - mongodb-client-encryption
       - snappy
+      - socks
       - supports-color
     optional: true
 
-  mongodb@5.9.2:
-    dependencies:
-      bson: 5.5.1
-      mongodb-connection-string-url: 2.6.0
-      socks: 2.8.4
-    optionalDependencies:
-      '@mongodb-js/saslprep': 1.2.2
-    optional: true
-
-  mongodb@6.16.0(socks@2.8.4):
+  mongodb@6.16.0:
     dependencies:
       '@mongodb-js/saslprep': 1.2.2
       bson: 6.10.3
       mongodb-connection-string-url: 3.0.2
-    optionalDependencies:
-      socks: 2.8.4
 
   mri@1.2.0: {}
 
@@ -6166,30 +6078,30 @@ snapshots:
 
   reusify@1.1.0: {}
 
-  rollup@4.41.0:
+  rollup@4.41.1:
     dependencies:
       '@types/estree': 1.0.7
     optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.41.0
-      '@rollup/rollup-android-arm64': 4.41.0
-      '@rollup/rollup-darwin-arm64': 4.41.0
-      '@rollup/rollup-darwin-x64': 4.41.0
-      '@rollup/rollup-freebsd-arm64': 4.41.0
-      '@rollup/rollup-freebsd-x64': 4.41.0
-      '@rollup/rollup-linux-arm-gnueabihf': 4.41.0
-      '@rollup/rollup-linux-arm-musleabihf': 4.41.0
-      '@rollup/rollup-linux-arm64-gnu': 4.41.0
-      '@rollup/rollup-linux-arm64-musl': 4.41.0
-      '@rollup/rollup-linux-loongarch64-gnu': 4.41.0
-      '@rollup/rollup-linux-powerpc64le-gnu': 4.41.0
-      '@rollup/rollup-linux-riscv64-gnu': 4.41.0
-      '@rollup/rollup-linux-riscv64-musl': 4.41.0
-      '@rollup/rollup-linux-s390x-gnu': 4.41.0
-      '@rollup/rollup-linux-x64-gnu': 4.41.0
-      '@rollup/rollup-linux-x64-musl': 4.41.0
-      '@rollup/rollup-win32-arm64-msvc': 4.41.0
-      '@rollup/rollup-win32-ia32-msvc': 4.41.0
-      '@rollup/rollup-win32-x64-msvc': 4.41.0
+      '@rollup/rollup-android-arm-eabi': 4.41.1
+      '@rollup/rollup-android-arm64': 4.41.1
+      '@rollup/rollup-darwin-arm64': 4.41.1
+      '@rollup/rollup-darwin-x64': 4.41.1
+      '@rollup/rollup-freebsd-arm64': 4.41.1
+      '@rollup/rollup-freebsd-x64': 4.41.1
+      '@rollup/rollup-linux-arm-gnueabihf': 4.41.1
+      '@rollup/rollup-linux-arm-musleabihf': 4.41.1
+      '@rollup/rollup-linux-arm64-gnu': 4.41.1
+      '@rollup/rollup-linux-arm64-musl': 4.41.1
+      '@rollup/rollup-linux-loongarch64-gnu': 4.41.1
+      '@rollup/rollup-linux-powerpc64le-gnu': 4.41.1
+      '@rollup/rollup-linux-riscv64-gnu': 4.41.1
+      '@rollup/rollup-linux-riscv64-musl': 4.41.1
+      '@rollup/rollup-linux-s390x-gnu': 4.41.1
+      '@rollup/rollup-linux-x64-gnu': 4.41.1
+      '@rollup/rollup-linux-x64-musl': 4.41.1
+      '@rollup/rollup-win32-arm64-msvc': 4.41.1
+      '@rollup/rollup-win32-ia32-msvc': 4.41.1
+      '@rollup/rollup-win32-x64-msvc': 4.41.1
       fsevents: 2.3.3
 
   rrweb-cssom@0.7.1: {}
@@ -6243,15 +6155,6 @@ snapshots:
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
 
-  smart-buffer@4.2.0:
-    optional: true
-
-  socks@2.8.4:
-    dependencies:
-      ip-address: 9.0.5
-      smart-buffer: 4.2.0
-    optional: true
-
   source-map-js@1.2.1: {}
 
   source-map@0.6.1: {}
@@ -6268,9 +6171,6 @@ snapshots:
   split2@4.2.0: {}
 
   sprintf-js@1.0.3: {}
-
-  sprintf-js@1.1.3:
-    optional: true
 
   stackback@0.0.2: {}
 
@@ -6458,11 +6358,6 @@ snapshots:
     dependencies:
       tldts: 6.1.86
 
-  tr46@3.0.0:
-    dependencies:
-      punycode: 2.3.1
-    optional: true
-
   tr46@5.1.1:
     dependencies:
       punycode: 2.3.1
@@ -6528,10 +6423,10 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.2
 
-  unplugin-vue-components@0.24.1(@babel/parser@7.27.2)(rollup@4.41.0)(vue@3.5.14(typescript@5.8.3)):
+  unplugin-vue-components@0.24.1(@babel/parser@7.27.2)(rollup@4.41.1)(vue@3.5.14(typescript@5.8.3)):
     dependencies:
       '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.4(rollup@4.41.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.41.1)
       chokidar: 3.6.0
       debug: 4.4.1
       fast-glob: 3.3.3
@@ -6606,10 +6501,10 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-dts@3.9.1(@types/node@22.15.21)(rollup@4.41.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)):
+  vite-plugin-dts@3.9.1(@types/node@22.15.21)(rollup@4.41.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@22.15.21)
-      '@rollup/pluginutils': 5.1.4(rollup@4.41.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.41.1)
       '@vue/language-core': 1.8.27(typescript@5.8.3)
       debug: 4.4.1
       kolorist: 1.8.0
@@ -6636,7 +6531,7 @@ snapshots:
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.3
-      rollup: 4.41.0
+      rollup: 4.41.1
     optionalDependencies:
       '@types/node': 22.15.21
       fsevents: 2.3.3
@@ -6648,7 +6543,7 @@ snapshots:
       fdir: 6.4.4(picomatch@4.0.2)
       picomatch: 4.0.2
       postcss: 8.5.3
-      rollup: 4.41.0
+      rollup: 4.41.1
       tinyglobby: 0.2.13
     optionalDependencies:
       '@types/node': 22.15.21
@@ -6760,12 +6655,6 @@ snapshots:
       iconv-lite: 0.6.3
 
   whatwg-mimetype@4.0.0: {}
-
-  whatwg-url@11.0.0:
-    dependencies:
-      tr46: 3.0.0
-      webidl-conversions: 7.0.0
-    optional: true
 
   whatwg-url@14.2.0:
     dependencies:
