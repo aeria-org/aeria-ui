@@ -1,5 +1,11 @@
 # aeria-app-layout
 
+## 0.0.51
+
+### Patch Changes
+
+- a792433: Styling
+
 ## 0.0.50
 
 ### Patch Changes
