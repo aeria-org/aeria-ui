@@ -23,6 +23,7 @@
 .dashboard {
   --topbar-background-color: var(--dashboard-topbar-background-color, var(--theme-brand-color));
   --navbar-top-background-color: var(--dashboard-navbar-top-background-color, var(--theme-brand-color-shade-2));
+  --sidebar-width: var(--dashboard-sidebar-width, 18rem);
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -43,7 +44,7 @@
     }
 
     @media screen and (min-width: 768px) {
-      width: 18rem;
+      width: var(--sidebar-width);
       display: block;
     }
   }
@@ -149,7 +150,6 @@
   &__view {
     .section-padding();
     .outer-padding();
-    max-width: 100%;
     color: var(--theme-foreground-color);
 
     :deep(&>section) {
@@ -163,6 +163,6 @@
     flex-direction: column;
     flex: 1;
     min-height: 100vh;
-    overflow-x: auto;
+    width: calc(100vw - var(--sidebar-width));
   }
 }
