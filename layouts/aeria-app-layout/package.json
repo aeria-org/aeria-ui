@@ -11,7 +11,7 @@
   },
   "exports": {
     ".": "./dist/aeria-app-layout.js",
-    "./style.css": "./dist/style.css"
+    "./aeria-app-layout.css": "./dist/aeria-app-layout.css"
   },
   "files": [
     "dist"
