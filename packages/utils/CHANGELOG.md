@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.8
+
+### Patch Changes
+
+- 7991c7a: Move code to `@aeriajs/common`
+
 ## 0.0.7
 
 ### Patch Changes
