@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.166",
+  "version": "0.0.167",
   "description": "",
   "scripts": {
     "test": "vitest run",
@@ -53,10 +53,10 @@
     "vite-plugin-static-copy": "^3.0.0"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.102",
+    "@aeria-ui/core": "^0.0.103",
     "@aeria-ui/i18n": "^0.0.16",
     "@aeria-ui/state-management": "^0.0.19",
-    "@aeria-ui/utils": "^0.0.7",
+    "@aeria-ui/utils": "^0.0.8",
     "@aeriajs/common": "0.0"
   },
   "dependencies": {
