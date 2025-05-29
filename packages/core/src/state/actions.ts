@@ -263,7 +263,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     formatValue(args: {
-      value: string | Record<string, unknown> | (string | Record<string, unknown>)[],
+      value: string | Record<string, unknown> | (string | Record<string, unknown>)[] | undefined,
       key: string,
       form?: boolean,
       property: Property,
@@ -298,7 +298,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           } else if( typeof args.value === 'string' ) {
             refVal = value
           } else {
-            refVal = String(args.value[index!])
+            refVal = args.value
+              ? String(args.value[index!])
+              : undefined
           }
 
           return helperStore.$actions.formatValue({
