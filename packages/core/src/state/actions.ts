@@ -202,7 +202,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       }
 
       return actions.insert({
-        what: condenseItem(newItem) as NonNullable<typeof payload>['what']
+        what: condenseItem(newItem) as NonNullable<typeof payload>['what'],
       }, options)
     },
 
