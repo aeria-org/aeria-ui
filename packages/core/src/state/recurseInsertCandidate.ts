@@ -2,7 +2,7 @@ import type { Property, EndpointError } from '@aeriajs/types'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import { Result } from '@aeriajs/types'
 import { getReferenceProperty } from '@aeriajs/common'
-import { useCollectionStore } from './collection.js'
+import { CollectionStoreItem, useCollectionStore } from './collection.js'
 
 export const recurseInsertCandidate = async (obj: unknown, property: Property | undefined, manager: GlobalStateManager): Promise<Result.Either<EndpointError, unknown>> => {
   if( !property || !obj ) {
@@ -57,7 +57,7 @@ export const recurseInsertCandidate = async (obj: unknown, property: Property | 
     const helperStore = useCollectionStore(collection, manager)
 
     const { error, result } = await helperStore.$actions.deepInsert({
-      what: obj,
+      what: obj as CollectionStoreItem,
     })
 
     if( error ) {

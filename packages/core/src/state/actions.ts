@@ -1,4 +1,4 @@
-import type { EndpointError, Property, GetAllReturnType, PropertyValidationError } from '@aeriajs/types'
+import type { EndpointError, Property, GetAllReturnType, PropertyValidationError, GetPayload, GetAllPayload, CountPayload, InsertPayload, RemovePayload, RemoveAllPayload } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
 import { getReferenceProperty, deepClone, isReference } from '@aeriajs/common'
 import { formatValue, condenseItem } from '@aeria-ui/utils'
@@ -9,21 +9,8 @@ import { request } from '../http.js'
 import { useCollectionStore, type CollectionStore, type CollectionStoreItem } from './collection.js'
 import { recurseInsertCandidate } from './recurseInsertCandidate.js'
 
-export type CrudParameters = {
-  filters: Record<string, unknown>
-  limit: number
-  offset: number
-  project?: string[]
-}
-
-export type ActionFilter = Partial<CrudParameters>
-
 export type CustomOptions = {
-  method?:
-    | 'GET'
-    | 'POST'
-    | 'PUT'
-    | 'DELETE'
+  method?: Uppercase<string>
   skipLoading?: boolean
   skipEffect?: boolean
   insert?: boolean
@@ -45,7 +32,6 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       })
 
       store.referenceItem = deepClone(item)
-
       return item
     },
 
@@ -105,7 +91,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         delete store.item[key]
       })
 
-      return actions.setItem({})
+      return actions.setItem({
+        _id: undefined,
+      })
     },
 
     clearItems() {
@@ -143,19 +131,11 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return data
     },
 
-    count(payload: Pick<CrudParameters, 'filters'>) {
+    count(payload: CountPayload<CollectionStoreItem>) {
       return actions.custom('count', payload)
     },
 
-    async get(payloadSource: ActionFilter | string, options?: CustomOptions): Promise<Result.Either<EndpointError, typeof store['item']>> {
-      const payload = typeof payloadSource === 'string'
-        ? {
-          filters: {
-            _id: payloadSource,
-          },
-        }
-        : payloadSource
-
+    async get(payload: GetPayload<CollectionStoreItem>, options?: CustomOptions): Promise<Result.Either<EndpointError, typeof store['item']>> {
       const { error, result } = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>('get', payload, options)
       if( error ) {
         return Result.error(error)
@@ -165,11 +145,11 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return Result.result(result)
     },
 
-    retrieveItems(payload?: ActionFilter) {
-      return actions.custom<GetAllReturnType<{}>>('getAll', payload)
+    retrieveItems(payload?: GetAllPayload<CollectionStoreItem>) {
+      return actions.custom<GetAllReturnType<CollectionStoreItem>>('getAll', payload)
     },
 
-    async getAll(_payload?: ActionFilter): Promise<Result.Either<EndpointError, typeof store['item'][]>> {
+    async getAll(_payload?: GetAllPayload<CollectionStoreItem>): Promise<Result.Either<EndpointError, typeof store['item'][]>> {
       const payload = Object.assign({}, _payload || {})
 
       if( typeof payload.limit !== 'number' ) {
@@ -191,7 +171,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return Result.result(result.data)
     },
 
-    async insert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
+    async insert(payload?: InsertPayload<CollectionStoreItem>, options?: CustomOptions) {
       const { error, result } = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>('insert', {
         ...payload,
         what: payload?.what || store.item,
@@ -213,7 +193,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return Result.result(actions.insertItem(result))
     },
 
-    async deepInsert(payload?: { what: Partial<typeof store['item']> }, options?: CustomOptions) {
+    async deepInsert(payload?: InsertPayload<CollectionStoreItem>, options?: CustomOptions) {
       const candidate = Object.assign({}, payload?.what || store.diffedItem)
 
       const { error, result: newItem } = await recurseInsertCandidate(candidate, store.description as unknown as Property, manager)
@@ -222,38 +202,21 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       }
 
       return actions.insert({
-        what: condenseItem(newItem) as Record<string, unknown>,
+        what: condenseItem(newItem) as NonNullable<typeof payload>['what']
       }, options)
     },
 
-    async remove(payload: ActionFilter['filters'], options?: CustomOptions) {
-      const result = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>(
-        'remove', {
-          filters: {
-            _id: payload?._id,
-          },
-        },
-        options,
-      )
-
+    async remove(payload: RemovePayload<CollectionStoreItem>, options?: CustomOptions) {
+      const result = await actions.custom<Result.Either<EndpointError, CollectionStoreItem>>('remove', payload, options)
       return actions.removeItem(result)
     },
 
     // @TODO: implement effect
-    async removeAll(payload: ActionFilter['filters'], options?: CustomOptions) {
-      return actions.custom<Result.Either<EndpointError, unknown>>(
-        'removeAll', {
-          filters: {
-            _id: payload?._id,
-          },
-        },
-        options,
-      )
-
-      // return actions.removeItem(result)
+    async removeAll(payload: RemoveAllPayload, options?: CustomOptions) {
+      return actions.custom<Result.Either<EndpointError, unknown>>('removeAll', payload, options)
     },
 
-    filter(props?: ActionFilter) {
+    filter(props?: GetAllPayload<CollectionStoreItem>) {
       store.activeFilters = props?.filters || store.$filters
       const payload = {
         filters: {
@@ -386,3 +349,4 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
 
   return actions
 }
+
