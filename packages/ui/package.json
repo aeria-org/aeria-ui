@@ -43,7 +43,7 @@
     "@aeria-ui/i18n": "link:../i18n",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
-    "@aeriajs/common": "~0.0.145",
+    "@aeriajs/common": "~0.0.149",
     "@aeriajs/types": "~0.0.127",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",
