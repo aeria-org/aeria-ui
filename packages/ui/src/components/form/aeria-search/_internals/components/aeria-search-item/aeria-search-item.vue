@@ -8,7 +8,7 @@ import { useParentStore } from '@aeria-ui/state-management'
 import AeriaIcon from '../../../../../aeria-icon/aeria-icon.vue'
 
 type Props = {
-  item: Record<string, unknown>
+  item: CollectionStoreItem
   indexes: readonly string[]
   modelValue?: CollectionStoreItem | CollectionStoreItem[]
   property: SearchProperty

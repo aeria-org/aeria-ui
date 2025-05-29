@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ActionFilter, ActionEvent, Pagination, CollectionStore, CollectionStoreItem } from '@aeria-ui/core'
-import type { Layout } from '@aeriajs/types'
+import type { ActionEvent, Pagination, CollectionStore, CollectionStoreItem } from '@aeria-ui/core'
+import type { GetAllPayload, Layout } from '@aeriajs/types'
 import type { Component } from 'vue'
 import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -89,11 +89,11 @@ const MAX_BATCHES = 30
 
 const firstFetch = ref(false)
 
-const fetchItems = async (optPayload?: ActionFilter) => {
+const fetchItems = async (optPayload?: GetAllPayload<CollectionStoreItem>) => {
   store.activeFilters = Object.assign({}, optPayload?.filters || store.$filters)
   Object.assign(store.activeFilters, store.filtersPreset)
 
-  const payload: ActionFilter = {
+  const payload: NonNullable<typeof optPayload> = {
     filters: store.activeFilters,
     limit: store.pagination.limit,
     offset: store.pagination.offset,
@@ -285,12 +285,16 @@ watch(() => actionEventBus.value, async (_event) => {
         ...a,
         [key]: value,
       }
-    }, {})
+    }, {
+      _id: undefined,
+    })
 
     store.$actions.setItem(newItem)
     delete store.item._id
 
-    store.referenceItem = {}
+    store.referenceItem = {
+      _id: undefined,
+    }
     isInsertVisible.value = 'duplicate'
   } else {
     emit('uiEvent', event)
