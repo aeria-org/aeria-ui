@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.168
+
+### Patch Changes
+
+- d5c3632: Fix type errors
+- Updated dependencies [937ecac]
+- Updated dependencies [16dbc41]
+  - @aeria-ui/core@0.0.104
+
 ## 0.0.167
 
 ### Patch Changes
