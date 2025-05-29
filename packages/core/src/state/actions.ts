@@ -263,21 +263,26 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
     },
 
     formatValue(args: {
-      value: string | Record<string, unknown> | (string | Record<string, unknown>)[] | undefined,
+      value: unknown,
       key: string,
       form?: boolean,
       property: Property,
       index?: string
     }): unknown {
+      if( args.key in store.transformers ) {
+        return store.transformers[args.key](args.value)
+      }
+
+      if( args.value === undefined || args.value === null ) {
+        return formatValue(args.value, args.property, args.index)
+      }
+
       const value = args.property.translate && typeof args.value === 'string'
         ? t(args.value, {
           capitalize: true,
         }, context.i18n)
         : args.value
 
-      if( args.key in store.transformers ) {
-        return store.transformers[args.key](value)
-      }
 
       if( isReference(args.property) ) {
         const index = args.index || args.property.indexes?.[0]
@@ -288,7 +293,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           : undefined
 
         if( property && isReference(property) ) {
-          let refVal: typeof value
+          let refVal: unknown
           if( Array.isArray(args.value) ) {
             refVal = args.value.map((value) => {
               return typeof value === 'string'
@@ -298,9 +303,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
           } else if( typeof args.value === 'string' ) {
             refVal = value
           } else {
-            refVal = args.value
-              ? String(args.value[index!])
-              : undefined
+            refVal = (args.value as Record<string, unknown>)[index!]
           }
 
           return helperStore.$actions.formatValue({
