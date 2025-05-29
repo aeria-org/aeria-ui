@@ -1,5 +1,12 @@
 # @aeria-ui/core
 
+## 0.0.104
+
+### Patch Changes
+
+- 937ecac: Refactor types
+- 16dbc41: Fix runtime bug
+
 ## 0.0.103
 
 ### Patch Changes
