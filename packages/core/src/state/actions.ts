@@ -283,7 +283,6 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         }, context.i18n)
         : args.value
 
-
       if( isReference(args.property) ) {
         const index = args.index || args.property.indexes?.[0]
 
