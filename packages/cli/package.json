@@ -43,7 +43,7 @@
     "@aeriajs/types": "~0.0.127",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^22.15.24",
+    "@types/node": "^22.15.28",
     "aeria-icons": "link:../aeria-icons",
     "bson": "^6.6.0",
     "vue": "^3.5.14"
