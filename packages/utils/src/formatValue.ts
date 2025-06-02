@@ -1,16 +1,16 @@
 import type { Property } from '@aeriajs/types'
 import { formatDateTime } from './date.js'
 
-export const formatValue = (value: unknown, property: Property, index?: string): string => {
+export const internalFormatValue = (value: unknown, property: Property, index?: string): unknown => {
   if( value === null || value === undefined ) {
-    return '-'
+    return value
   }
 
   if( 'items' in property ) {
     if( !Array.isArray(value) ) {
-      return String(value)
+      return value
     }
-    return value.map((v) => formatValue(v, property.items, index)).join(', ')
+    return value.map((v) => internalFormatValue(v, property.items, index)).join(', ')
   }
 
   if( 'properties' in property ) {
@@ -19,13 +19,13 @@ export const formatValue = (value: unknown, property: Property, index?: string):
     }
 
     const firstProperty = Object.values(property.properties)[0]
-    return formatValue(Object.values(value)[0], firstProperty)
+    return internalFormatValue(Object.values(value)[0], firstProperty)
   }
 
   if( '$ref' in property ) {
     const firstIndex = index || property.indexes?.[0]
     if( firstIndex ) {
-      return String((value as Record<string, unknown>)[firstIndex])
+      return (value as Record<string, unknown>)[firstIndex]
     }
 
     return Object.values(value)[0]
@@ -40,12 +40,21 @@ export const formatValue = (value: unknown, property: Property, index?: string):
             hours: true,
           })
           default:
-            return String(value)
+            return value
         }
       }
     }
   }
 
-  return String(value)
+  return value
+}
+
+export const formatValue = (value: unknown, property: Property, index?: string) => {
+  const result = internalFormatValue(value, property, index)
+  if( result === undefined || result === null ) {
+    return '-'
+  }
+
+  return String(result)
 }
 

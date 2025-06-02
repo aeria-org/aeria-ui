@@ -505,7 +505,10 @@ provide(STORE_ID, computed(() => props.collection))
     </div>
   </div>
 
-  <div v-loading="(!scrollPagination || batch === MAX_BATCHES) && store.loading.getAll">
+  <div
+    v-loading="(!scrollPagination || batch === MAX_BATCHES) && store.loading.getAll"
+    class="crud__data"
+  >
     <div
       v-if="
         store.itemsCount === 0

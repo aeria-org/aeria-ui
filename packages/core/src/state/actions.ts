@@ -273,7 +273,7 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
         return store.transformers[args.key](args.value)
       }
 
-      if( args.value === undefined || args.value === null ) {
+      if( args.value === null || args.value === undefined ) {
         return formatValue(args.value, args.property, args.index)
       }
 
