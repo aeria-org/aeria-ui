@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.9
+
+### Patch Changes
+
+- 3817f9c: Fix UI inconsistencies
+
 ## 0.0.8
 
 ### Patch Changes
