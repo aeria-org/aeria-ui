@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.52
+
+### Patch Changes
+
+- 3817f9c: Fix UI inconsistencies
+  - aeria-ui@0.0.175
+  - @aeria-ui/theme@0.0.87
+
 ## 0.0.51
 
 ### Patch Changes
