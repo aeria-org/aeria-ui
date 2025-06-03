@@ -45,7 +45,7 @@ export const formatDateTime = function(date: Date | string, options?: DateFormat
 
 export const getRelativeTimeFromNow = function(target: any) {
   const now = new Date()
-  const elapsed = now as any - target
+  const elapsed = now as never - target
 
   for( const [u, value] of Object.entries(units) ) {
     if( Math.abs(elapsed) > value || u === 'second' ) {

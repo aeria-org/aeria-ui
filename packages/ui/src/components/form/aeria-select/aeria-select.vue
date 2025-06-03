@@ -83,7 +83,7 @@ if( !!props.multiple ) {
       'select--outline': !noOutline,
     }"
 
-    @change="update(($event.target as any).value)"
+    @change="update(($event.target as HTMLSelectElement).value)"
   >
     <aeria-icon
       v-if="property && property.icon"

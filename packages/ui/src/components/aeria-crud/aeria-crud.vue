@@ -24,7 +24,7 @@ import { getLayout } from './_internals/layouts/index.js'
 const isInsertVisible = ref<boolean | string>(false)
 const isFilterVisible = ref<boolean>(false)
 
-const call = ref<ReturnType<typeof useAction>[0]>((..._args: unknown[]) => null as any)
+const call = ref<ReturnType<typeof useAction>[0]>((..._args: unknown[]) => null as never)
 const actionEventBus = ref<ActionEvent>()
 
 type Props = {

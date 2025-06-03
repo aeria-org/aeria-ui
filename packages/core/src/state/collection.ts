@@ -363,7 +363,7 @@ export const createCollectionStore = <
         ? {}
         : TStoreState
     ),
-    getters: newer.getters?.(state, actions as any) as keyof TStoreGetters extends never
+    getters: newer.getters?.(state, actions as never) as keyof TStoreGetters extends never
       ? undefined
       : TStoreGetters & ReturnType<typeof initial['getters']>,
     actions: actions as keyof TStoreActions extends never

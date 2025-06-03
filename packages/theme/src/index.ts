@@ -18,7 +18,7 @@ export const badgeMemo: Record<string, unknown> = {}
 
 export const navbarRefs = reactive<NavbarRefs>({
   routes: [],
-  router: {} as any,
+  router: {} as Router,
   isCurrent: (..._args: unknown[]) => false,
 })
 
