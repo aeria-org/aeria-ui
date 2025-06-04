@@ -39,12 +39,6 @@ const pageInput = ref(page.value
 : 1)
 const pageCount = computed(() => Math.ceil(props.pagination.recordsTotal / props.pagination.limit))
 
-const paginate = (direction: 'previous' | 'next') => {
-  page.value = direction === 'previous'
-    ? page.value - 1
-    : page.value + 1
-}
-
 watch([
 page,
 limit,
@@ -69,14 +63,14 @@ limit,
 
       <aeria-bare-button
         :disabled="page === 0"
-        @click="paginate('previous')"
+        @click="page -= 1"
       >
         <aeria-icon icon="caret-left" />
       </aeria-bare-button>
 
       <aeria-bare-button
         :disabled="page === pageCount - 1"
-        @click="paginate('next')"
+        @click="page += 1"
       >
         <aeria-icon icon="caret-right" />
       </aeria-bare-button>
