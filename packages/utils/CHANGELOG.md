@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.10
+
+### Patch Changes
+
+- 2c42659: Fix minor `formatValue()` bug
+
 ## 0.0.9
 
 ### Patch Changes
