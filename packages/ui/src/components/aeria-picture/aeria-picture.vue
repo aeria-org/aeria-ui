@@ -2,7 +2,7 @@
 import { ref, computed, type CSSProperties } from 'vue'
 import { API_URL } from '@aeria-ui/core'
 
-type Props = Pick<CSSProperties, 'objectFit' | 'width' | 'height'> & {
+type Props = {
   url?: string
   alt: string
   fileId?: string
@@ -16,6 +16,9 @@ type Props = Pick<CSSProperties, 'objectFit' | 'width' | 'height'> & {
       name: string
     }
   }
+  objectFit?: CSSProperties['objectFit']
+  width?: CSSProperties['width']
+  height?: CSSProperties['height']
 }
 
 const props = withDefaults(defineProps<Props>(), {
