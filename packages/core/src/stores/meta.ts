@@ -69,14 +69,27 @@ export const meta = createStore((context) => {
     state,
     actions: {
       async describe(props?: Parameters<typeof builtinFunctions.describe>[0]) {
-        state.isLoading = true
-        const { data: response } = await request<Result.Error<unknown> | string>(`${API_URL}/describe`, props)
+        let deserialized: ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>
 
-        if( typeof response !== 'string' ) {
-          return Result.error(response)
+        try {
+          state.isLoading = true
+          const { data: response } = await request<Result.Error<unknown> | string>(`${API_URL}/describe`, props)
+          if( typeof response !== 'string' ) {
+            return Result.error(response)
+          }
+
+          deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
+          localStorage.setItem(`${STORAGE_NAMESPACE}:describe`, JSON.stringify(deserialized))
+
+        } catch( err ) {
+          const fallback = localStorage.getItm(`${STORAGE_NAMESPACE}:describe`)
+          if( !fallback ) {
+            throw err
+          }
+
+          deserialized = JSON.parse(fallback)
         }
 
-        const deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
         const globalDescriptions = state.descriptions = deserialized.descriptions
 
         if( deserialized.roles ) {
@@ -120,7 +133,7 @@ export const meta = createStore((context) => {
         }
 
         state.isLoading = false
-        return Result.result(response)
+        return Result.result(deserialized)
       },
 
       async ask(props: {

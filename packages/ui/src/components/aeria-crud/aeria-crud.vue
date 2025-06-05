@@ -480,7 +480,7 @@ provide(STORE_ID, computed(() => props.collection))
         icon="funnel"
         @click="isFilterVisible = true"
       >
-        <div>Filtros</div>
+        <div>{{ t('Filters') }}</div>
         <aeria-badge v-if="store.filtersCount">
           {{ store.filtersCount }}
         </aeria-badge>
