@@ -28,7 +28,15 @@ export const internalFormatValue = (value: unknown, property: Property, index?: 
       return (value as Record<string, unknown>)[firstIndex]
     }
 
-    return Object.values(value)[0]
+    let firstValue: unknown
+    for( const propName in value ) {
+      firstValue = value[propName as keyof typeof value]
+      if( propName !== '_id' ) {
+        break
+      }
+    }
+
+    return firstValue
   }
 
   if( 'type' in property ) {
