@@ -237,7 +237,7 @@ const fieldStyle = (key: string, property: unknown) => {
         }
       }
 
-      style.push('display: none;')
+      style.push('display: none')
     }
 
     conditionMemo[key] = result.satisfied
@@ -247,32 +247,32 @@ const fieldStyle = (key: string, property: unknown) => {
     ? layout?.span || 6
     : 6
 
-  style.push(`
-    --field-span: ${span};
-    grid-column: span var(--field-span) / span var(--field-span);
-  `)
+  style.push(...[
+    `--field-span: ${span}`,
+    'grid-column: span var(--field-span) / span var(--field-span)',
+  ])
 
   if( !layout ) {
-    return style.join('')
+    return style.join(';')
   }
 
   if( layout.verticalSpacing ) {
-    style.push(`
-      --vertical-spacing: ${layout.verticalSpacing};
-      padding: var(--vertical-spacing) 0;
-    `)
+    style.push([
+      `--vertical-spacing: ${layout.verticalSpacing}`,
+      'padding: var(--vertical-spacing) 0',
+    ])
   }
 
   if( layout.separator ) {
-    style.push(`
-      border-top: 1px solid var(--theme-border-color);
-      border-width: 1px 0 1px 0;
-      padding: 1rem 0;
-      margin: 1rem 0;
-    `)
+    style.push([
+      'border-top: 1px solid var(--theme-border-color)',
+      'border-width: 1px 0 1px 0',
+      'padding: 1rem 0',
+      'margin: 1rem 0',
+    ])
   }
 
-  return style.join('')
+  return style.join(';')
 }
 
 const unfilled = (value: unknown) => {

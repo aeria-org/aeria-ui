@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, type CSSProperties } from 'vue'
 import { API_URL } from '@aeria-ui/core'
 
-type Props = {
+type Props = Pick<CSSProperties, 'objectFit' | 'width' | 'height'> & {
   url?: string
   alt: string
   fileId?: string
   modelValue?: string
-  objectFit?: string
   bordered?: boolean
-  width?: string
-  height?: string
   expandable?: boolean
   meta?: {
     created_at: string
@@ -21,7 +18,12 @@ type Props = {
   }
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+})
+
 const url = computed(() => {
   if( props.fileId ) {
     return `${API_URL}/file/${props.fileId}/picture`
@@ -56,10 +58,10 @@ const expand = ref(false)
         <img
           :src="url"
           :alt="alt"
-          :style="`
-            max-height: 60vh;
-            object-fit: contain;
-          `"
+          :style="{
+            maxHeight: '60vh',
+            objectFit: 'contain',
+          }"
 
           @click="expand = true"
         >
@@ -81,11 +83,11 @@ const expand = ref(false)
         { 'picture__image--bordered': bordered },
         { 'picture__image--expandable': expandable },
       ]"
-      :style="`
-        object-fit: ${objectFit || 'cover'};
-        width: ${width || '100%'};
-        height: ${height || '100%'};
-      `"
+      :style="{
+        objectFit,
+        width,
+        height,
+      }"
 
       @click="() => {
         if( expandable ) {
@@ -105,11 +107,11 @@ const expand = ref(false)
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 200 200"
       preserveAspectRatio="none"
-      :style="`
-        object-fit: ${objectFit || 'cover'};
-        width: ${width || '100%'};
-        height: ${height || '100%'};
-      `"
+      :style="{
+        objectFit,
+        width,
+        height,
+      }"
       :class="[
         { 'picture__image--bordered': bordered },
       ]"
