@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.106
+
+### Patch Changes
+
+- 1cab30f: Minor fixes
+- Updated dependencies [2c42659]
+  - @aeria-ui/utils@0.0.10
+
 ## 0.0.105
 
 ### Patch Changes

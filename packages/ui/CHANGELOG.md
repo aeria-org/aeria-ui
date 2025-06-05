@@ -1,5 +1,16 @@
 # @aeria-ui/ui
 
+## 0.0.170
+
+### Patch Changes
+
+- bf6bad8: Optimize bundle
+- 1cab30f: Minor fixes
+- Updated dependencies [2c42659]
+- Updated dependencies [1cab30f]
+  - @aeria-ui/utils@0.0.10
+  - @aeria-ui/core@0.0.106
+
 ## 0.0.169
 
 ### Patch Changes
