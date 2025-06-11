@@ -40,7 +40,7 @@
     "dist"
   ],
   "dependencies": {
-    "@aeriajs/common": "~0.0.150",
+    "@aeriajs/common": "~0.0.152",
     "@aeriajs/types": "~0.0.130",
     "vue": "^3.5.14",
     "vue-demi": "^0.14.10",
