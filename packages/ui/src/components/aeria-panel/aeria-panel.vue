@@ -117,7 +117,10 @@ const toggleCollapsed = (value: boolean) => {
             v-if="$slots.header"
             name="header"
           />
-          <div v-else-if="title">
+          <div
+            v-else-if="title"
+            class="panel__header-title"
+          >
             {{ title }}
           </div>
           <div
