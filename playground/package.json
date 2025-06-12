@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.9",
     "unplugin-vue-router": "^0.12.0"
   }
 }
