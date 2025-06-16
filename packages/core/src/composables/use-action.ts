@@ -128,11 +128,15 @@ export const useAction = (
     if( actionProps.ask ) {
       return (filters?: CollectionStoreItem) => metaStore.$actions.ask({
         action: storeAction,
-        params: prepareFilters(filters),
+        params: {
+          filters: prepareFilters(filters),
+        },
       })
     }
 
-    return (filters?: CollectionStoreItem) => storeAction(prepareFilters(filters))
+    return (filters?: CollectionStoreItem) => storeAction({
+      filters: prepareFilters(filters),
+    })
   }
 
   return [
