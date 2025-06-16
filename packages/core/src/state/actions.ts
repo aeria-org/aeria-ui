@@ -41,15 +41,15 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return items
     },
 
-    insertItem(_item: typeof store['item'], options?: { merge?: boolean }) {
-      const old = options?.merge
+    insertItem(_item: typeof store['item'], options = { merge: false }) {
+      const old: Partial<typeof store['item']> = options.merge
         ? Object.assign({}, store.item)
         : {}
 
       const item = Object.assign(old, _item)
       actions.setItem(item)
 
-      if( item._id ) {
+      if( old._id ) {
         const found = store.items.find(({ _id }) => _id === item._id)
         if( found ) {
           for( const key in found ) {
