@@ -41,7 +41,9 @@ export const useStoreActions = (store: CollectionStore, context: StoreContext) =
       return items
     },
 
-    insertItem(_item: typeof store['item'], options = { merge: false }) {
+    insertItem(_item: typeof store['item'], options = {
+      merge: false,
+    }) {
       const old: Partial<typeof store['item']> = options.merge
         ? Object.assign({}, store.item)
         : {}
