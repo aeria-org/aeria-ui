@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.107
+
+### Patch Changes
+
+- 3e7855f: Pagination bug on insert
+- bdcfe80: Fix `useActions()` bug
+- c89e59f: UI improvements
+
 ## 0.0.106
 
 ### Patch Changes
