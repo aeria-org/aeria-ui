@@ -22,6 +22,10 @@ export type ActionEvent = {
   params: any
 }
 
+export type IndividualActionPayload<TSubject> = {
+  filters: TSubject
+}
+
 const getEffect = (store: Pick<CollectionStore, '$actions'>, effectName: keyof typeof STORE_EFFECTS) => {
   const effect = STORE_EFFECTS[effectName]
   return store.$actions[effect] as (payload: unknown)=> unknown
