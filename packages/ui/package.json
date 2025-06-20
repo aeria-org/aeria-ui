@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.170",
+  "version": "0.0.171",
   "description": "",
   "scripts": {
     "test": "vitest run",
@@ -43,17 +43,17 @@
     "@aeria-ui/i18n": "link:../i18n",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
-    "@aeriajs/common": "~0.0.152",
-    "@aeriajs/types": "~0.0.130",
+    "@aeriajs/common": "~0.0.154",
+    "@aeriajs/types": "~0.0.132",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^26.1.0",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-static-copy": "^3.0.0"
+    "vite-plugin-static-copy": "^3.0.2"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.106",
+    "@aeria-ui/core": "^0.0.107",
     "@aeria-ui/i18n": "^0.0.16",
     "@aeria-ui/state-management": "^0.0.19",
     "@aeria-ui/utils": "^0.0.10",
