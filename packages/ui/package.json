@@ -44,7 +44,7 @@
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
     "@aeriajs/common": "~0.0.154",
-    "@aeriajs/types": "~0.0.132",
+    "@aeriajs/types": "~0.0.133",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^26.1.0",
