@@ -27,7 +27,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@aeriajs/common": "~0.0.155"
+    "@aeriajs/common": "~0.0.156"
   },
   "peerDependencies": {
     "@aeriajs/common": "0.0"
