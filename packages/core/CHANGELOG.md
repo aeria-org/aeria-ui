@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.109
+
+### Patch Changes
+
+- 26137e1: Fix user store bugs
+
 ## 0.0.108
 
 ### Patch Changes
