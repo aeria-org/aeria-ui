@@ -7,7 +7,7 @@ import { createStore, useStore } from '@aeria-ui/state-management'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
-import {IndividualActionPayload} from '../composables/use-action.js'
+import { type IndividualActionPayload } from '../composables/use-action.js'
 
 type User = {
   _id: string
