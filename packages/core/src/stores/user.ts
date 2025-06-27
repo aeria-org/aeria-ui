@@ -7,6 +7,7 @@ import { createStore, useStore } from '@aeria-ui/state-management'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
+import {IndividualActionPayload} from '../composables/use-action.js'
 
 type User = {
   _id: string
@@ -160,12 +161,12 @@ export const user = createStore((context) => {
           throw err
         }
       },
-      async copyRedefinePasswordLink(payload: { _id: string }) {
+      async copyRedefinePasswordLink({ filters }: IndividualActionPayload<{ _id: string }>) {
         const store = useStore('user', context.manager)
         const metaStore = meta(context)
 
         const { error, result } = await (store.$functions.getRedefinePasswordLink({
-          userId: payload._id,
+          userId: filters._id,
         }) as ReturnType<typeof originalUser.functions.getRedefinePasswordLink>)
 
         if( error ) {
@@ -181,12 +182,12 @@ export const user = createStore((context) => {
           icon: 'info',
         })
       },
-      async copyActivationLink(payload: { _id: string }) {
+      async copyActivationLink({ filters }: IndividualActionPayload<{ _id: string }>) {
         const store = useStore('user', context.manager)
         const metaStore = meta(context)
 
         const { error, result } = await (store.$functions.getActivationLink({
-          userId: payload._id,
+          userId: filters._id,
         }) as ReturnType<typeof originalUser.functions.getActivationLink>)
 
         if( error ) {
