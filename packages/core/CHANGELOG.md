@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.108
+
+### Patch Changes
+
+- a5fb5e9: Add `IndividualActionPayload<T>`
+
 ## 0.0.107
 
 ### Patch Changes

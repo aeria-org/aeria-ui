@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/theme",
   "type": "module",
-  "version": "0.0.89",
+  "version": "0.0.90",
   "description": "",
   "scripts": {
     "test": "echo skipping",
@@ -24,12 +24,12 @@
   "devDependencies": {
     "@aeria-ui/core": "link:../core",
     "@aeria-ui/state-management": "link:../state-management",
-    "@aeriajs/common": "~0.0.154",
+    "@aeriajs/common": "~0.0.156",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1"
   },
   "peerDependencies": {
-    "@aeria-ui/core": "^0.0.107",
+    "@aeria-ui/core": "^0.0.108",
     "@aeria-ui/state-management": "^0.0.19",
     "@aeriajs/common": "0.0",
     "vue": "^3.5.14",
