@@ -208,7 +208,7 @@ importers:
         version: 24.0.10
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.209(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))
+        version: 0.0.210(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))
       vite:
         specifier: ^7.0.0
         version: 7.0.0(@types/node@24.0.10)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)
@@ -1297,12 +1297,12 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aeria-sdk@0.0.209:
-    resolution: {integrity: sha512-l3r7z1UR21VLSuyhN5h4WJQFqaDzBK+nijaUvh1WRgpRFxUhBo1VI79fY9M8OFGYOEXgp2mJZ8yXkBeS3JsE6Q==}
+  aeria-sdk@0.0.210:
+    resolution: {integrity: sha512-x65920t5pgRFFOnIQ4ah6LHvNf+rtHEyv8jthIKHXcIb/LI7F8UEhbd+aGwtKa6RObdEgsv+DTXxCsDxp5bNlg==}
     hasBin: true
     peerDependencies:
-      '@aeriajs/common': ^0.0.157
-      '@aeriajs/types': ^0.0.135
+      '@aeriajs/common': ^0.0.158
+      '@aeriajs/types': ^0.0.136
 
   agent-base@7.1.3:
     resolution: {integrity: sha512-jRR5wdylq8CkOe6hei19GGZnxM6rBGwFl3Bg0YItGDimvjGtAvdZk4Pu6Cl4u4Igsws4a1fd1Vq3ezrhn4KmFw==}
@@ -4411,7 +4411,7 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  aeria-sdk@0.0.209(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1)):
+  aeria-sdk@0.0.210(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1)):
     dependencies:
       '@aeriajs/common': 0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types': 0.0.135(@phosphor-icons/core@2.1.1)
