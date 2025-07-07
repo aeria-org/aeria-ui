@@ -38,7 +38,7 @@
     "vite": "^7.0.2"
   },
   "devDependencies": {
-    "@aeriajs/builtins-icons": "~0.0.9",
+    "@aeriajs/builtins-icons": "~0.0.10",
     "@aeriajs/common": "~0.0.157",
     "@aeriajs/types": "~0.0.135",
     "@types/ejs": "^3.1.2",

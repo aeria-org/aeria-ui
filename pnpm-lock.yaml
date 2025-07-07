@@ -149,8 +149,8 @@ importers:
         version: 7.0.2(@types/node@24.0.10)(jiti@2.4.2)(less@4.3.0)(yaml@2.8.0)
     devDependencies:
       '@aeriajs/builtins-icons':
-        specifier: ~0.0.9
-        version: 0.0.9
+        specifier: ~0.0.10
+        version: 0.0.10
       '@aeriajs/common':
         specifier: ~0.0.157
         version: 0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4)
@@ -306,8 +306,8 @@ importers:
 
 packages:
 
-  '@aeriajs/builtins-icons@0.0.9':
-    resolution: {integrity: sha512-VF8fnJqX63OjfommqCzKABRm6r9sHXiIy25hsxjIr0xNB4tQCkEEKvpurU0SPcat2SzoFC0SP4IwXUFbcfAjPw==}
+  '@aeriajs/builtins-icons@0.0.10':
+    resolution: {integrity: sha512-R/TMvvLTKL59qa9Gy9W/gOiWsGVEew5mYqIeCwPxVNuVmMNU+BMKgsOFz3KYCVEVfSW7J4dKenYRwoNJ3Qc2Sg==}
 
   '@aeriajs/builtins@0.0.266':
     resolution: {integrity: sha512-XWmkV1hZD4Tei6KA/6tAGYLs3j7eRw7uvkEn6iemP3lA+JRh1a3FncWhpFD5pdQ36bKBGDBgtaQniAxWJ29v+Q==}
@@ -3285,7 +3285,7 @@ packages:
 
 snapshots:
 
-  '@aeriajs/builtins-icons@0.0.9': {}
+  '@aeriajs/builtins-icons@0.0.10': {}
 
   '@aeriajs/builtins@0.0.266(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.266)(@aeriajs/entrypoint@0.0.156(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.169(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.156(@aeriajs/common@0.0.157(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.135(@phosphor-icons/core@2.1.1))(mongodb@6.17.0))':
     dependencies:
