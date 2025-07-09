@@ -314,10 +314,14 @@ const individualActions = computed(() => {
   if( props.noActions ) {
     return
   }
-  return store.individualActions.map((action) => ({
-    click: call.value(action),
-    ...action,
-  }))
+
+  return store.individualActions.map((action) => {
+    const [delayedCall] = debounce(call.value(action))
+    return {
+      click: delayedCall,
+      ...action,
+    }
+  })
 })
 
 const actionButtons = computed(() => {
