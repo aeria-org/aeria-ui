@@ -34,16 +34,16 @@
     "js-yaml": "^4.1.0",
     "less": "^4.2.0",
     "unplugin-auto-import": "^19.3.0",
-    "unplugin-vue-components": "^28.7.0",
-    "vite": "^7.0.0"
+    "unplugin-vue-components": "^28.8.0",
+    "vite": "^7.0.2"
   },
   "devDependencies": {
-    "@aeriajs/builtins-icons": "~0.0.9",
-    "@aeriajs/common": "~0.0.156",
-    "@aeriajs/types": "~0.0.134",
+    "@aeriajs/builtins-icons": "~0.0.10",
+    "@aeriajs/common": "~0.0.157",
+    "@aeriajs/types": "~0.0.135",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^24.0.4",
+    "@types/node": "^24.0.10",
     "aeria-icons": "link:../aeria-icons",
     "bson": "^6.10.4",
     "vue": "^3.5.14"
