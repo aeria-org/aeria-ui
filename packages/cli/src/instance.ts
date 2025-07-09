@@ -1,7 +1,5 @@
 import type { InlineConfig } from 'vite'
 import type { IconStyle } from '@phosphor-icons/core'
-import { dynamicImport } from '@aeriajs/common'
-import * as path from 'path'
 
 export type InstanceConfig = {
   site: {
@@ -22,7 +20,7 @@ export type InstanceConfig = {
 export const getInstanceConfig = async () => {
   const config = await (async (): Promise<Partial<InstanceConfig>> => {
     try {
-      const content = await dynamicImport(path.join(process.cwd(), '.aeria-ui' , 'instance.js'))
+      const content = await import(process.cwd() + '.aeria-ui/instance.js')
       return content.default
         ? content.default
         : content
