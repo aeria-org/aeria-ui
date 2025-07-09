@@ -22,7 +22,7 @@ export type InstanceConfig = {
 export const getInstanceConfig = async () => {
   const config = await (async (): Promise<Partial<InstanceConfig>> => {
     try {
-      const content = await dynamicImport(path.join(process.cwd(),  '.aeria-ui' , 'instance.js'))
+      const content = await dynamicImport(path.join(process.cwd(), '.aeria-ui' , 'instance.js'))
       return content.default
         ? content.default
         : content
