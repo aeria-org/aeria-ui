@@ -21,7 +21,7 @@
   "license": "ISC",
   "peerDependencies": {
     "@aeria-ui/theme": "~0.0.91",
-    "aeria-ui": "~0.0.179",
+    "aeria-ui": "~0.0.180",
     "less": "^4.2.2",
     "vue": "3"
   },
