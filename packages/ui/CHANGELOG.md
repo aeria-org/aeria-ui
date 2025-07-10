@@ -1,5 +1,16 @@
 # @aeria-ui/ui
 
+## 0.0.175
+
+### Patch Changes
+
+- 24decc9: Bump versions
+- Updated dependencies [24decc9]
+  - @aeria-ui/core@0.0.110
+  - @aeria-ui/i18n@0.0.17
+  - @aeria-ui/state-management@0.0.20
+  - @aeria-ui/utils@0.0.11
+
 ## 0.0.174
 
 ### Patch Changes

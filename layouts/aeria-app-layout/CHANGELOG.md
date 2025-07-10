@@ -1,5 +1,14 @@
 # aeria-app-layout
 
+## 0.0.53
+
+### Patch Changes
+
+- 24decc9: Bump versions
+- Updated dependencies [24decc9]
+  - aeria-ui@0.0.181
+  - @aeria-ui/theme@0.0.92
+
 ## 0.0.52
 
 ### Patch Changes

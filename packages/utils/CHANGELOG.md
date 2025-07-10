@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.11
+
+### Patch Changes
+
+- 24decc9: Bump versions
+
 ## 0.0.10
 
 ### Patch Changes

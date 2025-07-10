@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.10
+
+### Patch Changes
+
+- 24decc9: Bump versions
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @aeria-ui/state-management
 
+## 0.0.20
+
+### Patch Changes
+
+- 24decc9: Bump versions
+
 ## 0.0.19
 
 ### Patch Changes
