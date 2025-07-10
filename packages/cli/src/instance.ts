@@ -1,5 +1,6 @@
 import type { InlineConfig } from 'vite'
 import type { IconStyle } from '@phosphor-icons/core'
+import { dynamicImport } from '@aeriajs/common'
 
 export type InstanceConfig = {
   site: {
@@ -17,20 +18,19 @@ export type InstanceConfig = {
   vite?: InlineConfig
 }
 
-export const getInstanceConfig = async () => {
-  const config = await (async (): Promise<Partial<InstanceConfig>> => {
-    try {
-      const content = await import(process.cwd() + '.aeria-ui/instance.js')
-      return content.default
-        ? content.default
-        : content
-    } catch( err ) {
+export const getInstanceConfig = async (): Promise<Partial<InstanceConfig>> => {
+  try {
+    const { default: content } = await dynamicImport(process.cwd() + '/.aeria-ui/instance.js')
+    return content
+
+  } catch( err ) {
+    if( (err as NodeJS.ErrnoException).code === 'ERR_MODULE_NOT_FOUND' ) {
       return {
         site: {},
       }
     }
-  })()
 
-  return config
+    throw err
+  }
 }
 
