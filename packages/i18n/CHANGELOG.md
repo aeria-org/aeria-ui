@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.17
+
+### Patch Changes
+
+- 24decc9: Bump versions
+
 ## 0.0.16
 
 ### Patch Changes
