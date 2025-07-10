@@ -1,5 +1,13 @@
 # aeria-ui-build
 
+## 0.0.16
+
+### Patch Changes
+
+- 55df917: Update `dynamicImport()`
+- 5be37e6: Fix `getInstanceConfig()`
+- 0d32c56: Add `dynamicImport()`
+
 ## 0.0.15
 
 ### Patch Changes

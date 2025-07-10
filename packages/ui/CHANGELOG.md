@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.174
+
+### Patch Changes
+
+- 9ff5632: Add debounce to CRUD individual actions
+
 ## 0.0.173
 
 ### Patch Changes
