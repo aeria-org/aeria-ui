@@ -172,7 +172,9 @@ watch(() => [
   flush: 'post',
 })
 
-const [performLazySearch] = useDebounce({ delay: 600 })((value: string) => {
+const [performLazySearch] = useDebounce({
+ delay: 600,
+})((value: string) => {
   router.push(deepMerge(router.currentRoute.value, {
     query: {
       search: value || undefined,
@@ -312,7 +314,10 @@ const individualActions = computed(() => {
   }
 
   return store.individualActions.map((action) => {
-    const [delayedCall] = useDebounce({ delay: 100, immediate: true, })(call.value(action))
+    const [delayedCall] = useDebounce({
+ delay: 100,
+immediate: true,
+})(call.value(action))
     return {
       click: delayedCall,
       ...action,
