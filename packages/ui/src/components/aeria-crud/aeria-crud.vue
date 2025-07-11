@@ -49,10 +49,6 @@ const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 const router = useRouter()
 
-const debounce = useDebounce({
-  delay: 600,
-})
-
 const metaStore = useStore('meta')
 const breakpoints = useBreakpoints()
 const { reachedEnd, detach: detachScrollListener } = useScrollObserver(null, {
@@ -176,7 +172,7 @@ watch(() => [
   flush: 'post',
 })
 
-const [performLazySearch] = debounce((value: string) => {
+const [performLazySearch] = useDebounce({ delay: 600 })((value: string) => {
   router.push(deepMerge(router.currentRoute.value, {
     query: {
       search: value || undefined,
@@ -316,7 +312,7 @@ const individualActions = computed(() => {
   }
 
   return store.individualActions.map((action) => {
-    const [delayedCall] = debounce(call.value(action))
+    const [delayedCall] = useDebounce({ delay: 100, immediate: true, })(call.value(action))
     return {
       click: delayedCall,
       ...action,
