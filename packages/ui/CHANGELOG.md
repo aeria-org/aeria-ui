@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.177
+
+### Patch Changes
+
+- a83d8b1: Remove debounce from `aeria-crud`
+
 ## 0.0.176
 
 ### Patch Changes
