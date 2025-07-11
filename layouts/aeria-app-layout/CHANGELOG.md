@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.54
+
+### Patch Changes
+
+- 6230b42: Unpin peerDependencies versions
+- d3cc197: Improve aeria-crud debounce time
+  - aeria-ui@0.0.182
+
 ## 0.0.53
 
 ### Patch Changes
