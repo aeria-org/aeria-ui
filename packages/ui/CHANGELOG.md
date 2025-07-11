@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.176
+
+### Patch Changes
+
+- d3cc197: Improve aeria-crud debounce time
+
 ## 0.0.175
 
 ### Patch Changes
