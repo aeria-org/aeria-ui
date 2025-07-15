@@ -2,7 +2,8 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "module": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "paths": {
       "aeria-icons": [
         "../aeria-icons/dist"
