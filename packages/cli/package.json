@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/cli",
   "type": "module",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "",
   "scripts": {
     "test": "echo skipping",
@@ -52,7 +52,7 @@
     "@aeriajs/builtins-icons": "^0.0.10",
     "@aeriajs/common": "^0.0.160",
     "@aeriajs/types": "^0.0.136",
-    "aeria-icons": "^0.0.10",
+    "aeria-icons": "^0.0.11",
     "bson": "^6.10.4",
     "vue": "^3.5.14"
   }

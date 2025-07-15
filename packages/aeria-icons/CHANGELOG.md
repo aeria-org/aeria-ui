@@ -1,5 +1,11 @@
 # aeria-icons
 
+## 0.0.11
+
+### Patch Changes
+
+- 2803fc5: Update deps
+
 ## 0.0.10
 
 ### Patch Changes
