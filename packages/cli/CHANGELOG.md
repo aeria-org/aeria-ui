@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.19
+
+### Patch Changes
+
+- a62069b: Fix icons not being bundled correctly
+
 ## 0.0.18
 
 ### Patch Changes
