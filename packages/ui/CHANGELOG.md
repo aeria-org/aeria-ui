@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.178
+
+### Patch Changes
+
+- 2803fc5: Update deps
+
 ## 0.0.177
 
 ### Patch Changes
