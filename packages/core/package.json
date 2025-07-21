@@ -50,7 +50,7 @@
     "@aeria-ui/i18n": "link:../i18n",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
-    "@types/node": "^24.0.14",
+    "@types/node": "^24.0.15",
     "aeria-sdk": "0.0",
     "vite": "^7.0.5"
   },
