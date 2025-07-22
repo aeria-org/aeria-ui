@@ -10,7 +10,10 @@
     "prepublishOnly": "npm run build"
   },
   "exports": {
-    ".": "./dist/aeria-app-layout.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/aeria-app-layout.js"
+    },
     "./aeria-app-layout.css": "./dist/aeria-app-layout.css"
   },
   "files": [
