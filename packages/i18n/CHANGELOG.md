@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.18
+
+### Patch Changes
+
+- 8e246b3: Fix CI problems
+
 ## 0.0.17
 
 ### Patch Changes
