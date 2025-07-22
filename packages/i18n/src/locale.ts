@@ -2,7 +2,7 @@ import { getValueFromPath } from '@aeriajs/common'
 import { reactive, inject, type Plugin } from 'vue'
 
 export type LocaleMessages = {
-  [P in string]: 
+  [P in string]:
     | string
     | [string, string]
     | LocaleMessages
