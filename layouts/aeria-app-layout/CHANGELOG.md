@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.58
+
+### Patch Changes
+
+- 8e246b3: Fix CI problems
+  - aeria-ui@0.0.186
+  - @aeria-ui/theme@0.0.93
+
 ## 0.0.57
 
 ### Patch Changes
