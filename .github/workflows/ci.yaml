@@ -5,10 +5,10 @@ on:
     branches:
       - master
     paths:
-      - '.changeset'
       - 'package.json'
       - 'pnpm-lock.yaml'
-      - 'packages/**/*'
+      - '.changeset/**'
+      - 'packages/**'
 
 permissions:
   contents: write
