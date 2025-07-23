@@ -312,8 +312,8 @@ const getNestedValidationError = (key: string, listIndex?: number) => {
 }
 
 const focusOnRender = (property: Property) => {
-  if( readOnly || property.readOnly ) {
-    return
+  if( !props.focus || readOnly || property.readOnly ) {
+    return false
   }
   if( !props.parentPropertyName && !props.parentCollection && !alreadyFocused.value ) {
     alreadyFocused.value = true
