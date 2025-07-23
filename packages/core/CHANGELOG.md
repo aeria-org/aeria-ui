@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.112
+
+### Patch Changes
+
+- 35fa45a: Fix redirect bug
+
 ## 0.0.111
 
 ### Patch Changes
