@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.180",
+  "version": "0.0.181",
   "description": "",
   "scripts": {
     "test": "vitest run",
