@@ -96,7 +96,7 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     })
   }
 
-  if( userStore.signedIn || /^\/dashboard(\/|$)/.test(location.pathname) ) {
+  if( /^\/dashboard(\/|$)/.test(location.pathname) ) {
     let hasError = false
 
     try {
