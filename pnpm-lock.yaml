@@ -97,8 +97,8 @@ importers:
         specifier: ^2.0.8
         version: 2.1.1
       '@vitejs/plugin-vue':
-        specifier: ^6.0.0
-        version: 6.0.0(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
+        specifier: ^6.0.1
+        version: 6.0.1(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       vite:
         specifier: '*'
         version: 7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0)
@@ -127,8 +127,8 @@ importers:
         specifier: ^16.0.1
         version: 16.0.1(rollup@4.45.1)
       '@vitejs/plugin-vue':
-        specifier: ^6.0.0
-        version: 6.0.0(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
+        specifier: ^6.0.1
+        version: 6.0.1(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       ejs:
         specifier: ^3.1.9
         version: 3.1.10
@@ -271,8 +271,8 @@ importers:
         specifier: ^0.0.136
         version: 0.0.136(@phosphor-icons/core@2.1.1)
       '@vitejs/plugin-vue':
-        specifier: ^6.0.0
-        version: 6.0.0(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
+        specifier: ^6.0.1
+        version: 6.0.1(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       '@vue/test-utils':
         specifier: ^2.4.6
         version: 2.4.6
@@ -850,8 +850,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@rolldown/pluginutils@1.0.0-beta.19':
-    resolution: {integrity: sha512-3FL3mnMbPu0muGOCaKAhhFEYmqv9eTfPSJRJmANrCwtgK8VuxpsZDGK+m0LYAGoyO8+0j5uRe4PeyPDK1yA/hA==}
+  '@rolldown/pluginutils@1.0.0-beta.29':
+    resolution: {integrity: sha512-NIJgOsMjbxAXvoGq/X0gD7VPMQ8j9g0BiDaNjVNVjvl+iKXxL3Jre0v31RmBYeLEmkbj2s02v8vFTbUXi5XS2Q==}
 
   '@rollup/plugin-node-resolve@16.0.1':
     resolution: {integrity: sha512-tk5YCxJWIG81umIvNkSod2qK5KyQW19qcBF/B78n1bjtOON6gzKoVeSzAE8yHCZEDmqkHKkxplExA8KzdJLJpA==}
@@ -1101,8 +1101,8 @@ packages:
     resolution: {integrity: sha512-YzfhzcTnZVPiLfP/oeKtDp2evwvHLMe0LOy7oe+hb9KKIumLNohYS9Hgp1ifwpu42YWxhZE8yieggz6JpqO/1w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitejs/plugin-vue@6.0.0':
-    resolution: {integrity: sha512-iAliE72WsdhjzTOp2DtvKThq1VBC4REhwRcaA+zPAAph6I+OQhUXv+Xu2KS7ElxYtb7Zc/3R30Hwv1DxEo7NXQ==}
+  '@vitejs/plugin-vue@6.0.1':
+    resolution: {integrity: sha512-+MaE752hU0wfPFJEUAIxqw18+20euHHdxVtMvbFcOEpjEyfqXH/5DCoTHiVJ0J29EhTJdoTkjEv5YBKU9dnoTw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
@@ -3812,7 +3812,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@rolldown/pluginutils@1.0.0-beta.19': {}
+  '@rolldown/pluginutils@1.0.0-beta.29': {}
 
   '@rollup/plugin-node-resolve@16.0.1(rollup@4.45.1)':
     dependencies:
@@ -4065,9 +4065,9 @@ snapshots:
       '@typescript-eslint/types': 8.37.0
       eslint-visitor-keys: 4.2.1
 
-  '@vitejs/plugin-vue@6.0.0(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))':
+  '@vitejs/plugin-vue@6.0.1(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
-      '@rolldown/pluginutils': 1.0.0-beta.19
+      '@rolldown/pluginutils': 1.0.0-beta.29
       vite: 7.0.6(@types/node@24.1.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0)
       vue: 3.5.17(typescript@5.8.3)
 
