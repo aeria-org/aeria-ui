@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.182
+
+### Patch Changes
+
+- 14a17cb: Remove linebreaks from bundle
+- Updated dependencies [14a17cb]
+  - @aeria-ui/core@0.0.113
+
 ## 0.0.181
 
 ### Patch Changes
