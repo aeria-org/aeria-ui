@@ -43,10 +43,10 @@ onBeforeMount(() => {
 <template>
   <div
     class="options"
-    :style="`
-      --columns: ${columns};
-      grid-template-columns: repeat(var(--columns), 1fr);
-    `"
+    :style="{
+      '--columns': columns,
+      'grid-template-columns': 'repeat(var(--columns), 1fr)',
+    }"
   >
     <div
       v-for="option in options"

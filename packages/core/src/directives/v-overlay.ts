@@ -27,22 +27,23 @@ const overlay: Directive = {
           || window.matchMedia('(max-width: 600px)').matches
       )
 
-    overlayElem.setAttribute('style', `
-      position: fixed;
-      display: block;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: ${layer};
+    const style = [
+      'position: fixed',
+      'display: block',
+      'top: 50%',
+      'left: 50%',
+      'transform: translate(-50%, -50%)',
+      `z-index: ${layer}`,
+      'width: 100vw',
+      'height: 100vh',
+    ]
 
-      width: 100vw;
-      height: 100vh;
+    if( visible ) {
+      style.push('background: rgba(65, 82, 105, .25)')
+      style.push('backdrop-filter: blur(2px)')
+    }
 
-      ${visible && `
-        background: rgba(65, 82, 105, .25);
-        backdrop-filter: blur(2px);
-      `}
-    `)
+    overlayElem.setAttribute('style', style.join(';'))
 
     if( value.click ) {
       overlayElem.onclick = value.click
