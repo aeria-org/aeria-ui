@@ -1,7 +1,7 @@
 {
   "name": "@aeria-ui/ui",
   "type": "module",
-  "version": "0.0.180",
+  "version": "0.0.181",
   "description": "",
   "scripts": {
     "test": "vitest run",
@@ -45,10 +45,10 @@
     "@aeria-ui/utils": "link:../utils",
     "@aeriajs/common": "^0.0.160",
     "@aeriajs/types": "^0.0.136",
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^6.0.1",
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^26.1.0",
-    "vite": "^7.0.5",
+    "vite": "^7.0.6",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-static-copy": "^3.1.1"
   },
