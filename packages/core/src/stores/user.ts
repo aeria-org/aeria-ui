@@ -9,7 +9,7 @@ import { STORAGE_NAMESPACE } from '../constants.js'
 import { meta } from './meta.js'
 import { type IndividualActionPayload } from '../composables/use-action.js'
 
-type User = {
+export type User = {
   _id: string
   name: string
   roles: string[]
@@ -19,7 +19,7 @@ type User = {
   }
 }
 
-type SuccessfulAuthentication = {
+export type SuccessfulAuthentication = {
   token: {
     type: 'bearer'
     content: string
@@ -27,7 +27,7 @@ type SuccessfulAuthentication = {
   user: User
 }
 
-type Credentials = {
+export type Credentials = {
   email: string
   password: string
 }

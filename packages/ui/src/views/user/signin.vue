@@ -16,7 +16,7 @@ const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL, {})
 const goToTarget = () => {
   if( typeof localStorage !== 'undefined' ) {
     const { next } = router.currentRoute.value.query
-    if( typeof next === 'string' && localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
+    if( typeof next === 'string' && next === localStorage.getItem(`${STORAGE_NAMESPACE}:auth:next`) ) {
       return router.push(next)
     }
   }

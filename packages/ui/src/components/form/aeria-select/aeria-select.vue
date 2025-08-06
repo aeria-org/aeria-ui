@@ -51,6 +51,19 @@ const multiple = computed(() => {
       : 1
 })
 
+watch(select, (elem) => {
+  if( !elem ) {
+    return
+  }
+
+  if( props.required && !props.modelValue ) {
+    const first = elem.querySelector('option')?.value
+    if( first ) {
+      emit('update:modelValue', first)
+    }
+  }
+})
+
 if( !!props.multiple ) {
   watch(() => props.modelValue, (value) => {
     if( !select.value ) {

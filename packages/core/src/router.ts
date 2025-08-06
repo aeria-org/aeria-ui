@@ -31,7 +31,9 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
   router.beforeEach(async (to, from) => {
     const metaStore = meta(context)
     metaStore.menu.visible = false
-    metaStore.view.title = to.meta.title as string
+    metaStore.view.title = typeof to.meta.title === 'string'
+      ? to.meta.title
+      : to.path
 
     window.scrollTo(0, 0)
 

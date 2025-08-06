@@ -281,11 +281,17 @@ const unfilled = (value: unknown) => {
 }
 
 const required = computed(() => {
-  return props.required
-    ? props.required
-    : props.property && 'required' in props.property
-      ? props.property.required
-      : store?.description.required
+  if( props.required ) {
+    return props.required
+  }
+  
+  if( props.property && 'required' in props.property ) {
+    return props.property.required
+  }
+
+  return props.collection
+    ? store!.description.required
+    : undefined
 })
 
 const isInsertReady = computed(() => {
@@ -518,6 +524,7 @@ const focusOnRender = (property: Property) => {
                   propertyName: fieldPropertyName,
                   parentCollection: collectionName,
                   parentPropertyName,
+                  required: !searchOnly && (!required || isRequired(fieldPropertyName, required, modelValue)),
                   columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
                     || layout?.fields?.$default?.optionsColumns,
                   validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
@@ -541,6 +548,7 @@ const focusOnRender = (property: Property) => {
             propertyName: fieldPropertyName,
             parentPropertyName,
             parentCollection: collectionName,
+            required: !searchOnly && (!required || isRequired(fieldPropertyName, required, modelValue)),
             columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
               || layout?.fields?.$default?.optionsColumns,
             ...(fieldProperty.componentProps || {}),
