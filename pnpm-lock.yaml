@@ -57,14 +57,14 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(postcss@8.5.6)
       stylelint:
-        specifier: ^16.23.0
-        version: 16.23.0(typescript@5.8.3)
+        specifier: ^16.23.1
+        version: 16.23.1(typescript@5.8.3)
       stylelint-config-idiomatic-order:
         specifier: ^10.0.0
-        version: 10.0.0(stylelint@16.23.0(typescript@5.8.3))
+        version: 10.0.0(stylelint@16.23.1(typescript@5.8.3))
       stylelint-less:
         specifier: ^3.0.1
-        version: 3.0.1(postcss@8.5.6)(stylelint@16.23.0(typescript@5.8.3))
+        version: 3.0.1(postcss@8.5.6)(stylelint@16.23.1(typescript@5.8.3))
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -2129,8 +2129,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  keyv@5.4.0:
-    resolution: {integrity: sha512-TMckyVjEoacG5IteUpUrOBsFORtheqziVyyY2dLUwg1jwTb8u48LX4TgmtogkNl9Y9unaEJ1luj10fGyjMGFOQ==}
+  keyv@5.5.0:
+    resolution: {integrity: sha512-QG7qR2tijh1ftOvClut4YKKg1iW6cx3GZsKoGyJPxHkGWK9oJhG9P3j5deP0QQOGDowBMVQFaP+Vm4NpGYvmIQ==}
 
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
@@ -2769,8 +2769,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
 
-  stylelint@16.23.0:
-    resolution: {integrity: sha512-69T5aS2LUY306ekt1Q1oaSPwz/jaG9HjyMix3UMrai1iEbuOafBe2Dh8xlyczrxFAy89qcKyZWWtc42XLx3Bbw==}
+  stylelint@16.23.1:
+    resolution: {integrity: sha512-dNvDTsKV1U2YtiUDfe9d2gp902veFeo3ecCWdGlmLm2WFrAV0+L5LoOj/qHSBABQwMsZPJwfC4bf39mQm1S5zw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -4434,7 +4434,7 @@ snapshots:
   cacheable@1.10.3:
     dependencies:
       hookified: 1.11.0
-      keyv: 5.4.0
+      keyv: 5.5.0
 
   callsites@3.1.0: {}
 
@@ -5184,7 +5184,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  keyv@5.4.0:
+  keyv@5.5.0:
     dependencies:
       '@keyv/serialize': 1.1.0
 
@@ -5776,25 +5776,25 @@ snapshots:
     dependencies:
       js-tokens: 9.0.1
 
-  stylelint-config-idiomatic-order@10.0.0(stylelint@16.23.0(typescript@5.8.3)):
+  stylelint-config-idiomatic-order@10.0.0(stylelint@16.23.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.23.0(typescript@5.8.3)
-      stylelint-order: 6.0.4(stylelint@16.23.0(typescript@5.8.3))
+      stylelint: 16.23.1(typescript@5.8.3)
+      stylelint-order: 6.0.4(stylelint@16.23.1(typescript@5.8.3))
 
-  stylelint-less@3.0.1(postcss@8.5.6)(stylelint@16.23.0(typescript@5.8.3)):
+  stylelint-less@3.0.1(postcss@8.5.6)(stylelint@16.23.1(typescript@5.8.3)):
     dependencies:
       postcss: 8.5.6
       postcss-resolve-nested-selector: 0.1.6
       postcss-value-parser: 4.2.0
-      stylelint: 16.23.0(typescript@5.8.3)
+      stylelint: 16.23.1(typescript@5.8.3)
 
-  stylelint-order@6.0.4(stylelint@16.23.0(typescript@5.8.3)):
+  stylelint-order@6.0.4(stylelint@16.23.1(typescript@5.8.3)):
     dependencies:
       postcss: 8.5.6
       postcss-sorting: 8.0.2(postcss@8.5.6)
-      stylelint: 16.23.0(typescript@5.8.3)
+      stylelint: 16.23.1(typescript@5.8.3)
 
-  stylelint@16.23.0(typescript@5.8.3):
+  stylelint@16.23.1(typescript@5.8.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
