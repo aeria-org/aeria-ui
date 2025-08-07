@@ -208,7 +208,7 @@ importers:
         version: 24.2.0
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.213(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+        version: 0.0.214(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
       vite:
         specifier: ^7.1.0
         version: 7.1.0(@types/node@24.2.0)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0)
@@ -1251,8 +1251,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aeria-sdk@0.0.213:
-    resolution: {integrity: sha512-52iJf5pyzwDBPUDmba0evwyK1u4cS4iDGZRT/2YXs/TYITJArnDatDixA2G1jK8Oo0PpqWv7UfpSdLOFkUdBZA==}
+  aeria-sdk@0.0.214:
+    resolution: {integrity: sha512-pcg1Ronk09+fYj9tm8UcrdI/8NxjjIhA6dHxkZvPgakiEx/FRFv1xiHa5r7UsH3vs+qmYDEb7NBd0+2/wUIRbQ==}
     hasBin: true
     peerDependencies:
       '@aeriajs/common': ^0.0.160
@@ -4012,7 +4012,7 @@ snapshots:
   '@typescript-eslint/project-service@8.37.0(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.37.0(typescript@5.8.3)
-      '@typescript-eslint/types': 8.39.0
+      '@typescript-eslint/types': 8.37.0
       debug: 4.4.1
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -4294,7 +4294,7 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  aeria-sdk@0.0.213(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)):
+  aeria-sdk@0.0.214(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)):
     dependencies:
       '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
