@@ -28,7 +28,7 @@ importers:
         version: link:packages/utils
       '@aeriajs/builtins':
         specifier: ~0.0.219
-        version: 0.0.282(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
+        version: 0.0.282(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
       '@changesets/cli':
         specifier: ^2.29.5
         version: 2.29.5
@@ -43,7 +43,7 @@ importers:
         version: 0.0.8(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))
       '@eslint-aeria/config-ui':
         specifier: ^0.0.5
-        version: 0.0.5(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@eslint/eslintrc@3.3.1)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3)))(eslint-plugin-vue@10.3.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.32.0(jiti@2.4.2))))
+        version: 0.0.5(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@eslint/eslintrc@3.3.1)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3)))(eslint-plugin-vue@10.3.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.32.0(jiti@2.4.2))))
       aeria-ui:
         specifier: link:packages/aeria-ui
         version: link:packages/aeria-ui
@@ -152,8 +152,8 @@ importers:
         specifier: ^0.0.10
         version: 0.0.10
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types':
         specifier: ^0.0.136
         version: 0.0.136(@phosphor-icons/core@2.1.1)
@@ -179,8 +179,8 @@ importers:
   packages/core:
     dependencies:
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types':
         specifier: ^0.0.136
         version: 0.0.136(@phosphor-icons/core@2.1.1)
@@ -208,7 +208,7 @@ importers:
         version: 24.2.1
       aeria-sdk:
         specifier: '0.0'
-        version: 0.0.214(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+        version: 0.0.214(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
       vite:
         specifier: ^7.1.1
         version: 7.1.1(@types/node@24.2.1)(jiti@2.4.2)(less@4.4.0)(yaml@2.8.0)
@@ -216,8 +216,8 @@ importers:
   packages/i18n:
     devDependencies:
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
 
   packages/state-management:
     devDependencies:
@@ -234,8 +234,8 @@ importers:
         specifier: link:../state-management
         version: link:../state-management
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       vue:
         specifier: ^3.5.14
         version: 3.5.17(typescript@5.8.3)
@@ -265,8 +265,8 @@ importers:
         specifier: link:../utils
         version: link:../utils
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types':
         specifier: ^0.0.136
         version: 0.0.136(@phosphor-icons/core@2.1.1)
@@ -292,8 +292,8 @@ importers:
   packages/utils:
     devDependencies:
       '@aeriajs/common':
-        specifier: ^0.0.160
-        version: 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+        specifier: ^0.0.161
+        version: 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
 
   playground:
     devDependencies:
@@ -318,10 +318,10 @@ packages:
       '@aeriajs/types': ^0.0.136
       '@aeriajs/validation': ^0.0.183
 
-  '@aeriajs/common@0.0.160':
-    resolution: {integrity: sha512-/u1I0bqwgk74GzmH0epYO/+rhpMkA4uDUIN/2MX4UyUJfc49YX48UqJ0JcNa2Ecs/1nn9YwkGKv2ZH+u37ZDGQ==}
+  '@aeriajs/common@0.0.161':
+    resolution: {integrity: sha512-dwW/ftZCisAmTl2Gw64oMf5VQF8Aa6/4Yzv4jhRDOn9v/uziKxxi+TQccevUXx6/PQAxJgEx+vTTSBcgeYmyRg==}
     peerDependencies:
-      '@aeriajs/types': ^0.0.136
+      '@aeriajs/types': ^0.0.137
       bson: ^6.10.4
 
   '@aeriajs/core@0.0.282':
@@ -1080,8 +1080,8 @@ packages:
     resolution: {integrity: sha512-ax0nv7PUF9NOVPs+lmQ7yIE7IQmAf8LGcXbMvHX5Gm+YJUYNAl340XkGnrimxZ0elXyoQJuN5sbg6C4evKA4SQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@typescript-eslint/types@8.39.0':
-    resolution: {integrity: sha512-ArDdaOllnCj3yn/lzKn9s0pBQYmmyme/v1HbGIGB0GB/knFI3fWMHloC+oYTJW46tVbYnGKTMDK4ah1sC2v0Kg==}
+  '@typescript-eslint/types@8.39.1':
+    resolution: {integrity: sha512-7sPDKQQp+S11laqTrhHqeAbsCfMkwJMrV7oTDvtDds4mEofJYir414bYKUEb8YPUm9QL3U+8f6L6YExSoAGdQw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/typescript-estree@8.37.0':
@@ -3207,29 +3207,29 @@ snapshots:
 
   '@aeriajs/builtins-icons@0.0.10': {}
 
-  '@aeriajs/builtins@0.0.282(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))':
+  '@aeriajs/builtins@0.0.282(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/core': 0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
-      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/core': 0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
+      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
+      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
       bcryptjs: 3.0.2
 
-  '@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
+  '@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
     dependencies:
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
       bson: 6.10.4
 
-  ? '@aeriajs/core@0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))'
+  ? '@aeriajs/core@0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))'
   : dependencies:
-      '@aeriajs/builtins': 0.0.282(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
-      '@aeriajs/http': 0.0.198(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0)
-      '@aeriajs/security': 0.0.282(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
+      '@aeriajs/builtins': 0.0.282(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+      '@aeriajs/http': 0.0.198(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0)
+      '@aeriajs/security': 0.0.282(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
+      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
       jsonwebtoken: 9.0.2
       mongodb: 6.18.0
     optionalDependencies:
@@ -3244,23 +3244,23 @@ snapshots:
       - socks
       - supports-color
 
-  '@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))':
+  '@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
 
-  '@aeriajs/http@0.0.198(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0)':
+  '@aeriajs/http@0.0.198(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0)':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
-      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
+      '@aeriajs/validation': 0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)
       mongodb: 6.18.0
 
-  '@aeriajs/security@0.0.282(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)':
+  '@aeriajs/security@0.0.282(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/core@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/core': 0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/core': 0.0.282(@aeriajs/builtins@0.0.282)(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/http@0.0.198(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))(mongodb@6.18.0))(@aeriajs/security@0.0.282)(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0))
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
       mongodb: 6.18.0
 
@@ -3268,10 +3268,10 @@ snapshots:
     dependencies:
       '@phosphor-icons/core': 2.1.1
 
-  '@aeriajs/validation@0.0.183(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)':
+  '@aeriajs/validation@0.0.183(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/entrypoint@0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(mongodb@6.18.0)':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/entrypoint': 0.0.168(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
       mongodb: 6.18.0
 
@@ -3665,9 +3665,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.8':
     optional: true
 
-  '@eslint-aeria/config-ui@0.0.5(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@eslint/eslintrc@3.3.1)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3)))(eslint-plugin-vue@10.3.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.32.0(jiti@2.4.2))))':
+  '@eslint-aeria/config-ui@0.0.5(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@eslint/eslintrc@3.3.1)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3)))(eslint-plugin-vue@10.3.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.32.0(jiti@2.4.2))))':
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@eslint/eslintrc': 3.3.1
       eslint-config-aeria: 0.0.31(@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2)))(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))
       eslint-plugin-vue: 10.3.0(@typescript-eslint/parser@8.37.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.32.0(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.32.0(jiti@2.4.2)))
@@ -3939,7 +3939,7 @@ snapshots:
   '@stylistic/eslint-plugin@5.1.0(eslint@9.32.0(jiti@2.4.2))':
     dependencies:
       '@eslint-community/eslint-utils': 4.7.0(eslint@9.32.0(jiti@2.4.2))
-      '@typescript-eslint/types': 8.39.0
+      '@typescript-eslint/types': 8.39.1
       eslint: 9.32.0(jiti@2.4.2)
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
@@ -4012,7 +4012,7 @@ snapshots:
   '@typescript-eslint/project-service@8.37.0(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.37.0(typescript@5.8.3)
-      '@typescript-eslint/types': 8.39.0
+      '@typescript-eslint/types': 8.39.1
       debug: 4.4.1
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -4041,7 +4041,7 @@ snapshots:
 
   '@typescript-eslint/types@8.37.0': {}
 
-  '@typescript-eslint/types@8.39.0': {}
+  '@typescript-eslint/types@8.39.1': {}
 
   '@typescript-eslint/typescript-estree@8.37.0(typescript@5.8.3)':
     dependencies:
@@ -4294,9 +4294,9 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  aeria-sdk@0.0.214(@aeriajs/common@0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)):
+  aeria-sdk@0.0.214(@aeriajs/common@0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1)):
     dependencies:
-      '@aeriajs/common': 0.0.160(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
+      '@aeriajs/common': 0.0.161(@aeriajs/types@0.0.136(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types': 0.0.136(@phosphor-icons/core@2.1.1)
 
   agent-base@7.1.4: {}
