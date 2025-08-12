@@ -1,7 +1,13 @@
 .focus {
   .input {
-    &__container {
-      border: 1px solid var(--theme-brand-color);
+    &__container{
+      &--normal, &--bold {
+        border: 1px solid var(--theme-brand-color);
+      }
+
+      &--light {
+        border-bottom: 1px solid var(--theme-brand-color);
+      }
     }
 
     &__icon {
