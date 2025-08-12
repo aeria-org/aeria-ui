@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.115
+
+### Patch Changes
+
+- 9689f66: Bump aeria-sdk
+
 ## 0.0.114
 
 ### Patch Changes
