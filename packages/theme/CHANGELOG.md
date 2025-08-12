@@ -1,5 +1,14 @@
 # @aeria-ui/theme
 
+## 0.0.96
+
+### Patch Changes
+
+- 600339e: Bump release
+- Updated dependencies [600339e]
+  - @aeria-ui/core@0.0.114
+  - @aeria-ui/state-management@0.0.21
+
 ## 0.0.95
 
 ### Patch Changes

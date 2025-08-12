@@ -1,5 +1,11 @@
 # @aeria-ui/i18n
 
+## 0.0.19
+
+### Patch Changes
+
+- 600339e: Bump release
+
 ## 0.0.18
 
 ### Patch Changes

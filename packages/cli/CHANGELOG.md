@@ -1,5 +1,13 @@
 # aeria-ui-build
 
+## 0.0.20
+
+### Patch Changes
+
+- 600339e: Bump release
+- Updated dependencies [600339e]
+  - aeria-icons@0.0.12
+
 ## 0.0.19
 
 ### Patch Changes
