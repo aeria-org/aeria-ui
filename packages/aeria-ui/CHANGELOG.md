@@ -1,5 +1,17 @@
 # aeria-ui
 
+## 0.0.190
+
+### Patch Changes
+
+- 600339e: Bump release
+- Updated dependencies [600339e]
+  - @aeria-ui/cli@0.0.20
+  - @aeria-ui/core@0.0.114
+  - @aeria-ui/i18n@0.0.19
+  - @aeria-ui/state-management@0.0.21
+  - @aeria-ui/ui@0.0.183
+
 ## 0.0.189
 
 ### Patch Changes

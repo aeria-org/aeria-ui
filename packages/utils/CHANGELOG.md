@@ -1,5 +1,11 @@
 # @aeria-ui/utils
 
+## 0.0.12
+
+### Patch Changes
+
+- 600339e: Bump release
+
 ## 0.0.11
 
 ### Patch Changes
