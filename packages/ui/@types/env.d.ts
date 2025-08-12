@@ -1,4 +1,4 @@
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   import type { TemplateFunctions } from '@aeria-ui/core'
 
   interface ComponentCustomProperties {
