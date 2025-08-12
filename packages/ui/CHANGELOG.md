@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.184
+
+### Patch Changes
+
+- 99a6f61: Fix `aeria-form` bug
+
 ## 0.0.183
 
 ### Patch Changes
