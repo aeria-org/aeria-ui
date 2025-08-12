@@ -161,7 +161,7 @@ export const internalTranslate = (originalText: string, _options: TextOptions = 
     : translated
 }
 
-export const t = (text: string, options: TextOptions = {}, i18n?: GlobalI18n) => {
+export const t = (text: string | undefined, options: TextOptions = {}, i18n?: GlobalI18n) => {
   if( !text ) {
     return ''
   }
