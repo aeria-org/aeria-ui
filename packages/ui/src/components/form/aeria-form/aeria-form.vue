@@ -36,7 +36,7 @@ type Props = FormFieldProps<any> & {
     fields: Record<string, LayoutConfig>
   },
   formLayout?: Description['formLayout']
-  required?: string[]
+  required?: string[] | boolean
   formComponents?: Record<string, unknown>
   propertyComponents?: Record<string, unknown>
   omitFormHeader?: boolean
@@ -281,8 +281,15 @@ const unfilled = (value: unknown) => {
 }
 
 const required = computed(() => {
-  if( props.required ) {
-    return props.required
+  if( typeof props.required !== 'undefined' ) {
+    switch( props.required ) {
+      case true:
+        return undefined
+      case false:
+        return []
+      default:
+        return props.required
+    }
   }
 
   if( props.property && 'required' in props.property ) {

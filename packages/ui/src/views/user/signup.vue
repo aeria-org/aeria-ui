@@ -48,9 +48,9 @@ const insert = async () => {
     body: 'Verifique o link de confirmação no seu email',
   })
 
- router.push({
- path: '/user/signin',
-})
+  router.push({
+     path: '/user/signin',
+  })
 }
 </script>
 
