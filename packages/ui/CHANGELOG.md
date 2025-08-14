@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.187
+
+### Patch Changes
+
+- 0d3df58: Fix form required
+
 ## 0.0.186
 
 ### Patch Changes
