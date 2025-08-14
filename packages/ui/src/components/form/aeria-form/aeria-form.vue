@@ -60,7 +60,8 @@ type Emits = {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  searchony: false,
+  required: undefined,
+  searchOnly: false,
   validationErrors: null,
   highlightRequired: true,
 })
