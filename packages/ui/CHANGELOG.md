@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.188
+
+### Patch Changes
+
+- bbacd79: Don't show readonly properties on edit form
+
 ## 0.0.187
 
 ### Patch Changes
