@@ -202,7 +202,9 @@ const has = (propertyName: string, property: Property) => {
 }
 
 const properties = filterProperties(([propertyName, property]) => {
-  return has(propertyName, property)
+  return has(propertyName, property) && (
+    !property.readOnly || props.readOnly
+  )
 })
 
 const breakpoints = useBreakpoints()
