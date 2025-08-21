@@ -51,9 +51,13 @@ const searchOnly = inject<boolean>('searchOnly', false)
 const innerInputLabel = inject<boolean>('innerInputLabel', false)
 const readOnly = !searchOnly && (props.readOnly || property.readOnly)
 
-const copyToClipboard = (text: string) => {
+const wasCopied = ref(false)
+
+const copyToClipboard = async (text: string) => {
+  await navigator.clipboard.writeText(text)
+
   emit('clipboardCopy', text)
-  return navigator.clipboard.writeText(text)
+  wasCopied.value = true
 }
 
 const variant = inject<InputVariant | undefined>('inputVariant', props.variant) || 'normal'
@@ -302,11 +306,19 @@ const onInput = (event: Event) => {
         <aeria-info>
           <template #text>Copiar</template>
           <aeria-icon
+            v-if="wasCopied"
+            reactive
+            icon="check"
+          />
+
+          <aeria-icon
+            v-else
             v-clickable
             reactive
             icon="clipboard"
             @click.prevent="copyToClipboard(String(modelValue || ''))"
           />
+
         </aeria-info>
       </div>
     </div>

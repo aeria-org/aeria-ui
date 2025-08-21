@@ -107,13 +107,6 @@ const askToCancel = () => {
   })
 }
 
-const spawnClipboardToast = () => {
-  return metaStore.$actions.spawnToast({
-    icon: 'info',
-    text: t('copied_to_clipboard'),
-  })
-}
-
 watch(() => store.item._id, (_id) => {
   if( _id === null ) {
     emit('update:visible', false)
@@ -150,7 +143,6 @@ watch(() => store.item._id, (_id) => {
       }"
 
       focus
-      @clipboard-copy="spawnClipboardToast"
       @add="$event.preventDefault()"
     >
       <template
