@@ -153,7 +153,7 @@ const confirm = async () => {
   </div>
   <div
     v-else
-      style="activation__step"
+    style="activation__step"
   >
     <h1>{{ t('invalid_link') }}</h1>
 
