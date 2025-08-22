@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.189
+
+### Patch Changes
+
+- d9aaa4f: Improve input clipboard function
+
 ## 0.0.188
 
 ### Patch Changes
