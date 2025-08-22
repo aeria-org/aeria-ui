@@ -49,7 +49,7 @@ const insert = async () => {
   })
 
   router.push({
-     path: '/user/signin',
+    path: '/user/signin',
   })
 }
 </script>
@@ -73,7 +73,7 @@ const insert = async () => {
       form: userStore.$actions.useProperties([
         'name',
         'email',
-        'phone'
+        'phone',
       ])
     }"
   >
@@ -82,14 +82,7 @@ const insert = async () => {
         v-slot="{ passwordError }"
         v-model="password"
       >
-        <div
-          style="
-          display: flex;
-          flex-direction: column;
-          align-items: start;
-          gap: 2rem
-        "
-        >
+        <div class="signup__checkboxes">
           <aeria-checkbox
             v-model="tosAccepted"
             :property="{
@@ -111,3 +104,5 @@ const insert = async () => {
     </template>
   </aeria-form>
 </template>
+
+<style scoped src="./signup.less"></style>

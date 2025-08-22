@@ -83,6 +83,7 @@ const confirm = async () => {
     userId,
     token,
   })
+
   if(error){
     console.log(error)
     metaStore.$actions.spawnModal({
@@ -106,7 +107,7 @@ const confirm = async () => {
   <div v-if="password.email !== ''">
     <div
       v-if="step === 'password'"
-      style="display: grid; gap: 1rem;"
+      class="redefine-password__step"
     >
       <h1>{{ t('redefine_password') }}</h1>
       <aeria-form
@@ -138,7 +139,7 @@ const confirm = async () => {
 
     <div
       v-else
-      style="display: grid; gap: 1rem;"
+      class="redefine-password__step"
     >
       <h1>{{ t('sucessfully_redefined_password') }}</h1>
 
@@ -149,7 +150,7 @@ const confirm = async () => {
   </div>
   <div
     v-else
-    style="display: grid; gap: 1rem;"
+    class="redefine-password__step"
   >
     <h1>{{ t('invalid_link') }}</h1>
 
@@ -158,3 +159,6 @@ const confirm = async () => {
     </aeria-button>
   </div>
 </template>
+
+<style scoped src="./redefine-password.less"></style>
+

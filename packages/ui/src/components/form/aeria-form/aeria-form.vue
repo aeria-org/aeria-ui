@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Property, Condition, BooleanProperty, Description } from '@aeriajs/types'
+import type { Property, BooleanProperty, Description } from '@aeriajs/types'
 import type { FormFieldProps } from '../types.js'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
@@ -17,25 +17,11 @@ import { getComponent, pushToArray, spliceFromArray } from './_internals/helpers
 
 const stateManager = getGlobalStateManager()
 
-type LayoutConfig = {
-  span?: string
-  verticalSpacing?: string
-  optionsColumns?: number
-  if?: Condition<any>
-  component?: {
-    name: string
-    props?: object
-  }
-}
-
 type Props = FormFieldProps<any> & {
   form?: Record<string, Property>
   collection?: string | Ref<string>
   searchOnly?: boolean
-  layout?: {
-    fields: Record<string, LayoutConfig>
-  },
-  formLayout?: Description['formLayout']
+  layout?: Description['formLayout']
   required?: string[] | boolean
   formComponents?: Record<string, unknown>
   propertyComponents?: Record<string, unknown>
@@ -212,7 +198,7 @@ const conditionMemo: Record<string, boolean> = {}
 
 const fieldStyle = (key: string, property: unknown) => {
   const style = []
-  const layout = computedLayout.value?.fields?.[key] || computedLayout.value?.fields?.$default
+  const layout = computedLayout.value?.fields?.[key]
 
   if( !property ) {
     return
@@ -535,8 +521,6 @@ const focusOnRender = (property: Property) => {
                   parentCollection: collectionName,
                   parentPropertyName,
                   required: !searchOnly && (!required || isRequired(fieldPropertyName, required, modelValue)),
-                  columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
-                    || layout?.fields?.$default?.optionsColumns,
                   validationErrors: getNestedValidationError(fieldPropertyName, listIndex),
                   ...(fieldProperty.componentProps || {})
                 }"
@@ -559,8 +543,6 @@ const focusOnRender = (property: Property) => {
             parentPropertyName,
             parentCollection: collectionName,
             required: !searchOnly && (!required || isRequired(fieldPropertyName, required, modelValue)),
-            columns: layout?.fields?.[fieldPropertyName]?.optionsColumns
-              || layout?.fields?.$default?.optionsColumns,
             ...(fieldProperty.componentProps || {}),
             validationErrors: getNestedValidationError(fieldPropertyName)
           }"

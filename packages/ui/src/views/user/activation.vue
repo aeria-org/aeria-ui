@@ -21,8 +21,11 @@ const userStore = useStore('user')
 const metaStore = useStore('meta')
 const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL)
 const step = router.currentRoute.value.query.step as Step | undefined || 'success'
-const userId = router.currentRoute.value.query.u
-const token = router.currentRoute.value.query.t
+
+const {
+  u: userId,
+  t: token,
+} = router.currentRoute.value.query
 
 const password = ref({
   name: '',
@@ -107,7 +110,7 @@ const confirm = async () => {
   <div v-if="password.email !== ''">
     <div
       v-if="step === 'password' "
-      style="display: grid; gap: 1rem;"
+      style="activation__step"
     >
       <h1>{{ t('register_password') }}</h1>
       <aeria-form
@@ -139,7 +142,7 @@ const confirm = async () => {
 
     <div
       v-else
-      style="display: grid; gap: 1rem;"
+      style="activation__step"
     >
       <h1>{{ t('successfully_activated_account') }}</h1>
 
@@ -150,7 +153,7 @@ const confirm = async () => {
   </div>
   <div
     v-else
-    style="display: grid; gap: 1rem;"
+      style="activation__step"
   >
     <h1>{{ t('invalid_link') }}</h1>
 
@@ -159,3 +162,6 @@ const confirm = async () => {
     </aeria-button>
   </div>
 </template>
+
+<style scoped src="./activation.less"></style>
+
