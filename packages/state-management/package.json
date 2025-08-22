@@ -24,9 +24,9 @@
     ".": "./dist/index.js"
   },
   "devDependencies": {
-    "vue": "^3.5.14"
+    "vue": "^3.5.19"
   },
   "peerDependencies": {
-    "vue": "^3.5.14"
+    "vue": "^3.5.19"
   }
 }
