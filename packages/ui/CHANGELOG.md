@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.190
+
+### Patch Changes
+
+- ac7c6dd: Fix required prop in `aeria-form`
+
 ## 0.0.189
 
 ### Patch Changes
