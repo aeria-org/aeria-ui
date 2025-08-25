@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Property, BooleanProperty, Description } from '@aeriajs/types'
+import type { Property, BooleanProperty, Description, RequiredProperties } from '@aeriajs/types'
 import type { FormFieldProps } from '../types.js'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
@@ -22,7 +22,7 @@ type Props = FormFieldProps<any> & {
   collection?: string | Ref<string>
   searchOnly?: boolean
   layout?: Description['formLayout']
-  required?: string[] | boolean
+  required?: boolean | RequiredProperties
   formComponents?: Record<string, unknown>
   propertyComponents?: Record<string, unknown>
   omitFormHeader?: boolean
