@@ -45,7 +45,7 @@ const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
 const property = props.property || {} as NonNullable<typeof props.property>
-const hasIcon = 'icon' in property || ('inputType' in property && property.inputType === 'search')
+const hasIcon = property.icon || ('inputType' in property && property.inputType === 'search')
 
 const searchOnly = inject<boolean>('searchOnly', false)
 const innerInputLabel = inject<boolean>('innerInputLabel', false)
