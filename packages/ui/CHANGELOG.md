@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.191
+
+### Patch Changes
+
+- 77a406e: Fix input padding
+
 ## 0.0.190
 
 ### Patch Changes
