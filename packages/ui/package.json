@@ -43,7 +43,7 @@
     "@aeria-ui/i18n": "link:../i18n",
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
-    "@aeriajs/common": "^0.0.161",
+    "@aeriajs/common": "^0.0.162",
     "@aeriajs/types": "^0.0.137",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/test-utils": "^2.4.6",
@@ -57,7 +57,7 @@
     "@aeria-ui/i18n": "^0.0.19",
     "@aeria-ui/state-management": "^0.0.21",
     "@aeria-ui/utils": "^0.0.12",
-    "@aeriajs/common": "^0.0.161"
+    "@aeriajs/common": "^0.0.162"
   },
   "dependencies": {
     "vue-router": "^4.5.1"
