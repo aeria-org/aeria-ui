@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@aeriajs/builtins-icons": "^0.0.10",
-    "@aeriajs/common": "^0.0.161",
+    "@aeriajs/common": "^0.0.162",
     "@aeriajs/types": "^0.0.137",
     "@types/ejs": "^3.1.2",
     "@types/js-yaml": "^4.0.5",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "@aeriajs/builtins-icons": "^0.0.10",
-    "@aeriajs/common": "^0.0.161",
+    "@aeriajs/common": "^0.0.162",
     "@aeriajs/types": "^0.0.136",
     "aeria-icons": "^0.0.12",
     "bson": "^6.10.4",
