@@ -52,7 +52,7 @@
     "@aeria-ui/utils": "link:../utils",
     "@types/node": "^24.3.1",
     "aeria-sdk": "^0.0.215",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   },
   "peerDependencies": {
     "@aeria-ui/i18n": "^0.0.19",
