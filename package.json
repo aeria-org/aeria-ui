@@ -19,7 +19,7 @@
     "@aeria-ui/ui": "link:packages/ui",
     "@aeria-ui/utils": "link:packages/utils",
     "@aeriajs/builtins": "^0.0.284",
-    "@changesets/cli": "^2.29.6",
+    "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint-aeria/config": "^0.0.8",
