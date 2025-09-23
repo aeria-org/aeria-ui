@@ -1,7 +1,7 @@
 import type { IconStyle } from '@phosphor-icons/core'
-import path from 'path'
+import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { readFile } from 'fs/promises'
+import { readFile } from 'node:fs/promises'
 import { FALLBACK_STYLE } from './constants.js'
 
 export type Options = {
