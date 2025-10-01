@@ -119,7 +119,7 @@ if( !!props.multiple ) {
       :data-selected="isSelected(option)"
     >
       {{
-        property?.translate
+        property?.translate && typeof option === 'string'
           ? t(option)
           : option
       }}

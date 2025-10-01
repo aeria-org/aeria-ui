@@ -103,7 +103,7 @@ const handleClick = (e: Event) => {
         />
         <div
           v-else-if="value"
-          v-html="property?.translate ? t(value) : value"
+          v-html="property?.translate && typeof value === 'string' ? t(value) : value"
         />
         <slot v-else />
       </div>
