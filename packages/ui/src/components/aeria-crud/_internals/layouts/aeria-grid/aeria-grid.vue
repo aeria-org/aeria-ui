@@ -73,7 +73,7 @@ const firstIfArray = (what: unknown) => {
         <aeria-badge>
           {{
             layoutOptions.translateBadge && typeof item[layoutOptions.badge!] === 'string'
-              ? t(item[layoutOptions.badge!])
+              ? t(item[layoutOptions.badge!] as string)
               : item[layoutOptions.badge!]
           }}
         </aeria-badge>
