@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.116
+
+### Patch Changes
+
+- 845b801: Check expired tokens just in time
+
 ## 0.0.115
 
 ### Patch Changes
