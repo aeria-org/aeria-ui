@@ -31,7 +31,7 @@ const signinWall = (next: string) => {
     name: '/user/signin',
     query: {
       next,
-    }
+    },
   }
 }
 
@@ -71,9 +71,10 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
         }
       }
 
-
       if( /^\/dashboard(\/|$)/.test(to.path) ) {
-        console.log({ auth })
+        console.log({
+          auth,
+        })
         if( !auth ) {
           return signinWall(to.fullPath)
         }

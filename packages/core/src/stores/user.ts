@@ -75,7 +75,9 @@ export const user = createStore((context) => {
     }
 
     Object.assign(state.currentUser, freshUser)
-    Object.assign(state.currentUser, auth ? auth.user : freshUser)
+    Object.assign(state.currentUser, auth
+      ? auth.user
+      : freshUser)
 
     if( typeof localStorage !== 'undefined' ) {
       if( auth ) {
