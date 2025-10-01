@@ -1,10 +1,8 @@
 import type { defineOptions } from './options.js'
 import { createApp, ref } from 'vue'
 import { t } from '@aeria-ui/i18n'
-import { isError } from '@aeriajs/common'
 import { routerInstance as createRouter } from './router.js'
 import { templateFunctions } from './templateFunctions.js'
-import { STORAGE_NAMESPACE } from './constants.js'
 import { bootstrapApp, bootstrapRoutes } from './bootstrap.js'
 import { MENU_SCHEMA_SYMBOL, type RouteTitleConfig } from './types.js'
 
@@ -94,43 +92,6 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
     Object.assign(window, {
       ROUTER: router,
     })
-  }
-
-  if( /^\/dashboard(\/|$)/.test(location.pathname) ) {
-    let hasError = false
-
-    try {
-      const result = await metaStore.$actions.describe({
-        roles: true,
-        revalidate: true,
-      })
-
-      if( isError(result) ) {
-        hasError = true
-      }
-    } catch( err ) {
-      hasError = true
-      console.error(err)
-    }
-
-    if( hasError ) {
-      userStore.$actions.signout()
-
-      if( !router.currentRoute.value.path.startsWith('/user/signin') ) {
-        const next = `${location.pathname}${location.search}`
-        if( typeof localStorage !== 'undefined' ) {
-          localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
-        }
-
-        router.push({
-          name: '/user/signin',
-          query: {
-            next,
-          },
-        })
-      }
-    }
-
   }
 
   return {
