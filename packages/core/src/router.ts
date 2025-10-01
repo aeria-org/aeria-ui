@@ -41,6 +41,8 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
     routes,
   })
 
+  let descriptionsFetched = false
+
   router.beforeEach(async (to, from) => {
     const metaStore = meta(context)
     const userStore = user(context)
@@ -72,14 +74,18 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
       }
 
       if( /^\/dashboard(\/|$)/.test(to.path) ) {
-        console.log({
-          auth,
-        })
         if( !auth ) {
           return signinWall(to.fullPath)
         }
 
-        await metaStore.$actions.describe()
+        if( !descriptionsFetched ) {
+          await metaStore.$actions.describe({
+            roles: true,
+            revalidate: true,
+          })
+
+          descriptionsFetched = true
+        }
       }
 
     }
