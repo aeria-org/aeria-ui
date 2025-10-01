@@ -2,6 +2,7 @@ import type { Description, Icon, RolesHierarchy, UserRole } from '@aeriajs/types
 import type { PromptOption } from '../behavior/index.js'
 import type { builtinFunctions } from '@aeriajs/builtins'
 import type { ExtractResult } from '@aeriajs/types/dist/result.js'
+import type { SuccessfulAuthentication } from '../stores/index.js'
 import { Result } from '@aeriajs/types'
 import { deepClone, deserialize } from '@aeriajs/common'
 import { reactive } from 'vue'
@@ -98,7 +99,7 @@ export const meta = createStore((context) => {
         }
 
         if( deserialized.auth ) {
-          user(context).$actions.setCurrentUser(deserialized.auth)
+          user(context).$actions.setCurrentUser(deserialized.auth as unknown as SuccessfulAuthentication)
         }
 
         for ( const [collectionName, description] of Object.entries(globalDescriptions) ) {

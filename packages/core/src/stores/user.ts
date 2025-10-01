@@ -64,7 +64,7 @@ export const user = createStore((context) => {
     }
   }
 
-  function setCurrentUser(auth: SuccessfulAuthentication | {}) {
+  function setCurrentUser(auth: SuccessfulAuthentication | null) {
     for( const key in state.currentUser ) {
       switch( key ) {
         case 'roles':
@@ -74,12 +74,15 @@ export const user = createStore((context) => {
       delete state.currentUser[key as keyof typeof state.currentUser]
     }
 
-    if( 'user' in auth ) {
-      Object.assign(state.currentUser, auth.user)
-    }
+    Object.assign(state.currentUser, freshUser)
+    Object.assign(state.currentUser, auth ? auth.user : freshUser)
 
     if( typeof localStorage !== 'undefined' ) {
-      localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(auth))
+      if( auth ) {
+        localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(auth))
+      } else {
+        localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
+      }
     }
   }
 
@@ -87,7 +90,7 @@ export const user = createStore((context) => {
     if( typeof localStorage !== 'undefined' ) {
       localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
     }
-    setCurrentUser({})
+    setCurrentUser(null)
   }
 
   return createCollectionStore({
@@ -148,7 +151,7 @@ export const user = createStore((context) => {
             password: '',
           }
 
-          setCurrentUser(authResult)
+          setCurrentUser(authResult as unknown as SuccessfulAuthentication)
           await metaStore.$actions.describe({
             roles: true,
           })

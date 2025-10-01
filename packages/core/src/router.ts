@@ -24,15 +24,28 @@ export type Route = RouteMeta & Omit<RouteRecordRaw, 'children'> & {
 export type RouterExtensionNode = Omit<Route, 'name'>[]
 export type RouterExtension = Record<string, RouterExtensionNode>
 
+const signinWall = (next: string) => {
+  localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
+
+  return {
+    name: '/user/signin',
+    query: {
+      next,
+    }
+  }
+}
+
 export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) => {
   const router = createRouter({
     history: createWebHistory(),
     routes,
   })
 
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach(async (to, from) => {
     const metaStore = meta(context)
     const userStore = user(context)
+
+    let auth: SuccessfulAuthentication | undefined
 
     if( typeof localStorage !== 'undefined' ) {
       const authRaw = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
@@ -40,7 +53,8 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
         let hasError = false
 
         try {
-          const auth = JSON.parse(authRaw) as SuccessfulAuthentication
+          auth = JSON.parse(authRaw) as SuccessfulAuthentication
+
           const decoded = jwtDecode(auth.token.content)
           if( Date.now() >= decoded.exp! * 1000 ) {
             hasError = true
@@ -52,18 +66,21 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
         }
 
         if( hasError ) {
-          const nextUri = `${location.pathname}${location.search}`
-          localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, nextUri)
-          localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
           userStore.$actions.signout()
-
-          return next(`/user/signin?next=${nextUri}`)
+          return signinWall(to.fullPath)
         }
       }
-    }
 
-    if( /^\/dashboard(\/|$)/.test(to.path) ) {
-      await metaStore.$actions.describe()
+
+      if( /^\/dashboard(\/|$)/.test(to.path) ) {
+        console.log({ auth })
+        if( !auth ) {
+          return signinWall(to.fullPath)
+        }
+
+        await metaStore.$actions.describe()
+      }
+
     }
 
     metaStore.menu.visible = false
