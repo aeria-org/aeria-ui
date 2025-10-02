@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "@aeriajs/common": "^0.0.162",
-    "@aeriajs/types": "^0.0.137",
+    "@aeriajs/types": "^0.0.138",
     "jwt-decode": "^4.0.0",
     "vue": "^3.5.22",
     "vue-demi": "^0.14.10",
