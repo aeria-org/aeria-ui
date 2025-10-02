@@ -52,7 +52,7 @@
     "@aeria-ui/state-management": "link:../state-management",
     "@aeria-ui/utils": "link:../utils",
     "@types/node": "^24.6.2",
-    "aeria-sdk": "^0.0.216",
+    "aeria-sdk": "^0.0.219",
     "vite": "^7.1.8"
   },
   "peerDependencies": {
