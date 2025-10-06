@@ -124,8 +124,8 @@ importers:
   packages/cli:
     dependencies:
       '@rollup/plugin-node-resolve':
-        specifier: ^16.0.1
-        version: 16.0.1(rollup@4.52.4)
+        specifier: ^16.0.2
+        version: 16.0.2(rollup@4.52.4)
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
         version: 6.0.1(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(less@4.4.1)(yaml@2.8.1))(vue@3.5.22(typescript@5.9.3))
@@ -912,8 +912,8 @@ packages:
   '@rolldown/pluginutils@1.0.0-beta.29':
     resolution: {integrity: sha512-NIJgOsMjbxAXvoGq/X0gD7VPMQ8j9g0BiDaNjVNVjvl+iKXxL3Jre0v31RmBYeLEmkbj2s02v8vFTbUXi5XS2Q==}
 
-  '@rollup/plugin-node-resolve@16.0.1':
-    resolution: {integrity: sha512-tk5YCxJWIG81umIvNkSod2qK5KyQW19qcBF/B78n1bjtOON6gzKoVeSzAE8yHCZEDmqkHKkxplExA8KzdJLJpA==}
+  '@rollup/plugin-node-resolve@16.0.2':
+    resolution: {integrity: sha512-tCtHJ2BlhSoK4cCs25NMXfV7EALKr0jyasmqVCq3y9cBrKdmJhtsy1iTz36Xhk/O+pDJbzawxF4K6ZblqCnITQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.78.0||^3.0.0||^4.0.0
@@ -923,6 +923,15 @@ packages:
 
   '@rollup/pluginutils@5.2.0':
     resolution: {integrity: sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+
+  '@rollup/pluginutils@5.3.0':
+    resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -1147,6 +1156,10 @@ packages:
 
   '@typescript-eslint/types@8.45.0':
     resolution: {integrity: sha512-WugXLuOIq67BMgQInIxxnsSyRLFxdkJEJu8r4ngLR56q/4Q5LrbfkFRH27vMTjxEK8Pyz7QfzuZe/G15qQnVRA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/types@8.46.0':
+    resolution: {integrity: sha512-bHGGJyVjSE4dJJIO5yyEWt/cHyNwga/zXGJbJJ8TiO01aVREK6gCTu3L+5wrkb1FbDkQ+TKjMNe9R/QQQP9+rA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/typescript-estree@8.45.0':
@@ -2446,12 +2459,12 @@ packages:
   mongodb-connection-string-url@3.0.2:
     resolution: {integrity: sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA==}
 
-  mongodb-memory-server-core@10.2.1:
-    resolution: {integrity: sha512-vXMZkwV2wj0a8GtewgXJdX5Kh6BfPDJDLxhg5IKuFB4IOW7Qr2+oviODkf2FM3nEpj/E6krXq2SvDrJmnWOigQ==}
+  mongodb-memory-server-core@10.2.2:
+    resolution: {integrity: sha512-11p0KRQ099RIuchQTF/TzpH7hQW4L2yrEhxS2WfmWqwHPVIOvhtFle8+pntvhppPZBiFr3uVvsowfY/pgDQNsA==}
     engines: {node: '>=16.20.1'}
 
-  mongodb-memory-server@10.2.1:
-    resolution: {integrity: sha512-wvPofpRZHB4dGwHFplhKYYTwujrcAA0WbIXFNld5hNM6Y+yZWPP5uS8Tw54rOGx9gfr8qwGbDVy9vdNcMG+o+w==}
+  mongodb-memory-server@10.2.2:
+    resolution: {integrity: sha512-UFs96KIgvzjG2hZMbdSciZfh1Th4LTxtRygvAKGW9Xw/T6lVx2D1KCe1yGVhm6TyxYy1aryqFF87oURj6StlxQ==}
     engines: {node: '>=16.20.1'}
 
   mongodb@6.20.0:
@@ -3398,7 +3411,7 @@ snapshots:
       jsonwebtoken: 9.0.2
       mongodb: 6.20.0
     optionalDependencies:
-      mongodb-memory-server: 10.2.1
+      mongodb-memory-server: 10.2.2
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
@@ -4057,9 +4070,9 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.0-beta.29': {}
 
-  '@rollup/plugin-node-resolve@16.0.1(rollup@4.52.4)':
+  '@rollup/plugin-node-resolve@16.0.2(rollup@4.52.4)':
     dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@4.52.4)
+      '@rollup/pluginutils': 5.3.0(rollup@4.52.4)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-module: 1.0.0
@@ -4068,6 +4081,14 @@ snapshots:
       rollup: 4.52.4
 
   '@rollup/pluginutils@5.2.0(rollup@4.52.4)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.3
+    optionalDependencies:
+      rollup: 4.52.4
+
+  '@rollup/pluginutils@5.3.0(rollup@4.52.4)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
@@ -4178,7 +4199,7 @@ snapshots:
   '@stylistic/eslint-plugin@5.4.0(eslint@9.36.0(jiti@2.6.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.36.0(jiti@2.6.1))
-      '@typescript-eslint/types': 8.45.0
+      '@typescript-eslint/types': 8.46.0
       eslint: 9.36.0(jiti@2.6.1)
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
@@ -4251,7 +4272,7 @@ snapshots:
   '@typescript-eslint/project-service@8.45.0(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.45.0(typescript@5.9.3)
-      '@typescript-eslint/types': 8.45.0
+      '@typescript-eslint/types': 8.46.0
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -4279,6 +4300,8 @@ snapshots:
       - supports-color
 
   '@typescript-eslint/types@8.45.0': {}
+
+  '@typescript-eslint/types@8.46.0': {}
 
   '@typescript-eslint/typescript-estree@8.45.0(typescript@5.9.3)':
     dependencies:
@@ -5679,7 +5702,7 @@ snapshots:
       '@types/whatwg-url': 11.0.5
       whatwg-url: 14.2.0
 
-  mongodb-memory-server-core@10.2.1:
+  mongodb-memory-server-core@10.2.2:
     dependencies:
       async-mutex: 0.5.0
       camelcase: 6.3.0
@@ -5705,9 +5728,9 @@ snapshots:
       - supports-color
     optional: true
 
-  mongodb-memory-server@10.2.1:
+  mongodb-memory-server@10.2.2:
     dependencies:
-      mongodb-memory-server-core: 10.2.1
+      mongodb-memory-server-core: 10.2.2
       tslib: 2.8.1
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
