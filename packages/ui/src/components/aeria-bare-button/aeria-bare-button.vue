@@ -38,7 +38,6 @@ const handleClick = (event: Event) => {
   >
     <slot />
   </button>
-
 </template>
 
 <style scoped src="./aeria-bare-button.less"></style>
