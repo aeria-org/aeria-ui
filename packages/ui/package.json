@@ -50,7 +50,7 @@
     "jsdom": "^27.0.0",
     "vite": "^7.1.10",
     "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-static-copy": "^3.1.2"
+    "vite-plugin-static-copy": "^3.1.4"
   },
   "peerDependencies": {
     "@aeria-ui/core": "^0.0.116",
