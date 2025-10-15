@@ -1,5 +1,11 @@
 # aeria-app-layout
 
+## 0.0.72
+
+### Patch Changes
+
+- aeria-ui@0.0.200
+
 ## 0.0.71
 
 ### Patch Changes
