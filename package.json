@@ -25,7 +25,7 @@
     "@eslint-aeria/config": "^0.0.8",
     "@eslint-aeria/config-ui": "^0.0.5",
     "aeria-ui": "link:packages/aeria-ui",
-    "eslint": "^9.37.0",
+    "eslint": "^9.38.0",
     "husky": "^9.0.11",
     "postcss-less": "^6.0.0",
     "stylelint": "^16.25.0",
