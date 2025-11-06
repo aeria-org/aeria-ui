@@ -46,7 +46,7 @@
     "@types/node": "^24.10.0",
     "aeria-icons": "link:../aeria-icons",
     "bson": "^6.10.4",
-    "vue": "^3.5.22"
+    "vue": "^3.5.23"
   },
   "peerDependencies": {
     "@aeriajs/builtins-icons": "^0.0.10",
@@ -54,6 +54,6 @@
     "@aeriajs/types": "^0.0.136",
     "aeria-icons": "^0.0.12",
     "bson": "^6.10.4",
-    "vue": "^3.5.22"
+    "vue": "^3.5.23"
   }
 }
