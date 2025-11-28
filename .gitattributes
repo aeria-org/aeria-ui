@@ -7,7 +7,6 @@
 # ignore bin/index.js
 *.js linguist-vendored
 
-# ignore js/sh scripts
-scripts/*.ts linguist-vendored
+# ignore sh scripts
 scripts/*.sh linguist-vendored
 
