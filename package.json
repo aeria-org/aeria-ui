@@ -28,7 +28,7 @@
     "eslint": "^9.39.1",
     "husky": "^9.0.11",
     "postcss-less": "^6.0.0",
-    "stylelint": "^16.26.0",
+    "stylelint": "^16.26.1",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-less": "^3.0.1",
     "typescript": "^5.8.3",
