@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.21
+
+### Patch Changes
+
+- 4fcde7d: Remove unused plugin
+
 ## 0.0.20
 
 ### Patch Changes
