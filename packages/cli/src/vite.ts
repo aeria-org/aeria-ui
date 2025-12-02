@@ -8,7 +8,6 @@ import aeriaIcons from 'aeria-icons'
 import { icons } from 'aeria-icons/common'
 import { getInstanceConfig } from './instance.js'
 import transformIndexHtml from './plugins/transform-index-html.js'
-import loadYaml from './plugins/load-yaml.js'
 
 export default defineConfig(async () => {
   const instanceConfig = await getInstanceConfig()
@@ -102,7 +101,6 @@ export default defineConfig(async () => {
       }),
       vue(),
       transformIndexHtml(instanceConfig),
-      loadYaml(),
     ],
     optimizeDeps: {
       include: ['bson'],
