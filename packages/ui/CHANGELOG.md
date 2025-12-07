@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.195
+
+### Patch Changes
+
+- 5c23485: Fix `aeria-bare-button` `dummy` prop
+
 ## 0.0.194
 
 ### Patch Changes
