@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.117
+
+### Patch Changes
+
+- 608e204: Add `descriptionsLoaded` state to `metaStore`
+
 ## 0.0.116
 
 ### Patch Changes
