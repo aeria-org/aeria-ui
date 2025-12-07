@@ -31,6 +31,7 @@ export type Toast = {
 
 export const meta = createStore((context) => {
   const freshState = {
+    descriptionsLoaded: false,
     descriptions: {} as Record<string, Description>,
     roles: [] as UserRole[],
     rolesHierarchy: {} as RolesHierarchy | undefined,
@@ -134,6 +135,7 @@ export const meta = createStore((context) => {
         }
 
         state.isLoading = false
+        state.descriptionsLoaded = true
         return Result.result(deserialized)
       },
 
