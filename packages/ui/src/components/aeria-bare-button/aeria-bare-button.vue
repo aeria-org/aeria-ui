@@ -24,7 +24,6 @@ const handleClick = (event: Event) => {
       'barebutton',
       `barebutton--${disabled ? 'disabled' : 'enabled'}`,
     ]"
-    @click.prevent="handleClick"
   >
     <slot />
   </button>
