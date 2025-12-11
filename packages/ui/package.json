@@ -60,6 +60,6 @@
     "@aeriajs/common": "^0.0.163"
   },
   "dependencies": {
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.4"
   }
 }
