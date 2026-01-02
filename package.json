@@ -33,6 +33,6 @@
     "stylelint-less": "^4.0.0",
     "typescript": "^5.8.3",
     "vitest": "^4.0.16",
-    "vue-tsc": "^3.1.8"
+    "vue-tsc": "^3.2.1"
   }
 }
