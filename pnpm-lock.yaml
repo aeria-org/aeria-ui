@@ -130,8 +130,8 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3(vite@7.3.1(@types/node@25.0.8)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2))(vue@3.5.24(typescript@5.9.3))
       ejs:
-        specifier: ^3.1.9
-        version: 3.1.10
+        specifier: ^4.0.1
+        version: 4.0.1
       js-yaml:
         specifier: ^4.1.1
         version: 4.1.1
@@ -1788,9 +1788,9 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  ejs@3.1.10:
-    resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
-    engines: {node: '>=0.10.0'}
+  ejs@4.0.1:
+    resolution: {integrity: sha512-krvQtxc0btwSm/nvnt1UpnaFDFVJpJ0fdckmALpCgShsr/iGYHTnJiUliZTgmzq/UxTX33TtOQVKaNigMQp/6Q==}
+    engines: {node: '>=0.12.18'}
     hasBin: true
 
   emoji-regex@8.0.0:
@@ -2247,8 +2247,8 @@ packages:
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
 
-  jake@10.9.2:
-    resolution: {integrity: sha512-2P4SQ0HrLQ+fw6llpLnOaGAvN2Zu6778SJMrCUwns4fOoG9ayrTiZk3VV8sCPkVZF8ab0zksVpS8FDY5pRCNBA==}
+  jake@10.9.4:
+    resolution: {integrity: sha512-wpHYzhxiVQL+IV05BLE2Xn34zW1S223hvjtqk0+gsPrwd/8JNLXJgZZM/iPFsYc1xyphF+6M6EvdE5E9MBGkDA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -5048,9 +5048,9 @@ snapshots:
       minimatch: 9.0.1
       semver: 7.7.3
 
-  ejs@3.1.10:
+  ejs@4.0.1:
     dependencies:
-      jake: 10.9.2
+      jake: 10.9.4
 
   emoji-regex@8.0.0: {}
 
@@ -5519,12 +5519,11 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  jake@10.9.2:
+  jake@10.9.4:
     dependencies:
       async: 3.2.6
-      chalk: 4.1.2
       filelist: 1.0.4
-      minimatch: 3.1.2
+      picocolors: 1.1.1
 
   jiti@2.6.1: {}
 

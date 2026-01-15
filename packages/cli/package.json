@@ -30,7 +30,7 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@vitejs/plugin-vue": "^6.0.3",
-    "ejs": "^3.1.9",
+    "ejs": "^4.0.1",
     "js-yaml": "^4.1.1",
     "less": "^4.5.1",
     "unplugin-auto-import": "^20.3.0",
