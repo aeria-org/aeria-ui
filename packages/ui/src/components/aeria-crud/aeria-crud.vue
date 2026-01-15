@@ -376,7 +376,7 @@ provide(STORE_ID, computed(() => props.collection))
   <div
     v-if="!noActions && (
       store.description.search
-      || Object.keys(store.availableFilters).length > 0
+      || Object.keys(store.description.filters || {}).length > 0
       || (store?.actions.length > 0 || $slots.actions)
       || (
         !noLayoutToggle
@@ -422,7 +422,7 @@ provide(STORE_ID, computed(() => props.collection))
         </aeria-button>
 
         <template
-          v-if="Object.keys(store.availableFilters).length > 0"
+          v-if="Object.keys(store.description.filters || {}).length > 0"
           #filter
         >
           <aeria-icon
@@ -476,7 +476,7 @@ provide(STORE_ID, computed(() => props.collection))
       </aeria-context-menu>
 
       <aeria-button
-        v-else-if="Object.keys(store.availableFilters).length > 0"
+        v-else-if="Object.keys(store.description.filters || {}).length > 0"
         variant="alt"
         icon="funnel"
         @click="isFilterVisible = true"

@@ -5,7 +5,7 @@ import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
 import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { useStoreActions } from './actions.js'
-import { isEmpty, normalizeFilters, normalizeActions, type NormalizedActions } from './helpers.js'
+import { isEmpty, normalizeActions, type NormalizedActions } from './helpers.js'
 
 export type CollectionStoreItem = Record<string, unknown> & {
   _id: any
@@ -54,7 +54,6 @@ export type CollectionGetters<TItem extends CollectionStoreItem> = {
   $filters: Record<string, unknown>
   $freshItem: TItem
   actions: NormalizedActions
-  availableFilters: Record<string, Property>
   condensedItem: unknown
   description: Description
   diffedItem: Partial<TItem>
@@ -280,20 +279,6 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       }),
       filtersCount: computed(() => Object.values($filters.value).filter((_) => !!_).length),
       hasActiveFilters: computed(() => Object.values(state.filters).some((_) => !!_)),
-      availableFilters: computed(() => {
-        if (!description.value.filters) {
-          return {}
-        }
-
-        const filters: Record<string, Property> = {}
-        for( const key in normalizeFilters(description.value.filters) ) {
-          if( key in properties.value ) {
-            filters[key] = properties.value[key]
-          }
-        }
-
-        return filters
-      }),
       references: computed(() => {
         return Object.entries(description.value.properties).filter(([, property]) => {
           return isReference(property) && property.inline

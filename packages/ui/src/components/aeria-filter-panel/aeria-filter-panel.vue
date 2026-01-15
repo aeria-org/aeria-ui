@@ -53,12 +53,16 @@ const filter = () => {
     <aeria-form
       v-model="store.filters"
       v-bind="{
-        searchOnly: true,
-        form: store.availableFilters,
+        form: store.$actions.useProperties(
+          Array.isArray(store.description.filters)
+            ? store.description.filters
+            : Object.keys(store.description.filters!)
+        ),
         layout: store.description.formLayout as never,
       }"
 
       focus
+      search-only
     />
     <template #footer>
       <aeria-button

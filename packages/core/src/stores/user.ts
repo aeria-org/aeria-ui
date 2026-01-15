@@ -101,7 +101,7 @@ export const user = createStore((context) => {
     getters: (state) => ({
       properties: () => {
         const metaStore = meta(context)
-        const properties = state.description.properties
+        const properties = deepClone(state.description.properties)
 
         if( metaStore.rolesHierarchy ) {
           properties.roles.items.enum = metaStore.roles.filter((role) => {

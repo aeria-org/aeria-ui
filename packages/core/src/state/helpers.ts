@@ -36,27 +36,6 @@ export const normalizeActions = (actions: CollectionActions = {}) => {
   return normalizedActions
 }
 
-export const normalizeFilters = (filters: Description['filters']) => {
-  if( !filters ) {
-    return {}
-  }
-
-  const normalizedFilters: Record<string, unknown> = {}
-  for( const filter of filters ) {
-    switch( typeof filter ) {
-      case 'object': {
-        normalizedFilters[filter.property] = filter.default
-        break
-      }
-      default: {
-        normalizedFilters[filter] = ''
-      }
-    }
-  }
-
-  return normalizedFilters
-}
-
 export const freshItem = (description: Description) => _freshItem(description)
 
 export const freshFilters = (description: Description) => {
