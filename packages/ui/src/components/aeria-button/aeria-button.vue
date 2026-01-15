@@ -21,6 +21,7 @@ type Props = {
   small?: boolean
   large?: boolean
   icon?: Icon
+  dummy?: boolean
   disabled?: boolean
   loading?: boolean
 }
@@ -47,6 +48,7 @@ const size = (() => {
       `button--${size}`,
       { 'button--loading': loading },
     ]"
+    :dummy
     :disabled="disabled || loading"
   >
     <aeria-icon
