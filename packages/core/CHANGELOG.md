@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.118
+
+### Patch Changes
+
+- 804b802: Fix `availableFilters` getter conflict
+
 ## 0.0.117
 
 ### Patch Changes
