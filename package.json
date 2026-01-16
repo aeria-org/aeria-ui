@@ -22,7 +22,7 @@
     "@changesets/cli": "^2.29.8",
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
-    "@eslint-aeria/config": "^0.0.8",
+    "@eslint-aeria/config": "^0.0.9",
     "@eslint-aeria/config-ui": "^0.0.5",
     "aeria-ui": "link:packages/aeria-ui",
     "eslint": "^9.39.2",
