@@ -39,8 +39,8 @@ importers:
         specifier: ^20.3.1
         version: 20.3.1
       '@eslint-aeria/config':
-        specifier: ^0.0.8
-        version: 0.0.8(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))
+        specifier: ^0.0.9
+        version: 0.0.9(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))
       '@eslint-aeria/config-ui':
         specifier: ^0.0.5
         version: 0.0.5(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@eslint/eslintrc@3.3.3)(eslint-config-aeria@0.0.31(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)))(eslint-plugin-vue@10.5.0(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.6.1))))
@@ -775,8 +775,8 @@ packages:
       eslint-config-aeria: '0.0'
       eslint-plugin-vue: ^9.22.0
 
-  '@eslint-aeria/config@0.0.8':
-    resolution: {integrity: sha512-USBw8hK9mf3AqzIrGq2ZW5k9hlIxsaMhWVn6A/dKWiIxdn+NjOLzgr6jOPBebnyBSB8qtB5AfNdjcFBT3p9/qA==}
+  '@eslint-aeria/config@0.0.9':
+    resolution: {integrity: sha512-3ZAupHkw8MP6OIwym3bcIsoNJ7onFrjG5QcWXOKLq/nuKwvWB+7LiNyV48AH3b1Y1Z5IZDk+7DBlitfP5hSm2A==}
     peerDependencies:
       '@stylistic/eslint-plugin': ^2.1.0
       '@typescript-eslint/eslint-plugin': ^7.12.0
@@ -3933,7 +3933,7 @@ snapshots:
       eslint-config-aeria: 0.0.31(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))
       eslint-plugin-vue: 10.5.0(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.6.1)))
 
-  '@eslint-aeria/config@0.0.8(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))':
+  '@eslint-aeria/config@0.0.9(@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))':
     dependencies:
       '@stylistic/eslint-plugin': 5.4.0(eslint@9.39.2(jiti@2.6.1))
       '@typescript-eslint/eslint-plugin': 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
