@@ -24,14 +24,14 @@
   "devDependencies": {
     "@aeria-ui/core": "link:../core",
     "@aeria-ui/state-management": "link:../state-management",
-    "@aeriajs/common": "^0.0.163",
+    "@aeriajs/common": "^0.0.164",
     "vue": "^3.5.24",
     "vue-router": "^4.6.4"
   },
   "peerDependencies": {
     "@aeria-ui/core": "^0.0.118",
     "@aeria-ui/state-management": "^0.0.21",
-    "@aeriajs/common": "^0.0.163",
+    "@aeriajs/common": "^0.0.164",
     "vue": "^3.5.24",
     "vue-router": "^4.6.4"
   }
