@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.196
+
+### Patch Changes
+
+- 804b802: Fix `availableFilters` getter conflict
+- f118a1d: Fix `aeria-button` `dummy` prop
+- Updated dependencies [804b802]
+  - @aeria-ui/core@0.0.118
+
 ## 0.0.195
 
 ### Patch Changes
