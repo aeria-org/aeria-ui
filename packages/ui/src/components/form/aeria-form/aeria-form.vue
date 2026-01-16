@@ -3,8 +3,9 @@ import type { Property, BooleanProperty, Description, RequiredProperties } from 
 import type { FormFieldProps } from '../types.js'
 import { onBeforeMount, ref, computed, provide, inject, unref, type Ref } from 'vue'
 import { evaluateCondition, deepClone, isRequired, getReferenceProperty } from '@aeriajs/common'
+import { validate } from '@aeriajs/validation'
 import { useBreakpoints } from '@aeria-ui/core'
-import { getObjectKey, isDocumentComplete } from '@aeria-ui/utils'
+import { getObjectKey } from '@aeria-ui/utils'
 import { useStore, getStoreId, STORE_ID, getGlobalStateManager } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
@@ -291,16 +292,25 @@ const required = computed(() => {
 })
 
 const isInsertReady = computed(() => {
-  if( !props.form ) {
+  let preferredProperties: Record<string, Property>
+  if( props.form ) {
+    preferredProperties = props.form
+  } else if( props.property && 'properties' in props.property ) {
+    preferredProperties = props.property.properties
+  } else {
     return true
   }
 
-  return isDocumentComplete(
-    props.modelValue,
-    props.form,
-    required.value,
-    store?.description,
-  )
+  const { error } = validate(props.modelValue, {
+    type: 'object',
+    required: required.value,
+    properties: preferredProperties,
+  }, {
+    coerce: true,
+    tolerateExtraneous: true,
+  })
+
+  return !error
 })
 
 const getNestedValidationError = (key: string, listIndex?: number) => {

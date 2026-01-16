@@ -2,7 +2,8 @@ import type { Description, Layout, PropertyValidationError, Property, LayoutName
 import { computed, reactive, type ComputedRef } from 'vue'
 import { useStore, useParentStore, type UnwrapGetters, type StoreContext, type GlobalStateManager, type StorePrototype } from '@aeria-ui/state-management'
 import { deepMerge, isReference, getReferenceProperty } from '@aeriajs/common'
-import { isDocumentComplete, deepDiff, condenseItem } from '@aeria-ui/utils'
+import { validate } from '@aeriajs/validation'
+import { deepDiff, condenseItem } from '@aeria-ui/utils'
 import { PAGINATION_PER_PAGE_DEFAULT } from '../constants.js'
 import { useStoreActions } from './actions.js'
 import { isEmpty, normalizeActions, type NormalizedActions } from './helpers.js'
@@ -266,16 +267,17 @@ const internalCreateCollectionStore = <TItem extends CollectionStoreItem>() => {
       itemsCount: computed(() => state.items.length),
       diffedItem,
       isInsertReady: computed(() => {
-        const isComplete = isDocumentComplete(
-          state.item,
-          properties.value,
-          description.value.required,
-          description.value,
-        )
+        const { error } = validate(state.item, {
+          ...description.value,
+          properties: properties.value,
+        }, {
+          coerce: true,
+          tolerateExtraneous: true,
+        })
 
         return state.item._id
-          ? isComplete && Object.keys(diffedItem.value).length > 0
-          : isComplete
+          ? !error && Object.keys(diffedItem.value).length > 0
+          : !error
       }),
       filtersCount: computed(() => Object.values($filters.value).filter((_) => !!_).length),
       hasActiveFilters: computed(() => Object.values(state.filters).some((_) => !!_)),
