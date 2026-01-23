@@ -289,8 +289,8 @@ importers:
         specifier: ^4.5.4
         version: 4.5.4(@types/node@25.0.10)(rollup@4.56.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2))
       vite-plugin-static-copy:
-        specifier: ^3.1.5
-        version: 3.1.5(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2))
+        specifier: ^3.1.6
+        version: 3.1.6(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2))
 
   packages/utils:
     devDependencies:
@@ -3300,8 +3300,8 @@ packages:
       vite:
         optional: true
 
-  vite-plugin-static-copy@3.1.5:
-    resolution: {integrity: sha512-9pbZn9Vb+uUNg/Tr/f2MXmGvfSfLeWjscS4zTA3v+sWqKN+AjJ/ipTFwaqdopJkNkxG5DfgYrZXD80ljbNDxbg==}
+  vite-plugin-static-copy@3.1.6:
+    resolution: {integrity: sha512-dO8Qc71yVCmcrsKrJRgSWmWj9khI7X8fLy8X35/ZFR+Nik8CQ1uUgK7iD2KQc2AQdG51sNegSj8Tb4mDKeNYZA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
@@ -6741,7 +6741,7 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-plugin-static-copy@3.1.5(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2)):
+  vite-plugin-static-copy@3.1.6(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(yaml@2.8.2)):
     dependencies:
       chokidar: 3.6.0
       p-map: 7.0.4
