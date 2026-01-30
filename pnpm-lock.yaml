@@ -194,8 +194,8 @@ importers:
         specifier: ^0.14.10
         version: 0.14.10(vue@3.5.24(typescript@5.9.3))
       vue-router:
-        specifier: ^5.0.0
-        version: 5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
+        specifier: ^5.0.1
+        version: 5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
     devDependencies:
       '@aeria-ui/i18n':
         specifier: link:../i18n
@@ -243,14 +243,14 @@ importers:
         specifier: ^3.5.24
         version: 3.5.24(typescript@5.9.3)
       vue-router:
-        specifier: ^5.0.0
-        version: 5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
+        specifier: ^5.0.1
+        version: 5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
 
   packages/ui:
     dependencies:
       vue-router:
-        specifier: ^5.0.0
-        version: 5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
+        specifier: ^5.0.1
+        version: 5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3))
     devDependencies:
       '@aeria-ui/cli':
         specifier: link:../cli
@@ -3489,8 +3489,8 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  vue-router@5.0.0:
-    resolution: {integrity: sha512-xWHlps4o1ScODWqvyapl0v1uGy0g7ozmsTSO/dguyGb/9RL6oSU2HfN/8oMXnoFOH1BuTaAkbiOz4OWdkfjcZg==}
+  vue-router@5.0.1:
+    resolution: {integrity: sha512-t+lFugGXMdaq8lbn+vXG4j2H9UlsP205Tszz1wcDk9FyxqItBzcdJQ06IhpkQ2mHOfiTOHZeBshkskzPzHJkCw==}
     peerDependencies:
       '@pinia/colada': ^0.18.1
       '@vue/compiler-sfc': ^3.5.17
@@ -7026,7 +7026,7 @@ snapshots:
       vue: 3.5.24(typescript@5.9.3)
     optional: true
 
-  vue-router@5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3)):
+  vue-router@5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.24(typescript@5.9.3)):
     dependencies:
       '@babel/generator': 7.28.6
       '@vue-macros/common': 3.1.2(vue@3.5.24(typescript@5.9.3))
