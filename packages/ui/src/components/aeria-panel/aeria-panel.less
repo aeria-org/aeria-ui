@@ -61,6 +61,10 @@
       .panel__header-title {
         padding: 0;
       }
+
+      .panel__body {
+        overscroll-behavior: contain;
+      }
     } 
 
     &--float {
@@ -142,7 +146,6 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    overscroll-behavior: contain;
     row-gap: 1.8rem;
 
     &--padded {
