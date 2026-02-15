@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.198
+
+### Patch Changes
+
+- 8cedd4f: Add `@aeriajs/validation` dependency
+
 ## 0.0.197
 
 ### Patch Changes
