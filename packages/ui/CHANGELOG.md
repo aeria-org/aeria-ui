@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.197
+
+### Patch Changes
+
+- 224bf63: Fix overscroll behavor for `aeria-panel`
+
 ## 0.0.196
 
 ### Patch Changes
