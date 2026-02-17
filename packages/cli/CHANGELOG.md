@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.22
+
+### Patch Changes
+
+- ca965e4: Add dedupe to `vue-router`
+
 ## 0.0.21
 
 ### Patch Changes
