@@ -1,5 +1,12 @@
 # @aeria-ui/core
 
+## 0.0.119
+
+### Patch Changes
+
+- 29562ca: Fix runtime error
+- ebc9f27: Bump dependencies
+
 ## 0.0.118
 
 ### Patch Changes
