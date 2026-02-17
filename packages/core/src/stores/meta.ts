@@ -81,10 +81,10 @@ export const meta = createStore((context) => {
           }
 
           deserialized = deserialize<ExtractResult<Awaited<ReturnType<typeof builtinFunctions.describe>>>>(response)
-          localStorage.setItem(`${STORAGE_NAMESPACE}:describe`, JSON.stringify(deserialized))
+          localStorage.xsetItem(`${STORAGE_NAMESPACE}:describe`, JSON.stringify(deserialized))
 
         } catch( err ) {
-          const fallback = localStorage.getItm(`${STORAGE_NAMESPACE}:describe`)
+          const fallback = localStorage.getItem(`${STORAGE_NAMESPACE}:describe`)
           if( !fallback ) {
             throw err
           }
