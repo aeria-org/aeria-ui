@@ -25,6 +25,9 @@ export default defineConfig(async () => {
       alias: {
         'bson': fileURLToPath(new URL('bson.cjs', import.meta.resolve('bson'))),
       },
+      dedupe: [
+        'vue-router',
+      ],
     },
     envPrefix: [
       'VITE_',
