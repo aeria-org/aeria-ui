@@ -12,8 +12,6 @@ function replace_with_symlink() {
   origin="$1"
   target="$ROOT/$2"
 
-  echo "$origin"
-
   if [ -d "$origin" ]; then
     mv "$origin" "${origin}_bkp"
     ln -s "$target" "$origin"
@@ -25,8 +23,6 @@ function replace_with_symlink() {
 function revert_symlink() {
   origin="$1_bkp"
   target="$1"
-
-  echo "$origin"
 
   if [ -d "$origin" ]; then
     rm -rf "$target"
