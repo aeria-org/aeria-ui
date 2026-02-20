@@ -62,6 +62,6 @@
     "@aeriajs/validation": "^0.0.188"
   },
   "dependencies": {
-    "vue-router": "^5.0.2"
+    "vue-router": "^5.0.3"
   }
 }
