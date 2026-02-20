@@ -23,7 +23,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/ui.js"
+      "import": "./src/index.ts"
     },
     "./ui.css": "./dist/ui.css",
     "./themes/*": "./themes/*",

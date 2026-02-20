@@ -10,7 +10,7 @@ const options = defineOptions({
   component: Main,
   setup: ({ context }) => {
     registerStores(stores, context)
-  }
+  },
 })
 
 useApp(options).then(({ mount }) => {

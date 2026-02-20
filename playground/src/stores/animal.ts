@@ -15,7 +15,7 @@ export const animal = createStore(() => {
     $id: 'animal',
     state,
     getters: {
-      computedName: () => `sr ${state.deep.dog.name}`
+      computedName: () => `sr ${state.deep.dog.name}`,
     },
     actions: {
       inc: () => {
@@ -26,7 +26,7 @@ export const animal = createStore(() => {
           ? 'thor bobby'
           : 'thor'
       },
-    }
+    },
   }
 
   return store

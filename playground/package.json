@@ -6,9 +6,13 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo skipping",
+    "dev": "node ../packages/cli/dist/cli.js -m serve",
+    "lint": "eslint src && pnpm lint-css",
+    "lint:fix": "eslint src --fix && pnpm lint-css:fix",
+    "lint-css": "stylelint '**/*.less'",
+    "lint-css:fix": "stylelint --fix '**/*.less'",
     "patch-aeriasdk": "echo 'export {}' > ../node_modules/aeria-sdk/dist/runtime.mjs",
     "postinstall": "node ../packages/core/src/__scripts__/postinstall.ts; pnpm patch-aeriasdk",
-    "dev": "node ../packages/cli/dist/cli.js -m serve",
     "build": "node ../packages/cli/dist/cli.js -m build"
   },
   "keywords": [],
