@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.120
+
+### Patch Changes
+
+- c9e0971: Fix type blind spot
+
 ## 0.0.119
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.83
+
+### Patch Changes
+
+- b8591ff: Fix padding
+  - aeria-ui@0.0.211
+  - @aeria-ui/theme@0.0.102
+
 ## 0.0.82
 
 ### Patch Changes
