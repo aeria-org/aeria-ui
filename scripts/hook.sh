@@ -58,6 +58,19 @@ for d in $(find \( -type d -or -type l \) -name vue-router); do
 
 done
 
+for d in $(find \( -type d -or -type l \) -name aeria-app-layout); do
+  if is_nested "$d"; then
+    continue
+  fi
+
+  if [ -n "$UNDO" ]; then
+    revert_symlink "$d"
+  else
+    replace_with_symlink "$d" "layouts/aeria-app-layout"
+  fi
+
+done
+
 for d in $(find \( -type d -or -type l \) -name @aeria-ui); do
   if is_nested "$d"; then
     continue
