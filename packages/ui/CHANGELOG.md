@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.200
+
+### Patch Changes
+
+- 5e7f720: Fix `aeria-button` centering
+
 ## 0.0.199
 
 ### Patch Changes
