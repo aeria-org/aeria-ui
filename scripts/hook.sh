@@ -45,7 +45,7 @@ while getopts "hu" arg; do
   esac
 done
 
-for d in $(find -type d -name vue-router); do
+for d in $(find \( -type d -or -type l \) -name vue-router); do
   if is_nested "$d"; then
     continue
   fi
@@ -58,13 +58,14 @@ for d in $(find -type d -name vue-router); do
 
 done
 
-for d in $(find -type d -name @aeria-ui); do
+for d in $(find \( -type d -or -type l \) -name @aeria-ui); do
   if is_nested "$d"; then
     continue
   fi
 
   if [ -n "$UNDO" ]; then
-    revert_symlink "$d"
+    revert_symlink "$d/core"
+    revert_symlink "$d/ui"
   else
     replace_with_symlink "$d/core" "packages/core"
     replace_with_symlink "$d/ui" "packages/ui"
