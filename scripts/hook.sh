@@ -3,35 +3,6 @@
 UNDO=
 ROOT="$(echo -n "$0" | sed -r 's/\/scripts\/([^$]+)//')"
 
-function is_nested() {
-  occurr="$(echo -n "$1" | tr '/' '\n' | grep -c 'node_modules')"
-  [ $occurr -gt 1 ]
-}
-
-function replace_with_symlink() {
-  origin="$1"
-  target="$ROOT/$2"
-
-  if [ -d "$origin" ]; then
-    mv "$origin" "${origin}_bkp"
-    ln -s "$target" "$origin"
-
-    echo "$origin -> $target"
-  fi
-}
-
-function revert_symlink() {
-  origin="$1_bkp"
-  target="$1"
-
-  if [ -d "$origin" ]; then
-    rm -rf "$target"
-    mv "$origin" "$target"
-
-    echo "$origin -> $target"
-  fi
-}
-
 while getopts "hu" arg; do
   case "$arg" in
     h)
@@ -45,45 +16,46 @@ while getopts "hu" arg; do
   esac
 done
 
-for d in $(find \( -type d -or -type l \) -name vue-router); do
-  if is_nested "$d"; then
-    continue
+function is_nested() {
+  occurr="$(echo -n "$1" | tr '/' '\n' | grep -c 'node_modules')"
+  [ $occurr -gt 1 ]
+}
+
+function replace_dirs() {
+  if ! [ -d "$1" ] || is_nested "$1"; then
+    return 0
   fi
 
   if [ -n "$UNDO" ]; then
-    revert_symlink "$d"
+    origin="$1_bkp"
+    target="$1"
+
+    rm -rf "$target"
+    mv "$origin" "$target"
+
   else
-    replace_with_symlink "$d" "node_modules/vue-router"
+    origin="$1"
+    target="$ROOT/$2"
+
+    if [ -d "$origin" ]; then
+      mv "$origin" "${origin}_bkp"
+      ln -s "$target" "$origin"
+    fi
   fi
 
+  echo "$origin -> $target"
+}
+
+for d in $(find \( -type d -or -type l \) -name vue-router); do
+  replace_dirs "$d" "node_modules/vue-router"
 done
 
 for d in $(find \( -type d -or -type l \) -name aeria-app-layout); do
-  if is_nested "$d"; then
-    continue
-  fi
-
-  if [ -n "$UNDO" ]; then
-    revert_symlink "$d"
-  else
-    replace_with_symlink "$d" "layouts/aeria-app-layout"
-  fi
-
+  replace_dirs "$d" "layouts/aeria-app-layout"
 done
 
 for d in $(find \( -type d -or -type l \) -name @aeria-ui); do
-  if is_nested "$d"; then
-    continue
-  fi
-
-  if [ -n "$UNDO" ]; then
-    revert_symlink "$d/core"
-    revert_symlink "$d/ui"
-  else
-    replace_with_symlink "$d/core" "packages/core"
-    replace_with_symlink "$d/ui" "packages/ui"
-  fi
-
-
+  replace_dirs "$d/core" "packages/core"
+  replace_dirs "$d/ui" "packages/ui"
 done
 
