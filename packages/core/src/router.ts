@@ -30,7 +30,9 @@ const signinWall = (next: string) => {
   return {
     name: '/user/signin',
     query: {
-      next,
+      next: next === '/user/signin'
+        ? undefined
+        : next,
     },
   }
 }
