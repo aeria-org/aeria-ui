@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.84
+
+### Patch Changes
+
+- 49bca10: Adjust outer padding
+  - aeria-ui@0.0.212
+  - @aeria-ui/theme@0.0.103
+
 ## 0.0.83
 
 ### Patch Changes
