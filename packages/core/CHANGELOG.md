@@ -1,5 +1,11 @@
 # @aeria-ui/core
 
+## 0.0.121
+
+### Patch Changes
+
+- e68cb73: Fix double redirection bug
+
 ## 0.0.120
 
 ### Patch Changes
