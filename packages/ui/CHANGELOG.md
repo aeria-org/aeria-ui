@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.204
+
+### Patch Changes
+
+- cc6c1e3: Remove default exports
+- Updated dependencies [cc6c1e3]
+  - @aeria-ui/core@0.0.122
+
 ## 0.0.203
 
 ### Patch Changes

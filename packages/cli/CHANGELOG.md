@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.23
+
+### Patch Changes
+
+- cc6c1e3: Remove default exports
+
 ## 0.0.22
 
 ### Patch Changes
