@@ -6,7 +6,7 @@ type OverlayOptions = {
   click?: (...args: unknown[])=> unknown
 }
 
-const overlay: Directive = {
+export const overlay: Directive = {
   mounted: (el, binding) => {
     const value: OverlayOptions = binding.value || {}
     if( value.condition === false ) {
@@ -63,4 +63,3 @@ const overlay: Directive = {
   },
 }
 
-export default overlay

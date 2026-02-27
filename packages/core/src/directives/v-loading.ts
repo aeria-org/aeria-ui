@@ -49,10 +49,8 @@ const update = (el: HTMLElement, binding: DirectiveBinding) => {
   el.appendChild(overlayElem)
 }
 
-const loading: Directive = {
+export const loading: Directive = {
   mounted: update,
   updated: update,
 }
-
-export default loading
 

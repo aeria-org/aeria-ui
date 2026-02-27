@@ -1,15 +1,15 @@
 import type { App } from 'vue'
 
-import Overlay from './v-overlay.js'
-import Loading from './v-loading.js'
-import Clickable from './v-clickable.js'
-import Focus from './v-focus.js'
-import Theme from './v-theme.js'
+import { overlay } from './v-overlay.js'
+import { loading } from './v-loading.js'
+import { clickable } from './v-clickable.js'
+import { focus } from './v-focus.js'
+import { theme } from './v-theme.js'
 
 export const registerDirectives = (app: App) => {
-  app.directive('overlay', Overlay)
-  app.directive('loading', Loading)
-  app.directive('clickable', Clickable)
-  app.directive('focus', Focus)
-  app.directive('theme', Theme)
+  app.directive('overlay', overlay)
+  app.directive('loading', loading)
+  app.directive('clickable', clickable)
+  app.directive('focus', focus)
+  app.directive('theme', theme)
 }

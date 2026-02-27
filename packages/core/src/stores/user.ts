@@ -176,7 +176,7 @@ export const user = createStore((context) => {
 
         if( error ) {
           return metaStore.$actions.spawnToast({
-            text: `Request failed: ${error.httpStatus}\n code: ${error.code}`,
+            text: `Request failed:  ${error.code} (${error.httpStatus})`,
             icon: 'warning',
           })
         }
@@ -197,7 +197,7 @@ export const user = createStore((context) => {
 
         if( error ) {
           return metaStore.$actions.spawnToast({
-            text: `Request failed: ${error.httpStatus}\n code: ${error.code}`,
+            text: `Request failed:  ${error.code} (${error.httpStatus})`,
             icon: 'warning',
           })
         }

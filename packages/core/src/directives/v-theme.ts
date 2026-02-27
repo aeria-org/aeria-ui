@@ -2,7 +2,7 @@ import type { Directive } from 'vue'
 import type { GlobalStateManager } from '@aeria-ui/state-management'
 import { useStore } from '@aeria-ui/state-management'
 
-const theme: Directive = {
+export const theme: Directive = {
   mounted(_, binding) {
     if( binding.arg ) {
       const metaStore = useStore('meta', (binding.value as GlobalStateManager))
@@ -15,4 +15,3 @@ const theme: Directive = {
   },
 }
 
-export default theme

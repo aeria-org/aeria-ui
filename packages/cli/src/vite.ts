@@ -7,7 +7,7 @@ import autoImport from 'unplugin-auto-import/vite'
 import aeriaIcons from 'aeria-icons'
 import { icons } from 'aeria-icons/common'
 import { getInstanceConfig } from './instance.js'
-import transformIndexHtml from './plugins/transform-index-html.js'
+import { transformIndexHtml } from './plugins/transform-index-html.js'
 
 export default defineConfig(async () => {
   const instanceConfig = await getInstanceConfig()

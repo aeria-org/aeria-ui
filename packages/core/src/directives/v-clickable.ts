@@ -1,6 +1,6 @@
 import type { Directive } from 'vue'
 
-const clickable: Directive = {
+export const clickable: Directive = {
   mounted: (el, binding) => {
     if( window.matchMedia('(min-width: 600px)').matches ) {
       el.style.cursor = binding.value?.blocked
@@ -10,4 +10,3 @@ const clickable: Directive = {
   },
 }
 
-export default clickable
