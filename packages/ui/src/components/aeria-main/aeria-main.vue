@@ -23,7 +23,10 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
     <Suspense>
       <slot v-if="$slots.default" />
 
-      <router-view v-else v-slot="{ Component }">
+      <router-view
+        v-else
+        v-slot="{ Component }"
+      >
         <component :is="Component">
           <template
             v-for="slotName of Object.keys($slots)"
