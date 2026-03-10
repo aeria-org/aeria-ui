@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.206
+
+### Patch Changes
+
+- 086eeea: Remove trailing character
+
 ## 0.0.205
 
 ### Patch Changes
