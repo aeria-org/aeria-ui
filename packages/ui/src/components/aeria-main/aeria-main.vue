@@ -19,7 +19,6 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
       { 'dark': theme === 'dark' },
     ]"
   >
-    ]
     <Suspense>
       <slot v-if="$slots.default" />
 
