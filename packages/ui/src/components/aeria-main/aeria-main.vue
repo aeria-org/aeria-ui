@@ -19,8 +19,11 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
       { 'dark': theme === 'dark' },
     ]"
   >
+    ]
     <Suspense>
-      <router-view v-slot="{ Component }">
+      <slot v-if="$slots.default" />
+
+      <router-view v-else v-slot="{ Component }">
         <component :is="Component">
           <template
             v-for="slotName of Object.keys($slots)"
@@ -31,8 +34,6 @@ const theme = computed(() => metaStore.themeOverride || metaStore.theme)
         </component>
       </router-view>
     </Suspense>
-
-    <slot />
 
     <aeria-panel
       v-model="metaStore.modal.visible"
