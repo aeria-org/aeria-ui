@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.205
+
+### Patch Changes
+
+- 4fa7bb4: AeriaMain default slot
+
 ## 0.0.204
 
 ### Patch Changes
