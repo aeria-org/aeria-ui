@@ -34,6 +34,7 @@ type Props = FormFieldProps<any> & {
   focus?: boolean
   includeId?: boolean
   includeTimestamps?: boolean
+  includeReadOnly?: boolean
 }
 
 type Emits = {
@@ -68,7 +69,14 @@ const collectionName = refProperty
     ? refProperty.$ref
     : props.collection || getStoreId()
 
-const readOnly = props.readOnly || props.property?.readOnly
+let readOnly: boolean
+if( props.readOnly ) {
+  readOnly = props.readOnly
+} else if( props.property && typeof props.property.readOnly === 'boolean' ) {
+  readOnly = props.property.readOnly
+} else {
+  readOnly = false
+}
 
 const store = collectionName
   ? useStore(unref(collectionName))
@@ -156,20 +164,6 @@ if( collectionName ) {
 
 provide('searchOnly', props.searchOnly)
 
-const filterProperties = (condition: (f: [string, Property])=> boolean) => {
-  if( !form.value ) {
-    return null
-  }
-
-  return Object.entries(form.value).filter(([key, property]) => {
-    return !property.noForm
-      && condition([
-        key,
-        property,
-      ])
-  })
-}
-
 const has = (propertyName: string, property: Property) => {
   if( props.searchOnly || !collectionName ) {
     return true
@@ -188,11 +182,19 @@ const has = (propertyName: string, property: Property) => {
   return !formProperties || formProperties.includes(propertyName)
 }
 
-const properties = filterProperties(([propertyName, property]) => {
-  return has(propertyName, property) && (
-    !property.readOnly || props.readOnly
-  )
-})
+const filterProperties = () => {
+  if( !form.value ) {
+    return null
+  }
+
+  return Object.entries(form.value).filter(([propertyName, property]) => {
+    return has(propertyName, property)
+      && !property.noForm
+      && (!property.readOnly || props.readOnly || props.includeReadOnly)
+  })
+}
+
+const properties = filterProperties()
 
 const breakpoints = useBreakpoints()
 const conditionMemo: Record<string, boolean> = {}
