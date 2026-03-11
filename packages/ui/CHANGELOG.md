@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.207
+
+### Patch Changes
+
+- ad99a45: Add `includeReadOnly` property
+
 ## 0.0.206
 
 ### Patch Changes
