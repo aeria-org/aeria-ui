@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.210
+
+### Patch Changes
+
+- 96ba371: Revert `currentTab` prop back to fn
+
 ## 0.0.209
 
 ### Patch Changes
