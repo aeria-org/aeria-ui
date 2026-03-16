@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.211
+
+### Patch Changes
+
+- 5bad3f0: Add `modelValue`
+
 ## 0.0.210
 
 ### Patch Changes
