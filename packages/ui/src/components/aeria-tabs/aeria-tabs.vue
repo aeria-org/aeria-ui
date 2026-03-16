@@ -7,21 +7,25 @@ import AeriaContextMenu from '../aeria-context-menu/aeria-context-menu.vue'
 import AeriaIcon from '../aeria-icon/aeria-icon.vue'
 
 type Props = {
+  modelValue?: string
   query?: string
   param?: string
   dropdown?: boolean
-  currentTab?: (() => string | undefined)
 }
 
 const props = defineProps<Props>()
+const emit = defineEmits<{
+  (e: 'update:modelValue' | 'change', tab: string): void
+}>()
+
 const slots = useSlots()
 const router = useRouter()
 
 const breakpoints = useBreakpoints()
 
 const currentTab = computed(() => {
-  if( props.currentTab ) {
-    return props.currentTab()
+  if( props.modelValue ) {
+    return props.modelValue
 
   } else if( props.query ) {
     const tab = router.currentRoute.value.query[props.query]
@@ -45,14 +49,16 @@ const change = (tab: string) => {
         [props.query]: tab,
       },
     }))
-  }
-  if( props.param ) {
+  } else if( props.param ) {
     router.push(deepMerge(router.currentRoute.value, {
       params: {
         [props.param]: tab,
       },
     }))
   }
+
+  emit('change', tab)
+  emit('update:modelValue', tab)
 }
 </script>
 
