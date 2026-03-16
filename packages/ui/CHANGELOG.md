@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.209
+
+### Patch Changes
+
+- 5756338: Update `currentTab` prop
+
 ## 0.0.208
 
 ### Patch Changes
