@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.208
+
+### Patch Changes
+
+- 29edbf6: Add `currentTab` prop to `aeria-tabs`
+
 ## 0.0.207
 
 ### Patch Changes
