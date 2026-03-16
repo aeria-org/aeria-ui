@@ -10,6 +10,7 @@ type Props = {
   query?: string
   param?: string
   dropdown?: boolean
+  currentTab?: (() => string | undefined)
 }
 
 const props = defineProps<Props>()
@@ -19,7 +20,10 @@ const router = useRouter()
 const breakpoints = useBreakpoints()
 
 const currentTab = computed(() => {
-  if( props.query ) {
+  if( props.currentTab ) {
+    return props.currentTab()
+
+  } else if( props.query ) {
     const tab = router.currentRoute.value.query[props.query]
     if( tab ) {
       return tab
