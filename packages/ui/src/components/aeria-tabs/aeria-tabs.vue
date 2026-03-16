@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSlots, computed } from 'vue'
+import { useSlots, computed, type ComputedRef } from 'vue'
 import { useRouter } from 'vue-router'
 import { useBreakpoints } from '@aeria-ui/core'
 import { deepMerge } from '@aeriajs/common'
@@ -10,7 +10,7 @@ type Props = {
   query?: string
   param?: string
   dropdown?: boolean
-  currentTab?: (() => string | undefined)
+  currentTab?: ComputedRef<string | undefined>
 }
 
 const props = defineProps<Props>()
@@ -21,7 +21,7 @@ const breakpoints = useBreakpoints()
 
 const currentTab = computed(() => {
   if( props.currentTab ) {
-    return props.currentTab()
+    return props.currentTab.value
 
   } else if( props.query ) {
     const tab = router.currentRoute.value.query[props.query]
