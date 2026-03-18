@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.212
+
+### Patch Changes
+
+- 3f3147c: Add text ellipsis to `aeria-input`
+
 ## 0.0.211
 
 ### Patch Changes
