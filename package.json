@@ -21,7 +21,7 @@
     "@aeriajs/builtins": "^0.0.289",
     "@changesets/cli": "^2.30.0",
     "@commitlint/cli": "^20.4.3",
-    "@commitlint/config-conventional": "^20.4.4",
+    "@commitlint/config-conventional": "^20.5.0",
     "@eslint-aeria/config": "^0.0.9",
     "@eslint-aeria/config-ui": "^0.0.5",
     "aeria-ui": "link:packages/aeria-ui",
@@ -32,7 +32,7 @@
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-less": "^4.0.0",
     "typescript": "^5.8.3",
-    "vitest": "^4.0.18",
+    "vitest": "^4.1.0",
     "vue-tsc": "^3.1.8"
   }
 }
