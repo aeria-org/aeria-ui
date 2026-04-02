@@ -1,5 +1,12 @@
 # aeria-app-layout
 
+## 0.0.95
+
+### Patch Changes
+
+- 0179b3b: Update InstanceConfig
+  - aeria-ui@0.0.222
+
 ## 0.0.94
 
 ### Patch Changes
