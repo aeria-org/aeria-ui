@@ -9,6 +9,8 @@ export type InstanceConfig = {
     signinText?: string
     signupForm?: boolean
     allowedRedirectionUris?: string[]
+    keywords?: string[]
+    logo?: string
   }
   icons?: {
     defaultStyle?: IconStyle
@@ -18,7 +20,7 @@ export type InstanceConfig = {
   vite?: InlineConfig
 }
 
-export const getInstanceConfig = async (): Promise<Partial<InstanceConfig>> => {
+export const getInstanceConfig = async (): Promise<InstanceConfig> => {
   try {
     const { default: content } = await dynamicImport(process.cwd() + '/.aeria-ui/instance.js')
     return content

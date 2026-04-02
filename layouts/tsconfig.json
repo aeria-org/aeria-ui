@@ -10,6 +10,11 @@
     "types": [
       "vite/client",
       "@aeria-ui/ui/vue"
-    ]
+    ],
+    "paths": {
+      "@aeriajs/cli": [
+        "../packages/cli"
+      ]
+    }
   }
 }

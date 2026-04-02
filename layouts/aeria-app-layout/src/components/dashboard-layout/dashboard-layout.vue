@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { InstanceConfig } from '@aeria-ui/cli'
 import type { meta, user } from '@aeria-ui/core'
+import { INSTANCE_VARS_SYMBOL } from '@aeria-ui/core'
 import { useStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { initTheme, breakpoints, routes, pushRoute, routeClick } from '@aeria-ui/theme'
 import { AeriaIcon, AeriaContextMenu, AeriaPicture, AeriaBadge } from '@aeria-ui/ui'
 
@@ -12,9 +14,13 @@ import NavbarEntries from '../navbar-entries/navbar-entries.vue'
 const metaStore = useStore('meta') as ReturnType<typeof meta>
 const userStore = useStore('user') as ReturnType<typeof user>
 
+const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL, {})
+
 const { manager } = initTheme()
 
-const logoUrl = new URL('/logo.png', import.meta.url).href
+const logoUrl = instanceVars.logo
+  ? new URL(instanceVars.logo, import.meta.url).href
+  : undefined
 
 const topLevelRoutes = computed(() => {
   return routes.value.filter((route) => !route.children || route.children.length === 0)
@@ -45,11 +51,16 @@ const parentRoutes = computed(() => {
         ></aeria-icon>
 
         <img
+          v-if="logoUrl"
           v-clickable
           :src="logoUrl"
           class="dashboard__navbar-logo"
           @click="pushRoute(manager, '/dashboard')"
         />
+
+        <div v-else>
+          {{ instanceVars.title }}
+        </div>
       </div>
 
       <nav class="dashboard__navbar">
