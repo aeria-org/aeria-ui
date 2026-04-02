@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.24
+
+### Patch Changes
+
+- 0179b3b: Update InstanceConfig
+
 ## 0.0.23
 
 ### Patch Changes
