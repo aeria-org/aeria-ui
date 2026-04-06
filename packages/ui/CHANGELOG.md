@@ -1,5 +1,13 @@
 # @aeria-ui/ui
 
+## 0.0.213
+
+### Patch Changes
+
+- d34b930: Change window title
+- Updated dependencies [d34b930]
+  - @aeria-ui/core@0.0.123
+
 ## 0.0.212
 
 ### Patch Changes
