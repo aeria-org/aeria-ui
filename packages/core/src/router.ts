@@ -93,9 +93,9 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
     }
 
     metaStore.menu.visible = false
-    metaStore.view.title = typeof to.meta.title === 'string'
-      ? to.meta.title
-      : to.path
+    if( typeof to.meta.title === 'string' ) {
+      metaStore.view.title = to.meta.title
+    }
 
     if( router.options.history.state.forward === from.fullPath ) {
       to.query._popstate = 'true'

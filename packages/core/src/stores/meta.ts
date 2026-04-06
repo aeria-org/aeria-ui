@@ -5,7 +5,7 @@ import type { ExtractResult } from '@aeriajs/types/dist/result.js'
 import type { SuccessfulAuthentication } from '../stores/index.js'
 import { Result } from '@aeriajs/types'
 import { deepClone, deserialize } from '@aeriajs/common'
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 import { useStore, hasStore, createStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import { createCollectionStore } from '../state/collection.js'
@@ -65,6 +65,12 @@ export const meta = createStore((context) => {
   }
 
   const state = reactive(deepClone(freshState))
+
+  if( typeof document !== 'undefined' ) {
+    watch(() => state.view.title, (title) => {
+      document.title = title
+    })
+  }
 
   return {
     $id: 'meta',

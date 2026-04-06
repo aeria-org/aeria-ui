@@ -19,7 +19,7 @@ type Props = {
 const props = defineProps<Props>()
 const instanceVars = inject<InstanceConfig['site']>(INSTANCE_VARS_SYMBOL, {})
 
-const reactive = typeof props.reactive === 'boolean'
+const isReactive = typeof props.reactive === 'boolean'
   ? props.reactive
   : inject('iconReactive', false)
 
@@ -34,7 +34,7 @@ const computedIcon = computed(() => {
   <a
     :class="[
       'icon',
-      { 'icon--reactive': reactive },
+      { 'icon--reactive': isReactive },
       { 'icon--active': active },
       $slots.default ? 'icon--centered' : 'icon--standalone'
     ]"
