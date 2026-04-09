@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStore } from '@aeria-ui/state-management';
+import { useStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 import AeriaCrud from '../../../components/aeria-crud/aeria-crud.vue'
 
