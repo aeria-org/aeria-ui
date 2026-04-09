@@ -1,5 +1,11 @@
 # @aeria-ui/ui
 
+## 0.0.214
+
+### Patch Changes
+
+- 32cecff: Crud titles bug
+
 ## 0.0.213
 
 ### Patch Changes
