@@ -6,7 +6,7 @@ import { onUnmounted, ref, computed, provide, inject, watch, unref, type Ref } f
 import { useRouter } from 'vue-router'
 import { getReferenceProperty, deepClone, deepMerge } from '@aeriajs/common'
 import { useCollectionStore, useAction, useBreakpoints, useDebounce, useScrollObserver, convertFromSearchQuery } from '@aeria-ui/core'
-import { useStore, getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
+import { getGlobalStateManager, STORE_ID } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
 
 import AeriaPagination from '../aeria-pagination/aeria-pagination.vue'
@@ -49,7 +49,6 @@ const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 const router = useRouter()
 
-const metaStore = useStore('meta')
 const breakpoints = useBreakpoints()
 const { reachedEnd, detach: detachScrollListener } = useScrollObserver(null, {
   antecipate: 600,
@@ -157,7 +156,6 @@ watch(() => [
   }
 
   const route = router.currentRoute.value
-  metaStore.view.title = props.collection
 
   if( !props.noFetch && (!route.query._popstate || store.itemsCount === 0) ) {
     const filters = convertFromSearchQuery(store, route.query)
