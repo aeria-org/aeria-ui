@@ -384,8 +384,8 @@ const focusOnRender = (property: Property) => {
             {{ fieldProperty.description || t(fieldPropertyName) }}
           </div>
           <div
-            class="form__field-hint"
             v-if="fieldProperty.hint"
+            class="form__field-hint"
             v-html="fieldProperty.hint"
           />
         </label>
