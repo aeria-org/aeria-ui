@@ -20,9 +20,9 @@ export const useApp = async (optionsFn: ReturnType<typeof defineOptions>) => {
   const app = createApp(component)
   const { context, i18n, metaStore, userStore } = bootstrapApp({
     app,
-    instanceVars: typeof INSTANCE_VARS === 'undefined'
+    instanceVars: typeof AERIA_INSTANCE_VARS === 'undefined'
       ? {}
-      : INSTANCE_VARS,
+      : AERIA_INSTANCE_VARS,
     i18n: options.i18n,
   })
 

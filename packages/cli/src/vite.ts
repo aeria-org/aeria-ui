@@ -18,6 +18,8 @@ export default defineConfig(async () => {
   } = instanceConfig
 
   viteConfig.base ||= siteConfig.base
+  viteConfig.define ||= {}
+  viteConfig.define.AERIA_INSTANCE_VARS = instanceConfig.site
 
   const config = deepMerge(viteConfig, {
     publicDir: 'static',
