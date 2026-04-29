@@ -1,7 +1,7 @@
 {
   "name": "aeria-app-layout",
   "type": "module",
-  "version": "0.0.98",
+  "version": "0.0.99",
   "description": "",
   "main": "dist/aeria-app-layout.js",
   "types": "dist/index.d.ts",
@@ -23,8 +23,8 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@aeria-ui/theme": "^0.0.105",
-    "aeria-ui": "^0.0.225",
+    "@aeria-ui/theme": "^0.0.106",
+    "aeria-ui": "^0.0.226",
     "less": "^4.2.2",
     "vue": "3"
   },
