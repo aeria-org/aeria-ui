@@ -1,5 +1,11 @@
 # aeria-ui-build
 
+## 0.0.25
+
+### Patch Changes
+
+- 45aac0a: Inject `AERIA_INSTANCE_VARS` into bundle
+
 ## 0.0.24
 
 ### Patch Changes
