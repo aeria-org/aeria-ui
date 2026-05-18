@@ -29,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
+  <a
     :class="[
       'navbar__route',
       { 'navbar__route--current': isCurrent(item) },
@@ -57,7 +57,7 @@ onMounted(() => {
       <aeria-icon v-else icon="caret-down"></aeria-icon>
     </div>
 
-  </div>
+  </a>
 </template>
 
 <style scoped src="./navbar-entry.less"></style>
