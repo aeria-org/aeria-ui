@@ -78,7 +78,7 @@ const change = (tab: string) => {
         <slot />
       </div>
 
-      <div
+      <a
         v-for="(slotName, index) in Object.keys($slots).filter((slotName) => slotName !== 'default')"
         :key="slotName"
         :class="{
@@ -89,7 +89,7 @@ const change = (tab: string) => {
         @click="change(slotName)"
       >
         <slot :name="slotName" />
-      </div>
+      </a>
     </div>
 
     <div
