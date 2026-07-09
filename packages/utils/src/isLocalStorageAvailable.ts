@@ -1,4 +1,4 @@
-declare const localStorage: undefined | {
+declare const localStorage: undefined | null | {
   getItem?: unknown
   setItem?: unknown
   removeItem?: unknown
