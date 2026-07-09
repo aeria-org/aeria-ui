@@ -1,5 +1,6 @@
 import type { Icon } from '@aeriajs/types'
 import type { StoreContext } from '@aeria-ui/state-management'
+import { isLocalStorageAvailable } from '@aeria-ui/utils'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { jwtDecode } from 'jwt-decode'
 import { meta, user, type SuccessfulAuthentication } from './stores/index.js'
@@ -25,7 +26,9 @@ export type RouterExtensionNode = Omit<Route, 'name'>[]
 export type RouterExtension = Record<string, RouterExtensionNode>
 
 const signinWall = (next: string) => {
-  localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
+  if( isLocalStorageAvailable() ) {
+    localStorage.setItem(`${STORAGE_NAMESPACE}:auth:next`, next)
+  }
 
   return {
     name: '/user/signin',
@@ -51,7 +54,7 @@ export const routerInstance = (routes: RouteRecordRaw[], context: StoreContext) 
 
     let auth: SuccessfulAuthentication | undefined
 
-    if( typeof localStorage !== 'undefined' ) {
+    if( isLocalStorageAvailable() ) {
       const authRaw = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
       if( authRaw ) {
         let hasError = false

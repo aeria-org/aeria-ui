@@ -5,9 +5,10 @@ import type { ExtractResult } from '@aeriajs/types/dist/result.js'
 import type { SuccessfulAuthentication } from '../stores/index.js'
 import { Result } from '@aeriajs/types'
 import { deepClone, deserialize } from '@aeriajs/common'
-import { reactive, watch } from 'vue'
+import { isLocalStorageAvailable } from '@aeria-ui/utils'
 import { useStore, hasStore, createStore } from '@aeria-ui/state-management'
 import { t } from '@aeria-ui/i18n'
+import { reactive, watch } from 'vue'
 import { createCollectionStore } from '../state/collection.js'
 import { freshItem, freshFilters } from '../state/helpers.js'
 import { API_URL, STORAGE_NAMESPACE } from '../constants.js'
@@ -37,7 +38,7 @@ export const meta = createStore((context) => {
     rolesHierarchy: {} as RolesHierarchy | undefined,
     isLoading: false,
     globalIsLoading: false,
-    theme: typeof localStorage !== 'undefined'
+    theme: isLocalStorageAvailable()
       ? localStorage.getItem(`${STORAGE_NAMESPACE}:meta:theme`) || DEFAULT_THEME
       : DEFAULT_THEME,
     themeOverride: '',
@@ -243,7 +244,7 @@ export const meta = createStore((context) => {
           state.theme = theme
         }
 
-        if( typeof localStorage !== 'undefined' ) {
+        if( isLocalStorageAvailable() ) {
           localStorage.setItem(`${STORAGE_NAMESPACE}:meta:theme`, state.theme)
         }
       },

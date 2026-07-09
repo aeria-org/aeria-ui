@@ -3,6 +3,7 @@ import type { user as originalUser, file } from '@aeriajs/builtins'
 import { reactive } from 'vue'
 import { Result } from '@aeriajs/types'
 import { deepClone } from '@aeriajs/common'
+import { isLocalStorageAvailable } from '@aeria-ui/utils'
 import { createStore, useStore } from '@aeria-ui/state-management'
 import { createCollectionStore } from '../state/collection.js'
 import { STORAGE_NAMESPACE } from '../constants.js'
@@ -57,7 +58,7 @@ export const user = createStore((context) => {
     },
   })
 
-  if( typeof localStorage !== 'undefined' ) {
+  if( isLocalStorageAvailable() ) {
     const auth = localStorage.getItem(`${STORAGE_NAMESPACE}:auth`)
     if( auth ) {
       setCurrentUser(JSON.parse(auth))
@@ -79,7 +80,7 @@ export const user = createStore((context) => {
       ? auth.user
       : freshUser)
 
-    if( typeof localStorage !== 'undefined' ) {
+    if( isLocalStorageAvailable() ) {
       if( auth ) {
         localStorage.setItem(`${STORAGE_NAMESPACE}:auth`, JSON.stringify(auth))
       } else {
@@ -89,7 +90,7 @@ export const user = createStore((context) => {
   }
 
   function signout() {
-    if( typeof localStorage !== 'undefined' ) {
+    if( isLocalStorageAvailable() ) {
       localStorage.removeItem(`${STORAGE_NAMESPACE}:auth`)
     }
     setCurrentUser(null)
