@@ -1,5 +1,13 @@
 # @aeria-ui/core
 
+## 0.0.125
+
+### Patch Changes
+
+- a5e5dd1: Fix SSR bug
+- Updated dependencies [a5e5dd1]
+  - @aeria-ui/utils@0.0.13
+
 ## 0.0.124
 
 ### Patch Changes

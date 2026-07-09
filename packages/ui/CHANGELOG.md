@@ -1,5 +1,14 @@
 # @aeria-ui/ui
 
+## 0.0.218
+
+### Patch Changes
+
+- ab48acf: Change `aeria-tabs` element to `a`
+- Updated dependencies [a5e5dd1]
+  - @aeria-ui/utils@0.0.13
+  - @aeria-ui/core@0.0.125
+
 ## 0.0.217
 
 ### Patch Changes
