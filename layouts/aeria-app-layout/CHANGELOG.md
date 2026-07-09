@@ -1,5 +1,13 @@
 # aeria-app-layout
 
+## 0.0.101
+
+### Patch Changes
+
+- 43026ee: Change navbar entry element to `a`
+  - aeria-ui@0.0.228
+  - @aeria-ui/theme@0.0.107
+
 ## 0.0.100
 
 ### Patch Changes
